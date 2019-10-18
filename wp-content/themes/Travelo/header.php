@@ -141,7 +141,7 @@ global $trav_options, $logo_url, $my_account_page, $login_url, $signup_url, $red
         </nav>
 <?php } ?>
 <!-- mobile menu -->
-</header>
+</div>
 
 <?php
 if ( ! is_user_logged_in() ) {
