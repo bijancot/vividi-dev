@@ -23,10 +23,10 @@
 define( 'DB_NAME', 'admin_vividi_stg' );
 
 /** MySQL database username */
-define( 'DB_USER', 'admin_vividi_stg' );
+define( 'DB_USER', 'root' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '1sampaivividistagging');
+define( 'DB_PASSWORD', '');
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
