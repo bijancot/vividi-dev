@@ -2383,6 +2383,9 @@ class TravShortcodes {
 							<h4 class="title"><?php _e( 'Mau Menginap dimana?' ,'trav' ) ?></h4>
 							<form role="search" method="get" class="acc-searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 								<input type="hidden" name="post_type" value="accommodation">
+								<input type="hidden" name="order_by" value="Nama">
+								<input type="hidden" name="order" value="ASC">
+								<input type="hidden" name="view" value="grid">
 								<div class="row">
 									<div class="form-group col-sm-6 col-md-3">
 										<input type="text" name="s" class="input-text full-width" placeholder="<?php _e( 'Masukan nama Hotel/Kota', 'trav') ?>" />

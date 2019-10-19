@@ -8,18 +8,18 @@ get_header();
 global $current_view, $trav_options, $search_max_rooms, $search_max_adults, $search_max_kids, $language_count;
 
 $order_array = array( 'ASC', 'DESC' );
-$text = esc_html__( 'name', 'trav' );
-$text = esc_html__( 'price', 'trav' );
-$text = esc_html__( 'rating', 'trav' );
+$text = esc_html__( 'Nama', 'trav' );
+$text = esc_html__( 'Harga', 'trav' );
+$text = esc_html__( 'Peringkat', 'trav' );
 $order_by_array = array(
-    'name' => 'acc_title',
-    'price' => 'cast(avg_price as unsigned)',
-    'rating' => 'review'
+    'Nama' => 'acc_title',
+    'Harga' => 'cast(avg_price as unsigned)',
+    'Peringkat' => 'review'
 );
 $order_defaults = array(
-    'name' => 'ASC',
-    'price' => 'ASC',
-    'rating' => 'DESC'
+    'Nama' => 'ASC',
+    'Harga' => 'ASC',
+    'Peringkat' => 'DESC'
 );
 
 $s = isset($_REQUEST['s']) ? sanitize_text_field( $_REQUEST['s'] ) : '';
@@ -304,8 +304,8 @@ $query_args = array(
                         <ul class="swap-tiles clearfix block-sm">
                             <?php
                                 $views = array( 
-                                    'list' => __( 'List View', 'trav' ),
                                     'grid' => __( 'Grid View', 'trav' ),
+                                    'list' => __( 'List View', 'trav' ),
                                     'block' => __( 'Block View', 'trav' )
                                 );
                                 $params = $_GET;
@@ -322,13 +322,14 @@ $query_args = array(
                     <?php if ( ! empty( $results ) ) { ?>
                         <div class="hotel-list list-wrapper">
                             <?php 
-                            if ( $current_view == 'block' ) {
-                                echo '<div class="row image-box listing-style2 add-clearfix">';
-                                $before_article = '<div class="col-sms-6 col-sm-6 col-md-4">';
-                                $after_article = '</div>';
-                            } elseif ( $current_view == 'grid' ) {
+                            if ( $current_view == 'grid' ) {
                                 echo '<div class="row image-box hotel listing-style1 add-clearfix">';
                                 $before_article = '<div class="col-sm-6 col-md-4">';
+                                $after_article = '</div>';
+                            }
+                            elseif ( $current_view == 'block' ) {
+                                echo '<div class="row image-box listing-style2 add-clearfix">';
+                                $before_article = '<div class="col-sms-6 col-sm-6 col-md-4">';
                                 $after_article = '</div>';
                             } else {
                                 echo '<div class="image-box listing-style3 hotel">';

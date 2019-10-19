@@ -95,17 +95,5 @@ global $trav_options, $logo_url, $my_account_page, $login_url, $signup_url, $lan
 					</a>
 				</div>
 			<?php }	?>
-				
-			<ul class="social-icons clearfix pull-right hidden-mobile">
-				<?php
-					$social_links = array( 'twitter', 'googleplus', 'facebook', 'linkedin', 'youtube', 'pinterest', 'vimeo', 'skype', 'instagram', 'dribble', 'flickr', 'tumblr', 'behance' );
-
-					foreach ( $social_links as $key ) {
-						if ( isset( $trav_options[$key] ) && ! empty( $trav_options[$key] ) ) {
-							echo '<li class="' . esc_attr( $key ) . '"><a title="' . esc_attr( $key ) . '" href="' . esc_url( $trav_options[$key] ) . '" data-toggle="tooltip" target="_blank"><i class="soap-icon-' . esc_attr( $key ) . '"></i></a></li>';
-						}
-					}
-				?>
-			</ul>
 		</div>
 	</div>
