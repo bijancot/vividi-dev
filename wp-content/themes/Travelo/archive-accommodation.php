@@ -85,7 +85,7 @@ $query_args = array(
         <div id="main">
             <div class="row">
                 <div class="col-sm-4 col-md-3">
-                    <a class="button btn-map btn-medium uppercase full-width" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap"><?php echo __( 'Lihat Peta', 'trav' ) ?></a>
+                    <a class="button btn-map btn-medium uppercase full-width" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" style="height: 113px"><?php echo __( '<img src="https://cmxpv89733.i.lithium.com/t5/image/serverpage/image-id/82937i163CEC7FAC876446/image-size/large?v=1.0&px=999" style="width:100%; height: 113px;">', 'trav' ) ?></a>
                     <h4 class="search-results-title">
                         <i class="soap-icon-search"></i><b><?php echo esc_html( $count ); ?></b> <?php _e( 'Properti .', 'trav' ) ?>
                     </h4>
