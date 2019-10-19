@@ -23,7 +23,7 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
                         </div>
                         </div>
                     <div class="col-sm-6 col-md-3">
-                            <div id="travcontactwidget-3" class="contact-box small-box widget_travcontactwidget">
+                            <div id="travcontactwidget-3" class="secure-transaction-content">
                                 <h2 class="widgettitle">Payment Partner</h2>
                                 <img src="https://3.bp.blogspot.com/-ZK6W9UlA3lw/V15RGexr3yI/AAAAAAAAAJ4/nkyM9ebn_qg3_rQWyBZ1se5L_SSuuxcDACLcB/s1600/Bank_Central_Asia.png" width="70px">
                                 <img src="https://logos-download.com/wp-content/uploads/2016/06/Mandiri_logo.png" width="70px">
