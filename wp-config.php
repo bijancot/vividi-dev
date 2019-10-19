@@ -23,10 +23,10 @@
 define( 'DB_NAME', 'admin_vividi_stg' );
 
 /** MySQL database username */
-define( 'DB_USER', 'root' );
+define( 'DB_USER', 'admin_vividi_stg' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '');
+define( 'DB_PASSWORD', '1sampaivividistagging');
 
 /** MySQL hostname */
 define( 'DB_HOST', 'localhost' );
@@ -36,9 +36,6 @@ define( 'DB_CHARSET', 'utf8mb4' );
 
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
-
-define('WP_HOME','http://localhost/vividi-dev');
-define('WP_SITEURL','http://localhost/vividi-dev');
 
 /**#@+
  * Authentication Unique Keys and Salts.
