@@ -98,7 +98,7 @@ if ( ! function_exists( 'trav_register_sidebar' ) ) {
 		$args = array(
 			'name'          => __( 'Footer Widget 1', 'trav' ),
 			'id'            => 'sidebar-footer-1',
-			'description'   => '',
+			'description'   => 'wewewewewe',
 			'class'         => '',
 			'before_widget' => '<div id="%1$s" class="small-box %2$s">',
 			'after_widget'  => '</div>',
