@@ -2726,6 +2726,8 @@ if ( ! function_exists( 'trav_get_current_user_info' ) ) {
             'last_name' => '',
             'email' => '',
             'country_code' => '',
+            'no_ktp' => '',
+            'no_passport' => '',
             'phone' => '',
             'birthday' => '',
             'address' => '',
@@ -2744,6 +2746,8 @@ if ( ! function_exists( 'trav_get_current_user_info' ) ) {
             $user_info['email'] = $current_user->user_email;
             $user_info['description'] = $current_user->description;
             $user_info['country_code'] = get_user_meta( $user_id, 'country_code', true );
+            $user_info['no_ktp'] = get_user_meta( $user_id, 'no_ktp', true );
+            $user_info['no_passport'] = get_user_meta( $user_id, 'no_passport', true );
             $user_info['phone'] = get_user_meta( $user_id, 'phone', true );
             $user_info['birthday'] = get_user_meta( $user_id, 'birthday', true );
             $user_info['address'] = get_user_meta( $user_id, 'address', true );

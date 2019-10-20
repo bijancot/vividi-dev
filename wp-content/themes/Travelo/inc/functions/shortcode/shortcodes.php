@@ -2477,7 +2477,7 @@ class TravShortcodes {
 										<?php $trip_types = get_terms( 'tour_type', array('hide_empty' => 0)  ); ?>
 										<div class="row">
 											<?php if ( ! empty( $trip_types ) ) : ?>
-												<div class="col-xs-6">
+												<div class="col-xs-6"><form role="search" method="get" class="acc-searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 													<div class="selector">
 														<select name="tour_types" class="full-width">
 															<option value=""><?php _e( 'Tipe Perjalanan', 'trav' ) ?></option>

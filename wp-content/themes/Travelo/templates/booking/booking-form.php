@@ -12,11 +12,11 @@ do_action( 'trav_booking_form_before' );
 	<div class="form-group row">
 		<div class="col-sm-6 col-md-5">
 			<label><?php _e( 'NAMA DEPAN', 'trav'); ?></label>
-			<input type="text" name="first_name" class="input-text full-width" value="<?php echo esc_attr( $user_info['first_name'] ) ?>" placeholder="" />
+			<input type="text" name="first_name" class="input-text full-width" value="<?php echo esc_attr( $user_info['first_name'] ) ?>" placeholder="" readonly/>
 		</div>
 		<div class="col-sm-6 col-md-5">
 			<label><?php _e( 'NAMA BELAKANG', 'trav'); ?></label>
-			<input type="text" name="last_name" class="input-text full-width" value="<?php echo esc_attr( $user_info['last_name'] ) ?>" placeholder="" />
+			<input type="text" name="last_name" class="input-text full-width" value="<?php echo esc_attr( $user_info['last_name'] ) ?>" placeholder="" readonly/>
 		</div>
 	</div>
 	<div class="form-group row">
@@ -24,27 +24,37 @@ do_action( 'trav_booking_form_before' );
 			<label><?php _e( 'ALAMAT EMAIL', 'trav'); ?></label>
 			<input type="text" name="email" class="input-text full-width" value="<?php echo esc_attr( $user_info['email'] ) ?>" placeholder="" />
 		</div>
-		<div class="col-sm-6 col-md-5">
-			<label><?php _e( 'VERIFIKASI ALAMAT EMAIL', 'trav'); ?></label>
-			<input type="text" name="email2" class="input-text full-width" value="<?php echo esc_attr( $user_info['email'] ) ?>" placeholder="" />
-		</div>
+<!--		<div class="col-sm-6 col-md-5">-->
+<!--			<label>--><?php //_e( 'VERIFIKASI ALAMAT EMAIL', 'trav'); ?><!--</label>-->
+<!--			<input type="text" name="email2" class="input-text full-width" value="--><?php //echo esc_attr( $user_info['email'] ) ?><!--" placeholder="" />-->
+<!--		</div>-->
+        <div class="col-sm-6 col-md-5">
+            <label><?php _e( 'TELEPON', 'trav'); ?></label>
+            <input type="text" name="phone" class="input-text full-width" value="<?php echo esc_attr( $user_info['phone'] ) ?>" placeholder="" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-6 col-md-5">
+            <label><?php _e( 'NOMOR KTP', 'trav'); ?></label>
+            <input type="text" name="no_ktp" class="input-text full-width" value="<?php echo esc_attr( $user_info['no_ktp'] ) ?>" placeholder="" />
+        </div>
+        <div class="col-sm-6 col-md-5">
+            <label><?php _e( 'NOMOR PASSPORT', 'trav'); ?></label>
+            <input type="text" name="no_passport" class="input-text full-width" value="<?php echo esc_attr( $user_info['no_passport'] ) ?>" placeholder="" />
+        </div>
 	</div>
-	<div class="form-group row">
-		<div class="col-sm-6 col-md-5">
-			<label><?php _e( 'KODE NEGARA', 'trav'); ?></label>
-			<div class="selector">
-				<select class="full-width" name="country_code">
-					<?php foreach ( $_countries as $_country ) { ?>
-						<option value="<?php echo esc_attr( $_country['d_code'] ) ?>" <?php selected( $user_info['country_code'], $_country['name'] . ' (' . $_country['d_code'] . ')' ); ?>><?php echo esc_html( $_country['name'] . ' (' . $_country['d_code'] . ')' ) ?></option>
-					<?php } ?>
-				</select>
-			</div>
-		</div>
-		<div class="col-sm-6 col-md-5">
-			<label><?php _e( 'TELEPON', 'trav'); ?></label>
-			<input type="text" name="phone" class="input-text full-width" value="<?php echo esc_attr( $user_info['phone'] ) ?>" placeholder="" />
-		</div>
-	</div>
+<!--	<div class="form-group row">-->
+<!--		<div class="col-sm-6 col-md-5">-->
+<!--			<label>--><?php //_e( 'KODE NEGARA', 'trav'); ?><!--</label>-->
+<!--			<div class="selector">-->
+<!--				<select class="full-width" name="country_code">-->
+<!--					--><?php //foreach ( $_countries as $_country ) { ?>
+<!--						<option value="--><?php //echo esc_attr( $_country['d_code'] ) ?><!--" --><?php //selected( $user_info['country_code'], $_country['name'] . ' (' . $_country['d_code'] . ')' ); ?><!--<!--><?php //echo esc_html( $_country['name'] . ' (' . $_country['d_code'] . ')' ) ?><!--</option>-->
+<!--					--><?php //} ?>
+<!--				</select>-->
+<!--			</div>-->
+<!--		</div>-->
+<!--	</div>-->
 	<div class="form-group row">
 		<div class="col-sm-6 col-md-5">
 			<label><?php _e( 'ALAMAT LENGKAP', 'trav'); ?></label>
@@ -56,10 +66,10 @@ do_action( 'trav_booking_form_before' );
 		</div>
 	</div>
 	<div class="form-group row">
-		<div class="col-sm-6 col-md-5">
-			<label><?php _e( 'KODE POS', 'trav'); ?></label>
-			<input type="text" name="zip" class="input-text full-width" value="<?php echo esc_attr( $user_info['zip'] ) ?>" placeholder="" />
-		</div>
+<!--		<div class="col-sm-6 col-md-5">-->
+<!--			<label>--><?php //_e( 'KODE POS', 'trav'); ?><!--</label>-->
+<!--			<input type="text" name="zip" class="input-text full-width" value="--><?php //echo esc_attr( $user_info['zip'] ) ?><!--" placeholder="" />-->
+<!--		</div>-->
 		<div class="col-sm-6 col-md-5">
 			<label><?php _e( 'NEGARA', 'trav'); ?></label>
 			<div class="selector">
@@ -70,6 +80,7 @@ do_action( 'trav_booking_form_before' );
 				</select>
 			</div>
 		</div>
+<!--    </div>-->
 	</div>
 	<div class="form-group row">
 		<div class="col-sm-12 col-md-10">
