@@ -342,6 +342,8 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
             'first_name'            => '',
             'last_name'             => '',
             'email'                 => '',
+            'no_ktp'                => '',
+            'no_passport'           => '',
             'country_code'          => '',
             'phone'                 => '',
             'address'               => '',
