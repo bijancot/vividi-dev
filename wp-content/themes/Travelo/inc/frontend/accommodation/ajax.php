@@ -315,7 +315,7 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
         }
 
         // init variables
-        $post_fields = array( 'first_name', 'last_name', 'email', 'country_code', 'phone', 'address', 'city', 'zip', 'country', 'special_requirements');
+        $post_fields = array( 'first_name', 'last_name', 'email', 'country_code', 'phone', 'no_ktp', 'no_passport', 'address', 'city', 'zip', 'country', 'special_requirements');
         $customer_info = array();
         foreach ( $post_fields as $post_field ) {
             if ( ! empty( $_POST[ $post_field ] ) ) {
@@ -342,10 +342,10 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
             'first_name'            => '',
             'last_name'             => '',
             'email'                 => '',
-            'no_ktp'                => '',
-            'no_passport'           => '',
             'country_code'          => '',
             'phone'                 => '',
+            'no_ktp'                => '',
+            'no_passport'           => '',
             'address'               => '',
             'city'                  => '',
             'zip'                   => '',

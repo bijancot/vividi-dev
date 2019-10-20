@@ -3,7 +3,7 @@
  * Inner style1
  */
 ?>
-<div class="page-title-container">
+<div class="page-title-container" style="width: 1200px;margin-left: 112px;">
     <div class="container">
         <div class="page-title pull-left">
             <h2 class="entry-title">

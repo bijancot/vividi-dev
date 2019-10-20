@@ -2455,6 +2455,9 @@ class TravShortcodes {
 							<h4 class="title"><?php _e( 'Mau Pergi Kemana?' ,'trav' ) ?></h4>
 							<form role="search" method="get" class="tour-searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 								<input type="hidden" name="post_type" value="tour">
+                                <input type="hidden" name="order_by" value="Nama">
+                                <input type="hidden" name="order" value="ASC">
+                                <input type="hidden" name="view" value="grid">
 								<div class="row">
 									<div class="form-group col-sm-4 col-md-3">
 										<input type="text" name="s" class="input-text full-width" placeholder="<?php _e( 'Masukan Tujuan atau Nama Tour', 'trav') ?>" />
@@ -2510,6 +2513,9 @@ class TravShortcodes {
 							<h4 class="title"><?php _e( 'Mau Sewa Kemana?' ,'trav' ) ?></h4>
 							<form role="search" method="get" class="car-searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 								<input type="hidden" name="post_type" value="car">
+                                <input type="hidden" name="order_by" value="Nama">
+                                <input type="hidden" name="order" value="ASC">
+                                <input type="hidden" name="view" value="grid">
 								<div class="row">
 									<div class="form-group col-sm-6 col-md-3">
 										<input type="text" name="s" class="input-text full-width" placeholder="<?php _e( 'Masukan kota, Tempat penjemputan', 'trav') ?>" />

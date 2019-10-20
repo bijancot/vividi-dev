@@ -114,7 +114,7 @@ $user_info = trav_get_current_user_info();
 									<a href="<?php echo esc_url( get_permalink( $post_id ) ); ?>">
 										<i class="icon soap-icon-beach circle blue-color"></i>
 										<span class="price blue-color"><?php echo esc_html( trav_get_price_field( get_post_meta( $post_id, 'trav_tour_min_price', true ) ) ); ?></span>
-										<h4 class="box-title"><?php echo esc_html( get_the_title( $post_id ) ); ?><small><?php echo esc_html( $_city . ' ' . $_country ) ?></small></h1>
+										<h4 class="box-title"><?php echo esc_html( get_the_title( $post_id ) ); ?><small><?php echo esc_html( $_city . ' ' . $_country ) ?></small></h4>
 									</a>
 								</li>
 

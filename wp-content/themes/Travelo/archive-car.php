@@ -7,12 +7,12 @@ global $current_view, $trav_options, $language_count, $search_max_passengers;
 
 $order_array = array( 'ASC', 'DESC' );
 $order_by_array = array(
-		'name' => 'car_title',
-		'price' => 'cast(price as unsigned)',
+		'Nama' => 'car_title',
+		'Harga' => 'cast(price as unsigned)',
 	);
 $order_defaults = array(
-		'name' => 'ASC',
-		'price' => 'ASC',
+		'Nama' => 'ASC',
+		'Harga' => 'ASC',
 	);
 
 $s = isset($_REQUEST['s']) ? sanitize_text_field( $_REQUEST['s'] ) : '';
@@ -223,10 +223,10 @@ foreach ( $results as $result ) {
                         
                         <ul class="swap-tiles clearfix block-sm">
                         	<?php
-								$views = array( 'list' => __( 'List View', 'trav' ),
-												'grid' => __( 'Grid View', 'trav' ),
-												'block' => __( 'Block View', 'trav' )
-											);
+								$views = array( 'grid' => __( 'Grid View', 'trav' ),
+                                                'list' => __( 'List View', 'trav' ),
+                                                'block' => __( 'Block View', 'trav' )
+                                            );
 								$params = $_GET;
 								foreach( $views as $view => $label ) {
 									$active = ( $view == $current_view )?' active':'';
@@ -239,14 +239,14 @@ foreach ( $results as $result ) {
                     </div>
                     <?php if ( ! empty( $results ) ) { ?>
                     	<div class="car-list list-wrapper image-box">
-	                        <?php if ( $current_view == 'block' ) {
-								echo '<div class="row listing-style2 add-clearfix">';
-								$before_article = '<div class="col-sms-6 col-sm-6 col-md-4">';
-								$after_article = '</div>';
-							} elseif ( $current_view == 'grid' ) {
-								echo '<div class="row car listing-style1 add-clearfix">';
-								$before_article = '<div class="col-sm-6 col-md-4">';
-								$after_article = '</div>';
+	                        <?php if ( $current_view == 'grid' ) {
+                                echo '<div class="row car listing-style1 add-clearfix">';
+                                $before_article = '<div class="col-sm-6 col-md-4">';
+                                $after_article = '</div>';
+							} elseif ( $current_view == 'block' ) {
+                                echo '<div class="row listing-style2 add-clearfix">';
+                                $before_article = '<div class="col-sms-6 col-sm-6 col-md-4">';
+                                $after_article = '</div>';
 							} else {
 								echo '<div class="listing-style3 car">';
 								$before_article = '';

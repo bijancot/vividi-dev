@@ -321,8 +321,7 @@ $query_args = array(
                     </div>
                     <?php if ( ! empty( $results ) ) { ?>
                         <div class="hotel-list list-wrapper">
-                            <?php 
-                            if ( $current_view == 'grid' ) {
+                            <?php if ( $current_view == 'grid' ) {
                                 echo '<div class="row image-box hotel listing-style1 add-clearfix">';
                                 $before_article = '<div class="col-sm-6 col-md-4">';
                                 $after_article = '</div>';

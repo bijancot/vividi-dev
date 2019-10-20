@@ -9,12 +9,12 @@ global $trav_options, $before_article, $after_article, $tour_list, $current_view
 
 $order_array = array( 'ASC', 'DESC' );
 $order_by_array = array(
-    'name' => 'tour_title',
-    'price' => 'cast(min_price as unsigned)'
+    'Nama' => 'tour_title',
+    'Harga' => 'cast(min_price as unsigned)'
 );
 $order_defaults = array(
-    'name' => 'ASC',
-    'price' => 'ASC'
+    'Nama' => 'ASC',
+    'Harga' => 'ASC'
 );
 
 $s = isset($_REQUEST['s']) ? sanitize_text_field( $_REQUEST['s'] ) : '';
@@ -155,9 +155,9 @@ $after_article = '';
                         
                         <ul class="swap-tiles clearfix block-sm">
                             <?php
-                                $views = array( 
-                                    'list' => __( 'List View', 'trav' ),
+                                $views = array(
                                     'grid' => __( 'Grid View', 'trav' ),
+                                    'list' => __( 'List View', 'trav' ),
                                     // 'block' => __( 'Block View', 'trav' )
                                 );
                                 $params = $_GET;
