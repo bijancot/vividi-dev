@@ -162,42 +162,45 @@ if ( ! is_user_logged_in() ) {
                 <div class="form-group">
                     <p class="description"><?php echo esc_html( $signup_desc ); ?></p>
                 </div>
-                <input type="hidden" name="redirect_to" value="<?php echo esc_url( add_query_arg( array('checkemail' => 'confirm'), wp_login_url() ) )?>">
+                <input type="hidden" name="redirect_to" value="<?php echo esc_url( add_query_arg( array('checkemail' => 'confirm'), wp_login_url( trav_get_current_page_url() ) ) )?>">
                 <button type="submit" class="full-width btn-medium"><?php _e( 'DAFTAR', 'trav' ); ?></button>
             </form>
             <div class="seperator"></div>
             <p><?php _e( 'Sudah Punya Akun?', 'trav' ); ?> <a href="#travelo-login" class="goto-login soap-popupbox"><?php _e( 'Login', 'trav' ); ?></a></p>
         </div>
     <?php } ?>
-    <div id="travelo-login" class="travelo-modal-box travelo-box">
-        <div>
-            <a href="#" class="logo-modal"><?php bloginfo( 'name' );?><img src="<?php echo esc_url; ?>" alt="<?php bloginfo('name'); ?>"></a>
-        </div>
-        <form name="loginform" action="<?php echo esc_url( wp_login_url() )?>" method="post">
-            <div class="form-group">
-                <input type="text" name="log" tabindex="1" class="input-text full-width" placeholder="<?php _e( 'user name', 'trav' ); ?>">
-            </div>
-            <div class="form-group">
-                <input type="password" name="pwd" tabindex="2" class="input-text full-width" placeholder="<?php _e( 'password', 'trav' ); ?>">
-            </div>
-            <div class="form-group">
-                <a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" class="forgot-password pull-right"><?php _e( 'Lupa password?', 'trav' ); ?></a>
-                <div class="checkbox checkbox-inline">
-                    <label>
-                        <input type="checkbox" name="rememberme" tabindex="3" value="forever"> <?php _e( 'Ingatkan Saya', 'trav' ); ?>
-                    </label>
+    <div id="travelo-login" class="travelo-modal-box travelo-box" style="width:50%">
+        <div class="ihc-login-form-wrap ihc-login-template-11">
+            <!-- <div>
+                <a href="#" class="logo-modal"><?php bloginfo( 'name' );?><img src="<?php echo esc_url; ?>" alt="<?php bloginfo('name'); ?>"></a>
+            </div> -->
+            <form name="loginform" action="<?php echo esc_url( wp_login_url() )?>" method="post">
+                <div class="impu-form-line-fr"><i class="fa-ihc fa-username-ihc"></i>
+                    <input type="text" value="" id="iump_login_username" name="log" placeholder="<?php _e( 'user name', 'trav' ); ?>">
                 </div>
-            </div>
-            <div class="form-group">
-                <button tabindex="4" class="button btn-medium btn-login full-width"><?php _e('LOG IN', 'trav')?></button>
-            </div>
-            <input type="hidden" name="redirect_to" value="<?php echo esc_url( $redirect_url_on_login ) ?>">
-        </form>
+                <div class="impu-form-line-fr"><i class="fa-ihc fa-pass-ihc"></i>
+                    <input type="password" value="" id="iump_login_password" name="pwd" placeholder="<?php _e( 'password', 'trav' ); ?>">
+                </div>
+                <!-- <div class="form-group">
+                    <a href="<?php echo esc_url( wp_lostpassword_url() ); ?>" class="forgot-password pull-right"><?php _e( 'Lupa password?', 'trav' ); ?></a>
+                    <div class="checkbox checkbox-inline">
+                        <label>
+                            <input type="checkbox" name="rememberme" tabindex="3" value="forever"> <?php _e( 'Ingatkan Saya', 'trav' ); ?>
+                        </label>
+                    </div>
+                </div> -->
+                <div class="impu-form-line-fr impu-form-submit">
+                    <input type="submit" value="<?php _e('LOG IN', 'trav')?>" name="Submit">
+                </div>
 
-        <?php if ( get_option('users_can_register') ) { ?>
-            <div class="seperator"></div>
-            <p><?php echo __( "Belum punya Akun?", 'trav' ); ?> <a href="#travelo-signup" class="goto-signup soap-popupbox"><?php _e( 'Daftar', 'trav' ); ?></a></p>
-        <?php } ?>
+                <input type="hidden" name="redirect_to" value="<?php echo esc_url( trav_get_current_page_url() ) ?>">
+            </form>
+
+            <?php if ( get_option('users_can_register') ) { ?>
+                <div class="seperator"></div>
+                <p><?php echo __( "Belum punya Akun?", 'trav' ); ?> <a href="#travelo-signup" class="goto-signup soap-popupbox"><?php _e( 'Daftar', 'trav' ); ?></a></p>
+            <?php } ?>
+        </div>
     </div>
 <?php 
 }

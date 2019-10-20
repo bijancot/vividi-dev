@@ -167,7 +167,11 @@ if ( ! function_exists( 'trav_tour_get_single_schedule_html' ) ) {
 									</label>
 									<div class="row">
 										<div class="col-sm-12">
-											<button data-animation-duration="1" data-animation-type="bounce" class="btn-book-now full-width icon-check animated bounce <?php echo empty( $default_data['available_seat'] ) ? 'no-display' : '' ?>" type="submit"><?php _e( "PESAN", "trav" ); ?></button>
+											<?php if ( ! is_user_logged_in() ) { ?>
+                                            <a href="#travelo-login"  class="button yellow-bg full-width uppercase btn-small soap-popupbox"><?php _e( 'PESAN', 'trav' ); ?></a>    
+                                        <?php } else { ?>
+                                            <button data-animation-duration="1" data-animation-type="bounce" class="btn-book-now full-width icon-check animated bounce <?php echo empty( $default_data['available_seat'] ) ? 'no-display' : '' ?>" type="submit"><?php _e( "PESAN", "trav" ); ?></button>
+                                        <?php } ?>
 											<h4 class="sold-out <?php echo empty( $default_data['available_seat'] ) ? '' : 'no-display' ?>"><?php echo __( 'Habis', 'trav' ) ?></h4>
 											<h4 class="exceed-persons no-display"><?php echo __( 'Kuota Tidak Cukup', 'trav' ) ?></h4>
 										</div>
