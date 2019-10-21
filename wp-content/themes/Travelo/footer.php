@@ -25,14 +25,14 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
                     <div class="col-sm-6 col-md-3">
                             <div id="travcontactwidget-3" class="secure-transaction-content">
                                 <h2 class="widgettitle">Payment Partner</h2>
-                                <img src="https://3.bp.blogspot.com/-ZK6W9UlA3lw/V15RGexr3yI/AAAAAAAAAJ4/nkyM9ebn_qg3_rQWyBZ1se5L_SSuuxcDACLcB/s1600/Bank_Central_Asia.png" style="width: 50px;height: 20px;margin-right: 8px">
-                                <img src="https://logos-download.com/wp-content/uploads/2016/06/Mandiri_logo.png" style="width: 50px;height: 20px;margin-right: 8px">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Logo_BRI.png" style="width: 60px;height: 20px"><br>
-                                <img src="http://pngimg.com/uploads/visa/visa_PNG4.png" width="50px">
-                                <img src="https://brand.mastercard.com/content/dam/mccom/brandcenter/thumbnails/mastercard_vrt_pos_92px_2x.png" width="60px">
-                                <img src="https://cdn3.iconfinder.com/data/icons/payment-method-1/64/_JCB-512.png" width="60px"><br>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/UnionPay_logo.svg/1280px-UnionPay_logo.svg.png" width="60px">
-                                <img src="https://about.americanexpress.com/sites/americanexpress.newshq.businesswire.com/files/logo/image/AXP_BlueBoxLogo_EXTRALARGEscale_RGB_DIGITAL_1600x1600.png" width="60px">
+                                <img src="wp-content/themes/Travelo/images/payment/bca.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;">
+                                <img src="wp-content/themes/Travelo/images/payment/mandiri.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;">                                
+                                <img src="wp-content/themes/Travelo/images/payment/bri.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;"><br>
+                                <img src="wp-content/themes/Travelo/images/payment/jcb.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;">
+                                <img src="wp-content/themes/Travelo/images/payment/union.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;">                                
+                                <img src="wp-content/themes/Travelo/images/payment/mc.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;"><br>
+                                <img src="wp-content/themes/Travelo/images/payment/visa.png" style="width:70px; height:auto; margin:4px; border-radius:5px;border:1px solid gray;">
+                                <img src="wp-content/themes/Travelo/images/payment/american_express.png" style="width:70px; height:auto; margin:4px; border-radius:5px;">
                             </div>
                     </div>
                     <div class="col-sm-6 col-md-3">
@@ -46,12 +46,12 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
                                 </ul>
                                 <ul id="menu-footer-menu" class="menu">
                                     <li id="menu-item-4978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4978">
-                                        <a href="http://localhost/vividi-dev/mitra-usaha/">Kebijakan Privasi</a>
+                                        <a href="http://localhost/vividi-dev/privacy-pilicy/">Kebijakan Privasi</a>
                                     </li>
                                 </ul>
                                 <ul id="menu-footer-menu" class="menu">
                                     <li id="menu-item-4978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4978">
-                                        <a href="http://localhost/vividi-dev/mitra-usaha/">Terms & Condition</a>
+                                        <a href="http://localhost/vividi-dev/terms-conditions/">Terms & Condition</a>
                                     </li>
                                 </ul>
                             </div>

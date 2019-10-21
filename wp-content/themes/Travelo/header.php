@@ -171,8 +171,8 @@ if ( ! is_user_logged_in() ) {
     <?php } ?>
     <div id="travelo-login" class="travelo-modal-box travelo-box" style="width:50%">
         <div class="ihc-login-form-wrap ihc-login-template-11">
-            <!-- <div>
-                <a href="#" class="logo-modal"><?php bloginfo( 'name' );?><img src="<?php echo esc_url; ?>" alt="<?php bloginfo('name'); ?>"></a>
+            <!-- <div style="height:10px;">
+                <a href="#" class="logo-modal"><?php bloginfo( 'name' );?><img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo('name'); ?>"></a>
             </div> -->
             <form name="loginform" action="<?php echo esc_url( wp_login_url() )?>" method="post">
                 <div class="impu-form-line-fr"><i class="fa-ihc fa-username-ihc"></i>
