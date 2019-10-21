@@ -10,29 +10,22 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
         <div class="footer-wrapper">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-6 col-md-4">
-                        <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo('name'); ?>" style="height: 80px"/>
-                        <div class="col-md-3">
-                            <br>
-                            <img src="https://image.flaticon.com/icons/png/512/80/80630.png" alt="<?php bloginfo('name'); ?>" style="height: 60px"/>
-                        </div>
-                        <div class="col-md-9">
-                            <br>
-                            <h5>Hubungi Kami</h5>
-                            <h2>0812-1111-8486</h2>
-                        </div>
-                        </div>
+                    <div class="col-sm-6 col-md-4 text-center">
+                        <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo('name'); ?>" style="height: 70px"/>
+                        <br><h2>0812-1111-8486</h2>
+                        <img src="https://image.flaticon.com/icons/png/512/80/80630.png" alt="<?php bloginfo('name'); ?>" style="height: 60px"/>
+                    </div>
                     <div class="col-sm-6 col-md-3">
                             <div id="travcontactwidget-3" class="secure-transaction-content">
                                 <h2 class="widgettitle">Payment Partner</h2>
-                                <img src="wp-content/themes/Travelo/images/payment/bca.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;">
-                                <img src="wp-content/themes/Travelo/images/payment/mandiri.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;">                                
-                                <img src="wp-content/themes/Travelo/images/payment/bri.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;"><br>
-                                <img src="wp-content/themes/Travelo/images/payment/jcb.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;">
-                                <img src="wp-content/themes/Travelo/images/payment/union.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;">                                
-                                <img src="wp-content/themes/Travelo/images/payment/mc.png" style="width:70px; height:auto; margin:4px; border-radius:5px; border:1px solid gray;"><br>
-                                <img src="wp-content/themes/Travelo/images/payment/visa.png" style="width:70px; height:auto; margin:4px; border-radius:5px;border:1px solid gray;">
-                                <img src="wp-content/themes/Travelo/images/payment/american_express.png" style="width:70px; height:auto; margin:4px; border-radius:5px;">
+                                <img src="wp-content/themes/Travelo/images/payment/bca.png" style="width:70px; height:50px; margin:4px; border-radius:5px; border:1px solid gray;">
+                                <img src="wp-content/themes/Travelo/images/payment/mandiri.png" style="width:70px; height:50px; margin:4px; border-radius:5px; border:1px solid gray;">                                
+                                <img src="wp-content/themes/Travelo/images/payment/bri.png" style="width:70px; height:50px; margin:4px; border-radius:5px; border:1px solid gray;"><br>
+                                <img src="wp-content/themes/Travelo/images/payment/jcb.png" style="width:70px; height:50px; margin:4px; border-radius:5px; border:1px solid gray;">
+                                <img src="wp-content/themes/Travelo/images/payment/union.png" style="width:70px; height:50px; margin:4px; border-radius:5px; border:1px solid gray;">                                
+                                <img src="wp-content/themes/Travelo/images/payment/mc.png" style="width:70px; height:50px; margin:4px; border-radius:5px; border:1px solid gray;"><br>
+                                <img src="wp-content/themes/Travelo/images/payment/visa.png" style="width:70px; height:50px; margin:4px; border-radius:5px;border:1px solid gray;">
+                                <img src="wp-content/themes/Travelo/images/payment/american_express.png" style="width:70px; height:50px; margin:4px; border-radius:5px;">
                             </div>
                     </div>
                     <div class="col-sm-6 col-md-3">
@@ -46,7 +39,7 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
                                 </ul>
                                 <ul id="menu-footer-menu" class="menu">
                                     <li id="menu-item-4978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4978">
-                                        <a href="http://localhost/vividi-dev/privacy-pilicy/">Kebijakan Privasi</a>
+                                        <a href="http://localhost/vividi-dev/privacy-policy/">Kebijakan Privasi</a>
                                     </li>
                                 </ul>
                                 <ul id="menu-footer-menu" class="menu">
