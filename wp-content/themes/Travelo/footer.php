@@ -13,7 +13,15 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
                     <div class="col-sm-6 col-md-4 text-center">
                         <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo('name'); ?>" style="height: 70px"/>
                         <br><h2>0812-1111-8486</h2>
-                        <img src="https://image.flaticon.com/icons/png/512/80/80630.png" alt="<?php bloginfo('name'); ?>" style="height: 60px"/>
+                        <a href="tel:+6281211118486">
+                            <img src="https://image.flaticon.com/icons/png/512/80/80630.png" alt="<?php bloginfo('name'); ?>" style="height: 60px"/>
+                        </a>
+                        <a href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
+                            <img src="http://pngimg.com/uploads/whatsapp/whatsapp_PNG21.png" alt="<?php bloginfo('name'); ?>" style="height: 60px"/>
+                        </a>
+                        <a href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
+                            <img src="http://pngimg.com/uploads/whatsapp/whatsapp_PNG21.png" alt="<?php bloginfo('name'); ?>" style="height: 60px"/>
+                        </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                             <div id="travcontactwidget-3" class="secure-transaction-content">
@@ -34,17 +42,17 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
                             <div class="menu-footer-menu-container">
                                 <ul id="menu-footer-menu" class="menu">
                                     <li id="menu-item-4978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4978">
-                                        <a href="http://localhost/vividi-dev/mitra-usaha/">Mitra Usaha</a>
+                                        <a href="https://vividi.id/mitra-usaha/">Mitra Usaha</a>
                                     </li>
                                 </ul>
                                 <ul id="menu-footer-menu" class="menu">
                                     <li id="menu-item-4978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4978">
-                                        <a href="http://localhost/vividi-dev/privacy-policy/">Kebijakan Privasi</a>
+                                        <a href="https://vividi.id/privacy-policy/">Kebijakan Privasi</a>
                                     </li>
                                 </ul>
                                 <ul id="menu-footer-menu" class="menu">
                                     <li id="menu-item-4978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4978">
-                                        <a href="http://localhost/vividi-dev/terms-conditions/">Terms & Condition</a>
+                                        <a href="https://vividi.id/terms-conditions/">Terms & Condition</a>
                                     </li>
                                 </ul>
                             </div>
@@ -65,7 +73,9 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
                                 <li class="googleplus">
                                     <a title="" href="https://www.googleplus.com/vividitranswisata" target="_blank" data-toggle="tooltip" data-original-title="instagram"><i class="soap-icon-googleplus"></i></a>
                                 </li>
-                            </ul>
+                            </ul><br>
+                            <img src="http://pluspng.com/img-png/get-it-on-google-play-png-get-it-on-google-play-png-519.png" style="width: 140px;margin-bottom: 5px">
+                            <img src="http://pluspng.com/img-png/download-on-app-store-png-with-without-wifi-or-data-2000.png" style="width: 140px">
                         </div>
                     </div>
                 </div>
