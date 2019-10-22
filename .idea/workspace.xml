@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ece85b3-69df-4287-bcd7-dfb43c9634a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/Travelo/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/Travelo/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-150x150.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-150x150.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-270x160.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-270x160.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-300x300.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-300x300.jpeg" afterDir="false" />
@@ -80,7 +76,6 @@
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOBBY.png" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOBBY.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOGO-1-175x175.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOGO-1-175x175.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOGO-1-230x160.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOGO-1-230x160.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOGO-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOGO-2.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOGO-64x64.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOGO-64x64.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOGO.png" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2019/10/LOGO.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2019/10/MEETING-1-230x160.png" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2019/10/MEETING-1-230x160.png" afterDir="false" />
@@ -124,10 +119,6 @@
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2019/10/SUPERIOR-230x160.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2019/10/SUPERIOR-230x160.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2019/10/SUPERIOR-270x160.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2019/10/SUPERIOR-270x160.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2019/10/SWIM-175x175.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2019/10/SWIM-175x175.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/uploads/mc4wp-debug-log.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/mc4wp-debug-log.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/uploads/wc-logs/geolocation-2019-09-27-7ba5e3d58e6c0b3095c17474dc57ea3b.log" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/wc-logs/geolocation-2019-09-27-7ba5e3d58e6c0b3095c17474dc57ea3b.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/uploads/wc-logs/wc-image-regeneration-2019-09-27-0f01816be2c83911247f1dd080a951af.log" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/wc-logs/wc-image-regeneration-2019-09-27-0f01816be2c83911247f1dd080a951af.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/uploads/wpcf7_uploads/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/wpcf7_uploads/.htaccess" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -211,8 +202,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/footer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="29" column="50" lean-forward="true" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+            <state relative-caret-position="152">
+              <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
               <folding>
                 <element signature="n#style#0;n#img#2;n#div#0;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#a#1;n#div#0;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
@@ -411,7 +402,7 @@
       <workItem from="1571538723776" duration="10021000" />
       <workItem from="1571573417029" duration="20865000" />
       <workItem from="1571657675759" duration="3277000" />
-      <workItem from="1571712280488" duration="2645000" />
+      <workItem from="1571712280488" duration="3347000" />
     </task>
     <task id="LOCAL-00001" summary="Upload new">
       <created>1571403378645</created>
@@ -441,17 +432,23 @@
       <option name="project" value="LOCAL" />
       <updated>1571596497392</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add API WA">
+      <created>1571715626451</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1571715626452</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70958000" />
+    <option name="totallyTimeSpent" value="71660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27793697" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27793697" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -464,7 +461,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32934928" />
-      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32934928" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32934928" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32934928" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="13" weight="0.32934928" />
@@ -482,7 +479,8 @@
     <MESSAGE value="Update in payment partner" />
     <MESSAGE value="Update check out form" />
     <MESSAGE value="Add filter nama for acco and car" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add filter nama for acco and car" />
+    <MESSAGE value="Add API WA" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add API WA" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/searchform.php">
@@ -854,8 +852,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/footer.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="29" column="50" lean-forward="true" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+        <state relative-caret-position="152">
+          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
           <folding>
             <element signature="n#style#0;n#img#2;n#div#0;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#1;n#div#0;n#div#0;n#div#0;n#div#0;n#footer#0;n#!!top" expanded="true" />

@@ -22,6 +22,9 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
                         <a href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
                             <img src="http://pngimg.com/uploads/whatsapp/whatsapp_PNG21.png" alt="<?php bloginfo('name'); ?>" style="height: 60px"/>
                         </a>
+                        <a href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
+                            <img src="http://pngimg.com/uploads/whatsapp/whatsapp_PNG21.png" alt="<?php bloginfo('name'); ?>" style="height: 60px"/>
+                        </a>
                     </div>
                     <div class="col-sm-6 col-md-3">
                             <div id="travcontactwidget-3" class="secure-transaction-content">
