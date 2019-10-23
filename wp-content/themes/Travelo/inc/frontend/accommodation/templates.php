@@ -81,8 +81,13 @@ if ( ! function_exists( 'trav_acc_get_room_detail_html' ) ) {
 					</div>
 					<div class="action-section">
 						<?php if ( $type == 'available' ) { ?>
-							<button title="<?php _e( 'Pesan', 'trav') ?>" class="button btn-small full-width text-center btn-book-now" data-room-type-id="<?php echo esc_attr( $room_type_id ); ?>"><?php _e( 'PESAN', 'trav') ?></button>
-						<?php } elseif ( $type == 'all' ) { ?>
+<!--							<button title="--><?php //_e( 'Pesan', 'trav') ?><!--" class="button btn-small full-width text-center btn-book-now" data-room-type-id="--><?php //echo esc_attr( $room_type_id ); ?><!--">--><?php //_e( 'PESAN', 'trav') ?><!--</button>-->
+                            <?php if ( ! is_user_logged_in() ) { ?>
+                                <a href="#travelo-login"  class="button yellow-bg full-width uppercase btn-small soap-popupbox"><?php _e( 'PESAN', 'trav' ); ?></a>
+                            <?php } else { ?>
+                                <button title="<?php _e( 'Pesan', 'trav') ?>" class="button btn-small full-width text-center btn-book-now" data-room-type-id="<?php echo esc_attr( $room_type_id ); ?>"><?php _e( 'PESAN', 'trav') ?></button>
+                            <?php } ?>
+                        <?php } elseif ( $type == 'all' ) { ?>
 							<a href="#" title="<?php _e( 'Cek Harga', 'trav') ?>" class="button btn-small full-width text-center btn-show-price" data-room-type-id="<?php echo esc_attr( $room_type_id ); ?>"><?php _e( 'CEK HARGA', 'trav') ?></a>
 						<?php } elseif ( $type == 'not_available' ) { ?>
 							<h4><?php echo __( 'Habis', 'trav' ) ?></h4>

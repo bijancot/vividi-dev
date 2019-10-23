@@ -267,8 +267,12 @@ if ( have_posts() ) {
 													<label class="">&nbsp;</label>
 													<div class="row">
 														<div class="col-xs-12">
-															<button class="full-width icon-check animated bounce" type="submit"><?php _e( "PESAN SEKARANG", "trav" ); ?></button>
-														</div>
+                                                            <?php if ( ! is_user_logged_in() ) { ?>
+                                                                <a href="#travelo-login"  class="button yellow-bg full-width uppercase btn-small soap-popupbox"><?php _e( 'PESAN SEKARANG', 'trav' ); ?></a>
+                                                            <?php } else { ?>
+                                                                <button class="button yellow-bg full-width uppercase btn-small soap-popupbox" type="submit"><?php _e( "PESAN SEKARANG", "trav" ); ?></button>
+                                                            <?php } ?>
+                                                        </div>
 													</div>
 												</div>
 											</div>
