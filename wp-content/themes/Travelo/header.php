@@ -198,7 +198,10 @@ if ( ! is_user_logged_in() ) {
 
             <?php if ( get_option('users_can_register') ) { ?>
                 <div class="seperator"></div>
-                <p><?php echo __( "Belum punya Akun?", 'trav' ); ?> <a href="#travelo-signup" class="goto-signup soap-popupbox"><?php _e( 'Daftar', 'trav' ); ?></a></p>
+                <p><?php echo __( "Belum punya Akun?", 'trav' ); ?>
+                    <a href="http://localhost/vividi-dev/register/" class="goto-signup">
+                        <?php _e( 'Daftar', 'trav' ); ?>
+                    </a></p>
             <?php } ?>
         </div>
     </div>
