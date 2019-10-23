@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0ece85b3-69df-4287-bcd7-dfb43c9634a6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/Travelo/inc/frontend/accommodation/templates.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/Travelo/inc/frontend/accommodation/templates.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wp-content/themes/Travelo/single-car.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/Travelo/single-car.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header6.php" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header6.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-150x150.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-150x150.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-270x160.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-270x160.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-300x300.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/wp-content/uploads/2015/01/Premier-1-300x300.jpeg" afterDir="false" />
@@ -163,28 +162,53 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/inc/frontend/tour/templates.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="169" column="83" lean-forward="true" selection-start-line="169" selection-start-column="83" selection-end-line="169" selection-end-column="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/single-car.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="278" column="46" lean-forward="true" selection-start-line="278" selection-start-column="46" selection-end-line="278" selection-end-column="46" />
+            <state relative-caret-position="177">
+              <caret line="266" column="82" lean-forward="true" selection-start-line="266" selection-start-column="82" selection-end-line="266" selection-end-column="82" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/footer.php">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/single-accommodation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+            <state relative-caret-position="-6722">
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/single-tour.php">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header6.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="582">
+              <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="4" column="67" lean-forward="true" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/inc/functions/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -198,31 +222,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/inc/frontend/accommodation/ajax.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5270">
-              <caret line="310" column="36" selection-start-line="310" selection-start-column="36" selection-end-line="310" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/templates/template-login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>redirect</find>
-      <find>&lt;div class=&quot;logo navbar-brand&quot;&gt;</find>
-      <find>wpdb::insert</find>
       <find>insert</find>
       <find>pwd</find>
       <find>, trav</find>
@@ -249,6 +252,9 @@
       <find>button</find>
       <find>class=&quot;col-xs-12&quot;</find>
       <find>Pesan</find>
+      <find>class=&quot;pull-right hidden-mobile&quot;</find>
+      <find>signup_url</find>
+      <find>pull-right hidden-mobile</find>
       <find>button</find>
     </findStrings>
     <replaceStrings>
@@ -274,13 +280,11 @@
         <option value="$PROJECT_DIR$/wp-content/themes/Travelo/templates/booking/terms-form.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/indeed-membership-pro/authorize_response.php" />
         <option value="$PROJECT_DIR$/member.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Travelo/templates/booking/booking-form.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Travelo/inc/frontend/accommodation/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Travelo/inc/frontend/tour/ajax.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Travelo/inc/functions/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Travelo/templates/user/dashboard.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header6.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Travelo/templates/inners/inner-1.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Travelo/archive-tour.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Travelo/archive-accommodation.php" />
@@ -294,6 +298,8 @@
         <option value="$PROJECT_DIR$/wp-content/plugins/indeed-membership-pro/utilities.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Travelo/inc/frontend/accommodation/templates.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/Travelo/single-car.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header6.php" />
       </list>
     </option>
   </component>
@@ -437,7 +443,7 @@
       <workItem from="1571712280488" duration="3814000" />
       <workItem from="1571742771070" duration="268000" />
       <workItem from="1571761084504" duration="1950000" />
-      <workItem from="1571826222661" duration="3405000" />
+      <workItem from="1571826222661" duration="5925000" />
     </task>
     <task id="LOCAL-00001" summary="Upload new">
       <created>1571403378645</created>
@@ -481,21 +487,28 @@
       <option name="project" value="LOCAL" />
       <updated>1571716287863</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add Modal Login to Hotel and Bus Car">
+      <created>1571838973914</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1571838973914</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77750000" />
+    <option name="totallyTimeSpent" value="80270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29083094" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29083094" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32934928" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -504,7 +517,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32934928" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32934928" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32934928" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32934928" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32934928" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="13" weight="0.32934928" />
@@ -524,33 +537,10 @@
     <MESSAGE value="Add filter nama for acco and car" />
     <MESSAGE value="Add API WA" />
     <MESSAGE value="Add anothe WA Logo and Android IOS Play Store" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add anothe WA Logo and Android IOS Play Store" />
+    <MESSAGE value="Add Modal Login to Hotel and Bus Car" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Modal Login to Hotel and Bus Car" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/templates/booking/terms-form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="64" selection-start-line="8" selection-start-column="64" selection-end-line="8" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-admin/options-permalink.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="968">
-          <caret line="112" column="16" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
-          <folding>
-            <element signature="e#7#11#0" expanded="true" />
-            <element signature="e#24#28#0" expanded="true" />
-            <element signature="e#29#33#0" expanded="true" />
-            <element signature="e#49#53#0" expanded="true" />
-            <element signature="e#54#58#0" expanded="true" />
-            <element signature="e#65#69#0" expanded="true" />
-            <element signature="e#70#74#0" expanded="true" />
-            <element signature="e#79#83#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-signup.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -638,13 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="8" column="38" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/member.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
@@ -700,22 +683,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header6.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1598">
-          <caret line="96" column="22" lean-forward="true" selection-start-line="96" selection-start-column="22" selection-end-line="96" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/inc/frontend/car/functions.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/inc/functions/functions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/archive-accommodation.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -850,29 +819,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/templates/template-login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/templates/user/main.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/inc/frontend/car/templates.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1288">
-          <caret line="147" column="50" selection-start-line="147" selection-start-column="50" selection-end-line="147" selection-end-column="50" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/inc/frontend/tour/templates.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -890,8 +838,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/single-car.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="278" column="46" lean-forward="true" selection-start-line="278" selection-start-column="46" selection-end-line="278" selection-end-column="46" />
+        <state relative-caret-position="177">
+          <caret line="266" column="82" lean-forward="true" selection-start-line="266" selection-start-column="82" selection-end-line="266" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/single-accommodation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6722">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/single-tour.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/templates/template-login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="209" column="69" selection-start-line="209" selection-start-column="69" selection-end-line="209" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/inc/frontend/car/templates.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1288">
+          <caret line="147" column="50" selection-start-line="147" selection-start-column="50" selection-end-line="147" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="4" column="67" lean-forward="true" selection-start-line="4" selection-start-column="67" selection-end-line="4" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/inc/functions/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="44" column="27" selection-start-line="44" selection-start-column="27" selection-end-line="44" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/Travelo/templates/headers/header6.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="582">
+          <caret line="81" column="21" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
         </state>
       </provider>
     </entry>

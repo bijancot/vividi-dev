@@ -61,7 +61,7 @@ global $trav_options, $logo_url, $my_account_page, $login_url, $signup_url, $lan
 
 		<div class="pull-right hidden-mobile">
 			<?php if ( ! is_user_logged_in() ) { ?>
-				<button class="btn-medium blue-bg<?php echo ( $signup_url == '#travelo-signup' )?' soap-popupbox':' login_link' ?>" data-target="<?php echo $signup_url ?>"><?php _e( 'DAFTAR', 'trav' ) ?></button>
+				<button class="btn-medium blue-bg<?php echo ( $signup_url == '#travelo-signup' )?' soap-popupbox':' login_link' ?>" data-target="http://localhost/vividi-dev/register/"><?php _e( 'DAFTAR', 'trav' ) ?></button>
 				<button class="btn-medium<?php echo ( $login_url == '#travelo-login' )?' soap-popupbox':' login_link' ?>" data-target="<?php echo $login_url ?>"><?php _e( 'LOGIN', 'trav' ) ?></button>
 			<?php } else { ?>
 				<?php if ( ! empty( $my_account_page ) ) { ?>
