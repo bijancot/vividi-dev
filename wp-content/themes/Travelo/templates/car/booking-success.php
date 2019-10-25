@@ -37,6 +37,8 @@ $tax = get_post_meta( $car_id, 'trav_car_tax', true );
 				        'booking_no' => array( 'label' => __('Kode Booking', 'trav'), 'pre' => '', 'sur' => '' ),
                         'pin_code' => array( 'label' => __('PIN', 'trav'), 'pre' => '', 'sur' => '' ),
                         'email' => array( 'label' => __('E-mail', 'trav'), 'pre' => '', 'sur' => '' ),
+                        'no_ktp'        => array( 'label' => __('Nomor KTP', 'trav'), 'pre' => '', 'sur' => '' ),
+                        'no_passport'   => array( 'label' => __('Nomor Passport', 'trav'), 'pre' => '', 'sur' => '' ),
                         'tgl_dari' => array( 'label' => __('Tanggal Jemput', 'trav'), 'pre' => '', 'sur' => '' ),
                         'time_from' => array( 'label' => __('Waktu Jemput', 'trav'), 'pre' => '', 'sur' => '' ),
                         'tgl_ke' => array( 'label' => __('Tanggal Selesai', 'trav'), 'pre' => '', 'sur' => '' ),

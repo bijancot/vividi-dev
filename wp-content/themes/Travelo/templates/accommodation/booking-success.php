@@ -43,6 +43,8 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                     'booking_no'    => array( 'label' => __('Kode Booking', 'trav'), 'pre' => '', 'sur' => '' ),
                     'pin_code'      => array( 'label' => __('PIN', 'trav'), 'pre' => '', 'sur' => '' ),
                     'email'         => array( 'label' => __('Alamat E-mail', 'trav'), 'pre' => '', 'sur' => '' ),
+                    'no_ktp'        => array( 'label' => __('Nomor KTP', 'trav'), 'pre' => '', 'sur' => '' ),
+                    'no_passport'   => array( 'label' => __('Nomor Passport', 'trav'), 'pre' => '', 'sur' => '' ),
                     'tgl_dari'      => array( 'label' => __('Check-In', 'trav'), 'pre' => '', 'sur' => '' ),
                     'tgl_ke'        => array( 'label' => __('Check-out', 'trav'), 'pre' => '', 'sur' => '' ),
                     'rooms'         => array( 'label' => __('Kamar', 'trav'), 'pre' => '', 'sur' => '' ),
