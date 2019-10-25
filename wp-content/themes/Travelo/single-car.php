@@ -263,14 +263,22 @@ if ( have_posts() ) {
 													<input name="location_to" type="text" placeholder="" class="input-text full-width" value="<?php echo $location_to;?>" />
 												</div>
 											</div>
+                                                <style type="text/css">
+                                                    a.s{
+                                                        background: #E35403;
+                                                    }
+                                                    a.s:hover{
+                                                        background: #f75d05;
+                                                    }
+                                                </style>
 												<div class="col-sm-3">
 													<label class="">&nbsp;</label>
 													<div class="row">
 														<div class="col-xs-12">
                                                             <?php if ( ! is_user_logged_in() ) { ?>
-                                                                <a href="#travelo-login"  class="button yellow-bg full-width uppercase btn-small soap-popupbox"><?php _e( 'PESAN SEKARANG', 'trav' ); ?></a>
+                                                                <a href="#travelo-login" class="button s full-width uppercase btn-small soap-popupbox" style="height: 34px"><?php _e( 'PESAN SEKARANG', 'trav' ); ?></a>
                                                             <?php } else { ?>
-                                                                <button class="button yellow-bg full-width uppercase btn-small soap-popupbox" type="submit"><?php _e( "PESAN SEKARANG", "trav" ); ?></button>
+                                                                <button style="background-color: #E35403" class="full-width animated bounce" type="submit"><?php _e( "PESAN SEKARANG", "trav" ); ?></button>
                                                             <?php } ?>
                                                         </div>
 													</div>

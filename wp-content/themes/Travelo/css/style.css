@@ -11719,4 +11719,17 @@ ul.products.list li.product .added_to_cart {
       color: #01b7f2;
   }
 }
+
+a.s{
+  background: #E35403;
+}
+a.s:hover{
+  background: #f75d05;
+}
+a.pilih{
+  background: #09477E;
+}
+a.pilih:hover{
+  background: #0d75d1;
+}
 /*# sourceMappingURL=style.css.map */

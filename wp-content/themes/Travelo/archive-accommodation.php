@@ -193,7 +193,18 @@ $query_args = array(
                                             </div>
                                         </div>
                                         <br />
-                                        <button class="btn-medium icon-check uppercase full-width"><?php _e( 'Cari Kembali', 'trav' ) ?></button>
+                                        <style type="text/css">
+                                            .icon-check{
+                                                background: #09477E;
+                                            }
+                                            .icon-check::after{
+                                                background: url(wp-content/themes/Travelo/images/icon/icon-check.png) center center no-repeat #0d75d1;
+                                            }
+                                            .icon-check:hover{
+                                                background: #0d75d1;
+                                            }
+                                        </style>
+                                        <button style="background-color: #09477E" class="btn-medium uppercase full-width"><?php _e( 'Cari Kembali', 'trav' ) ?></button>
                                     </form>
                                 </div>
                             </div>

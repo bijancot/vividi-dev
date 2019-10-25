@@ -86,7 +86,7 @@ $after_article = '';
                                             </div>
                                         </div>
                                         <br />
-                                        <button class="btn-medium icon-check uppercase full-width"><?php _e( 'cari lagi', 'trav' ) ?></button>
+                                        <button style="background-color: #09477E" class="btn-medium uppercase full-width"><?php _e( 'cari lagi', 'trav' ) ?></button>
                                     </form>
                                 </div>
                             </div>

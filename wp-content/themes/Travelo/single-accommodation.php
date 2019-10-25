@@ -317,7 +317,7 @@ if ( have_posts() ) {
                                                 <label class="visible-md visible-lg">&nbsp;</label>
                                                 <div class="row">
                                                     <div class="col-xs-12">
-                                                        <button id="check_availability" data-animation-duration="1" data-animation-type="bounce" class="full-width icon-check animated bounce" type="submit"><?php _e( "CARI SEKARANG", "trav" ); ?></button>
+                                                        <button style="background-color: #09477E" id="check_availability" data-animation-duration="1" data-animation-type="bounce" class="full-width animated bounce" type="submit"><?php _e( "CARI SEKARANG", "trav" ); ?></button>
                                                     </div>
                                                 </div>
                                             </div>

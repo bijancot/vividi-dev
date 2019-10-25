@@ -8,6 +8,14 @@ if ( ! function_exists( 'trav_acc_get_room_detail_html' ) ) {
 	function trav_acc_get_room_detail_html( $room_type_id, $type = 'all', $room_price = 0, $number_of_days = 0, $rooms = 0) { // available type - all,available,not_available,not_match
 		$room_type_id = trav_room_clang_id( $room_type_id );
 		?>
+        <style type="text/css">
+            a.s{
+                background: #E35403;
+            }
+            a.s:hover{
+                background: #f75d05;
+            }
+        </style>
 		<article class="box">
 			<figure class="col-sm-4 col-md-3">
 				<a class="hover-effect popup-gallery" data-post_id="<?php echo esc_attr( $room_type_id );?>" href="#" title="<?php echo __( 'popup gallery', 'trav' ); ?>"><?php echo get_the_post_thumbnail( $room_type_id, 'list-thumb' ); ?></a>
@@ -79,16 +87,17 @@ if ( ! function_exists( 'trav_acc_get_room_detail_html' ) ) {
 							// echo strip_shortcodes( $content );
 						?>
 					</div>
+
 					<div class="action-section">
 						<?php if ( $type == 'available' ) { ?>
 <!--							<button title="--><?php //_e( 'Pesan', 'trav') ?><!--" class="button btn-small full-width text-center btn-book-now" data-room-type-id="--><?php //echo esc_attr( $room_type_id ); ?><!--">--><?php //_e( 'PESAN', 'trav') ?><!--</button>-->
                             <?php if ( ! is_user_logged_in() ) { ?>
-                                <a href="#travelo-login"  class="button yellow-bg full-width uppercase btn-small soap-popupbox"><?php _e( 'PESAN', 'trav' ); ?></a>
+                                <a href="#travelo-login"  class="button s full-width uppercase btn-small soap-popupbox"><?php _e( 'PESAN', 'trav' ); ?></a>
                             <?php } else { ?>
-                                <button title="<?php _e( 'Pesan', 'trav') ?>" class="button btn-small full-width text-center btn-book-now" data-room-type-id="<?php echo esc_attr( $room_type_id ); ?>"><?php _e( 'PESAN', 'trav') ?></button>
+                                <button style="background-color: #E35403" title="<?php _e( 'Pesan', 'trav') ?>" class="button btn-small full-width text-center btn-book-now" data-room-type-id="<?php echo esc_attr( $room_type_id ); ?>"><?php _e( 'PESAN', 'trav') ?></button>
                             <?php } ?>
                         <?php } elseif ( $type == 'all' ) { ?>
-							<a href="#" title="<?php _e( 'Cek Harga', 'trav') ?>" class="button btn-small full-width text-center btn-show-price" data-room-type-id="<?php echo esc_attr( $room_type_id ); ?>"><?php _e( 'CEK HARGA', 'trav') ?></a>
+							<a href="#" title="<?php _e( 'Cek Harga', 'trav') ?>" class="button s btn-small full-width text-center btn-show-price" data-room-type-id="<?php echo esc_attr( $room_type_id ); ?>"><?php _e( 'CEK HARGA', 'trav') ?></a>
 						<?php } elseif ( $type == 'not_available' ) { ?>
 							<h4><?php echo __( 'Habis', 'trav' ) ?></h4>
 						<?php } elseif ( $type == 'not_match' ) { ?>
@@ -191,11 +200,25 @@ if ( ! function_exists( 'trav_acc_get_acc_list_sigle' ) ) {
 							<span class="review"><?php echo esc_html( trav_get_review_count( $acc_id ) . ' ' .  __('Ulasan', 'trav') ); ?></span>
 						</div>
 						<p class="description"><?php echo wp_kses_post( $brief ); ?></p>
+                        <style type="text/css">
+                            a.s{
+                                background: #E35403;
+                            }
+                            a.s:hover{
+                                background: #f75d05;
+                            }
+                            a.pilih{
+                                background: #09477E;
+                            }
+                            a.pilih:hover{
+                                background: #0d75d1;
+                            }
+                        </style>
 						<div class="action clearfix">
 							<?php
 							if ( ! empty( $loc ) ) { ?>
-								<a class="button btn-small" href="<?php echo esc_url( get_permalink( $acc_id ) );  ?>"><?php _e( 'PILIH', 'trav' ); ?></a>
-								<a class="button btn-small yellow popup-map" href="#" data-box="<?php echo esc_attr( $loc ) ?>"><?php _e( 'LIHAT PETA', 'trav' ); ?></a>
+								<a class="button pilih btn-small" href="<?php echo esc_url( get_permalink( $acc_id ) );  ?>"><?php _e( 'PILIH', 'trav' ); ?></a>
+								<a class="button s btn-small popup-map" href="#" data-box="<?php echo esc_attr( $loc ) ?>"><?php _e( 'LIHAT PETA', 'trav' ); ?></a>
 							<?php } else { ?>
 								<a class="button btn-small full-width" href="<?php echo esc_url( get_permalink( $acc_id ) );  ?>"><?php _e( 'PILIH', 'trav' ); ?></a>
 							<?php } ?>

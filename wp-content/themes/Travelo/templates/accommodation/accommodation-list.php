@@ -81,9 +81,23 @@ foreach( $acc_list as $acc_id ) {
                     <span class="review"><?php echo esc_html( trav_get_review_count( $acc_id ) . ' ' .  __('Ulasan', 'trav') ); ?></span>
                 </div>
                 <p class="description"><?php echo wp_kses_post( $brief ); ?></p>
+                <style type="text/css">
+                    a.s{
+                        background: #E35403;
+                    }
+                    a.s:hover{
+                        background: #f75d05;
+                    }
+                    a.pilih{
+                        background: #09477E;
+                    }
+                    a.pilih:hover{
+                        background: #0d75d1;
+                    }
+                </style>
                 <div class="action">
-                    <a title="<?php _e( 'Lihat Rincian', 'trav' ); ?>" class="button btn-small" href="<?php echo esc_url( $url ); ?>"><?php _e( 'Pilih', 'trav' ); ?></a>
-                    <a title="<?php _e( 'Lihat Peta', 'trav' ); ?>" onclick="onHtmlClick('<?php echo $acc_id; ?>')" class="button btn-small yellow" href="#"><?php _e( 'LIHAT PETA', 'trav' ); ?></a>
+                    <a title="<?php _e( 'Lihat Rincian', 'trav' ); ?>" class="button pilih btn-small" href="<?php echo esc_url( $url ); ?>"><?php _e( 'PILIH', 'trav' ); ?></a>
+                    <a title="<?php _e( 'Lihat Peta', 'trav' ); ?>" onclick="onHtmlClick('<?php echo $acc_id; ?>')" class="button s btn-small" href="#"><?php _e( 'LIHAT PETA', 'trav' ); ?></a>
                 </div>
             </div>
         </article>
