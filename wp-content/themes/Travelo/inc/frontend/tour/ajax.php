@@ -78,7 +78,7 @@ if ( ! function_exists( 'trav_ajax_tour_submit_booking' ) ) {
         }
 
         // init variables
-        $post_fields = array( 'first_name', 'last_name', 'email', 'country_code', 'phone', 'no_ktp', 'no_passport', 'address', 'city', 'zip', 'country', 'special_requirements');
+        $post_fields = array( 'first_name', 'last_name', 'email', 'country_code', 'phone','tanggal_tes', 'no_ktp', 'no_passport', 'address', 'city', 'zip', 'country', 'special_requirements');
         $customer_info = array();
         foreach ( $post_fields as $post_field ) {
             if ( ! empty( $_POST[ $post_field ] ) ) {
@@ -88,13 +88,15 @@ if ( ! function_exists( 'trav_ajax_tour_submit_booking' ) ) {
 
         $data = array_merge( $customer_info, $booking_data );
         $data['tour_date'] = date( 'Y-m-d', trav_strtotime( $data['tour_date'] ) );
+        $dateStr = date("d-m-Y",  strtotime($data['tour_date']));
         if ( is_user_logged_in() ) {
             $data['user_id'] = get_current_user_id();
         }
 
         $latest_booking_id = $wpdb->get_var( 'SELECT id FROM ' . TRAV_TOUR_BOOKINGS_TABLE . ' ORDER BY id DESC LIMIT 1' );
-        $booking_no = mt_rand( 1000, 9999 );
-        $booking_no .= $latest_booking_id;
+//        $booking_no = mt_rand( 1000, 9999 );
+        $random = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $booking_no = 'VVDT'. substr(str_shuffle($random), 0, 6);
         $pin_code = mt_rand( 1000, 9999 );
 
         if ( ! isset( $_SESSION['exchange_rate'] ) ) trav_init_currency();
@@ -104,6 +106,7 @@ if ( ! function_exists( 'trav_ajax_tour_submit_booking' ) ) {
             'email'                 => '',
             'country_code'          => '',
             'phone'                 => '',
+            'tanggal_tur'           => $dateStr,
             'no_ktp'                => '',
             'no_passport'           => '',
             'address'               => '',

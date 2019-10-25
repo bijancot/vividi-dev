@@ -326,14 +326,17 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
         $data = array_merge( $customer_info, $booking_data );
         $data['child_ages'] = serialize( $data['child_ages'] );
         $data['date_from'] = date( 'Y-m-d', trav_strtotime( $data['date_from'] ) );
+        $dateDari = date("d-m-Y",  strtotime($data['date_from']));
         $data['date_to'] = date( 'Y-m-d', trav_strtotime( $data['date_to'] ) );
+        $dateKe = date("d-m-Y",  strtotime($data['date_to']));
         if ( is_user_logged_in() ) {
             $data['user_id'] = get_current_user_id();
         }
 
         $latest_booking_id = $wpdb->get_var( 'SELECT id FROM ' . TRAV_ACCOMMODATION_BOOKINGS_TABLE . ' ORDER BY id DESC LIMIT 1' );
-        $booking_no = mt_rand( 1000, 9999 );
-        $booking_no .= $latest_booking_id;
+//        $booking_no = mt_rand( 1000, 9999 );
+        $random = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $booking_no = 'VVDH'. substr(str_shuffle($random), 0, 6);
         $pin_code = mt_rand( 1000, 9999 );
 
         if ( ! isset( $_SESSION['exchange_rate'] ) ) trav_init_currency();
@@ -349,6 +352,8 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
             'address'               => '',
             'city'                  => '',
             'zip'                   => '',
+            'tgl_dari'              => $dateDari,
+            'tgl_ke'                => $dateKe,
             'country'               => '',
             'special_requirements'  => '',
             'accommodation_id'      => '',

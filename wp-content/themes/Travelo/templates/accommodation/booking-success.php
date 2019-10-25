@@ -43,10 +43,10 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                     'booking_no'    => array( 'label' => __('Kode Booking', 'trav'), 'pre' => '', 'sur' => '' ),
                     'pin_code'      => array( 'label' => __('PIN', 'trav'), 'pre' => '', 'sur' => '' ),
                     'email'         => array( 'label' => __('Alamat E-mail', 'trav'), 'pre' => '', 'sur' => '' ),
-                    'date_from'     => array( 'label' => __('Check-In', 'trav'), 'pre' => '', 'sur' => '' ),
-                    'date_to'       => array( 'label' => __('Check-out', 'trav'), 'pre' => '', 'sur' => '' ),
+                    'tgl_dari'      => array( 'label' => __('Check-In', 'trav'), 'pre' => '', 'sur' => '' ),
+                    'tgl_ke'        => array( 'label' => __('Check-out', 'trav'), 'pre' => '', 'sur' => '' ),
                     'rooms'         => array( 'label' => __('Kamar', 'trav'), 'pre' => '', 'sur' => '' ),
-                    'adults'        => array( 'label' => __('Dewasa', 'trav'), 'pre' => '', 'sur' => '' ),
+                    'adults'        => array( 'label' => __('Dewasa', 'trav'), 'pre' => '', 'sur' => ' Orang' ),
                 );
 
                 foreach ( $booking_detail as $field => $value ) {

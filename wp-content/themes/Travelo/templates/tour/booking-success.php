@@ -40,9 +40,11 @@ $tour_meta = get_post_meta( $tour_id );
                     'booking_no'    => array( 'label' => __('Kode Booking', 'trav'), 'pre' => '', 'sur' => '' ),
                     'pin_code'      => array( 'label' => __('Pin', 'trav'), 'pre' => '', 'sur' => '' ),
                     'email'         => array( 'label' => __('Alamat E-mail', 'trav'), 'pre' => '', 'sur' => '' ),
-                    'tour_date'     => array( 'label' => __('Tanggal Tour', 'trav'), 'pre' => '', 'sur' => '' ),
-                    'adults'        => array( 'label' => __('Jumlah Dewasa', 'trav'), 'pre' => '', 'sur' => '' ),
-                    'kids'          => array( 'label' => __('Jumlah Anak', 'trav'), 'pre' => '', 'sur' => '' ),
+                    'no_ktp'        => array( 'label' => __('Nomor KTP', 'trav'), 'pre' => '', 'sur' => '' ),
+                    'no_passport'   => array( 'label' => __('Nomor Passport', 'trav'), 'pre' => '', 'sur' => '' ),
+                    'tanggal_tur'   => array( 'label' => __('Tanggal Tour', 'trav'), 'pre' => '', 'sur' => '' ),
+                    'adults'        => array( 'label' => __('Jumlah Dewasa', 'trav'), 'pre' => '', 'sur' => ' Orang' ),
+                    'kids'          => array( 'label' => __('Jumlah Anak', 'trav'), 'pre' => '', 'sur' => ' Anak' ),
                 );
 
                 foreach ( $booking_detail as $field => $value ) {

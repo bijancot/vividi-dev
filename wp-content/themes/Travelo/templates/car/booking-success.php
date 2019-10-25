@@ -33,16 +33,17 @@ $tax = get_post_meta( $car_id, 'trav_car_tax', true );
 			<h3><?php echo __( 'RINCIAN PEMESANAN' , 'trav' ) ?></h3>
 			<dl class="term-description">
 				<?php
-				$booking_detail = array('booking_no' => array( 'label' => __('Kode Booking', 'trav'), 'pre' => '', 'sur' => '' ),
-										'pin_code' => array( 'label' => __('PIN', 'trav'), 'pre' => '', 'sur' => '' ),
-										'email' => array( 'label' => __('E-mail', 'trav'), 'pre' => '', 'sur' => '' ),
-										'date_from' => array( 'label' => __('Tanggal Jemput', 'trav'), 'pre' => '', 'sur' => '' ),
-										'date_to' => array( 'label' => __('Waktu Jemput', 'trav'), 'pre' => '', 'sur' => '' ),
-										'time_from' => array( 'label' => __('Tanggal Selesai', 'trav'), 'pre' => '', 'sur' => '' ),
-										'time_to' => array( 'label' => __('Waktu Selesai', 'trav'), 'pre' => '', 'sur' => '' ),
-										'location_from' => array( 'label' => __('Lokasi Jemput', 'trav'), 'pre' => '', 'sur' => '' ),
-										'location_to' => array( 'label' => __('Lokasi Selesai', 'trav'), 'pre' => '', 'sur' => '' ),
-									);
+				$booking_detail = array(
+				        'booking_no' => array( 'label' => __('Kode Booking', 'trav'), 'pre' => '', 'sur' => '' ),
+                        'pin_code' => array( 'label' => __('PIN', 'trav'), 'pre' => '', 'sur' => '' ),
+                        'email' => array( 'label' => __('E-mail', 'trav'), 'pre' => '', 'sur' => '' ),
+                        'tgl_dari' => array( 'label' => __('Tanggal Jemput', 'trav'), 'pre' => '', 'sur' => '' ),
+                        'time_from' => array( 'label' => __('Waktu Jemput', 'trav'), 'pre' => '', 'sur' => '' ),
+                        'tgl_ke' => array( 'label' => __('Tanggal Selesai', 'trav'), 'pre' => '', 'sur' => '' ),
+                        'time_to' => array( 'label' => __('Waktu Selesai', 'trav'), 'pre' => '', 'sur' => '' ),
+                        'location_from' => array( 'label' => __('Lokasi Jemput', 'trav'), 'pre' => '', 'sur' => '' ),
+                        'location_to' => array( 'label' => __('Lokasi Selesai', 'trav'), 'pre' => '', 'sur' => '' ),
+                    );
 
 				foreach ( $booking_detail as $field => $value ) {
 					if ( empty( $$field ) ) $$field = empty( $booking_data[ $field ] )?'':$booking_data[ $field ];
