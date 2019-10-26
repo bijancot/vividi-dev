@@ -65,3 +65,15 @@ add_image_size( 'widget-thumb', 64, 64, true );
 add_image_size( 'slider-gallery', 900, 500, true );
 //add_image_size( 'map-thumb', 280, 140, true );
 //add_filter('deprecated_constructor_trigger_error', '__return_false');
+
+function add_scripts() {
+    wp_enqueue_script( 'jquery' );
+    wp_enqueue_script( 'jquery-ui-autocomplete' );
+    wp_register_style( 'jquery-ui-styles','http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css' );
+    wp_enqueue_style( 'jquery-ui-styles' );
+    wp_register_script( 'my-autocomplete', get_template_directory_uri() . '/js/my-autocomplete.js', array( 'jquery', 'jquery-ui-autocomplete' ), '1.0', false );
+    wp_localize_script( 'my-autocomplete', 'MyAutocomplete', array( 'url' => admin_url( 'admin-ajax.php' ) ) );
+    wp_enqueue_script( 'my-autocomplete' );
+}
+
+add_action( 'wp_enqueue_scripts', 'add_scripts' );

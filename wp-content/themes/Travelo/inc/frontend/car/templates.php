@@ -40,8 +40,9 @@ if ( ! function_exists( 'trav_car_get_car_list_sigle' ) ) {
 							<?php if ( ! empty( $price ) && is_numeric( $price ) ) { ?>
 								<span class="price"><small><?php _e( 'Per Hari', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $price ) ); ?></span>
 							<?php } ?>
-                            <h4 class="box-title"><?php echo esc_html( $car_type ) ?><small><?php echo esc_html( get_the_title( $car_id ) ); ?></small></h4>
-                            <div class="amenities">
+<!--                            <h4 class="box-title">--><?php //echo esc_html( $car_type ) ?><!--<small>--><?php //echo esc_html( get_the_title( $car_id ) ); ?><!--</small></h4>-->
+                        <h4 class="box-title"><?php echo esc_html( get_the_title( $car_id ) ); ?><small><?php echo esc_html( $car_type ) ?></small></h4>
+                        <div class="amenities">
                             	<ul>
 									<?php
 									$preference_icons = get_option( "preference_icon" );

@@ -189,3 +189,30 @@ if ( is_user_logged_in() ) {
 }
 // Default status
 wp_die( '0' );
+
+function my_search() {
+    $term = strtolower( $_GET['term'] );
+    $suggestions = array();
+
+    $loop = new WP_Query( 's=' . $term );
+
+    while( $loop->have_posts() ) {
+        $loop->the_post();
+        $suggestion = array();
+        $suggestion['label'] = get_the_title();
+        $suggestion['link'] = get_permalink();
+
+        $suggestions[] = $suggestion;
+    }
+
+    wp_reset_query();
+
+
+    $response = json_encode( $suggestions );
+    echo $response;
+    exit();
+
+}
+
+add_action( 'wp_ajax_my_search', 'my_search' );
+add_action( 'wp_ajax_nopriv_my_search', 'my_search' );
