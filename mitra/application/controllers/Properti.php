@@ -7,6 +7,7 @@ class Properti extends CI_Controller {
     {
 		parent::__construct();
 
+		$this->load->model('model_properti');
 		$this->load->helper('url');
 		$this->load->database();
     }
@@ -27,6 +28,8 @@ class Properti extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->model('model_properti');
+		$data['data'] = $this->model_properti->data_semua_properti();
 		$data['folder'] = "Properti";
 		$data['side'] = "Semua";
 		$this->load->view('index',$data);

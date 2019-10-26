@@ -34,6 +34,7 @@ session_start();
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+  <link rel="shortcut icon" href="<?php echo base_url('../wp-content/uploads/2019/09/favicon-vividi-3.png'); ?>" type="image/x-icon" />
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -51,7 +52,7 @@ session_start();
   		$this->load->view($side);
   	}
   	else{
-  		$this->load->view($folder.'/view_'.$side);
+  		$this->load->view($folder.'/view_'.$side,$data);
   		// $this->load->view('Properti/view_semua');
   	}
   	?>
@@ -109,11 +110,11 @@ session_start();
     $('#example1').DataTable()
     $('#example2').DataTable({
       'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'order': [[ 5, 'desc' ]],
       'info'        : true,
-      'autoWidth'   : false
+      'autoWidth'   : true
     })
   })
 </script>
