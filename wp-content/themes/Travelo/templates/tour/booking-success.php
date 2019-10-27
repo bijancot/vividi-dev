@@ -74,7 +74,7 @@ $tour_meta = get_post_meta( $tour_id );
             <?php endif; ?>
             
             <dl class="term-description" style="font-size: 16px;" >
-                <dt style="text-transform: none;"><?php echo __( 'Total Harga', 'trav' ) ?></dt><dd><b style="color: #E35403;"><?php echo esc_html( trav_get_price_field( $booking_data['total_price'] * $booking_data['exchange_rate'], $booking_data['currency_code'], 0 ) ) ?></b></dd>
+                <dt style="text-transform: none;"><?php echo __( 'Total Harga', 'trav' ) ?></dt><dd><b style="color: #09477E;"><?php echo esc_html( trav_get_price_field( $booking_data['total_price'] * $booking_data['exchange_rate'], $booking_data['currency_code'], 0 ) ) ?></b></dd>
             </dl>
 
             <hr />

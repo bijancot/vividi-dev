@@ -57,7 +57,7 @@ $tax = get_post_meta( $car_id, 'trav_car_tax', true );
 				?>
 			</dl>
 			<hr />
-			<dl class="term-description" style="color: #E35403">
+			<dl class="term-description" style="color: #09477E">
 				<dt><?php echo __( 'Harga', 'trav' ) ?>:</dt><dd><?php echo esc_html( trav_get_price_field( $booking_data['price'] * $booking_data['exchange_rate'], $booking_data['currency_code'], 0 ) ) ?></dd>
 				<?php if ( ! empty( $tax ) ) : ?>
 					<dt><?php _e('Pajak', 'trav' ); ?>:</dt><dd><?php echo esc_html( trav_get_price_field( $booking_data['tax'] * $booking_data['exchange_rate'], $booking_data['currency_code'], 0 ) ) ?></dd>

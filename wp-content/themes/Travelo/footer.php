@@ -11,7 +11,7 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-md-4 text-center">
-                        <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo('name'); ?>" style="height: 70px"/>
+                        <img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php bloginfo('name'); ?>" style="height: 40px"/>
                         <br><h2>0812-1111-8486</h2>
                         <a href="tel:+6281211118486">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/24.png" alt="<?php bloginfo('name'); ?>" style="height: 36px; margin-right:15px"/>

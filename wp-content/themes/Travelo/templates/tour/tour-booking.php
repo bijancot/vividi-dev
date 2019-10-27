@@ -112,7 +112,7 @@ $action = 'tour_submit_booking';
                     <dt class="feature"><?php _e( 'Security Deposit', 'trav' ); ?>:</dt><dd class="value"><?php echo esc_html( trav_get_price_field( $booking_data['deposit_price'], $booking_data['currency_code'], 0 ) ) ?></dd>
                 <?php endif; ?>
 
-                <dt class="total-price"><?php _e( 'Total Harga', 'trav'); ?></dt><dd class="total-price-value" style="color: #E35403"><?php echo esc_html( trav_get_price_field( $booking_data['total_price'] ) ) ?></dd>
+                <dt class="total-price"><?php _e( 'Total Harga', 'trav'); ?></dt><dd class="total-price-value" style="color: #09477E"><?php echo esc_html( trav_get_price_field( $booking_data['total_price'] ) ) ?></dd>
             </dl>
 
             <?php do_action( 'trav_tour_booking_sidebar_after', $booking_data ); ?>

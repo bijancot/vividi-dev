@@ -43,7 +43,7 @@ foreach( $tour_list as $tour ) {
             </figure>
 
             <div class="details">
-                <span class="price" style="color: #E35403"><?php echo esc_html( trav_get_price_field( $min_price ) ); ?></span>
+                <span class="price" style="color: #09477E"><?php echo esc_html( trav_get_price_field( $min_price ) ); ?></span>
                 <h4 class="box-title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( get_the_title( $tour_id ) );?></a></h4>
                 <hr>
 
@@ -72,7 +72,7 @@ foreach( $tour_list as $tour ) {
 
                 <figcaption>
                     <?php if ( ! empty( $min_price ) && is_numeric( $min_price ) ) { ?>
-                        <span class="price" style="color: #E35403"><?php echo esc_html( trav_get_price_field( $min_price ) ); ?></span>
+                        <span class="price" style="color: #09477E"><?php echo esc_html( trav_get_price_field( $min_price ) ); ?></span>
                     <?php } ?>
 
                     <h2 class="caption-title"><?php echo esc_html( get_the_title( $tour_id ) ) ?></h2>
@@ -95,7 +95,7 @@ foreach( $tour_list as $tour ) {
                         <h4 class="box-title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( get_the_title( $tour_id ) );?></a><small><i class="soap-icon-clock blue-color"></i> <?php echo esc_html( $duration ) ?></small></h4>
                     </div>
                     <div>
-                        <span class="price" style="color: #E35403"><small><?php _e( 'per orang', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $min_price ) ); ?></span>
+                        <span class="price" style="color: #09477E"><small><?php _e( 'per orang', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $min_price ) ); ?></span>
                     </div>
                 </div>
                 <div>

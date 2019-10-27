@@ -63,7 +63,7 @@ if ( ! function_exists( 'trav_acc_get_room_detail_html' ) ) {
 						</div>
 					</div>
 					<div class="price-section">
-						<span class="price" style="color: #E35403">
+						<span class="price" style="color: #09477E">
 							<?php if ( $type == 'available' ) { ?>
 								<small>
 									<?php if ( ( $number_of_days == 0 ) && ( $rooms == 0 ) ) { 
@@ -188,7 +188,7 @@ if ( ! function_exists( 'trav_acc_get_acc_list_sigle' ) ) {
 				<div class="details">
 					<?php if ( $list_style == "style1" ) {
 						if ( ! empty( $avg_price ) && is_numeric( $avg_price ) ) { ?>
-							<span class="price" style="color: #E35403"><small><?php _e( 'Per Malam', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $avg_price ) ); ?></span>
+							<span class="price" style="color: #09477E"><small><?php _e( 'Per Malam', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $avg_price ) ); ?></span>
 						<?php } ?>
 						<h4 class="box-title">
 							<a href="<?php echo esc_url( get_permalink( $acc_id ) ); ?>"><?php echo esc_html( get_the_title( $acc_id ) ); ?></a>

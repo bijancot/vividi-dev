@@ -94,7 +94,7 @@ if ( ! function_exists( 'trav_tour_get_single_schedule_html' ) ) {
 							<?php endif; ?>
 						</div>
 						<div class="price-details col-md-3 col-sm-4">
-							<h3 class="price" style="color: #E35403">
+							<h3 class="price" style="color: #09477E">
 								<div class="adult-price"><?php echo trav_get_price_field( $default_data['price'] ) ?></div>
 								<?php if ( ! empty( $multi_book ) ) : ?>
 									<small><?php _e( 'Per Orang', 'trav') ?></small>

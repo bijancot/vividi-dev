@@ -72,7 +72,7 @@ foreach( $acc_list as $acc_id ) {
                 <?php } ?>
             </figure>
             <div class="details">
-                <span class="price" style="color: #E35403">
+                <span class="price" style="color: #09477E">
                     <small><?php _e( 'Per Malam', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $avg_price ) ); ?>
                 </span>
                 <h4 class="box-title"><a href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( get_the_title( $acc_id ) );?></a><?php echo trav_acc_get_star_rating( $acc_id ); ?><small><?php echo esc_html( trav_acc_get_city( $acc_id ) . ' ' . trav_acc_get_country( $acc_id ) ); ?></small></h4>
@@ -147,7 +147,7 @@ foreach( $acc_list as $acc_id ) {
                 <div>
                     <p><?php echo wp_kses_post( $brief ); ?></p>
                     <div>
-                        <span class="price" style="color: #E35403"><small><?php _e( 'Per Malam', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $avg_price ) ); ?></span>
+                        <span class="price" style="color: #09477E"><small><?php _e( 'Per Malam', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $avg_price ) ); ?></span>
                         <a title="<?php _e( 'Lihat Rincian', 'trav' ); ?>" class="button btn-small full-width text-center" href="<?php echo esc_url( $url ); ?>"><?php _e( 'PILIH', 'trav' ); ?></a>
                     </div>
                 </div>
