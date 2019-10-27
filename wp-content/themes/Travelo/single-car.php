@@ -337,7 +337,7 @@ if ( have_posts() ) {
                                 <?php if ( isset( $car_meta['trav_car_price'] ) && is_numeric( $car_meta['trav_car_price'][0] ) ) { ?>
 	                                <span class="price clearfix">
 	                                    <small class="pull-left"><?php _e('Per Hari', 'trav'); ?></small>
-	                                    <span class="pull-right"><?php echo esc_html( trav_get_price_field( $car_meta['trav_car_price'][0] ) ); ?></span>
+	                                    <span class="pull-right" style="color: #E35403"><?php echo esc_html( trav_get_price_field( $car_meta['trav_car_price'][0] ) ); ?></span>
 	                                </span>
                                 <?php } ?>
                                 <?php if ( isset( $car_meta['trav_car_mileage'] ) && is_numeric( $car_meta['trav_car_mileage'][0] ) ) { ?>

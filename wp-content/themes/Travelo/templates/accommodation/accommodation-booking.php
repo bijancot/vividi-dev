@@ -110,7 +110,7 @@ $action = 'acc_submit_booking';
                     <dt class="feature"><?php _e( 'DEPOSIT', 'trav' ); ?>:</dt><dd class="value"><?php echo esc_html( trav_get_price_field( $booking_data['deposit_price'], $booking_data['currency_code'], 0 ) ) ?></dd>
                 <?php endif; ?>
 
-                <dt class="total-price"><?php _e( 'TOTAL HARGA', 'trav'); ?></dt><dd class="total-price-value"><?php echo esc_html( trav_get_price_field( $booking_data['total_price'] ) ) ?></dd>
+                <dt class="total-price"><?php _e( 'TOTAL HARGA', 'trav'); ?></dt><dd class="total-price-value" style="color: #E35403"><?php echo esc_html( trav_get_price_field( $booking_data['total_price'] ) ) ?></dd>
             </dl>
 
             <a href="#" class="show-price-detail" data-show-desc="<?php _e( 'LIHAT RINCIAN', 'trav' ) ?>" data-hide-desc="<?php _e( 'TUTUP RINCIAN', 'trav' ) ?>"><?php _e( 'LIHAT RINCIAN', 'trav' ) ?></a><br />

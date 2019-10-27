@@ -38,7 +38,7 @@ if ( ! function_exists( 'trav_car_get_car_list_sigle' ) ) {
 					<?php if ( $list_style == "style1" ) { ?>
 
 							<?php if ( ! empty( $price ) && is_numeric( $price ) ) { ?>
-								<span class="price"><small><?php _e( 'Per Hari', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $price ) ); ?></span>
+								<span class="price" style="color: #E35403"><small><?php _e( 'Per Hari', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $price ) ); ?></span>
 							<?php } ?>
 <!--                            <h4 class="box-title">--><?php //echo esc_html( $car_type ) ?><!--<small>--><?php //echo esc_html( get_the_title( $car_id ) ); ?><!--</small></h4>-->
                         <h4 class="box-title"><?php echo esc_html( get_the_title( $car_id ) ); ?><small><?php echo esc_html( $car_type ) ?></small></h4>
@@ -145,7 +145,7 @@ if ( ! function_exists( 'trav_car_get_car_list_sigle' ) ) {
                         </dl>
                     </div>
                     <div class="action col-xs-6 col-sm-2">
-                        <span class="price"><small><?php _e( 'pPer Hari', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $price ) ); ?></span>
+                        <span class="price"><small><?php _e( 'Per Hari', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $price ) ); ?></span>
                         <a class="button btn-small full-width" href="<?php echo esc_url( get_permalink( $car_id ) ); ?>"><?php _e( 'Sewa', 'trav' ); ?></a>
                     </div>
                 </div>

@@ -95,9 +95,9 @@ $action = 'car_submit_booking';
             	if ( isset( $mileage ) ) { ?>
                     <dt class="feature"><?php _e( 'TUJUAN:', 'trav'); ?></dt><dd class="value"><?php echo esc_html( $mileage ); ?> <?php _e( 'TERLAMPIR', 'trav'); ?></dd>
                 <?php } ?>
-                <dt class="feature"><?php _e( 'Harga Per Hari:', 'trav'); ?></dt><dd class="value"><?php echo esc_html( trav_get_price_field( $car_price_data['price_per_day'] ) ); ?></dd>
+                <dt class="feature"><?php _e( 'Harga Per Hari:', 'trav'); ?></dt><dd class="value" style="color: #E35403"><?php echo esc_html( trav_get_price_field( $car_price_data['price_per_day'] ) ); ?></dd>
                 <dt class="feature"><?php _e( 'PAJAK:', 'trav'); ?></dt><dd class="value"><?php echo esc_html( trav_get_price_field( $trav_booking_page_data['tax'] ) ); ?></dd>
-                <dt class="total-price"><?php _e( 'Total Harga', 'trav'); ?></dt><dd class="total-price-value"><?php echo esc_html( trav_get_price_field( $booking_data['total_price'] ) ); ?></dd>
+                <dt class="total-price"><?php _e( 'Total Harga', 'trav'); ?></dt><dd class="total-price-value" style="color: #E35403"><?php echo esc_html( trav_get_price_field( $booking_data['total_price'] ) ); ?></dd>
             </dl>
             <?php do_action( 'trav_car_booking_sidebar_after', $booking_data ); ?>
         </div>

@@ -72,7 +72,7 @@ foreach( $car_list as $car_id ) {
             </figure>
             <div class="details">
 				<?php if ( ! empty( $price ) && is_numeric( $price ) ) { ?>
-					<span class="price"><small><?php _e( 'per day', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $price ) ); ?></span>
+					<span class="price" style="color: #E35403"><small><?php _e( 'per day', 'trav' ) ?></small><?php echo esc_html( trav_get_price_field( $price ) ); ?></span>
 				<?php } ?>
 <!--                <h4 class="box-title">--><?php //echo esc_html( $car_type ) ?><!--<small>--><?php //echo esc_html( get_the_title( $car_id ) ); ?><!--</small></h4>-->
                 <h4 class="box-title"><?php echo esc_html( get_the_title( $car_id ) ); ?><small><?php echo esc_html( $car_type ) ?></small></h4>

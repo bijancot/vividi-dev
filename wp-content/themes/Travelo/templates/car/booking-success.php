@@ -57,7 +57,7 @@ $tax = get_post_meta( $car_id, 'trav_car_tax', true );
 				?>
 			</dl>
 			<hr />
-			<dl class="term-description">
+			<dl class="term-description" style="color: #E35403">
 				<dt><?php echo __( 'Harga', 'trav' ) ?>:</dt><dd><?php echo esc_html( trav_get_price_field( $booking_data['price'] * $booking_data['exchange_rate'], $booking_data['currency_code'], 0 ) ) ?></dd>
 				<?php if ( ! empty( $tax ) ) : ?>
 					<dt><?php _e('Pajak', 'trav' ); ?>:</dt><dd><?php echo esc_html( trav_get_price_field( $booking_data['tax'] * $booking_data['exchange_rate'], $booking_data['currency_code'], 0 ) ) ?></dd>
@@ -67,7 +67,7 @@ $tax = get_post_meta( $car_id, 'trav_car_tax', true );
 				<?php endif; ?>
 			</dl>
 			<dl class="term-description" style="font-size: 16px;" >
-				<dt style="text-transform: none;"><?php echo __( 'Total Harga', 'trav' ) ?></dt><dd><b style="color: #2d3e52;"><?php echo esc_html( trav_get_price_field( $booking_data['total_price'] * $booking_data['exchange_rate'], $booking_data['currency_code'], 0 ) ) ?></b></dd>
+				<dt style="text-transform: none;"><?php echo __( 'Total Harga', 'trav' ) ?></dt><dd><b style="color: #E35403;"><?php echo esc_html( trav_get_price_field( $booking_data['total_price'] * $booking_data['exchange_rate'], $booking_data['currency_code'], 0 ) ) ?></b></dd>
 			</dl>
 			<hr />
 
