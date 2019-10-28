@@ -50,8 +50,9 @@ session_start();
   	<?php 
   	if($folder == "Dashboard"){
   		$this->load->view($side);
-  	}
-  	else{
+  	} else if($folder == "Login"){
+        $this->load->view($side);
+    } else {
   		$this->load->view($folder.'/view_'.$side,$data);
   		// $this->load->view('Properti/view_semua');
   	}
