@@ -54,7 +54,8 @@ foreach( $car_list as $car_id ) {
             </figure>
             <div class="details">
                 <a title="<?php _e( 'View Detail', 'trav' ); ?>" href="<?php echo esc_url( $url ); ?>" class="pull-right button btn-mini uppercase"><?php _e( 'SELECT', 'trav' ); ?></a>
-                <h4 class="box-title"><?php echo esc_html( $car_type ) ?></h4>
+<!--                <h4 class="box-title">--><?php //echo esc_html( $car_type ) ?><!--</h4>-->
+                <h4 class="box-title"><?php echo esc_html( get_the_title( $car_id ) ); ?><small><?php echo esc_html( $car_type ) ?></small></h4>
                 <label class="price-wrapper">
                     <span class="price-per-unit"><?php echo esc_html( trav_get_price_field( $price ) ); ?></span><?php _e( 'per day', 'trav' ) ?>
                 </label>
@@ -126,7 +127,8 @@ foreach( $car_list as $car_id ) {
 			<div class="details col-xs-9 clearfix">
                 <div class="col-sm-8">
                     <div class="clearfix">
-                        <h4 class="box-title"><?php echo esc_html( $car_type ) ?><small><?php echo esc_html( get_the_title( $car_id ) ); ?></small></h4>
+<!--                        <h4 class="box-title">--><?php //echo esc_html( $car_type ) ?><!--<small>--><?php //echo esc_html( get_the_title( $car_id ) ); ?><!--</small></h4>-->
+                        <h4 class="box-title"><?php echo esc_html( get_the_title( $car_id ) ); ?><small><?php echo esc_html( $car_type ) ?></small></h4>
                         <div class="logo">
                             <?php if ( isset( $car_logo ) ) { ?>
 								<img width="70" height="20" src="<?php echo esc_url( wp_get_attachment_url( $car_logo ) );?>" alt="Car Logo">
