@@ -48,7 +48,7 @@ class Login extends CI_Controller
                 if ($role[1] == "administrator") {
 
                 } else if ($role[1] == "trav_busowner") {
-                    redirect("home");
+                    redirect(base_url('home'));
                 } else {
 
                 }

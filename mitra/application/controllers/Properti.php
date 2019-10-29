@@ -32,4 +32,12 @@ class Properti extends CI_Controller {
 		$data['side'] = "Semua";
 		$this->load->view('index',$data);
 	}
+
+    public function atur_harga()
+    {
+        $data['data'] = $this->model_properti->data_semua_properti();
+        $data['folder'] = "Properti";
+        $data['side'] = "harga";
+        $this->load->view('index',$data);
+    }
 }
