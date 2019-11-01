@@ -29,47 +29,27 @@ class Properti extends CI_Controller {
 		$this->load->model('model_properti');
 		$data['data'] = $this->model_properti->data_semua_properti();
 		$data['folder'] = "Properti";
-		$data['side'] = "semua";
+		$data['side'] = "Semua";
 		$this->load->view('index',$data);
 	}
+
+    public function harga_modal()
+    {
+        $data['data'] = $this->input->post('jenis_kamar');
+        $data['folder'] = "Properti";
+        $data['side'] = "modal";
+        $this->load->view('index',$data);
+    }
 
     public function atur_harga()
     {
         $data['data'] = $this->model_properti->data_semua_properti();
+        $data['weekday'] = $this->input->post('weekday');
+        $data['weekend'] = $this->input->post('weekend');
+        $data['hseasion'] = $this->input->post('hseasion');
+        $data['psseason'] = $this->input->post('psseason');
         $data['folder'] = "Properti";
         $data['side'] = "harga";
-        $this->load->view('index',$data);
-    }
-
-    public function tipe_properti()
-    {
-    	$data['data'] = $this->model_properti->data_tipe_properti();
-        $data['folder'] = "Properti";
-        $data['side'] = "tipe_properti";
-        $this->load->view('index',$data);
-    }
-
-    public function fasilitas()
-    {
-    	$data['data'] = $this->model_properti->data_fasilitas();
-        $data['folder'] = "Properti";
-        $data['side'] = "fasilitas";
-        $this->load->view('index',$data);
-    }
-
-    public function tipe_kamar()
-    {
-    	$data['data'] = $this->model_properti->data_tipe_kamar();
-        $data['folder'] = "Properti";
-        $data['side'] = "tipe_kamar";
-        $this->load->view('index',$data);
-    }
-
-    public function pesan()
-    {
-    	$data['data'] = $this->model_properti->data_pesan();
-        $data['folder'] = "Properti";
-        $data['side'] = "pesan";
         $this->load->view('index',$data);
     }
 }

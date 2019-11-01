@@ -18,7 +18,7 @@
 </head>
 <body>
 <!-- Modal login -->
-<div id="mylogin" class="modal fade" role="dialog">
+<div id="mylogin" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
