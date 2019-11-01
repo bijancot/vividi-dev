@@ -43,17 +43,23 @@
             </span>
           </a>
           <ul class="treeview-menu">
-        <?php if($side == 'Semua'){?>
-          <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Semua Properti</a></li>
-        <?php } else { ?>
-          <li><a href="<?= base_url('Properti'); ?>"><i class="fa fa-circle-o"></i> Semua Properti</a></li>
-        <?php } ?>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Tipe Properti</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Lokasi</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Fasilitas</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Tipe Kamar</a></li>
-            <li><a href="<?= base_url('Properti/harga_modal'); ?>"><i class="fa fa-circle-o"></i> Atur Harga</a></li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Pesanan Tamu</a></li>
+              <?php if($side == 'semua'){?><li class="active"><a href="#"><?php } else { ?><li><a href="<?= base_url('Properti'); ?>"><?php } ?>
+                      <i class="fa fa-circle-o"></i> Semua Properti</a></li>
+
+              <?php if($side == 'tipe_properti'){?><li class="active"><a href="#"><?php } else { ?><li><a href="<?= base_url('Properti/tipe_properti'); ?>"><?php } ?>
+                      <i class="fa fa-circle-o"></i> Tipe Properti</a></li>
+
+              <?php if($side == 'fasilitas'){?><li class="active"><a href="#"><?php } else { ?><li><a href="<?= base_url('Properti/fasilitas'); ?>"><?php } ?>
+                      <i class="fa fa-circle-o"></i> Fasilitas</a></li>
+
+              <?php if($side == 'tipe_kamar'){?><li class="active"><a href="#"><?php } else { ?><li><a href="<?= base_url('Properti/tipe_kamar'); ?>"><?php } ?>
+                      <i class="fa fa-circle-o"></i> Tipe Kamar</a></li>
+
+              <?php if($side == 'modal'){?><li class="active"><a href="#"><?php } else { ?><li><a href="<?= base_url('Properti/harga_modal'); ?>"><?php } ?>
+                      <i class="fa fa-circle-o"></i> Atur Harga</a></li>
+
+              <?php if($side == 'pesan'){?><li class="active"><a href="#"><?php } else { ?><li><a href="<?= base_url('Properti/pesan'); ?>"><?php } ?>
+                      <i class="fa fa-circle-o"></i> Pesanan Tamu</a></li>
           </ul>
         </li>
         <li class="treeview">

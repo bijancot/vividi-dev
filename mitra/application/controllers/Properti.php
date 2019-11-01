@@ -52,4 +52,35 @@ class Properti extends CI_Controller {
         $data['side'] = "harga";
         $this->load->view('index',$data);
     }
+    public function tipe_properti()
+    {
+        $data['data'] = $this->model_properti->data_tipe_properti();
+        $data['folder'] = "Properti";
+        $data['side'] = "tipe_properti";
+        $this->load->view('index',$data);
+    }
+
+    public function fasilitas()
+    {
+        $data['data'] = $this->model_properti->data_fasilitas();
+        $data['folder'] = "Properti";
+        $data['side'] = "fasilitas";
+        $this->load->view('index',$data);
+    }
+
+    public function tipe_kamar()
+    {
+        $data['data'] = $this->model_properti->data_tipe_kamar();
+        $data['folder'] = "Properti";
+        $data['side'] = "tipe_kamar";
+        $this->load->view('index',$data);
+    }
+
+    public function pesan()
+    {
+        $data['data'] = $this->model_properti->data_pesan();
+        $data['folder'] = "Properti";
+        $data['side'] = "pesan";
+        $this->load->view('index',$data);
+    }
 }
