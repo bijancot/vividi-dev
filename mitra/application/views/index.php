@@ -1,7 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-session_start();
 ?><!DOCTYPE html>
+<?php 
+  if(!isset($_SESSION['username'])){
+    redirect(base_url());
+  }
+?>
 <html lang="en">
 <head>
     <meta charset="utf-8">

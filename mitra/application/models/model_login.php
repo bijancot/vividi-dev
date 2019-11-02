@@ -11,7 +11,7 @@ class model_login extends CI_Model
 
     function proses_login($user, $pass)
     {
-        $this->db->select('wpwj_users.user_login, wpwj_users.user_pass, wpwj_usermeta.meta_value');
+        $this->db->select('wpwj_users.user_login, wpwj_users.user_pass, wpwj_usermeta.meta_value, wpwj_users.display_name');
         $this->db->from('wpwj_users');
         $this->db->join('wpwj_usermeta', 'wpwj_users.ID = wpwj_usermeta.user_id');
         $this->db->where('wpwj_users.user_login', $user);

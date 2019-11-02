@@ -28,7 +28,8 @@ class Login extends CI_Controller
                 $pelogin = $this->model_login->proses_login($user, $pass);
                 $level = $pelogin->meta_value;
                 $role = explode('"',$level);
-                $data = array('role' => $role[1], 'username' => $user);
+                $nama = $pelogin->display_name;
+                $data = array('role' => $role[1], 'username' => $user , 'nama' => $nama);
                 $this->session->set_userdata($data);
                 if ($role[1] == "administrator") {
 
@@ -42,5 +43,9 @@ class Login extends CI_Controller
             }
         }
 
+    }
+    function logout(){
+        $this->session->sess_destroy();
+        redirect(base_url());
     }
 }

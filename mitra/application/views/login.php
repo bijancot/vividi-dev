@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php 
+    if(isset($_SESSION['username'])){ 
+        redirect(base_url('home'));
+    }
+?>
 <html>
 <head>
     <title>Login Mitra</title>
