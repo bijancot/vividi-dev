@@ -315,7 +315,7 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
         }
 
         // init variables
-        $post_fields = array( 'first_name', 'last_name', 'email', 'country_code', 'phone', 'no_ktp', 'no_passport', 'address', 'city', 'zip', 'country', 'special_requirements');
+        $post_fields = array( 'first_name', 'last_name', 'email', 'country_code', 'phone','bank', 'no_ktp', 'no_passport', 'address', 'city', 'zip', 'country', 'special_requirements');
         $customer_info = array();
         foreach ( $post_fields as $post_field ) {
             if ( ! empty( $_POST[ $post_field ] ) ) {
@@ -332,11 +332,12 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
         if ( is_user_logged_in() ) {
             $data['user_id'] = get_current_user_id();
         }
+        date_default_timezone_get('Asia/Jakarta');
 
         $latest_booking_id = $wpdb->get_var( 'SELECT id FROM ' . TRAV_ACCOMMODATION_BOOKINGS_TABLE . ' ORDER BY id DESC LIMIT 1' );
 //        $booking_no = mt_rand( 1000, 9999 );
         $random = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $booking_no = 'VVDH'. substr(str_shuffle($random), 0, 6);
+        $booking_no = substr(str_shuffle($random), 0, 6);
         $pin_code = mt_rand( 1000, 9999 );
 
         if ( ! isset( $_SESSION['exchange_rate'] ) ) trav_init_currency();
@@ -347,6 +348,7 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
             'email'                 => '',
             'country_code'          => '',
             'phone'                 => '',
+            'bank'                  => '',
             'no_ktp'                => '',
             'no_passport'           => '',
             'address'               => '',
@@ -371,7 +373,8 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
             'deposit_paid'          => ( $is_payment_enabled ? 0 : 1 ),
             'date_from'             => '',
             'date_to'               => '',
-            'created'               => date( 'Y-m-d H:i:s' ),
+            'created'               => date( 'Y-m-d H:i:s', time()+25200 ),
+            'valid_until'           => date( 'Y-m-d H:i:s', time()+28800 ),
             'booking_no'            => $booking_no,
             'pin_code'              => $pin_code,
             'status'                => 1,

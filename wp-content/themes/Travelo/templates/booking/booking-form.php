@@ -8,8 +8,8 @@ do_action( 'trav_booking_form_before' );
 ?>
 
 <div class="person-information">
-	<h2 style="margin-left: 15px "><?php _e( '1. INFO DATA PEMESAN', 'trav'); ?></h2>
-    <div style="margin: 0" class="col-sm-6 col-md-10">
+	<h2 style="margin-left: 15px"><?php _e( '1. INFO DATA PEMESAN', 'trav'); ?></h2>
+    <div style="margin: 0" class="col-sm-6 col-md-12">
 	<div class="form-group row">
         <div class="col-sm-6 col-md-2">
             <label><?php _e('Title', 'trav') ?></label>
@@ -48,10 +48,10 @@ do_action( 'trav_booking_form_before' );
 <!--            -->
 <!--        </div>-->
     </div>
-</div>
+<!--</div>-->
 
-<div class="person-information">
-    <div class="col-sm-6 col-md-10" style="margin-top:20px">
+<!--<div class="person-information">-->
+    <div class="col-sm-6 col-md-12" style="margin-top:20px">
         <h2><?php _e( '2. DETAIL TAMU', 'trav'); ?></h2>
         <div class="form-group row">
             <div class="col-sm-6 col-md-2">
@@ -72,14 +72,42 @@ do_action( 'trav_booking_form_before' );
             </div>
         </div>
     </div>
-</div>
-
-<div class="payment_methods">
-    <div class="col-sm-6 col-md-6">
-        <h2><?php _e('3. DETAIL PEMBAYARAN', 'trav'); ?></h2>
+    <div class="col-sm-6 col-md-12" style="margin-top:20px">
+        <h2><?php _e( '3. DETAIL PEMBAYARAN', 'trav'); ?></h2>
+        <div class="form-group row">
+            <div class="col-sm-6 col-md-12">
+                <div style="text-align: left;display: inline-block"><label><?php _e('PILIH REKENING TUJUAN', 'trav'); ?></label></div>
+            </div>
+            <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
+                <input type="radio" name="bank" value="bca">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/payment/bca.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
+                <span class="pull-right" style="margin-top: 20px">8161.38.2019</span>
+            </div>
+            <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
+                <input type="radio" name="bank" value="bri">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/payment/bri.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
+                <span class="pull-right" style="margin-top: 20px">0051.01.003100.309</span>
+            </div>
+            <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
+                <input type="radio" name="bank" value="mandiri">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/payment/mandiri.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
+                <span class="pull-right" style="margin-top: 20px">144.00.2019.0804</span>
+            </div>
+            </div>
     </div>
-
 </div>
+<!--</div>-->
+
+<!--<div class="person-information">-->
+<!--    <div class="col-sm-6 col-md-6" style="margin-top: 20px">-->
+<!--        <h2>--><?php //_e('3. DETAIL PEMBAYARAN', 'trav'); ?><!--</h2>-->
+<!--        <div class="form-group row">-->
+<!--            <div class="col-sm-6 col-md-12">-->
+<!--            </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <!--	<div class="form-group row">-->
 <!--		<div class="col-sm-6 col-md-5">-->
 <!--			<label>--><?php //_e( 'KODE NEGARA', 'trav'); ?><!--</label>-->
