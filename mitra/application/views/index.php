@@ -62,7 +62,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Content Wrapper. Contains page content -->
     <?php
-    if ($folder == "Dashboard") {
+    if ($folder == "dashboard") {
         $this->load->view($side);
     } else {
         $this->load->view($folder . '/view_' . $side, $data);

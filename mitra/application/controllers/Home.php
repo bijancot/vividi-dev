@@ -11,7 +11,7 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['folder'] = "Dashboard";
+		$data['folder'] = "dashboard";
 		$data['side'] = "dashboard";
 		$this->load->view('index',$data);
 	}
