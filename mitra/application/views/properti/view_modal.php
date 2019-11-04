@@ -10,7 +10,15 @@
             <li class="active">Atur Harga</li>
         </ol>
     </section>
-
+    <div class="content">
+            <div class="box box-default">
+                <div class="box-body">
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal_harga">
+                        Atur Harga
+                    </button>
+                </div>
+            </div>
+    </div>
     <!-- Modal login -->
     <div id="modal_harga" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -25,13 +33,23 @@
                         <label for="exampleInputEmail1">Pilih properti</label>
                         <select class="form-control">
                             <option value="">-- Pilih --</option>
-                            <option value="">a</option>
-                            <option value="">b</option>
+                            <?php
+                            $no=1;
+                            foreach ($data as $row) { ?>
+                            <option value=""><?php echo $row->properti;?></option>
+                            <?php } ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Jenis Kamar</label>
-                        <input type="text" name="jenis_kamar" class="form-control" placeholder="Jenis Kamar" required>
+                        <select class="form-control">
+                            <option value="">-- Pilih --</option>
+                            <?php
+                            $no=1;
+                            foreach ($data as $row) { ?>
+                                <option value=""><?php echo $row->judul;?></option>
+                            <?php } ?>
+                        </select>
                     </div>
 <!--                    <div class="form-group">-->
 <!--                        <label for="exampleInputPassword1">Kontrak</label>-->

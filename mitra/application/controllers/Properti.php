@@ -27,7 +27,7 @@ class Properti extends CI_Controller {
 
     public function harga_modal()
     {
-        $data['data'] = $this->input->post('jenis_kamar');
+        $data['data'] = $this->model_properti->data_tipe_kamar();
         $data['folder'] = "properti";
         $data['side'] = "modal";
         $this->load->view('index',$data);
