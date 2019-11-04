@@ -929,10 +929,10 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
             $number1 = $date_from->format('U');
             $number2 = $date_to->format('U');
             $booking_nights = ($number2 - $number1)/(3600*24);
-            $booking_checkin_time = date( 'l, F, j, Y', trav_strtotime($booking_data['date_from']) );
-            $booking_checkout_time = date( 'l, F, j, Y', trav_strtotime($booking_data['date_to']) );
+            $booking_checkin_time = date( 'l, j F Y', trav_strtotime($booking_data['date_from']) );
+            $booking_checkout_time = date( 'l, j F Y', trav_strtotime($booking_data['date_to']) );
             $booking_rooms = $booking_data['rooms'];
-            $booking_valid_until = date( 'l, F, j, Y H:i:s', trav_strtotime($booking_data['valid_until']) );
+            $booking_valid_until = date( 'l, j F Y H:i:s', trav_strtotime($booking_data['valid_until']) );
             $booking_adults = $booking_data['adults'];
             $booking_kids = $booking_data['kids'];
             $booking_room_price = esc_html( trav_get_price_field( $booking_data['room_price'] * $booking_data['exchange_rate'], $booking_data['currency_code'], 0 ) );

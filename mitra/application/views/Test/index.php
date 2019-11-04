@@ -42,7 +42,7 @@
 	<div class="row">
 		<div class="col-sm-6 col-md-8" style="background-color: #F5F4F4">
 			<img src="[customer_bank]" style="display: inline;width:72px; height:48px; margin-left: 20px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>
-			<span style="font-family: arial; margin-top: 30px;float: right; font-size: 18px; margin-right: 10px">[customer_no_rekening]</span>
+			<span id="copyTarget" style="font-family: arial; margin-top: 20px;float: right; font-size: 18px; margin-right: 10px">[customer_no_rekening]</span>
 		</div>
 	</div>
 

@@ -331,9 +331,10 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
         $data = array_merge( $customer_info, $booking_data );
         $data['child_ages'] = serialize( $data['child_ages'] );
         $data['date_from'] = date( 'Y-m-d', trav_strtotime( $data['date_from'] ) );
-        $dateDari = date("d-m-Y",  strtotime($data['date_from']));
+        $dateDari = date("j F Y",  strtotime($data['date_from']));
         $data['date_to'] = date( 'Y-m-d', trav_strtotime( $data['date_to'] ) );
-        $dateKe = date("d-m-Y",  strtotime($data['date_to']));
+        $dateKe = date("j F Y",  strtotime($data['date_to']));
+
         if ( is_user_logged_in() ) {
             $data['user_id'] = get_current_user_id();
         }
