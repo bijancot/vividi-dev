@@ -932,7 +932,7 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
             $booking_checkin_time = date( 'l, F, j, Y', trav_strtotime($booking_data['date_from']) );
             $booking_checkout_time = date( 'l, F, j, Y', trav_strtotime($booking_data['date_to']) );
             $booking_rooms = $booking_data['rooms'];
-            $booking_valid_until = date( 'l, F, j, Y', trav_strtotime($booking_data['valid_until']) );
+            $booking_valid_until = date( 'l, F, j, Y H:i:s', trav_strtotime($booking_data['valid_until']) );
             $booking_adults = $booking_data['adults'];
             $booking_kids = $booking_data['kids'];
             $booking_room_price = esc_html( trav_get_price_field( $booking_data['room_price'] * $booking_data['exchange_rate'], $booking_data['currency_code'], 0 ) );
@@ -949,6 +949,8 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
             $customer_email = $booking_data['email'];
             $customer_country_code = $booking_data['country_code'];
             $customer_phone = $booking_data['phone'];
+            $customer_bank  = $booking_data['bank'];
+            $customer_no_rekening = $booking_data['no_rekening'];
             $customer_address = $booking_data['address'];
             $customer_city = $booking_data['city'];
             $customer_zip = $booking_data['zip'];
@@ -989,6 +991,8 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
                 'customer_email',
                 'customer_country_code',
                 'customer_phone',
+                'customer_bank',
+                'customer_no_rekening',
                 'customer_address',
                 'customer_city',
                 'customer_zip',
