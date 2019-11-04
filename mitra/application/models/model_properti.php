@@ -111,4 +111,26 @@ class model_properti extends CI_Model{
 			 order by pesan desc");
 		return $query->result();
 	}
+
+	function data_modal_properti($id){
+		$query = $this->db->query("select p.id, p.post_title as properti
+			from wpwj_posts p 
+			left join wpwj_users u on p.post_author = u.ID
+			where p.post_type = 'accommodation'
+			AND p.post_status = 'publish'
+			AND p.post_author = ".$id);
+		return $query->result();
+	}
+
+	function data_modal_kamar($id, $prop){
+		$query = $this->db->query("select ta.room_type_id as ID, p.post_title as kamar
+			from wpwj_posts p
+			left join wpwj_users u on p.post_author = u.ID
+			left join wpwj_trav_accommodation_vacancies ta on p.ID = ta.room_type_id
+			where p.post_type = 'room_type'
+			AND p.post_status = 'publish'
+			AND p.post_author = ".$id."
+			AND ta.accommodation_id = ".$prop);
+		return $query->result();
+	}
 }

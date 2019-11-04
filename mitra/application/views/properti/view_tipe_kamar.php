@@ -18,6 +18,9 @@
           <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
+                <button type="button" class="btn btn-default" style="margin-bottom: 10px" data-toggle="modal" data-target="#modal_kamar">
+                    Tambah Tipe Kamar
+                </button>
               <table id="example2" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -66,4 +69,50 @@
       <!-- Small boxes (Stat box) -->
     </section>
     <!-- /.content -->
+      <!-- Modal login -->
+      <div id="modal_kamar" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title">Pilih Properti</h4>
+                  </div>
+                  <?php echo form_open(''); ?>
+                  <div class="modal-body">
+                      <div class="form-group">
+                          <label for="exampleInputEmail1">Tambah Tipe Kamar</label>
+                          <select class="form-control">
+                              <option value="">-- Pilih --</option>
+                              <?php
+                              foreach ($prpti as $r) { ?>
+                                  <option value=""><?php echo $r->Judul;?></option>
+                              <?php } ?>
+                          </select>
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Jenis Kamar</label>
+                          <input type="text" name="judul" class="form-control" placeholder="Judul" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Max Remaja</label>
+                          <input type="text" name="remaja" class="form-control" placeholder="Remaja" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Max Anak</label>
+                          <input type="text" name="anak" class="form-control" placeholder="Anak" required>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <input type="submit" class="btn btn-success" value="Tambah" name="submit">
+                  </div>
+                  <?php echo form_close(); ?>
+              </div>
+          </div>
+      </div>
+      <!-- End Modal Login -->
   </div>
+  <script type="text/javascript">
+      $(window).on('load', function () {
+          $('#modal_harga').modal('show');
+      });
+  </script>

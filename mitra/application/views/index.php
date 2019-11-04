@@ -65,6 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     if ($folder == "dashboard") {
         $this->load->view($side);
     } else {
+//        include 'properti/view_tipe_kamar.php';
         $this->load->view($folder . '/view_' . $side, $data);
         // $this->load->view('Properti/view_semua');
     }
@@ -134,6 +135,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             'autoWidth': true
         })
     })
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#properti').change(function(){
+            var prop = $(this).val();
+            $.ajax({
+                url : "<?php echo site_url('Properti/modal_kamar')?>",
+                method : "POST",
+                data : {prop: prop},
+                async : false,
+                dataType : 'json',
+                success: function(data){
+                    var html = '';
+                    var i;
+                    for(i=0; i<data.length; i++){
+                        html += '<option value="'+data[i].ID+'">'+data[i].kamar+'</option>';
+                    }
+                    $('#jenis_kamar').html(html);
+               }
+             });
+        });
+    });
 </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/lightpick@latest/lightpick.js"></script>

@@ -16,21 +16,28 @@ class Properti extends CI_Controller {
 		$id = $_SESSION['ID'];
 		if($_SESSION['role'] == "administrator"){
 			$data['data'] = $this->model_properti->data_semua_properti();
-		}
-		else{
+		} else {
 			$data['data'] = $this->model_properti->data_properti($id);
 		}
 		$data['folder'] = "properti";
-		$data['side'] = "Semua";
+		$data['side'] = "semua";
 		$this->load->view('index',$data);
 	}
 
     public function harga_modal()
     {
-        $data['data'] = $this->model_properti->data_tipe_kamar();
+        $id = $_SESSION['ID'];
+        $data['data'] = $this->model_properti->data_modal_properti($id);
         $data['folder'] = "properti";
         $data['side'] = "modal";
         $this->load->view('index',$data);
+    }
+
+	public function modal_kamar(){
+        $id = $_SESSION['ID'];
+        $prop = $this->input->post('prop');
+        $data = $this->model_properti->data_modal_kamar($id, $prop);
+        echo json_encode($data);
     }
 
     public function atur_harga()
@@ -44,6 +51,7 @@ class Properti extends CI_Controller {
         $data['side'] = "harga";
         $this->load->view('index',$data);
     }
+
     public function tipe_properti()
     {
         $data['data'] = $this->model_properti->data_tipe_properti();
@@ -62,6 +70,12 @@ class Properti extends CI_Controller {
 
     public function tipe_kamar()
     {
+        $id = $_SESSION['ID'];
+        if($_SESSION['role'] == "administrator"){
+            $data['prpti'] = $this->model_properti->data_semua_properti();
+        } else {
+            $data['prpti'] = $this->model_properti->data_properti($id);
+        }
         $data['data'] = $this->model_properti->data_tipe_kamar();
         $data['folder'] = "properti";
         $data['side'] = "tipe_kamar";

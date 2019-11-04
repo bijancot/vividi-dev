@@ -31,24 +31,19 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Pilih properti</label>
-                        <select class="form-control">
+                        <select class="form-control" id="properti" name="properti">
                             <option value="">-- Pilih --</option>
                             <?php
                             $no=1;
                             foreach ($data as $row) { ?>
-                            <option value=""><?php echo $row->properti;?></option>
+                            <option value="<?= $row->id?>"><?php echo $row->properti;?></option>
                             <?php } ?>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Jenis Kamar</label>
-                        <select class="form-control">
+                        <select class="form-control" id="jenis_kamar" name="jenis_kamar">
                             <option value="">-- Pilih --</option>
-                            <?php
-                            $no=1;
-                            foreach ($data as $row) { ?>
-                                <option value=""><?php echo $row->judul;?></option>
-                            <?php } ?>
                         </select>
                     </div>
 <!--                    <div class="form-group">-->
