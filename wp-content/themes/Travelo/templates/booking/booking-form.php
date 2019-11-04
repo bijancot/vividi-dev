@@ -21,11 +21,11 @@ do_action( 'trav_booking_form_before' );
         </div>
 		<div class="col-sm-6 col-md-5">
 			<label><?php _e( 'NAMA DEPAN', 'trav'); ?></label>
-			<input type="text" name="first_name" class="form-control" value="<?php echo esc_attr( $user_info['first_name'] ) ?>" placeholder="" readonly/>
+			<input type="text" id="first_name" name="first_name" class="form-control" value="<?php echo esc_attr( $user_info['first_name'] ) ?>" placeholder="" readonly/>
 		</div>
 		<div class="col-sm-6 col-md-5">
 			<label><?php _e( 'NAMA BELAKANG', 'trav'); ?></label>
-			<input type="text" name="last_name" class="form-control" value="<?php echo esc_attr( $user_info['last_name'] ) ?>" placeholder="" readonly/>
+			<input type="text" id="last_name" name="last_name" class="form-control" value="<?php echo esc_attr( $user_info['last_name'] ) ?>" placeholder="" readonly/>
 		</div>
 	</div>
 	<div class="form-group row">
@@ -54,6 +54,15 @@ do_action( 'trav_booking_form_before' );
     <div class="col-sm-6 col-md-12" style="margin-top:20px">
         <h2><?php _e( '2. DETAIL TAMU', 'trav'); ?></h2>
         <div class="form-group row">
+            <div style="display: inline-block">
+                <span style="font-family: arial;color: red;margin-left: 10px;">*Pastikan pengisian nama tamu sama persis dengan identitas yang masih berlaku.</span>
+            </div>
+            <div style="display: inline-block; margin-right: 10px" class="pull-right">
+                <input type="checkbox" name="SomeName" id="SomeName" onclick="if( this.checked ) { fillTamu(); } else { clearTamu(); }" value="1" />
+                <span style="font-family: arial">Sama dengan pemesan</span>
+            </div>
+        </div>
+        <div class="form-group row">
             <div class="col-sm-6 col-md-2">
                 <label><?php _e('Title', 'trav') ?></label>
                 <select name="title" class="form-control">
@@ -64,13 +73,15 @@ do_action( 'trav_booking_form_before' );
             </div>
             <div class="col-sm-6 col-md-5">
                 <label><?php _e( 'NAMA DEPAN', 'trav'); ?></label>
-                <input type="text" name="first_name" class="form-control" value="" placeholder="Nama Depan" />
+                <input type="text" id="first_name_guest" name="first_name_guest" class="form-control" value="" placeholder="Nama Depan" />
             </div>
             <div class="col-sm-6 col-md-5">
                 <label><?php _e( 'NAMA BELAKANG', 'trav'); ?></label>
-                <input type="text" name="last_name" class="form-control" value="" placeholder="Nama Belakang"/>
-            </div>
+                <input type="text" id="last_name_guest" name="last_name_guest" class="form-control" value="" placeholder="Nama Belakang"/>
+<!--                <button type="button" class="add_field_button">Add Field</button>-->
+<!--            </div>-->
         </div>
+    </div>
     </div>
     <div class="col-sm-6 col-md-12" style="margin-top:20px">
         <h2><?php _e( '3. DETAIL PEMBAYARAN', 'trav'); ?></h2>
@@ -79,21 +90,21 @@ do_action( 'trav_booking_form_before' );
                 <div style="text-align: left;display: inline-block"><label><?php _e('PILIH REKENING TUJUAN', 'trav'); ?></label></div>
             </div>
             <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
-                <input type="radio" name="bank" value="bca">
+                <input type="radio" name="bank" value="8161382019 https://vividi.id/wp-content/themes/Travelo/images/payment/bca.png">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/payment/bca.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
-                <span class="pull-right" style="margin-top: 20px">8161.38.2019</span>
+                <span class="pull-right" style="margin-top: 20px">8161382019</span>
             </div>
             <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
-                <input type="radio" name="bank" value="bri">
+                <input type="radio" name="bank" value="005101003100309 https://vividi.id/wp-content/themes/Travelo/images/payment/bri.png">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/payment/bri.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
-                <span class="pull-right" style="margin-top: 20px">0051.01.003100.309</span>
+                <span class="pull-right" style="margin-top: 20px">005101003100309</span>
             </div>
             <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
-                <input type="radio" name="bank" value="mandiri">
+                <input type="radio" name="bank" value="1440020190804 https://vividi.id/wp-content/themes/Travelo/images/payment/mandiri.png">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/payment/mandiri.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
-                <span class="pull-right" style="margin-top: 20px">144.00.2019.0804</span>
+                <span class="pull-right" style="margin-top: 20px">1440020190804</span>
             </div>
-            </div>
+        </div>
     </div>
 </div>
 <!--</div>-->
@@ -147,13 +158,15 @@ do_action( 'trav_booking_form_before' );
 <!--		</div>-->
 <!--    </div>-->
 <!--	</div>-->
-<!--	<div class="form-group row">-->
-<!--		<div class="col-sm-12 col-md-10">-->
-<!--			<label>--><?php //_e( 'PESAN TAMBAHAN (susuai ketersediaan operator/hotel)', 'trav'); ?><!--</label>-->
-<!--			<textarea name="special_requirements" class="full-width" rows="4"></textarea>-->
-<!--		</div>-->
-<!--	</div>-->
-<hr />
+    <div class="col-sm-6 col-md-12" style="margin-top:20px">
+	<div class="form-group row">
+		<div class="col-sm-12 col-md-12">
+			<label><?php _e( 'PESAN TAMBAHAN (susuai ketersediaan operator/hotel)', 'trav'); ?></label>
+			<textarea name="special_requirements" class="form-control" rows="4"></textarea>
+		</div>
+	</div>
+    </div>
+<!--<hr />-->
 
 <?php do_action( 'trav_booking_form_after' ); ?>
 
@@ -165,3 +178,14 @@ do_action( 'trav_booking_form_before' );
 		</button>
 	</div>
 </div>
+
+<script>
+    function fillTamu() {
+        document.getElementById( 'first_name_guest' ).value = document.getElementById( 'first_name' ).value;
+        document.getElementById( 'last_name_guest' ).value = document.getElementById( 'last_name' ).value;
+    }
+    function clearTamu() {
+        document.getElementById( 'first_name_guest' ).value = "";
+        document.getElementById( 'last_name_guest' ).value = "";
+    }
+</script>

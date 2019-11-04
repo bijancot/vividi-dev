@@ -41,7 +41,7 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                 <?php
                 $booking_detail = array(
                     'booking_no'    => array( 'label' => __('Kode Booking', 'trav'), 'pre' => '', 'sur' => '' ),
-                    'pin_code'      => array( 'label' => __('PIN', 'trav'), 'pre' => '', 'sur' => '' ),
+//                    'pin_code'      => array( 'label' => __('PIN', 'trav'), 'pre' => '', 'sur' => '' ),
                     'email'         => array( 'label' => __('Alamat E-mail', 'trav'), 'pre' => '', 'sur' => '' ),
                     'no_ktp'        => array( 'label' => __('Nomor KTP', 'trav'), 'pre' => '', 'sur' => '' ),
                     'no_passport'   => array( 'label' => __('Nomor Passport', 'trav'), 'pre' => '', 'sur' => '' ),
@@ -55,7 +55,8 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                     if ( empty( $$field ) ) $$field = empty( $booking_data[ $field ] )?'':$booking_data[ $field ];
                     if ( ! empty( $$field ) ) {
                         $content = $value['pre'] . $$field . $value['sur'];
-                        echo sprintf( $dt_dd, esc_html( $value['label'] ), esc_html( $content ) );
+//                        echo sprintf( $dt_dd, esc_html( $value['label'] ), esc_html( $content ) );
+                        echo ($booking_data['booking_no']);
                     }
                 }
                 if ( ! empty( $booking_data[ 'kids' ] ) ) {
