@@ -29,7 +29,8 @@ class Login extends CI_Controller
                 $level = $pelogin->meta_value;
                 $role = explode('"',$level);
                 $nama = $pelogin->display_name;
-                $data = array('role' => $role[1], 'username' => $user , 'nama' => $nama);
+                $id = $pelogin->ID;
+                $data = array('role' => $role[1], 'username' => $user , 'nama' => $nama , 'ID' => $id);
                 $this->session->set_userdata($data);
                 if ($role[1] == "administrator") {
 

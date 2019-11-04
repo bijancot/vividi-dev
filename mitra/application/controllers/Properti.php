@@ -13,7 +13,13 @@ class Properti extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('model_properti');
-		$data['data'] = $this->model_properti->data_semua_properti();
+		$id = $_SESSION['ID'];
+		if($_SESSION['role'] == "administrator"){
+			$data['data'] = $this->model_properti->data_semua_properti();
+		}
+		else{
+			$data['data'] = $this->model_properti->data_properti($id);
+		}
 		$data['folder'] = "properti";
 		$data['side'] = "Semua";
 		$this->load->view('index',$data);
