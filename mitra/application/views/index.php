@@ -65,6 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     if ($folder == "dashboard") {
         $this->load->view($side);
     } else {
+//        include 'properti/view_tipe_kamar.php';
         $this->load->view($folder . '/view_' . $side, $data);
         // $this->load->view('Properti/view_semua');
     }
