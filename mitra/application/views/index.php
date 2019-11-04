@@ -136,6 +136,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         })
     })
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#properti').change(function(){
+            var prop = $(this).val();
+            $.ajax({
+                url : "<?php echo site_url('Properti/modal_kamar')?>",
+                method : "POST",
+                data : {prop: prop},
+                async : false,
+                dataType : 'json',
+                success: function(data){
+                    var html = '';
+                    var i;
+                    for(i=0; i<data.length; i++){
+                        html += '<option value="'+data[i].ID+'">'+data[i].kamar+'</option>';
+                    }
+                    $('#jenis_kamar').html(html);
+               }
+             });
+        });
+    });
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/lightpick@latest/lightpick.js"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
