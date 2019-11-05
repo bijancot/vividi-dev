@@ -58,6 +58,25 @@ $footer_skin = empty( $trav_options['footer_skin'] )?'style-def':$trav_options['
                                         <a href="https://vividi.id/terms-conditions/">Terms & Condition</a>
                                     </li>
                                 </ul>
+                                <ul id="menu-footer-menu" class="menu">
+                                    <li id="menu-item-4978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4978">
+                                        <a href="https://vividi.id/hubungi-kami/">Hubungi Kami</a>
+                                </ul>
+                                <ul id="menu-footer-menu" class="menu">
+                                    <li id="menu-item-4978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4978">
+                                        <a href="https://vividi.id/refund/">Refund</a>
+                                    </li>
+                                </ul>
+                                <ul id="menu-footer-menu" class="menu">
+                                    <li id="menu-item-4978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4978">
+                                        <a href="https://vividi.id/category/info-wisata/">Info Wisata</a>
+                                    </li>
+                                </ul>
+                                <ul id="menu-footer-menu" class="menu">
+                                    <li id="menu-item-4978" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4978">
+                                        <a href="https://vividi.id/location/indonesia/">Produk</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>

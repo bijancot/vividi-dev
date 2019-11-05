@@ -930,6 +930,50 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
             $number2 = $date_to->format('U');
             $booking_nights = ($number2 - $number1)/(3600*24);
             $booking_checkin_time = date( 'l, j F Y', trav_strtotime($booking_data['date_from']) );
+
+            $a = explode(',', $booking_checkin_time);
+            $b = explode(' ', $a[1] );
+            if ($a[0] == 'Monday') {
+                $a[0] = 'Senin';
+            } else if ($a[0] == 'Tuesday') {
+                $a[0] = 'Selasa';
+            } else if ($a[0] == 'Wednesday') {
+                $a[0] = 'Rabu';
+            } else if ($a[0] == 'Thursday') {
+                $a[0] = 'Kamis';
+            } else if ($a[0] == 'Friday') {
+                $a[0] = "Jum'at";
+            } else if ($a[0] == 'Saturday') {
+                $a[0] = 'Sabtu';
+            } else {
+                $a[0] = 'Minggu';
+            }
+            if ($b[1] == 'January') {
+                $b[1] = 'Januari';
+            } else if ($b[1] == 'February') {
+                $b[1] = 'Februari';
+            } else if ($b[1] == 'March') {
+                $b[1] = 'Maret';
+            } else if ($b[1] == 'April') {
+                $b[1] = 'April';
+            } else if ($b[1] == 'May') {
+                $b[1] = 'Mei';
+            } else if ($b[1] == 'June') {
+                $b[1] = 'Juni';
+            } else if ($b[1] == 'July') {
+                $b[1] = 'Juli';
+            } else if ($b[1] == 'August') {
+                $b[1] = 'Agustus';
+            } else if ($b[1] == 'September') {
+                $b[1] = 'September';
+            } else if ($b[1] == 'October') {
+                $b[1] = 'Oktober';
+            } else if ($b[1] == 'November') {
+                $b[1] = 'November';
+            } else {
+                $b[1] = 'Desember';
+            }
+            $new_tanggal_checkin = $a[0].", ".$b[0]." ".$b[1]." ".$b[2];
             $booking_checkout_time = date( 'l, j F Y', trav_strtotime($booking_data['date_to']) );
             $booking_rooms = $booking_data['rooms'];
             $booking_valid_until = date( 'l, j F Y H:i:s', trav_strtotime($booking_data['valid_until']) );

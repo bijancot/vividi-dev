@@ -103,7 +103,25 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                 <div class="row">
                     <div class="col-sm-6 col-md-8" style="background-color: #e6e6e6">
                         <span style="font-family: arial; font-size: 20px; margin-left: 20px; margin-top: 10px; display:inline-block;">Segera selesaikan pembayaran Kamu sebelum</span><br>
-                        <span style="font-family: arial; color: #023f75; font-size: 20px; margin-left: 20px; margin-bottom: 10px; display:inline-block;"><b><?php echo ($booking_valid_until); ?></b></span>
+                        <?php
+                        $a = explode(',',$booking_valid_until);
+                        if ($a[0] == 'Monday') {
+                            $a[0] = 'Senin';
+                        } else if ($a[0] == 'Tuesday') {
+                            $a[0] = 'Selasa';
+                        } else if ($a[0] == 'Wednesday') {
+                            $a[0] = 'Rabu';
+                        } else if ($a[0] == 'Thursday') {
+                            $a[0] = 'Kamis';
+                        } else if ($a[0] == 'Friday') {
+                            $a[0] = "Jum'at";
+                        } else if ($a[0] == 'Saturday') {
+                            $a[0] = 'Sabtu';
+                        } else {
+                            $a[0] = 'Minggu';
+                        }
+                        ?>
+                        <span style="font-family: arial; color: #023f75; font-size: 20px; margin-left: 20px; margin-bottom: 10px; display:inline-block;"><b><?php echo ($a[0].", ".$a[1]); ?></b></span>
                     </div>
                 </div>
 
@@ -113,8 +131,44 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                             <span style="font-family: arial; display: inline-block; color: white; margin: 10px 10px 10px 10px">PEMESANAN</span>
                         </div>
                         <span style="font-family: arial; margin-left: 20px; margin-top: 10px; display:inline-block; font-size: 20px"><b><?php echo ($accommodation_name); ?></b></span><br>
-                        <span style="font-family: arial; margin-left: 20px; margin-top: 5px; display:inline-block; font-size: 15px">Check-In  : <?php echo ($booking_checkin_time); ?></span><br>
-                        <span style="font-family: arial; margin-bottom: 10px; margin-left: 20px; margin-top: 5px; display:inline-block; font-size: 15px">Check-Out : <?php echo ($booking_checkout_time); ?></span>
+                        <?php
+                            $a = explode(',',$booking_checkin_time);
+                            if ($a[0] == 'Monday') {
+                                $a[0] = 'Senin';
+                            } else if ($a[0] == 'Tuesday') {
+                                $a[0] = 'Selasa';
+                            } else if ($a[0] == 'Wednesday') {
+                                $a[0] = 'Rabu';
+                            } else if ($a[0] == 'Thursday') {
+                                $a[0] = 'Kamis';
+                            } else if ($a[0] == 'Friday') {
+                                $a[0] = "Jum'at";
+                            } else if ($a[0] == 'Saturday') {
+                                $a[0] = 'Sabtu';
+                            } else {
+                                $a[0] = 'Minggu';
+                            }
+                        ?>
+                        <span style="font-family: arial; margin-left: 20px; margin-top: 5px; display:inline-block; font-size: 15px">Check-In  : <?php echo ($a[0].", ".$a[1]); ?></span><br>
+                        <?php
+                        $a = explode(',',$booking_checkout_time);
+                        if ($a[0] == 'Monday') {
+                            $a[0] = 'Senin';
+                        } else if ($a[0] == 'Tuesday') {
+                            $a[0] = 'Selasa';
+                        } else if ($a[0] == 'Wednesday') {
+                            $a[0] = 'Rabu';
+                        } else if ($a[0] == 'Thursday') {
+                            $a[0] = 'Kamis';
+                        } else if ($a[0] == 'Friday') {
+                            $a[0] = "Jum'at";
+                        } else if ($a[0] == 'Saturday') {
+                            $a[0] = 'Sabtu';
+                        } else {
+                            $a[0] = 'Minggu';
+                        }
+                        ?>
+                        <span style="font-family: arial; margin-bottom: 10px; margin-left: 20px; margin-top: 5px; display:inline-block; font-size: 15px">Check-Out : <?php echo ($a[0].", ".$a[1]); ?></span>
                     </div>
                 </div>
 
