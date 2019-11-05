@@ -28,10 +28,10 @@ if ( have_posts() ) {
 										<label class="date"><?php echo get_the_date( 'd' , $post_id ); ?></label>
 										<label class="month"><?php echo get_the_date( 'M' , $post_id ); ?></label>
 									</div>
-									<div class="entry-author fn">
+									<<!-- div class="entry-author fn">
 										<i class="icon soap-icon-user"></i> <?php esc_html_e( 'Posted By', 'trav' ); ?>:
 										<a href="#" class="author-section"><?php the_author_posts_link(); ?></a>
-									</div>
+									</div> -->
 									<div class="entry-action">
 										<a href="#" class="button entry-comment btn-small">
 											<i class="soap-icon-comment"></i>
@@ -58,7 +58,7 @@ if ( have_posts() ) {
 									<?php endif; ?>
 								</div>
 							</div>
-							<div class="about-author block">
+							<!--< div class="about-author block">
 								<h2><?php _e( 'About Author', 'trav' ) ?></h2>
 								<div class="about-author-container">
 									<div class="about-author-content">
@@ -86,7 +86,7 @@ if ( have_posts() ) {
 										<div class="wrote-posts-count"><i class="soap-icon-slider"></i><span><b><?php the_author_posts() ?></b> <?php _e( 'Posts', 'trav' );?></span></div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<h2><?php _e( 'You Might Also Like This', 'trav' ); ?></h2>
 							<?php $related = trav_get_related_posts( $post_id );?>
 							<?php if ( $related->have_posts() ): ?>

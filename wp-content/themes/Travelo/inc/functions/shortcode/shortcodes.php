@@ -3926,8 +3926,8 @@ class TravShortcodes {
 				
 				$result .= '<article class="box">';
 				$result .= '<figure><a href="' . esc_url( get_term_link( $child_term, 'location' ) ) . '" title="' . esc_attr( $child_term->name ) . '" class="hover-effect yellow">' . $img . '</a></figure>';
-				$result .= '<div class="details"><h4 class="box-title">' . $child_term->name . '<small>' . sprintf( __( '%d Activities', 'trav'), $count ) . '</small></h4>';
-				$result .= '<a href="' . esc_url( get_term_link( $child_term, 'location' ) ) . '" title="" class="button">' . __( 'SEE ALL', 'trav' ) . '</a></div></article>';
+				$result .= '<div class="details"><h4 class="box-title">' . $child_term->name . '<small>' . sprintf( __( '%d PILIHAN', 'trav'), $count ) . '</small></h4>';
+				$result .= '<a href="' . esc_url( get_term_link( $child_term, 'location' ) ) . '" title="" class="button">' . __( 'LIHAT SEMUA', 'trav' ) . '</a></div></article>';
 			}
 		}
 		$result .='</div>';
