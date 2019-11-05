@@ -82,6 +82,19 @@ class Properti extends CI_Controller {
         $this->load->view('index',$data);
     }
 
+    public function save_type_kamar() {
+        $id = $_SESSION['ID'];
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date("Y-m-d h:i:s");
+        $propert = $this->input->post('properti');
+        $judul = $this->input->post('judul');
+        $deskripsi = $this->input->post('deskripsi');
+        $remaja = $this->input->post('remaja');
+        $anak = $this->input->post('anak');
+        $this->model_properti->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak);
+
+    }
+
     public function pesan()
     {
         $data['data'] = $this->model_properti->data_pesan();

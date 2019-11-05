@@ -75,23 +75,27 @@
               <!-- Modal content-->
               <div class="modal-content">
                   <div class="modal-header">
-                      <h4 class="modal-title">Pilih Properti</h4>
+                      <h4 class="modal-title">Tambah Tipe Kamar</h4>
                   </div>
-                  <?php echo form_open(''); ?>
+                  <?php echo form_open('properti/save_type_kamar'); ?>
                   <div class="modal-body">
                       <div class="form-group">
-                          <label for="exampleInputEmail1">Tambah Tipe Kamar</label>
-                          <select class="form-control">
+                          <label for="exampleInputEmail1">Pilih Properti</label>
+                          <select class="form-control" name="properti">
                               <option value="">-- Pilih --</option>
                               <?php
                               foreach ($prpti as $r) { ?>
-                                  <option value=""><?php echo $r->Judul;?></option>
+                                  <option value="<?php echo $r->id;?>"><?php echo $r->Judul;?></option>
                               <?php } ?>
                           </select>
                       </div>
                       <div class="form-group">
                           <label for="exampleInputPassword1">Jenis Kamar</label>
                           <input type="text" name="judul" class="form-control" placeholder="Judul" required>
+                      </div>
+                      <div class="form-group">
+                          <label for="exampleInputPassword1">Deskripsi</label>
+                          <input type="text" name="deskripsi" class="form-control" placeholder="Deskripsi" required>
                       </div>
                       <div class="form-group">
                           <label for="exampleInputPassword1">Max Remaja</label>
