@@ -16,10 +16,10 @@ $isv_setting = get_post_meta( $post_id, 'trav_post_media_type', true ); ?>
 					<label class="date"><?php echo get_the_date( 'd' , $post_id ); ?></label>
 					<label class="month"><?php echo get_the_date( 'M' , $post_id ); ?></label>
 				</div>
-				<!-- <div class="entry-author fn">
-					<i class="icon soap-icon-user"></i> <?php _e( 'Posted By', 'trav' ); ?>:
-					<?php the_author_posts_link(); ?>
-				</div> -->
+<!--				<div class="entry-author fn">-->
+<!--					<i class="icon soap-icon-user"></i> --><?php //_e( 'Posted By', 'trav' ); ?><!--:-->
+<!--					--><?php //the_author_posts_link(); ?>
+<!--				</div>-->
 				<div class="entry-action">
 					<a href="<?php echo esc_url( get_comments_link( $post_id ) ); ?>" class="button entry-comment btn-small"><i class="soap-icon-comment"></i>
 						<span><?php comments_number();?></span>

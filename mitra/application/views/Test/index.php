@@ -73,10 +73,10 @@
 			<a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
 				<img src="https://vividi.id/wp-content/themes/Travelo/images/whatsapp.png" alt="" style="height: 25px; margin-left: 10px; margin-right:5px; margin-top: 10px; margin-bottom: 10px"/>
 			</a>
-			<a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
+			<a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6287885124429&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
 				<img src="https://vividi.id/wp-content/themes/Travelo/images/whatsapp.png" alt="" style="height: 25px; margin-right:5px;margin-top: 10px; margin-bottom: 10px"/>
 			</a>
-			<a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
+			<a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6285933736049&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
 				<img src="https://vividi.id/wp-content/themes/Travelo/images/whatsapp.png" alt="" style="height: 25px; margin-right:5px;margin-top: 10px; margin-bottom: 10px"/>
 			</a>
 			<a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">

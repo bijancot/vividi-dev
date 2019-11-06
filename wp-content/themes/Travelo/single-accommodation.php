@@ -479,7 +479,7 @@ if ( have_posts() ) {
                                     <ul class="amenities clearfix style1">
                                         <?php
                                             $amenity_icons = get_option( "amenity_icon" );
-                                            $amenity_html = '';
+                                            $amenity_html = ''; 
                                             foreach ( $facilities as $facility ) {
                                                 if ( is_array( $amenity_icons ) && isset( $amenity_icons[ $facility->term_id ] ) ) {
                                                     $amenity_html .= '<li class="col-md-4 col-sm-6">';
