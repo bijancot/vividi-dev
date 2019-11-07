@@ -91,8 +91,8 @@ class Properti extends CI_Controller {
         $deskripsi = $this->input->post('deskripsi');
         $remaja = $this->input->post('remaja');
         $anak = $this->input->post('anak');
-        $this->model_properti->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak);
-
+        $fasilitas = $this->input->post('amenity');
+        $this->model_properti->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas);
     }
 
     public function pesan()

@@ -134,7 +134,7 @@ class model_properti extends CI_Model{
 		return $query->result();
 	}
 
-    public function save_type_kamar($id,$time,$properti,$judul,$deskripsi,$remaja,$anak) {
+    public function save_type_kamar($id,$time,$properti,$judul,$deskripsi,$remaja,$anak,$fasilitas) {
         $this->db->select_max('ID');
         $data = $this->db->get('wpwj_posts');
         $keyTransaksi = "";
@@ -206,7 +206,7 @@ class model_properti extends CI_Model{
             'meta_id' => $key+4,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_room_accommodation',
-            'meta_value' => '3355'
+            'meta_value' => $properti
         );
         $this->db->insert('wpwj_postmeta', $data5);
         $data6 = array(
@@ -280,24 +280,24 @@ class model_properti extends CI_Model{
         );
         $this->db->insert('wpwj_postmeta', $data15);
 
-        $this->db->select_max('id');
-        $data = $this->db->get('wpwj_trav_accommodation_vacancies');
-        $key_av = "";
-        foreach ($data->result() as $row) {
-            $key_av = $row->id + 1;
+        foreach($fasilitas as $amenity) {
+            $list = array(
+                'object_id' => $keyTransaksi,
+                'term_taxonomy_id' => $amenity,
+                'term_order' => '0'
+            );
+            $this->db->insert('wpwj_term_relationships', $list);
+//            $this->db->select('*');
+//            $this->db->from('wpwj_term_taxonomy');
+//            $this->db->where('term_taxonomy_id = ',$amenity);
+//            $result = $this->db->get();
+//            foreach($result as $r) {
+//                $new = array(
+//                    'count' => (($r->count)+1),
+//                );
+//                $this->db->where('term_taxonomy_id', $amenity);
+//                $this->db->update('wpwj_term_taxonomy',$new);
+//            }
         }
-        $data_av = array(
-            'id' => $key_av,
-            'date_from' => '',
-            'date_to' => '',
-            'accommodation_id' => '3355',
-            'room_type_id' => $keyTransaksi,
-            'rooms' => '3',
-            'price_per_room' => '1420000.00',
-            'price_per_person' => '0.00',
-            'child_price' => '',
-            'other' => ''
-        );
-        $this->db->insert('wpwj_trav_accommodation_vacancies', $data_av);
     }
 }
