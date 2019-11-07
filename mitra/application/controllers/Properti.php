@@ -76,7 +76,7 @@ class Properti extends CI_Controller {
         } else {
             $data['prpti'] = $this->model_properti->data_properti($id);
         }
-        $data['data'] = $this->model_properti->data_tipe_kamar();
+        $data['data'] = $this->model_properti->data_tipe_kamar($id);
         $data['folder'] = "properti";
         $data['side'] = "tipe_kamar";
         $this->load->view('index',$data);
@@ -93,6 +93,7 @@ class Properti extends CI_Controller {
         $anak = $this->input->post('anak');
         $fasilitas = $this->input->post('amenity');
         $this->model_properti->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas);
+        redirect(base_url('properti/tipe_kamar'));
     }
 
     public function pesan()
