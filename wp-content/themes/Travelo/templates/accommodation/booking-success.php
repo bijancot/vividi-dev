@@ -59,9 +59,9 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
 
                 $accommodation_name = get_the_title( $booking_data['accommodation_id'] );
                 $booking_total_price = esc_html( trav_get_price_field( $booking_data['total_price'] * $booking_data['exchange_rate'], $booking_data['currency_code'], 0 ) );
-                $booking_checkin_time = date( 'l, j F Y', trav_strtotime($booking_data['date_from']) );
-                $booking_checkout_time = date( 'l, j F Y', trav_strtotime($booking_data['date_to']) );
-                $booking_valid_until = date( 'l, j F Y H:i:s', trav_strtotime($booking_data['valid_until']) );
+                $booking_checkin_time = date( 'l,j F Y', trav_strtotime($booking_data['date_from']) );
+                $booking_checkout_time = date( 'l,j F Y', trav_strtotime($booking_data['date_to']) );
+                $booking_valid_until = date( 'l,j F Y H:i:s', trav_strtotime($booking_data['valid_until']) );
 //                foreach ( $booking_detail as $field => $value ) {
 //                    if ( empty( $$field ) ) $$field = empty( $booking_data[ $field ] )?'':$booking_data[ $field ];
 //                    if ( ! empty( $$field ) ) {
@@ -104,7 +104,8 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                     <div class="col-sm-6 col-md-8" style="background-color: #e6e6e6">
                         <span style="font-family: arial; font-size: 20px; margin-left: 20px; margin-top: 10px; display:inline-block;">Segera selesaikan pembayaran Kamu sebelum</span><br>
                         <?php
-                        $a = explode(',',$booking_valid_until);
+                        $a = explode(',', $booking_valid_until);
+                        $b = explode(' ', $a[1] );
                         if ($a[0] == 'Monday') {
                             $a[0] = 'Senin';
                         } else if ($a[0] == 'Tuesday') {
@@ -120,8 +121,33 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                         } else {
                             $a[0] = 'Minggu';
                         }
+                        if ($b[1] == 'January') {
+                            $b[1] = 'Januari';
+                        } else if ($b[1] == 'February') {
+                            $b[1] = 'Februari';
+                        } else if ($b[1] == 'March') {
+                            $b[1] = 'Maret';
+                        } else if ($b[1] == 'April') {
+                            $b[1] = 'April';
+                        } else if ($b[1] == 'May') {
+                            $b[1] = 'Mei';
+                        } else if ($b[1] == 'June') {
+                            $b[1] = 'Juni';
+                        } else if ($b[1] == 'July') {
+                            $b[1] = 'Juli';
+                        } else if ($b[1] == 'August') {
+                            $b[1] = 'Agustus';
+                        } else if ($b[1] == 'September') {
+                            $b[1] = 'September';
+                        } else if ($b[1] == 'October') {
+                            $b[1] = 'Oktober';
+                        } else if ($b[1] == 'November') {
+                            $b[1] = 'November';
+                        } else {
+                            $b[1] = 'Desember';
+                        }
                         ?>
-                        <span style="font-family: arial; color: #023f75; font-size: 20px; margin-left: 20px; margin-bottom: 10px; display:inline-block;"><b><?php echo ($a[0].", ".$a[1]); ?></b></span>
+                        <span style="font-family: arial; color: #023f75; font-size: 20px; margin-left: 20px; margin-bottom: 10px; display:inline-block;"><b><?php echo ($a[0].", ".$b[0]." ".$b[1]." ".$b[2]." ".$b[3]); ?></b></span>
                     </div>
                 </div>
 
@@ -132,26 +158,8 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                         </div>
                         <span style="font-family: arial; margin-left: 20px; margin-top: 10px; display:inline-block; font-size: 20px"><b><?php echo ($accommodation_name); ?></b></span><br>
                         <?php
-                            $a = explode(',',$booking_checkin_time);
-                            if ($a[0] == 'Monday') {
-                                $a[0] = 'Senin';
-                            } else if ($a[0] == 'Tuesday') {
-                                $a[0] = 'Selasa';
-                            } else if ($a[0] == 'Wednesday') {
-                                $a[0] = 'Rabu';
-                            } else if ($a[0] == 'Thursday') {
-                                $a[0] = 'Kamis';
-                            } else if ($a[0] == 'Friday') {
-                                $a[0] = "Jum'at";
-                            } else if ($a[0] == 'Saturday') {
-                                $a[0] = 'Sabtu';
-                            } else {
-                                $a[0] = 'Minggu';
-                            }
-                        ?>
-                        <span style="font-family: arial; margin-left: 20px; margin-top: 5px; display:inline-block; font-size: 15px">Check-In  : <?php echo ($a[0].", ".$a[1]); ?></span><br>
-                        <?php
-                        $a = explode(',',$booking_checkout_time);
+                        $a = explode(',', $booking_checkin_time);
+                        $b = explode(' ', $a[1] );
                         if ($a[0] == 'Monday') {
                             $a[0] = 'Senin';
                         } else if ($a[0] == 'Tuesday') {
@@ -167,8 +175,78 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                         } else {
                             $a[0] = 'Minggu';
                         }
+                        if ($b[1] == 'January') {
+                            $b[1] = 'Januari';
+                        } else if ($b[1] == 'February') {
+                            $b[1] = 'Februari';
+                        } else if ($b[1] == 'March') {
+                            $b[1] = 'Maret';
+                        } else if ($b[1] == 'April') {
+                            $b[1] = 'April';
+                        } else if ($b[1] == 'May') {
+                            $b[1] = 'Mei';
+                        } else if ($b[1] == 'June') {
+                            $b[1] = 'Juni';
+                        } else if ($b[1] == 'July') {
+                            $b[1] = 'Juli';
+                        } else if ($b[1] == 'August') {
+                            $b[1] = 'Agustus';
+                        } else if ($b[1] == 'September') {
+                            $b[1] = 'September';
+                        } else if ($b[1] == 'October') {
+                            $b[1] = 'Oktober';
+                        } else if ($b[1] == 'November') {
+                            $b[1] = 'November';
+                        } else {
+                            $b[1] = 'Desember';
+                        }
                         ?>
-                        <span style="font-family: arial; margin-bottom: 10px; margin-left: 20px; margin-top: 5px; display:inline-block; font-size: 15px">Check-Out : <?php echo ($a[0].", ".$a[1]); ?></span>
+                        <span style="font-family: arial; margin-left: 20px; margin-top: 5px; display:inline-block; font-size: 15px">Check-In  : <?php echo ($a[0].", ".$b[0]." ".$b[1]." ".$b[2]); ?></span><br>
+                        <?php
+                        $a = explode(',', $booking_checkout_time);
+                        $b = explode(' ', $a[1] );
+                        if ($a[0] == 'Monday') {
+                            $a[0] = 'Senin';
+                        } else if ($a[0] == 'Tuesday') {
+                            $a[0] = 'Selasa';
+                        } else if ($a[0] == 'Wednesday') {
+                            $a[0] = 'Rabu';
+                        } else if ($a[0] == 'Thursday') {
+                            $a[0] = 'Kamis';
+                        } else if ($a[0] == 'Friday') {
+                            $a[0] = "Jum'at";
+                        } else if ($a[0] == 'Saturday') {
+                            $a[0] = 'Sabtu';
+                        } else {
+                            $a[0] = 'Minggu';
+                        }
+                        if ($b[1] == 'January') {
+                            $b[1] = 'Januari';
+                        } else if ($b[1] == 'February') {
+                            $b[1] = 'Februari';
+                        } else if ($b[1] == 'March') {
+                            $b[1] = 'Maret';
+                        } else if ($b[1] == 'April') {
+                            $b[1] = 'April';
+                        } else if ($b[1] == 'May') {
+                            $b[1] = 'Mei';
+                        } else if ($b[1] == 'June') {
+                            $b[1] = 'Juni';
+                        } else if ($b[1] == 'July') {
+                            $b[1] = 'Juli';
+                        } else if ($b[1] == 'August') {
+                            $b[1] = 'Agustus';
+                        } else if ($b[1] == 'September') {
+                            $b[1] = 'September';
+                        } else if ($b[1] == 'October') {
+                            $b[1] = 'Oktober';
+                        } else if ($b[1] == 'November') {
+                            $b[1] = 'November';
+                        } else {
+                            $b[1] = 'Desember';
+                        }
+                        ?>
+                        <span style="font-family: arial; margin-bottom: 10px; margin-left: 20px; margin-top: 5px; display:inline-block; font-size: 15px">Check-Out : <?php echo ($a[0].", ".$b[0]." ".$b[1]." ".$b[2]); ?></span>
                     </div>
                 </div>
 
@@ -220,10 +298,10 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                         <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
                             <img src="https://vividi.id/wp-content/themes/Travelo/images/whatsapp.png" alt="" style="height: 25px; margin-left: 10px; margin-right:5px; margin-top: 10px; margin-bottom: 10px"/>
                         </a>
-                        <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
+                        <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6287885124429&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
                             <img src="https://vividi.id/wp-content/themes/Travelo/images/whatsapp.png" alt="" style="height: 25px; margin-right:5px;margin-top: 10px; margin-bottom: 10px"/>
                         </a>
-                        <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
+                        <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6285933736049&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">
                             <img src="https://vividi.id/wp-content/themes/Travelo/images/whatsapp.png" alt="" style="height: 25px; margin-right:5px;margin-top: 10px; margin-bottom: 10px"/>
                         </a>
                         <a style="text-decoration: none;" href="https://api.whatsapp.com/send?phone=6281211118486&text=Silahkan hubungi Nomor Whatsapp jika ada yang ingin ditanyakan">

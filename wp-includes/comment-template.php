@@ -2286,8 +2286,8 @@ function comment_form( $args = array(), $post_id = null ) {
 
 	if ( has_action( 'set_comment_cookies', 'wp_set_comment_cookies' ) && get_option( 'show_comments_cookies_opt_in' ) ) {
 		$consent           = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
-		$fields['cookies'] = '<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"' . $consent . ' />' .
-							 '<label for="wp-comment-cookies-consent">' . __( 'Save my name, email, and website in this browser for the next time I comment.' ) . '</label></p>';
+		$fields['cookies'] = '<p class="comment-form-cookies-consent col-xs-12" style="margin-top:20px"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" class="col-xs-1" type="checkbox" value="yes"' . $consent . ' />' .
+							 '<span for="wp-comment-cookies-consent" class="col-xs-11">' . __( 'Simpan Nama, Email, dan situs web saya pada peramban ini untuk komentar saya berikutnya..' ) . '</span></p>';
 
 		// Ensure that the passed fields include cookies consent.
 		if ( isset( $args['fields'] ) && ! isset( $args['fields']['cookies'] ) ) {
