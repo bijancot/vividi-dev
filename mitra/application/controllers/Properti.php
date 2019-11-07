@@ -82,6 +82,16 @@ class Properti extends CI_Controller {
         $this->load->view('index',$data);
     }
 
+    public function modal_tipe_kamar()
+    {
+        $id = $_SESSION['ID'];
+        $post = $this->input->post('id');
+        $data['data'] = $this->model_properti->data_detail_tipe_kamar($id,$post);
+        $filter_view = $this->load->view('properti/modal_tipe_kamar', $data, TRUE);
+
+        echo json_encode($filter_view);
+    }
+
     public function save_type_kamar() {
         $id = $_SESSION['ID'];
         date_default_timezone_set('Asia/Jakarta');

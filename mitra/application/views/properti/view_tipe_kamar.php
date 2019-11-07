@@ -46,10 +46,11 @@
                                     <td><?php echo $row->penulis; ?></td>
                                     <td><?php echo $row->tanggal; ?></td>
                                     <td>
-                                        <button class="btn btn-block" data-effect="mfp-zoomIn"
+                                        <!-- <button class="btn btn-block" data-effect="mfp-zoomIn" data-toggle="modal"
                                                 id="<?php echo $row->id; ?>"
                                                 onclick="clickButton(<?php echo $row->id; ?>)">Lihat
-                                        </button>
+                                        </button> -->
+                                    <button type="button" id="detail" class="btn btn-default" style="margin-bottom: 10px" data-toggle="modal" data-id="<?php echo $row->id ?>" onclick="clickButton(<?php echo $row->id ?>)">Detail</button>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -146,9 +147,32 @@
         </div>
     </div>
     <!-- End Modal Login -->
+
+    <!-- Modal Detail -->
+    <div id="modal_detail" class="modal fade" role="dialog">
+        
+    </div>
+    <!-- End Modal Detail -->
 </div>
 <script type="text/javascript">
-    $(window).on('load', function () {
-        $('#modal_harga').modal('show');
+  //   function clickButton(id){
+  //   var url =  "<?= site_url('properti/modal_tipe_kamar')?>";
+  //       var postdata = {id: id};
+  //       $.post(url, postdata, function(data) {
+  //           var results = JSON.parse(data);
+  //           $('#modal_detail').html(results);
+  //       });
+  // }
+  function clickButton(id){
+    var postdata = {id: id};
+    var url =  "<?= site_url('properti/modal_tipe_kamar')?>";
+    $.post(url, postdata, function(data) {
+      var results = JSON.parse(data);
+      $('#modal_detail').html(results);
     });
+    $('#modal_detail').modal('show');
+     // As pointed out in comments, 
+     // it is unnecessary to have to manually call the modal.
+      // $('#addBookDialog').modal('show');
+}
 </script>

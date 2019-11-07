@@ -92,6 +92,32 @@ class model_properti extends CI_Model{
         return $query->result();
     }
 
+    function data_detail_tipe_kamar($id, $post){
+        $query = $this->db->query("select p.ID as id, p.post_title as judul, 
+             post.post_title as properti, 
+             pmdewasa.meta_value as dewasa,
+             pmanak.meta_value as anak,
+             users.display_name as penulis,
+             p.post_date as tanggal
+             from wpwj_posts p
+             left join wpwj_postmeta pmroom on p.id = pmroom.post_id
+             left join wpwj_posts post on post.id = pmroom.meta_value
+             left join wpwj_postmeta pmdewasa on p.id = pmdewasa.post_id
+             left join wpwj_postmeta pmanak on p.id = pmanak.post_id
+             LEFT JOIN wpwj_users users on users.ID = p.post_author
+             where pmdewasa.meta_key = 'trav_room_max_adults'
+             AND pmanak.meta_key = 'trav_room_max_kids'
+             AND pmroom.meta_key = 'trav_room_accommodation'
+             AND p.post_type = 'room_type'
+             AND post.post_type = 'accommodation'
+             AND p.post_status = 'publish'
+             AND p.post_author = ".$id."
+             AND p.ID = ".$post."
+             group by p.id
+             order by tanggal desc");
+        return $query->result();
+    }
+
 	function data_pesan(){
 		$query = $this->db->query("select ab.id as id,
 			 ab.first_name as nama_awal,
