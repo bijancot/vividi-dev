@@ -1,6 +1,6 @@
 <?php 
  
-class model_properti extends CI_Model{
+class Model_properti extends CI_Model{
 	function data_semua_properti(){
 		$query = $this->db->query("select posts.ID as id, posts.post_title as Judul,
 			 t.name AS Tipe_Properti,

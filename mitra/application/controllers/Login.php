@@ -7,7 +7,7 @@ class Login extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('model_login');
+        $this->load->model('Model_login');
         $this->load->library('session');
         $this->load->database();
     }
@@ -23,9 +23,9 @@ class Login extends CI_Controller
 //            $pass = md5($this->input->post('password', true));
             $user = $this->input->post('username');
             $pass = $this->input->post('password');
-            $cek = $this->model_login->cek_login($user, $pass);
+            $cek = $this->Model_login->cek_login($user, $pass);
             if ($cek > 0) {
-                $pelogin = $this->model_login->proses_login($user, $pass);
+                $pelogin = $this->Model_login->proses_login($user, $pass);
                 $level = $pelogin->meta_value;
                 $role = explode('"',$level);
                 $nama = $pelogin->display_name;
