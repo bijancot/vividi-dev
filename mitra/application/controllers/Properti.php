@@ -102,7 +102,7 @@ class Properti extends CI_Controller {
         $remaja = $this->input->post('remaja');
         $anak = $this->input->post('anak');
         $fasilitas = $this->input->post('amenity');
-        $this->model_properti->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas);
+        $this->Model_properti->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas);
         redirect(base_url('properti/tipe_kamar'));
     }
 
