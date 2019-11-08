@@ -221,7 +221,7 @@ class Model_properti extends CI_Model{
             'meta_id' => $key+2,
             'post_id' => $keyTransaksi,
             'meta_key' => '_thumbnail_id',
-            'meta_value' => '3362'
+            'meta_value' => $properti
         );
         $this->db->insert('wpwj_postmeta', $data3);
         $data4 = array(
