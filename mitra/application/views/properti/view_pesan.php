@@ -49,7 +49,10 @@
                     <td><?php echo $row->harga;?></td>
                     <td><?php echo $row->pesan;?></td>
                     <td><?php echo $row->status;?></td>
-                    <td><button class="btn btn-block" data-effect="mfp-zoomIn" id="<?php echo $row->id;?>" onclick="clickButton(<?php echo $row->id;?>)">Lihat</button></td>
+                    <td>
+                        <button class="btn btn-block btn-primary" data-effect="mfp-zoomIn" id="<?php echo $row->id;?>" onclick="clickButton(<?php echo $row->id;?>)">Sukses</button>
+                        <button class="btn btn-block btn-danger" data-effect="mfp-zoomIn" id="<?php echo $row->id;?>" onclick="clickButton(<?php echo $row->id;?>)">Cancel</button>
+                    </td>
                     </tr>
                   <?php } ?>
                 </tbody>
@@ -65,7 +68,7 @@
                   <th>Harga</th>
                   <th>Tanggal Pesan</th>
                   <th>Status</th>
-                  <th></th>
+                  <th>Aksi</th>
                 </tr>
                 </tfoot>
               </table>

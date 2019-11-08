@@ -70,7 +70,6 @@
       <!-- Small boxes (Stat box) -->
     </section>
     <!-- /.content -->
-  </div>
   <div id="modal_propeti" class="modal fade" role="dialog">
 	  <div class="modal-dialog">
 		  <!-- Modal content-->
