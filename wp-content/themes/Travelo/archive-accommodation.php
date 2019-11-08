@@ -85,14 +85,14 @@ $query_args = array(
         <div id="main">
             <div class="row">
                 <div class="col-sm-4 col-md-3">
-                    <a class="button btn-map btn-medium uppercase full-width" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" style="height: 113px"><?php echo __( '<img src="https://cmxpv89733.i.lithium.com/t5/image/serverpage/image-id/82937i163CEC7FAC876446/image-size/large?v=1.0&px=999" style="width:100%; height: 113px;">', 'trav' ) ?></a>
-                    <h4 class="search-results-title">
-                        <i class="soap-icon-search"></i><b><?php echo esc_html( $count ); ?></b> <?php _e( 'Properti .', 'trav' ) ?>
-                    </h4>
+<!--                    <a class="button btn-map btn-medium uppercase full-width" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" style="height: 113px">--><?php //echo __( '<img src="https://cmxpv89733.i.lithium.com/t5/image/serverpage/image-id/82937i163CEC7FAC876446/image-size/large?v=1.0&px=999" style="width:100%; height: 113px;">', 'trav' ) ?><!--</a>-->
+<!--                    <h4 class="search-results-title">-->
+<!--                        <i class="soap-icon-search"></i><b>--><?php //echo esc_html( $count ); ?><!--</b> --><?php //_e( 'Properti .', 'trav' ) ?>
+<!--                    </h4>-->
                     <div class="toggle-container style1 filters-container">
                         <div class="panel arrow-right">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#modify-search-panel" class=""><?php _e( 'UBAH PENCARIAN', 'trav' ) ?></a>
+                                <a data-toggle="collapse" href="#modify-search-panel" class=""><?php _e( 'HOTEL', 'trav' ) ?></a>
                             </h4>
                             <div id="modify-search-panel" class="panel-collapse collapse in">
                                 <div class="panel-content">
@@ -210,86 +210,86 @@ $query_args = array(
                             </div>
                         </div>
 
-                        <?php if ( $trav_options['acc_enable_price_filter'] ) : ?>
-                        <div class="panel style1 arrow-right">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#price-filter" class="collapsed"><?php _e( 'Harga (Per Malam)', 'trav' );?></a>
-                            </h4>
-                            <div id="price-filter" class="panel-collapse collapse">
-                                <div class="panel-content">
-                                    <div id="price-range" data-slide-last-val="<?php echo esc_attr( ( ! empty($trav_options['acc_price_filter_max']) && is_numeric($trav_options['acc_price_filter_max']) ) ? $trav_options['acc_price_filter_max'] :200 ) ?>" data-slide-step="<?php echo esc_attr( ( ! empty($trav_options['acc_price_filter_step']) && is_numeric($trav_options['acc_price_filter_step']) ) ? $trav_options['acc_price_filter_step'] :50 ) ?>" data-def-currency="<?php echo esc_attr( trav_get_site_currency_symbol() );?>" data-min-price="<?php echo esc_attr( $min_price ); ?>" data-max-price="<?php echo esc_attr( $max_price ); ?>" data-url-noprice="<?php echo esc_url( remove_query_arg( array( 'min_price', 'max_price', 'page' ) ) ); ?>"></div>
-                                    <br />
-                                    <span class="min-price-label pull-left"></span>
-                                    <span class="max-price-label pull-right"></span>
-                                    <div class="clearer"></div>
-                                </div><!-- end content -->
-                            </div>
-                        </div>
-                        <?php endif; ?>
+<!--                        --><?php //if ( $trav_options['acc_enable_price_filter'] ) : ?>
+<!--                        <div class="panel style1 arrow-right">-->
+<!--                            <h4 class="panel-title">-->
+<!--                                <a data-toggle="collapse" href="#price-filter" class="collapsed">--><?php //_e( 'Harga (Per Malam)', 'trav' );?><!--</a>-->
+<!--                            </h4>-->
+<!--                            <div id="price-filter" class="panel-collapse collapse">-->
+<!--                                <div class="panel-content">-->
+<!--                                    <div id="price-range" data-slide-last-val="--><?php //echo esc_attr( ( ! empty($trav_options['acc_price_filter_max']) && is_numeric($trav_options['acc_price_filter_max']) ) ? $trav_options['acc_price_filter_max'] :200 ) ?><!--" data-slide-step="--><?php //echo esc_attr( ( ! empty($trav_options['acc_price_filter_step']) && is_numeric($trav_options['acc_price_filter_step']) ) ? $trav_options['acc_price_filter_step'] :50 ) ?><!--" data-def-currency="--><?php //echo esc_attr( trav_get_site_currency_symbol() );?><!--" data-min-price="--><?php //echo esc_attr( $min_price ); ?><!--" data-max-price="--><?php //echo esc_attr( $max_price ); ?><!--" data-url-noprice="--><?php //echo esc_url( remove_query_arg( array( 'min_price', 'max_price', 'page' ) ) ); ?><!--"></div>-->
+<!--                                    <br />-->
+<!--                                    <span class="min-price-label pull-left"></span>-->
+<!--                                    <span class="max-price-label pull-right"></span>-->
+<!--                                    <div class="clearer"></div>-->
+<!--                                </div>
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        --><?php //endif; ?>
 
-                        <?php if ( $trav_options['acc_enable_review_filter'] ) : ?>
-                        <div class="panel style1 arrow-right">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#rating-filter" class="<?php echo ( $rating == 0 )?'collapsed':''?>"><?php _e( 'Ulasan Tamu', 'trav' );?></a>
-                            </h4>
-                            <div id="rating-filter" class="panel-collapse collapse filters-container <?php echo ( $rating == 0 )?'':'in'?>">
-                                <div class="panel-content">
-                                    <div id="rating" class="five-stars-container editable-rating" data-rating="<?php echo esc_attr( $rating );?>" data-url-norating="<?php echo esc_url( remove_query_arg( array( 'ranking', 'page' ) ) ); ?>" data-label-norating="<?php _e( 'semua ranking', 'trav' );?>" data-label-rating="<?php _e( 'lebih', 'trav' );?>" data-label-fullrating="<?php _e( '5 Ratings', 'trav' );?>"></div>
-                                    <span><?php _e( 'All', 'trav' );?></span>
-                                </div>
-                            </div>
-                        </div>
-                        <?php endif; ?>
+<!--                        --><?php //if ( $trav_options['acc_enable_review_filter'] ) : ?>
+<!--                        <div class="panel style1 arrow-right">-->
+<!--                            <h4 class="panel-title">-->
+<!--                                <a data-toggle="collapse" href="#rating-filter" class="--><?php //echo ( $rating == 0 )?'collapsed':''?><!--">--><?php //_e( 'Ulasan Tamu', 'trav' );?><!--</a>-->
+<!--                            </h4>-->
+<!--                            <div id="rating-filter" class="panel-collapse collapse filters-container --><?php //echo ( $rating == 0 )?'':'in'?><!--">-->
+<!--                                <div class="panel-content">-->
+<!--                                    <div id="rating" class="five-stars-container editable-rating" data-rating="--><?php //echo esc_attr( $rating );?><!--" data-url-norating="--><?php //echo esc_url( remove_query_arg( array( 'ranking', 'page' ) ) ); ?><!--" data-label-norating="--><?php //_e( 'semua ranking', 'trav' );?><!--" data-label-rating="--><?php //_e( 'lebih', 'trav' );?><!--" data-label-fullrating="--><?php //_e( '5 Ratings', 'trav' );?><!--"></div>-->
+<!--                                    <span>--><?php //_e( 'All', 'trav' );?><!--</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        --><?php //endif; ?>
 
-                        <?php if ( $trav_options['acc_enable_acc_type_filter'] ) : ?>
-                        <div class="panel style1 arrow-right">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#accomodation-type-filter" class="<?php echo empty( $acc_type )?'collapsed':''?>"><?php _e( 'Tipe Properti', 'trav' ) ?></a>
-                            </h4>
-                            <div id="accomodation-type-filter" data-url-noacc_type="<?php echo esc_url( remove_query_arg( array( 'acc_type', 'page' ) ) ); ?>" class="panel-collapse collapse <?php echo empty( $acc_type )?'':'in'?>">
-                                <div class="panel-content">
-                                    <ul class="check-square filters-option">
-                                        <?php
-                                            $selected = ( $acc_type == '' )?' active':'';
-                                            echo '<li class="all-types' . esc_attr( $selected ) . '"><a href="#">' . __( 'Semua', 'trav' ) . '<small>(' . esc_html( $count ) . ')</small></a></li>';
-                                            $all_acc_types = get_terms( 'accommodation_type', array('hide_empty' => 0) );
-                                            foreach ( $all_acc_types as $each_acc_type ) {
-                                                $selected = ( ( is_array( $acc_type ) && in_array( $each_acc_type->term_id, $acc_type ) ) )?' class="active"':'';
-                                                echo '<li' . $selected . ' data-term-id="' . esc_attr( $each_acc_type->term_id ) . '"><a href="#">' . esc_html( $each_acc_type->name ) . '<small>(' . esc_html( trav_acc_get_search_result_count( $min_price, $max_price, $rating, array( $each_acc_type->term_id ), $amenities ) ) . ')</small></a></li>';
-                                            }
-                                        ?>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <?php endif; ?>
+<!--                        --><?php //if ( $trav_options['acc_enable_acc_type_filter'] ) : ?>
+<!--                        <div class="panel style1 arrow-right">-->
+<!--                            <h4 class="panel-title">-->
+<!--                                <a data-toggle="collapse" href="#accomodation-type-filter" class="--><?php //echo empty( $acc_type )?'collapsed':''?><!--">--><?php //_e( 'Tipe Properti', 'trav' ) ?><!--</a>-->
+<!--                            </h4>-->
+<!--                            <div id="accomodation-type-filter" data-url-noacc_type="--><?php //echo esc_url( remove_query_arg( array( 'acc_type', 'page' ) ) ); ?><!--" class="panel-collapse collapse --><?php //echo empty( $acc_type )?'':'in'?><!--">-->
+<!--                                <div class="panel-content">-->
+<!--                                    <ul class="check-square filters-option">-->
+<!--                                        --><?php
+//                                            $selected = ( $acc_type == '' )?' active':'';
+//                                            echo '<li class="all-types' . esc_attr( $selected ) . '"><a href="#">' . __( 'Semua', 'trav' ) . '<small>(' . esc_html( $count ) . ')</small></a></li>';
+//                                            $all_acc_types = get_terms( 'accommodation_type', array('hide_empty' => 0) );
+//                                            foreach ( $all_acc_types as $each_acc_type ) {
+//                                                $selected = ( ( is_array( $acc_type ) && in_array( $each_acc_type->term_id, $acc_type ) ) )?' class="active"':'';
+//                                                echo '<li' . $selected . ' data-term-id="' . esc_attr( $each_acc_type->term_id ) . '"><a href="#">' . esc_html( $each_acc_type->name ) . '<small>(' . esc_html( trav_acc_get_search_result_count( $min_price, $max_price, $rating, array( $each_acc_type->term_id ), $amenities ) ) . ')</small></a></li>';
+//                                            }
+//                                        ?>
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        --><?php //endif; ?>
 
-                        <?php if ( $trav_options['acc_enable_amenity_filter'] ) : ?>
-                        <div class="panel style1 arrow-right">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#amenities-filter" class="<?php echo empty( $amenities )?'collapsed':''?>"><?php _e( 'Fasilitas Properti', 'trav' ) ?></a>
-                            </h4>
-                            <div id="amenities-filter" data-url-noamenities="<?php echo esc_url( remove_query_arg( array( 'amenities', 'page' ) ) ); ?>" class="panel-collapse collapse <?php echo empty( $amenities )?'':'in'?>">
-                                <div class="panel-content">
-                                    <ul class="check-square filters-option">
-                                        <?php
-                                            $args = array(
-                                                    'orderby'           => 'count', 
-                                                    'order'             => 'DESC',
-                                                    'hide_empty' => 0
-                                                );
-
-                                            $all_amenities = get_terms( 'amenity', $args );
-                                            foreach ($all_amenities as $each_amenity) {
-                                                $selected = ( ( is_array( $amenities ) && in_array( $each_amenity->term_id, $amenities ) ) )?' class="active"':'';
-                                                echo '<li' . $selected . ' data-term-id="' . esc_attr( $each_amenity->term_id ) . '"><a href="#">' . esc_html( $each_amenity->name ) . '<small>(' . esc_html( trav_acc_get_search_result_count( $min_price, $max_price, $rating, $acc_type, array( $each_amenity->term_id ) ) ) . ')</small></a></li>';
-                                            }
-                                        ?>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <?php endif; ?>
+<!--                        --><?php //if ( $trav_options['acc_enable_amenity_filter'] ) : ?>
+<!--                        <div class="panel style1 arrow-right">-->
+<!--                            <h4 class="panel-title">-->
+<!--                                <a data-toggle="collapse" href="#amenities-filter" class="--><?php //echo empty( $amenities )?'collapsed':''?><!--">--><?php //_e( 'Fasilitas Properti', 'trav' ) ?><!--</a>-->
+<!--                            </h4>-->
+<!--                            <div id="amenities-filter" data-url-noamenities="--><?php //echo esc_url( remove_query_arg( array( 'amenities', 'page' ) ) ); ?><!--" class="panel-collapse collapse --><?php //echo empty( $amenities )?'':'in'?><!--">-->
+<!--                                <div class="panel-content">-->
+<!--                                    <ul class="check-square filters-option">-->
+<!--                                        --><?php
+//                                            $args = array(
+//                                                    'orderby'           => 'count',
+//                                                    'order'             => 'DESC',
+//                                                    'hide_empty' => 0
+//                                                );
+//
+//                                            $all_amenities = get_terms( 'amenity', $args );
+//                                            foreach ($all_amenities as $each_amenity) {
+//                                                $selected = ( ( is_array( $amenities ) && in_array( $each_amenity->term_id, $amenities ) ) )?' class="active"':'';
+//                                                echo '<li' . $selected . ' data-term-id="' . esc_attr( $each_amenity->term_id ) . '"><a href="#">' . esc_html( $each_amenity->name ) . '<small>(' . esc_html( trav_acc_get_search_result_count( $min_price, $max_price, $rating, $acc_type, array( $each_amenity->term_id ) ) ) . ')</small></a></li>';
+//                                            }
+//                                        ?>
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        --><?php //endif; ?>
 
                     </div>
                 </div>
