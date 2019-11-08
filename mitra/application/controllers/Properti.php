@@ -113,4 +113,10 @@ class Properti extends CI_Controller {
         $data['side'] = "pesan";
         $this->load->view('index',$data);
     }
+
+    public function sukses(){
+        $id = $this->uri->segment(3);
+        $this->Model_properti->get_pemesan($id);
+        redirect(base_url('properti/pesan'));
+    }
 }

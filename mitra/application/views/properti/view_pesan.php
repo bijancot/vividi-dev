@@ -50,7 +50,7 @@
                     <td><?php echo $row->pesan;?></td>
                     <td><?php echo $row->status;?></td>
                     <td>
-                        <button class="btn btn-block btn-primary" data-effect="mfp-zoomIn" id="<?php echo $row->id;?>" onclick="clickButton(<?php echo $row->id;?>)">Sukses</button>
+                        <a href="<?= site_url('Properti/sukses/'.$row->id); ?>" class="btn btn-block btn-primary">Sukses</a>
                         <button class="btn btn-block btn-danger" data-effect="mfp-zoomIn" id="<?php echo $row->id;?>" onclick="clickButton(<?php echo $row->id;?>)">Cancel</button>
                     </td>
                     </tr>

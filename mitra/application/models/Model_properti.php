@@ -214,14 +214,14 @@ class Model_properti extends CI_Model{
             'meta_id' => $key+1,
             'post_id' => $keyTransaksi,
             'meta_key' => '_edit_last',
-            'meta_value' => '2'
+            'meta_value' => $id
         );
         $this->db->insert('wpwj_postmeta', $data2);
         $data3 = array(
             'meta_id' => $key+2,
             'post_id' => $keyTransaksi,
             'meta_key' => '_thumbnail_id',
-            'meta_value' => $properti
+            'meta_value' => '3362'
         );
         $this->db->insert('wpwj_postmeta', $data3);
         $data4 = array(
@@ -263,7 +263,7 @@ class Model_properti extends CI_Model{
             'meta_id' => $key+8,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_gallery_imgs',
-            'meta_value' => '3357'
+            'meta_value' => '3362'
         );
         $this->db->insert('wpwj_postmeta', $data9);
         $data10 = array(
@@ -316,6 +316,17 @@ class Model_properti extends CI_Model{
                 'term_order' => '0'
             );
             $this->db->insert('wpwj_term_relationships', $list);
+
+            $this->db->select('count');
+            $this->db->where('term_taxonomy_id = ',$amenity);
+            $rslt = $this->db->get('wpwj_term_taxonomy');
+            foreach ($rslt->result() as $r) {
+                $new = array(
+                    'count' => $r->count+1
+                );
+                $this->db->where('term_taxonomy_id', $amenity);
+                $this->db->update('wpwj_term_taxonomy',$new);
+            }
 //            $this->db->select('*');
 //            $this->db->from('wpwj_term_taxonomy');
 //            $this->db->where('term_taxonomy_id = ',$amenity);
@@ -327,6 +338,19 @@ class Model_properti extends CI_Model{
 //                $this->db->where('term_taxonomy_id', $amenity);
 //                $this->db->update('wpwj_term_taxonomy',$new);
 //            }
+        }
+    }
+
+    public function get_pemesan($id){
+        $this->db->select('status');
+        $this->db->where('id = ',$id);
+        $rslt = $this->db->get('wpwj_trav_accommodation_bookings');
+        foreach ($rslt->result() as $r) {
+            $new = array(
+                'status' => '2'
+            );
+            $this->db->where('id', $id);
+            $this->db->update('wpwj_trav_accommodation_bookings',$new);
         }
     }
 }
