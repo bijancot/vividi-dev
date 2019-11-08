@@ -30,7 +30,7 @@
             <div class="modal-header">
                 <h4 class="modal-title">Login Mitra</h4>
             </div>
-            <?php echo form_open('login/ceklogin'); ?>
+            <?php echo form_open(base_url('login/ceklogin')); ?>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Username</label>

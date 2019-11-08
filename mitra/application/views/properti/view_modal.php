@@ -27,7 +27,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Pilih Properti</h4>
                 </div>
-                <?php echo form_open('properti/atur_harga'); ?>
+                <?php echo form_open(base_url('properti/atur_harga')); ?>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Pilih properti</label>

@@ -28,15 +28,15 @@
                     <li><a href="<?= base_url('properti'); ?>"><?php } ?>
                             <i class="fa fa-circle-o"></i> Semua Properti</a></li>
 
-                    <?php if ($side == 'tipe_properti'){ ?>
-                        <li class="active"><a href="#"><?php } else { ?>
-                    <li><a href="<?= base_url('properti/tipe_properti'); ?>"><?php } ?>
-                            <i class="fa fa-circle-o"></i> Tipe Properti</a></li>
+<!--                    --><?php //if ($side == 'tipe_properti'){ ?>
+<!--                        <li class="active"><a href="#">--><?php //} else { ?>
+<!--                    <li><a href="--><?//= base_url('properti/tipe_properti'); ?><!--">--><?php //} ?>
+<!--                            <i class="fa fa-circle-o"></i> Tipe Properti</a></li>-->
 
-                    <?php if ($side == 'fasilitas'){ ?>
-                        <li class="active"><a href="#"><?php } else { ?>
-                    <li><a href="<?= base_url('properti/fasilitas'); ?>"><?php } ?>
-                            <i class="fa fa-circle-o"></i> Fasilitas</a></li>
+<!--                    --><?php //if ($side == 'fasilitas'){ ?>
+<!--                        <li class="active"><a href="#">--><?php //} else { ?>
+<!--                    <li><a href="--><?//= base_url('properti/fasilitas'); ?><!--">--><?php //} ?>
+<!--                            <i class="fa fa-circle-o"></i> Fasilitas</a></li>-->
 
                     <?php if ($side == 'tipe_kamar'){ ?>
                         <li class="active"><a href="#"><?php } else { ?>
