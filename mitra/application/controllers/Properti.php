@@ -24,6 +24,8 @@ class Properti extends CI_Controller {
 		$this->load->view('index',$data);
 	}
 
+    // public function 
+
     public function harga_modal()
     {
         $id = $_SESSION['ID'];
@@ -36,13 +38,20 @@ class Properti extends CI_Controller {
 	public function modal_kamar(){
         $id = $_SESSION['ID'];
         $prop = $this->input->post('prop');
-        $data = $this->Model_properti->data_modal_kamar($id, $prop);
+        $p = explode("_", $prop);
+        $data = $this->Model_properti->data_modal_kamar($id, $p[0]);
         echo json_encode($data);
     }
 
     public function atur_harga()
     {
-        $data['data'] = $this->Model_properti->data_semua_properti();
+        $properti = $this->input->post('properti');
+        $kamar = $this->input->post('jenis_kamar');
+        $prop = explode("_",$properti);
+        $ka = explode("_",$kamar);
+        $data['properti'] = $prop[1];
+        $data['kamar'] = $ka[1];
+        $data['data'] = $this->Model_properti->data_atur_harga($prop[0], $ka[0]);
         $data['weekday'] = $this->input->post('weekday');
         $data['weekend'] = $this->input->post('weekend');
         $data['hseasion'] = $this->input->post('hseasion');

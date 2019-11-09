@@ -36,7 +36,7 @@
                             <?php
                             $no=1;
                             foreach ($data as $row) { ?>
-                            <option value="<?= $row->id?>"><?php echo $row->properti;?></option>
+                            <option value="<?= $row->id?>_<?php echo $row->properti;?>"><?php echo $row->properti;?></option>
                             <?php } ?>
                         </select>
                     </div>

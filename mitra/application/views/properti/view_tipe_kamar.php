@@ -155,14 +155,6 @@
     <!-- End Modal Detail -->
 </div>
 <script type="text/javascript">
-  //   function clickButton(id){
-  //   var url =  "<?= site_url('properti/modal_tipe_kamar')?>";
-  //       var postdata = {id: id};
-  //       $.post(url, postdata, function(data) {
-  //           var results = JSON.parse(data);
-  //           $('#modal_detail').html(results);
-  //       });
-  // }
   function clickButton(id){
     var postdata = {id: id};
     var url =  "<?= site_url('properti/modal_tipe_kamar')?>";
@@ -171,8 +163,5 @@
       $('#modal_detail').html(results);
     });
     $('#modal_detail').modal('show');
-     // As pointed out in comments, 
-     // it is unnecessary to have to manually call the modal.
-      // $('#addBookDialog').modal('show');
 }
 </script>
