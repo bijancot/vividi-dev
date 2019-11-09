@@ -147,21 +147,47 @@ class Model_properti extends CI_Model{
 			left join wpwj_users u on p.post_author = u.ID
 			where p.post_type = 'accommodation'
 			AND p.post_status = 'publish'
-			AND p.post_author = ".$id);
+			AND p.post_author = ".$id."
+            order by p.id desc");
 		return $query->result();
 	}
 
 	function data_modal_kamar($id, $prop){
-		$query = $this->db->query("select ta.room_type_id as ID, p.post_title as kamar
-			from wpwj_posts p
-			left join wpwj_users u on p.post_author = u.ID
-			left join wpwj_trav_accommodation_vacancies ta on p.ID = ta.room_type_id
-			where p.post_type = 'room_type'
-			AND p.post_status = 'publish'
-			AND p.post_author = ".$id."
-			AND ta.accommodation_id = ".$prop);
+		$query = $this->db->query("select p.ID as id, p.post_title as kamar
+             from wpwj_posts p
+             left join wpwj_postmeta pmroom on p.id = pmroom.post_id
+             left join wpwj_posts post on post.id = pmroom.meta_value
+             LEFT JOIN wpwj_users users on users.ID = p.post_author
+             where pmroom.meta_key = 'trav_room_accommodation'
+             AND p.post_type = 'room_type'
+             AND post.post_type = 'accommodation'
+             AND p.post_status = 'publish'
+             AND p.post_author = ".$id."
+             AND pmroom.meta_value = ".$prop."
+             group by p.id
+             order by p.id desc");
 		return $query->result();
 	}
+
+    function data_atur_harga($prop, $kamar){
+        $query = $this->db->query("select av.id as id, 
+            pproperti.post_title as properti, 
+            pkamar.post_title as kamar, 
+            av.date_from as dari, 
+            av.date_to as sampai, 
+            av.rooms as allotment ,
+            av.price_per_room as harga
+            from wpwj_trav_accommodation_vacancies av
+            left join wpwj_posts pproperti on av.accommodation_id = pproperti.ID
+            left join wpwj_posts pkamar on av.room_type_id = pkamar.ID
+            where pproperti.post_type = 'accommodation'
+            and pkamar.post_type = 'room_type'
+            and pproperti.post_status = 'publish'
+            and pkamar.post_status = 'publish'
+            and av.accommodation_id = ".$prop."
+            and av.room_type_id = ".$kamar);
+        return $query->result();
+    }
 
     public function save_type_kamar($id,$time,$properti,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload) {
         $this->db->select_max('ID');
