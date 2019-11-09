@@ -101,6 +101,21 @@ class Properti extends CI_Controller {
         echo json_encode($filter_view);
     }
 
+    public function upload_foto() {
+        $config['upload_path']          = './assets/images/hotel/';
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 10000;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto')) {
+            $result = ['Status' => 'success', 'file' => $this->upload->data()];
+        } else {
+            $result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
+        }
+        return $result;
+    }
+
     public function save_type_kamar() {
         $id = $_SESSION['ID'];
         date_default_timezone_set('Asia/Jakarta');
@@ -111,7 +126,12 @@ class Properti extends CI_Controller {
         $remaja = $this->input->post('remaja');
         $anak = $this->input->post('anak');
         $fasilitas = $this->input->post('amenity');
-        $this->Model_properti->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas);
+        $upload = $this->upload_foto();
+        if ($upload['Status'] == 'success') {
+            $this->Model_properti->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload);
+        } else {
+            echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";
+        }
         redirect(base_url('properti/tipe_kamar'));
     }
 
