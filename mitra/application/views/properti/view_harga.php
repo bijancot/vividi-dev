@@ -2,7 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Atur Harga
+            Atur Harga - <?= $properti ?> / <?= $kamar ?>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -48,26 +48,35 @@
                 <div class="box">
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <table id="example2" class="table table-bordered table-striped">
+                        <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>Properti</th>
                                 <th>Date From</th>
                                 <th>Date To</th>
-                                <th>Tipe Kamar</th>
                                 <th>Allotment</th>
                                 <th>Harga</th>
                                 <th></th>
                             </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                    foreach ($data as $row) {
+                                        ?>
+                                        <tr>
+                                        <td><?php echo $row->dari;?></td>
+                                        <td><?php echo $row->sampai;?></td>
+                                        <td><?php echo $row->allotment;?></td>
+                                        <td><?php echo $row->harga;?></td>
+                                        <td><button class="btn btn-block" data-effect="mfp-zoomIn" id="<?php echo $row->id;?>" onclick="clickButton(<?php echo $row->id;?>)">Lihat</button></td>
+                                        </tr>
+                                        <?php
+                                    }
+                                ?>
                             </tbody>
                             <tfoot>
                             <tr>
-                                <th>Properti</th>
                                 <th>Date From</th>
                                 <th>Date To</th>
-                                <th>Tipe Kamar</th>
                                 <th>Allotment</th>
                                 <th>Harga</th>
                                 <th></th>

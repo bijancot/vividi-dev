@@ -150,7 +150,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
-                        html += '<option value="'+data[i].ID+'">'+data[i].kamar+'</option>';
+                        html += '<option value="'+data[i].id+'_'+data[i].kamar+'">'+data[i].kamar+'</option>';
                     }
                     $('#jenis_kamar').html(html);
                }
