@@ -86,7 +86,6 @@ class Model_properti extends CI_Model{
              AND p.post_type = 'room_type'
              AND post.post_type = 'accommodation'
              AND p.post_status = 'publish'
-             AND post.post_status = 'publish'
              AND p.post_author = ".$id."
              group by p.id
              order by tanggal desc");
@@ -148,49 +147,23 @@ class Model_properti extends CI_Model{
 			left join wpwj_users u on p.post_author = u.ID
 			where p.post_type = 'accommodation'
 			AND p.post_status = 'publish'
-			AND p.post_author = ".$id."
-            order by p.id desc");
+			AND p.post_author = ".$id);
 		return $query->result();
 	}
 
 	function data_modal_kamar($id, $prop){
-		$query = $this->db->query("select p.ID as id, p.post_title as kamar
-             from wpwj_posts p
-             left join wpwj_postmeta pmroom on p.id = pmroom.post_id
-             left join wpwj_posts post on post.id = pmroom.meta_value
-             LEFT JOIN wpwj_users users on users.ID = p.post_author
-             where pmroom.meta_key = 'trav_room_accommodation'
-             AND p.post_type = 'room_type'
-             AND post.post_type = 'accommodation'
-             AND p.post_status = 'publish'
-             AND p.post_author = ".$id."
-             AND pmroom.meta_value = ".$prop."
-             group by p.id
-             order by p.id desc");
+		$query = $this->db->query("select ta.room_type_id as ID, p.post_title as kamar
+			from wpwj_posts p
+			left join wpwj_users u on p.post_author = u.ID
+			left join wpwj_trav_accommodation_vacancies ta on p.ID = ta.room_type_id
+			where p.post_type = 'room_type'
+			AND p.post_status = 'publish'
+			AND p.post_author = ".$id."
+			AND ta.accommodation_id = ".$prop);
 		return $query->result();
 	}
 
-    function data_atur_harga($prop, $kamar){
-        $query = $this->db->query("select av.id as id, 
-            pproperti.post_title as properti, 
-            pkamar.post_title as kamar, 
-            av.date_from as dari, 
-            av.date_to as sampai, 
-            av.rooms as allotment ,
-            av.price_per_room as harga
-            from wpwj_trav_accommodation_vacancies av
-            left join wpwj_posts pproperti on av.accommodation_id = pproperti.ID
-            left join wpwj_posts pkamar on av.room_type_id = pkamar.ID
-            where pproperti.post_type = 'accommodation'
-            and pkamar.post_type = 'room_type'
-            and pproperti.post_status = 'publish'
-            and pkamar.post_status = 'publish'
-            and av.accommodation_id = ".$prop."
-            and av.room_type_id = ".$kamar);
-        return $query->result();
-    }
-
-    public function save_type_kamar($id,$time,$properti,$judul,$deskripsi,$remaja,$anak,$fasilitas) {
+    public function save_type_kamar($id,$time,$properti,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload) {
         $this->db->select_max('ID');
         $data = $this->db->get('wpwj_posts');
         $keyTransaksi = "";
@@ -224,6 +197,33 @@ class Model_properti extends CI_Model{
         );
         $this->db->insert('wpwj_posts', $data);
 
+        $data_image = array(
+            'ID' => $keyTransaksi+1,
+            'post_author' => $id,
+            'post_date' => $time,
+            'post_date_gmt' => $time,
+            'post_content' => '',
+            'post_title' => $judul,
+            'post_excerpt' => '',
+            'post_status' => 'inherit',
+            'comment_status' => 'open',
+            'ping_status' => 'closed',
+            'post_password' => '',
+            'post_name' => $judul,
+            'to_ping' => '',
+            'pinged' => '',
+            'post_modified' => $time,
+            'post_modified_gmt' => $time,
+            'post_content_filtered' => '',
+            'post_parent' => $properti,
+            'guid' => 'https://vividi.id/mitra/assets/images/hotel/'.$upload['file']['file_name'],
+            'menu_order' => '0',
+            'post_type' => 'attachment',
+            'post_mime_type' => 'image/jpeg',
+            'comment_count' => '0'
+        );
+        $this->db->insert('wpwj_posts', $data_image);
+
         $this->db->select_max('meta_id');
         $data = $this->db->get('wpwj_postmeta');
         $key = "";
@@ -248,7 +248,7 @@ class Model_properti extends CI_Model{
             'meta_id' => $key+2,
             'post_id' => $keyTransaksi,
             'meta_key' => '_thumbnail_id',
-            'meta_value' => '3362'
+            'meta_value' => $keyTransaksi+1
         );
         $this->db->insert('wpwj_postmeta', $data3);
         $data4 = array(
@@ -290,7 +290,7 @@ class Model_properti extends CI_Model{
             'meta_id' => $key+8,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_gallery_imgs',
-            'meta_value' => '3362'
+            'meta_value' => $keyTransaksi+1
         );
         $this->db->insert('wpwj_postmeta', $data9);
         $data10 = array(
@@ -335,6 +335,13 @@ class Model_properti extends CI_Model{
             'meta_value' => '0'
         );
         $this->db->insert('wpwj_postmeta', $data15);
+        $data16 = array(
+            'meta_id' => $key+15,
+            'post_id' => $keyTransaksi+1,
+            'meta_key' => '_wp_attached_file',
+            'meta_value' => '../../mitra/assets/images/hotel/'.$upload['file']['file_name']
+        );
+        $this->db->insert('wpwj_postmeta', $data16);
 
         foreach($fasilitas as $amenity) {
             $list = array(
@@ -354,17 +361,6 @@ class Model_properti extends CI_Model{
                 $this->db->where('term_taxonomy_id', $amenity);
                 $this->db->update('wpwj_term_taxonomy',$new);
             }
-//            $this->db->select('*');
-//            $this->db->from('wpwj_term_taxonomy');
-//            $this->db->where('term_taxonomy_id = ',$amenity);
-//            $result = $this->db->get();
-//            foreach($result as $r) {
-//                $new = array(
-//                    'count' => (($r->count)+1),
-//                );
-//                $this->db->where('term_taxonomy_id', $amenity);
-//                $this->db->update('wpwj_term_taxonomy',$new);
-//            }
         }
     }
 
