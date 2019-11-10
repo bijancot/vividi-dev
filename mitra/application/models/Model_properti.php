@@ -120,6 +120,7 @@ class Model_properti extends CI_Model{
 
 	function data_pesan(){
 		$query = $this->db->query("select ab.id as id,
+			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
 			 ab.last_name as nama_akhir,
 			 ab.date_from as check_in,
@@ -390,7 +391,7 @@ class Model_properti extends CI_Model{
         }
     }
 
-    public function get_pemesan($id){
+    public function get_sukses($id){
         $this->db->select('status');
         $this->db->where('id = ',$id);
         $rslt = $this->db->get('wpwj_trav_accommodation_bookings');
@@ -402,4 +403,17 @@ class Model_properti extends CI_Model{
             $this->db->update('wpwj_trav_accommodation_bookings',$new);
         }
     }
+
+	public function get_cancel($id){
+		$this->db->select('status');
+		$this->db->where('id = ',$id);
+		$rslt = $this->db->get('wpwj_trav_accommodation_bookings');
+		foreach ($rslt->result() as $r) {
+			$new = array(
+				'status' => '0'
+			);
+			$this->db->where('id', $id);
+			$this->db->update('wpwj_trav_accommodation_bookings',$new);
+		}
+	}
 }

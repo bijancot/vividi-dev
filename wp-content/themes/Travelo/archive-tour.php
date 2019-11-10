@@ -52,11 +52,11 @@ $after_article = '';
         <div id="main">
             <div class="row">
                 <div class="col-sm-4 col-md-3">
-                    <h4 class="search-results-title"><i class="soap-icon-search"></i><b><?php echo esc_html( $count ); ?></b> <?php _e( 'PAKET TOUR.', 'trav' ) ?></h4>
+<!--                    <h4 class="search-results-title"><i class="soap-icon-search"></i><b>--><?php //echo esc_html( $count ); ?><!--</b> --><?php //_e( 'PAKET TOUR.', 'trav' ) ?><!--</h4>-->
                     <div class="toggle-container style1 filters-container">
                         <div class="panel arrow-right">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#modify-search-panel" class=""><?php _e( 'UBAH PENCARIAN', 'trav' ) ?></a>
+                                <a data-toggle="collapse" href="#modify-search-panel" class=""><?php _e( 'TOUR', 'trav' ) ?></a>
                             </h4>
                             <div id="modify-search-panel" class="panel-collapse collapse in">
                                 <div class="panel-content">
@@ -92,45 +92,45 @@ $after_article = '';
                             </div>
                         </div>
 
-                        <?php if ( $trav_options['tour_enable_price_filter'] ) : ?>
-                        <div class="panel style1 arrow-right">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#price-filter" class="collapsed"><?php _e( 'Harga', 'trav' );?></a>
-                            </h4>
-                            <div id="price-filter" class="panel-collapse collapse">
-                                <div class="panel-content">
-                                    <div id="price-range" data-slide-last-val="<?php echo esc_attr( ( ! empty($trav_options['tour_price_filter_max']) && is_numeric($trav_options['tour_price_filter_max']) ) ? $trav_options['tour_price_filter_max'] :200 ) ?>" data-slide-step="<?php echo esc_attr( ( ! empty($trav_options['tour_price_filter_step']) && is_numeric($trav_options['tour_price_filter_step']) ) ? $trav_options['tour_price_filter_step'] :50 ) ?>" data-def-currency="<?php echo esc_attr( trav_get_site_currency_symbol() );?>" data-min-price="<?php echo esc_attr( $min_price ); ?>" data-max-price="<?php echo esc_attr( $max_price ); ?>" data-url-noprice="<?php echo esc_url( remove_query_arg( array( 'min_price', 'max_price', 'page' ) ) ); ?>"></div>
-                                    <br />
-                                    <span class="min-price-label pull-left"></span>
-                                    <span class="max-price-label pull-right"></span>
-                                    <div class="clearer"></div>
-                                </div><!-- end content -->
-                            </div>
-                        </div>
-                        <?php endif; ?>
-
-                        <?php if ( $trav_options['tour_enable_tour_type_filter'] ) : ?>
-                        <div class="panel style1 arrow-right">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" href="#tour-type-filter" class="<?php echo empty( $tour_type )?'collapsed':''?>"><?php _e( 'Tipe Wisata', 'trav' ) ?></a>
-                            </h4>
-                            <div id="tour-type-filter" data-url-notour_type="<?php echo esc_url( remove_query_arg( array( 'tour_types', 'page' ) ) ); ?>" class="panel-collapse collapse <?php echo empty( $tour_type )?'':'in'?>">
-                                <div class="panel-content">
-                                    <ul class="check-square filters-option">
-                                        <?php
-                                            $selected = ( $tour_type == '' )?' active':'';
-                                            echo '<li class="all-types' . esc_attr( $selected ) . '"><a href="#">' . __( 'Semua', 'trav' ) . '<small>(' . esc_html( $count ) . ')</small></a></li>';
-                                            $all_tour_types = get_terms( 'tour_type', array('hide_empty' => 0) );
-                                            foreach ( $all_tour_types as $each_tour_type ) {
-                                                $selected = ( ( is_array( $tour_type ) && in_array( $each_tour_type->term_id, $tour_type ) ) )?' class="active"':'';
-                                                echo '<li' . $selected . ' data-term-id="' . esc_attr( $each_tour_type->term_id ) . '"><a href="#">' . esc_html( $each_tour_type->name ) . '<small>(' . esc_html( trav_tour_get_search_result_count( array( 'min_price'=>$min_price, 'max_price'=>$max_price, 'tour_type'=>array( $each_tour_type->term_id ) ) ) ) . ')</small></a></li>';
-                                            }
-                                        ?>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <?php endif; ?>
+<!--                        --><?php //if ( $trav_options['tour_enable_price_filter'] ) : ?>
+<!--                        <div class="panel style1 arrow-right">-->
+<!--                            <h4 class="panel-title">-->
+<!--                                <a data-toggle="collapse" href="#price-filter" class="collapsed">--><?php //_e( 'Harga', 'trav' );?><!--</a>-->
+<!--                            </h4>-->
+<!--                            <div id="price-filter" class="panel-collapse collapse">-->
+<!--                                <div class="panel-content">-->
+<!--                                    <div id="price-range" data-slide-last-val="--><?php //echo esc_attr( ( ! empty($trav_options['tour_price_filter_max']) && is_numeric($trav_options['tour_price_filter_max']) ) ? $trav_options['tour_price_filter_max'] :200 ) ?><!--" data-slide-step="--><?php //echo esc_attr( ( ! empty($trav_options['tour_price_filter_step']) && is_numeric($trav_options['tour_price_filter_step']) ) ? $trav_options['tour_price_filter_step'] :50 ) ?><!--" data-def-currency="--><?php //echo esc_attr( trav_get_site_currency_symbol() );?><!--" data-min-price="--><?php //echo esc_attr( $min_price ); ?><!--" data-max-price="--><?php //echo esc_attr( $max_price ); ?><!--" data-url-noprice="--><?php //echo esc_url( remove_query_arg( array( 'min_price', 'max_price', 'page' ) ) ); ?><!--"></div>-->
+<!--                                    <br />-->
+<!--                                    <span class="min-price-label pull-left"></span>-->
+<!--                                    <span class="max-price-label pull-right"></span>-->
+<!--                                    <div class="clearer"></div>-->
+<!--                                </div>
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        --><?php //endif; ?>
+<!---->
+<!--                        --><?php //if ( $trav_options['tour_enable_tour_type_filter'] ) : ?>
+<!--                        <div class="panel style1 arrow-right">-->
+<!--                            <h4 class="panel-title">-->
+<!--                                <a data-toggle="collapse" href="#tour-type-filter" class="--><?php //echo empty( $tour_type )?'collapsed':''?><!--">--><?php //_e( 'Tipe Wisata', 'trav' ) ?><!--</a>-->
+<!--                            </h4>-->
+<!--                            <div id="tour-type-filter" data-url-notour_type="--><?php //echo esc_url( remove_query_arg( array( 'tour_types', 'page' ) ) ); ?><!--" class="panel-collapse collapse --><?php //echo empty( $tour_type )?'':'in'?><!--">-->
+<!--                                <div class="panel-content">-->
+<!--                                    <ul class="check-square filters-option">-->
+<!--                                        --><?php
+//                                            $selected = ( $tour_type == '' )?' active':'';
+//                                            echo '<li class="all-types' . esc_attr( $selected ) . '"><a href="#">' . __( 'Semua', 'trav' ) . '<small>(' . esc_html( $count ) . ')</small></a></li>';
+//                                            $all_tour_types = get_terms( 'tour_type', array('hide_empty' => 0) );
+//                                            foreach ( $all_tour_types as $each_tour_type ) {
+//                                                $selected = ( ( is_array( $tour_type ) && in_array( $each_tour_type->term_id, $tour_type ) ) )?' class="active"':'';
+//                                                echo '<li' . $selected . ' data-term-id="' . esc_attr( $each_tour_type->term_id ) . '"><a href="#">' . esc_html( $each_tour_type->name ) . '<small>(' . esc_html( trav_tour_get_search_result_count( array( 'min_price'=>$min_price, 'max_price'=>$max_price, 'tour_type'=>array( $each_tour_type->term_id ) ) ) ) . ')</small></a></li>';
+//                                            }
+//                                        ?>
+<!--                                    </ul>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        --><?php //endif; ?>
 
                     </div>
                 </div>

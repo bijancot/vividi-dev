@@ -21,7 +21,7 @@
               <table id="example2" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>ID</th>
+                  <th>No Booking</th>
                   <th>Pemesan</th>
                   <th>Check In</th>
                   <th>Check Out</th>
@@ -39,7 +39,7 @@
                     $no=1; 
                     foreach ($data as $row) { ?>
                     <tr>
-                    <td><?php echo $row->id;?></td>
+                    <td><?php echo $row->booking_no;?></td>
                     <td><?php echo $row->nama_awal;?> <?php echo $row->nama_akhir;?></td>
                     <td><?php echo $row->check_in;?></td>
                     <td><?php echo $row->check_out;?></td>
@@ -51,26 +51,12 @@
                     <td><?php echo $row->status;?></td>
                     <td>
                         <a href="<?= site_url('Properti/sukses/'.$row->id); ?>" class="btn btn-block btn-primary">Sukses</a>
-                        <button class="btn btn-block btn-danger" data-effect="mfp-zoomIn" id="<?php echo $row->id;?>" onclick="clickButton(<?php echo $row->id;?>)">Cancel</button>
+<!--                        <a href="--><?//= site_url('SendMail/send_email/'); ?><!--" class="btn btn-block btn-primary">Sukses</a>-->
+						<a href="<?= site_url('Properti/gagal/'.$row->id); ?>" class="btn btn-block btn-danger">Cancel</a>
                     </td>
                     </tr>
                   <?php } ?>
                 </tbody>
-                <tfoot>
-                <tr>
-                  <th>ID</th>
-                  <th>Pemesan</th>
-                  <th>Check In</th>
-                  <th>Check Out</th>
-                  <th>Properti</th>
-                  <th>Tipe Kamar</th>
-                  <th>Jumlah</th>
-                  <th>Harga</th>
-                  <th>Tanggal Pesan</th>
-                  <th>Status</th>
-                  <th>Aksi</th>
-                </tr>
-                </tfoot>
               </table>
             </div>
             <!-- /.box-body -->

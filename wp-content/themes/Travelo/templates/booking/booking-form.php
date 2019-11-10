@@ -73,11 +73,11 @@ do_action( 'trav_booking_form_before' );
             </div>
             <div class="col-sm-6 col-md-5">
                 <label><?php _e( 'NAMA DEPAN', 'trav'); ?></label>
-                <input type="text" id="first_name_guest" name="first_name_guest" class="form-control" value="" placeholder="Nama Depan" />
+                <input type="text" id="first_name_guest" name="first_name_guest" class="form-control" value="" placeholder="Nama Depan" required/>
             </div>
             <div class="col-sm-6 col-md-5">
                 <label><?php _e( 'NAMA BELAKANG', 'trav'); ?></label>
-                <input type="text" id="last_name_guest" name="last_name_guest" class="form-control" value="" placeholder="Nama Belakang"/>
+                <input type="text" id="last_name_guest" name="last_name_guest" class="form-control" value="" placeholder="Nama Belakang" required/>
 <!--                <button type="button" class="add_field_button">Add Field</button>-->
 <!--            </div>-->
         </div>
@@ -92,17 +92,17 @@ do_action( 'trav_booking_form_before' );
             <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
                 <input type="radio" name="bank" value="8161382019 https://vividi.id/wp-content/themes/Travelo/images/payment/bca.png">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/payment/bca.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
-                <span class="pull-right" style="margin-top: 20px">8161382019</span>
+                <span class="pull-right" style="margin-top: 20px; font-size: 15px">8161382019</span>
             </div>
             <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
                 <input type="radio" name="bank" value="005101003100309 https://vividi.id/wp-content/themes/Travelo/images/payment/bri.png">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/payment/bri.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
-                <span class="pull-right" style="margin-top: 20px">005101003100309</span>
+                <span class="pull-right" style="margin-top: 20px; font-size: 15px">005101003100309</span>
             </div>
             <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
                 <input type="radio" name="bank" value="1440020190804 https://vividi.id/wp-content/themes/Travelo/images/payment/mandiri.png">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/payment/mandiri.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
-                <span class="pull-right" style="margin-top: 20px">1440020190804</span>
+                <span class="pull-right" style="margin-top: 20px; font-size: 15px">1440020190804</span>
             </div>
         </div>
     </div>
@@ -172,7 +172,7 @@ do_action( 'trav_booking_form_before' );
 
 <div class="form-group row confirm-booking-btn">
 	<div class="col-sm-6 col-md-5">
-		<button type="submit" class="full-width btn-large">
+		<button style="background: #09477E;" type="submit" class="full-width btn-large">
 			<?php $button_text = __( 'KONFIRMASI PESANAN', 'trav'); ?>
 			<?php echo apply_filters( 'trav_booking_button_text', $button_text ); ?>
 		</button>

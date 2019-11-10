@@ -338,7 +338,6 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
         if ( is_user_logged_in() ) {
             $data['user_id'] = get_current_user_id();
         }
-        date_default_timezone_get('Asia/Jakarta');
 
         $latest_booking_id = $wpdb->get_var( 'SELECT id FROM ' . TRAV_ACCOMMODATION_BOOKINGS_TABLE . ' ORDER BY id DESC LIMIT 1' );
 //        $booking_no = mt_rand( 1000, 9999 );
@@ -347,7 +346,7 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
         $pin_code = mt_rand( 1000, 9999 );
 
         if ( ! isset( $_SESSION['exchange_rate'] ) ) trav_init_currency();
-
+        date_default_timezone_set('Asia/Jakarta');
         $default_booking_data = array(  
             'first_name'            => '',
             'last_name'             => '',
@@ -380,8 +379,8 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
             'deposit_paid'          => ( $is_payment_enabled ? 0 : 1 ),
             'date_from'             => '',
             'date_to'               => '',
-            'created'               => date( 'Y-m-d H:i:s', time()+25200 ),
-            'valid_until'           => date( 'Y-m-d H:i:s', time()+28800 ),
+            'created'               => date('Y-m-d H:i:s'),
+            'valid_until'           => date( 'Y-m-d H:i:s', time()+3600 ),
             'booking_no'            => $booking_no,
             'pin_code'              => $pin_code,
             'status'                => 1,

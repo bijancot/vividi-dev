@@ -61,14 +61,14 @@ foreach ($results as $result) {
             <div id="main">
                 <div class="row">
                     <div class="col-sm-4 col-md-3">
-                        <h4 class="search-results-title"><i
-                                    class="soap-icon-search"></i><b><?php echo esc_html($count); ?></b> <?php _e('JENIS DITEMUKAN.', 'trav') ?>
-                        </h4>
+<!--                        <h4 class="search-results-title"><i-->
+<!--                                    class="soap-icon-search"></i><b>--><?php //echo esc_html($count); ?><!--</b> --><?php //_e('JENIS DITEMUKAN.', 'trav') ?>
+<!--                        </h4>-->
                         <div class="toggle-container filters-container style1">
                             <div class="panel arrow-right">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" href="#modify-search-panel"
-                                       class=""><?php esc_html_e('Pencarian Lainnya', 'trav'); ?></a>
+                                       class=""><?php esc_html_e('TRANSPORT', 'trav'); ?></a>
                                 </h4>
                                 <div id="modify-search-panel" class="panel-collapse collapse in">
                                     <div class="panel-content">
@@ -133,106 +133,106 @@ foreach ($results as $result) {
                                     </div>
                                 </div>
                             </div>
-                            <?php if ($trav_options['car_enable_price_filter']) : ?>
-                                <div class="panel style1 arrow-right">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#price-filter"
-                                           class="collapsed"><?php _e('Harga Sewa', 'trav'); ?></a>
-                                    </h4>
-                                    <div id="price-filter" class="panel-collapse collapse">
-                                        <div class="panel-content">
-                                            <div id="price-range"
-                                                 data-slide-last-val="<?php echo esc_attr((!empty($trav_options['car_price_filter_max']) && is_numeric($trav_options['car_price_filter_max'])) ? $trav_options['car_price_filter_max'] : 200) ?>"
-                                                 data-slide-step="<?php echo esc_attr((!empty($trav_options['car_price_filter_step']) && is_numeric($trav_options['car_price_filter_step'])) ? $trav_options['car_price_filter_step'] : 50) ?>"
-                                                 data-def-currency="<?php echo esc_attr(trav_get_site_currency_symbol()); ?>"
-                                                 data-min-price="<?php echo esc_attr($min_price); ?>"
-                                                 data-max-price="<?php echo esc_attr($max_price); ?>"
-                                                 data-url-noprice="<?php echo esc_url(remove_query_arg(array('min_price', 'max_price', 'page'))); ?>"></div>
-                                            <br/>
-                                            <span class="min-price-label pull-left"></span>
-                                            <span class="max-price-label pull-right"></span>
-                                            <div class="clearer"></div>
-                                        </div><!-- end content -->
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if ($trav_options['car_enable_car_type_filter']) : ?>
-                                <div class="panel style1 arrow-right">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#car-type-filter"
-                                           class="<?php echo empty($car_type) ? 'collapsed' : '' ?>"><?php _e('Tipe Kendaraan', 'trav') ?></a>
-                                    </h4>
-                                    <div id="car-type-filter"
-                                         data-url-nocar_type="<?php echo esc_url(remove_query_arg(array('car_types', 'page'))); ?>"
-                                         class="panel-collapse collapse filters-container <?php echo empty($car_type) ? '' : 'in' ?>">
-                                        <div class="panel-content">
-                                            <ul class="check-square filters-option">
-                                                <?php
-                                                $selected = ($car_type == '') ? ' active' : '';
-                                                echo '<li class="all-types' . esc_attr($selected) . '"><a href="#">' . __('Semua Tipe', 'trav') . '<small>(' . esc_html($count) . ')</small></a></li>';
-                                                $all_car_types = get_terms('car_type', array('hide_empty' => 0));
-                                                foreach ($all_car_types as $each_car_type) {
-                                                    $selected = ((is_array($car_type) && in_array($each_car_type->term_id, $car_type))) ? ' class="active"' : '';
-                                                    echo '<li' . $selected . ' data-term-id="' . esc_attr($each_car_type->term_id) . '"><a href="#">' . esc_html($each_car_type->name) . '<small>(' . esc_html(trav_car_get_search_result_count($min_price, $max_price, array($each_car_type->term_id), $car_agent, $preferences)) . ')</small></a></li>';
-                                                }
-                                                ?>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if ($trav_options['car_enable_car_agent_filter']) : ?>
-                                <div class="panel style1 arrow-right">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#car-agent-filter"
-                                           class="<?php echo empty($car_agent) ? 'collapsed' : '' ?>"><?php _e('Penyedia Layanan', 'trav') ?></a>
-                                    </h4>
-                                    <div id="car-agent-filter"
-                                         data-url-nocar_agent="<?php echo esc_url(remove_query_arg(array('car_agents', 'page'))); ?>"
-                                         class="panel-collapse collapse filters-container <?php echo empty($car_agent) ? '' : 'in' ?>">
-                                        <div class="panel-content">
-                                            <ul class="check-square filters-option">
-                                                <?php
-                                                $selected = ($car_agent == '') ? ' active' : '';
-                                                echo '<li class="all-types' . esc_attr($selected) . '"><a href="#">' . __('Semua Penyedia', 'trav') . '<small>(' . esc_html($count) . ')</small></a></li>';
-                                                $all_car_agents = get_terms('car_agent', array('hide_empty' => 0));
-                                                foreach ($all_car_agents as $each_car_agent) {
-                                                    $selected = ((is_array($car_agent) && in_array($each_car_agent->term_id, $car_agent))) ? ' class="active"' : '';
-                                                    echo '<li' . $selected . ' data-term-id="' . esc_attr($each_car_agent->term_id) . '"><a href="#">' . esc_html($each_car_agent->name) . '<small>(' . esc_html(trav_car_get_search_result_count($min_price, $max_price, $car_type, array($each_car_agent->term_id), $preferences)) . ')</small></a></li>';
-                                                }
-                                                ?>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if ($trav_options['car_enable_preference_filter']) : ?>
-                                <div class="panel style1 arrow-right">
-                                    <h4 class="panel-title">
-                                        <a data-toggle="collapse" href="#car-preferences-filter"
-                                           class="<?php echo empty($preferences) ? 'collapsed' : '' ?>"><?php _e('Pilihan Fasilitas', 'trav') ?></a>
-                                    </h4>
-                                    <div id="car-preferences-filter"
-                                         data-url-nocar_preference="<?php echo esc_url(remove_query_arg(array('preferences', 'page'))); ?>"
-                                         class="panel-collapse collapse filters-container <?php echo empty($preferences) ? '' : 'in' ?>">
-                                        <div class="panel-content">
-                                            <ul class="check-square filters-option">
-                                                <?php
-                                                $selected = ($preferences == '') ? ' active' : '';
-                                                $all_preferences = get_terms('preference', array('hide_empty' => 0));
-                                                foreach ($all_preferences as $each_preference) {
-                                                    $selected = ((is_array($preferences) && in_array($each_preference->term_id, $preferences))) ? ' class="active"' : '';
-                                                    echo '<li' . $selected . ' data-term-id="' . esc_attr($each_preference->term_id) . '"><a href="#">' . esc_html($each_preference->name) . '<small>(' . esc_html(trav_car_get_search_result_count($min_price, $max_price, $car_type, $car_agent, array($each_preference->term_id))) . ')</small></a></li>';
-                                                }
-                                                ?>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
+<!--                            --><?php //if ($trav_options['car_enable_price_filter']) : ?>
+<!--                                <div class="panel style1 arrow-right">-->
+<!--                                    <h4 class="panel-title">-->
+<!--                                        <a data-toggle="collapse" href="#price-filter"-->
+<!--                                           class="collapsed">--><?php //_e('Harga Sewa', 'trav'); ?><!--</a>-->
+<!--                                    </h4>-->
+<!--                                    <div id="price-filter" class="panel-collapse collapse">-->
+<!--                                        <div class="panel-content">-->
+<!--                                            <div id="price-range"-->
+<!--                                                 data-slide-last-val="--><?php //echo esc_attr((!empty($trav_options['car_price_filter_max']) && is_numeric($trav_options['car_price_filter_max'])) ? $trav_options['car_price_filter_max'] : 200) ?><!--"-->
+<!--                                                 data-slide-step="--><?php //echo esc_attr((!empty($trav_options['car_price_filter_step']) && is_numeric($trav_options['car_price_filter_step'])) ? $trav_options['car_price_filter_step'] : 50) ?><!--"-->
+<!--                                                 data-def-currency="--><?php //echo esc_attr(trav_get_site_currency_symbol()); ?><!--"-->
+<!--                                                 data-min-price="--><?php //echo esc_attr($min_price); ?><!--"-->
+<!--                                                 data-max-price="--><?php //echo esc_attr($max_price); ?><!--"-->
+<!--                                                 data-url-noprice="--><?php //echo esc_url(remove_query_arg(array('min_price', 'max_price', 'page'))); ?><!--"></div>-->
+<!--                                            <br/>-->
+<!--                                            <span class="min-price-label pull-left"></span>-->
+<!--                                            <span class="max-price-label pull-right"></span>-->
+<!--                                            <div class="clearer"></div>-->
+<!--                                        </div>
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            --><?php //endif; ?>
+<!---->
+<!--                            --><?php //if ($trav_options['car_enable_car_type_filter']) : ?>
+<!--                                <div class="panel style1 arrow-right">-->
+<!--                                    <h4 class="panel-title">-->
+<!--                                        <a data-toggle="collapse" href="#car-type-filter"-->
+<!--                                           class="--><?php //echo empty($car_type) ? 'collapsed' : '' ?><!--">--><?php //_e('Tipe Kendaraan', 'trav') ?><!--</a>-->
+<!--                                    </h4>-->
+<!--                                    <div id="car-type-filter"-->
+<!--                                         data-url-nocar_type="--><?php //echo esc_url(remove_query_arg(array('car_types', 'page'))); ?><!--"-->
+<!--                                         class="panel-collapse collapse filters-container --><?php //echo empty($car_type) ? '' : 'in' ?><!--">-->
+<!--                                        <div class="panel-content">-->
+<!--                                            <ul class="check-square filters-option">-->
+<!--                                                --><?php
+//                                                $selected = ($car_type == '') ? ' active' : '';
+//                                                echo '<li class="all-types' . esc_attr($selected) . '"><a href="#">' . __('Semua Tipe', 'trav') . '<small>(' . esc_html($count) . ')</small></a></li>';
+//                                                $all_car_types = get_terms('car_type', array('hide_empty' => 0));
+//                                                foreach ($all_car_types as $each_car_type) {
+//                                                    $selected = ((is_array($car_type) && in_array($each_car_type->term_id, $car_type))) ? ' class="active"' : '';
+//                                                    echo '<li' . $selected . ' data-term-id="' . esc_attr($each_car_type->term_id) . '"><a href="#">' . esc_html($each_car_type->name) . '<small>(' . esc_html(trav_car_get_search_result_count($min_price, $max_price, array($each_car_type->term_id), $car_agent, $preferences)) . ')</small></a></li>';
+//                                                }
+//                                                ?>
+<!--                                            </ul>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            --><?php //endif; ?>
+<!---->
+<!--                            --><?php //if ($trav_options['car_enable_car_agent_filter']) : ?>
+<!--                                <div class="panel style1 arrow-right">-->
+<!--                                    <h4 class="panel-title">-->
+<!--                                        <a data-toggle="collapse" href="#car-agent-filter"-->
+<!--                                           class="--><?php //echo empty($car_agent) ? 'collapsed' : '' ?><!--">--><?php //_e('Penyedia Layanan', 'trav') ?><!--</a>-->
+<!--                                    </h4>-->
+<!--                                    <div id="car-agent-filter"-->
+<!--                                         data-url-nocar_agent="--><?php //echo esc_url(remove_query_arg(array('car_agents', 'page'))); ?><!--"-->
+<!--                                         class="panel-collapse collapse filters-container --><?php //echo empty($car_agent) ? '' : 'in' ?><!--">-->
+<!--                                        <div class="panel-content">-->
+<!--                                            <ul class="check-square filters-option">-->
+<!--                                                --><?php
+//                                                $selected = ($car_agent == '') ? ' active' : '';
+//                                                echo '<li class="all-types' . esc_attr($selected) . '"><a href="#">' . __('Semua Penyedia', 'trav') . '<small>(' . esc_html($count) . ')</small></a></li>';
+//                                                $all_car_agents = get_terms('car_agent', array('hide_empty' => 0));
+//                                                foreach ($all_car_agents as $each_car_agent) {
+//                                                    $selected = ((is_array($car_agent) && in_array($each_car_agent->term_id, $car_agent))) ? ' class="active"' : '';
+//                                                    echo '<li' . $selected . ' data-term-id="' . esc_attr($each_car_agent->term_id) . '"><a href="#">' . esc_html($each_car_agent->name) . '<small>(' . esc_html(trav_car_get_search_result_count($min_price, $max_price, $car_type, array($each_car_agent->term_id), $preferences)) . ')</small></a></li>';
+//                                                }
+//                                                ?>
+<!--                                            </ul>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            --><?php //endif; ?>
+<!---->
+<!--                            --><?php //if ($trav_options['car_enable_preference_filter']) : ?>
+<!--                                <div class="panel style1 arrow-right">-->
+<!--                                    <h4 class="panel-title">-->
+<!--                                        <a data-toggle="collapse" href="#car-preferences-filter"-->
+<!--                                           class="--><?php //echo empty($preferences) ? 'collapsed' : '' ?><!--">--><?php //_e('Pilihan Fasilitas', 'trav') ?><!--</a>-->
+<!--                                    </h4>-->
+<!--                                    <div id="car-preferences-filter"-->
+<!--                                         data-url-nocar_preference="--><?php //echo esc_url(remove_query_arg(array('preferences', 'page'))); ?><!--"-->
+<!--                                         class="panel-collapse collapse filters-container --><?php //echo empty($preferences) ? '' : 'in' ?><!--">-->
+<!--                                        <div class="panel-content">-->
+<!--                                            <ul class="check-square filters-option">-->
+<!--                                                --><?php
+//                                                $selected = ($preferences == '') ? ' active' : '';
+//                                                $all_preferences = get_terms('preference', array('hide_empty' => 0));
+//                                                foreach ($all_preferences as $each_preference) {
+//                                                    $selected = ((is_array($preferences) && in_array($each_preference->term_id, $preferences))) ? ' class="active"' : '';
+//                                                    echo '<li' . $selected . ' data-term-id="' . esc_attr($each_preference->term_id) . '"><a href="#">' . esc_html($each_preference->name) . '<small>(' . esc_html(trav_car_get_search_result_count($min_price, $max_price, $car_type, $car_agent, array($each_preference->term_id))) . ')</small></a></li>';
+//                                                }
+//                                                ?>
+<!--                                            </ul>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            --><?php //endif; ?>
 
                         </div>
                     </div>
