@@ -70,6 +70,13 @@ class Properti extends CI_Controller {
 		}
 	}
 
+	public function tambah_properti(){
+		$data['folder'] = "properti";
+		$data['side'] = "properti";
+		$data['view'] = "insert";
+		$this->load->view('index',$data);
+	}
+
     public function harga_modal()
     {
         $id = $_SESSION['ID'];

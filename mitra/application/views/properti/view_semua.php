@@ -3,6 +3,9 @@
     <section class="content-header">
       <h1>
         Semua Properti
+		  <a href="<?= site_url('../Properti/tambah_properti') ?>" class="btn btn-default">
+			  Tambah Properti
+		  </a>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -18,10 +21,6 @@
           <div class="box">
             <!-- /.box-header -->
             <div class="box-body">
-				<button type="button" class="btn btn-default" style="margin-bottom: 10px" data-toggle="modal"
-						data-target="#modal_propeti">
-					Tambah Properti
-				</button>
               <table id="example2" class="table table-bordered table-striped">
                 <thead>
                 <tr>
