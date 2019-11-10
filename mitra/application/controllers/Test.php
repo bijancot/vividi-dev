@@ -22,4 +22,10 @@ class Test extends CI_Controller {
 //		$data['side'] = "dashboard";
 		$this->load->view('Test/real',$data);
 	}
+
+	public function timer()
+	{
+		$data['folder'] = "Test";
+		$this->load->view('Test/timer', $data);
+	}
 }

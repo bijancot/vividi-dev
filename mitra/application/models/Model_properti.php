@@ -391,15 +391,15 @@ class Model_properti extends CI_Model{
         }
     }
 
-    public function get_sukses($id){
+    public function get_sukses($booking_no){
         $this->db->select('status');
-        $this->db->where('id = ',$id);
+        $this->db->where('booking_no = ',$booking_no);
         $rslt = $this->db->get('wpwj_trav_accommodation_bookings');
         foreach ($rslt->result() as $r) {
             $new = array(
                 'status' => '2'
             );
-            $this->db->where('id', $id);
+            $this->db->where('booking_no', $booking_no);
             $this->db->update('wpwj_trav_accommodation_bookings',$new);
         }
     }
@@ -415,5 +415,25 @@ class Model_properti extends CI_Model{
 			$this->db->where('id', $id);
 			$this->db->update('wpwj_trav_accommodation_bookings',$new);
 		}
+	}
+
+	public function data_email($booking_no){
+		$query = $this->db->query("select ab.id as id,
+			ab.booking_no as booking_no,
+			ab.first_name as nama_awal,
+			ab.last_name as nama_akhir,
+			ab.date_from as check_in,
+			ab.date_to as check_out,
+			 ab.bank as bank,
+			ab.no_rekening as nomor_rek,
+			ab.valid_until as batas_waktu,
+			p_prop.post_title as nama_properti,
+			ab.total_price as harga_total,
+			ab.created as tgl_pesan
+			from wpwj_trav_accommodation_bookings ab
+			left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
+			where ab.booking_no = '$booking_no'
+			order by tgl_pesan desc");
+		return $query->result();
 	}
 }

@@ -24,7 +24,7 @@ class Properti extends CI_Controller {
 		$this->load->view('index',$data);
 	}
 
-	public function send_email()
+	public function send_email($booking_no)
 	{
 		$mitra = $_SESSION['email'];
 		$admin = 'omibalola@gmail.com';
@@ -46,7 +46,7 @@ class Properti extends CI_Controller {
 		$this->load->library('email', $config);
 
 		// Email dan nama pengirim
-		$this->email->from('omibalola@gmail.com', 'MasRud.com');
+		$this->email->from('omibalola@gmail.com', 'Testing Email');
 
 		$list = array($mitra, $admin);
 		// Email penerima
@@ -56,10 +56,10 @@ class Properti extends CI_Controller {
 //		$this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
 
 		// Subject email
-		$this->email->subject('Testing VIVIDI Email');
-
+		$this->email->subject('Testing VIVIDI & Email');
+		$data['data'] = $this->Model_properti->data_email($booking_no);
 		// Isi email
-		$body = $this->load->view('Test/real.php','',  TRUE);
+		$body = $this->load->view('Test/real.php',$data,  TRUE);
 		$this->email->message($body);
 
 		// Tampilkan pesan sukses atau error
@@ -187,10 +187,10 @@ class Properti extends CI_Controller {
         $this->load->view('index',$data);
     }
 
-    public function sukses(){
+    public function sukses($booking_no){
         $id = $this->uri->segment(3);
-        $this->Model_properti->get_sukses($id);
-		$this->send_email();
+        $this->Model_properti->get_sukses($booking_no);
+		$this->send_email($booking_no);
 		redirect(base_url('Properti/pesan'));
     }
 
@@ -198,5 +198,11 @@ class Properti extends CI_Controller {
 		$id = $this->uri->segment(3);
 		$this->Model_properti->get_cancel($id);
 		redirect(base_url('Properti/pesan'));
+	}
+
+	public function data_booking($booking_no){
+		$data['data'] = $this->Model_properti->data_email($booking_no);
+		$data['folder'] = "Test";
+		$this->load->view('Test/real', $data);
 	}
 }

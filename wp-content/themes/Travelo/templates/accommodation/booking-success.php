@@ -13,7 +13,6 @@ $dt_dd = '<dt>%s:</dt><dd>%s</dd>';
 $acc_meta = get_post_meta( $acc_id );
 $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
 ?>
-
 <div class="row">
     <div class="col-sm-8 col-md-12">
         <div class="booking-information travelo-box">
@@ -58,7 +57,10 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                 $booking_checkin_time = date( 'l,j F Y', trav_strtotime($booking_data['date_from']) );
                 $booking_checkout_time = date( 'l,j F Y', trav_strtotime($booking_data['date_to']) );
                 $booking_valid_until = date( 'l,j F Y H:i:s', trav_strtotime($booking_data['valid_until']) );
+                $booking_time_until = date( 'M j, Y H:i:s', trav_strtotime($booking_data['valid_until']) );
                 $booking_created_time = date( 'l,j F Y H:i:s', trav_strtotime($booking_data['created']) );
+                $booking_time = date( 'M j, Y H:i:s', trav_strtotime($booking_data['created']) );
+
 //                foreach ( $booking_detail as $field => $value ) {
 //                    if ( empty( $$field ) ) $$field = empty( $booking_data[ $field ] )?'':$booking_data[ $field ];
 //                    if ( ! empty( $$field ) ) {
@@ -99,7 +101,7 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
 
                 <div class="row">
                     <div class="col-sm-6 col-md-8" style="background-color: #e6e6e6">
-                        <span style="color: #000000; font-family: arial; font-size: 20px; margin-left: 20px; margin-top: 10px; display:inline-block;">Segera selesaikan pembayaran Kamu sebelum</span><br>
+                        <span style="color: #000000; font-family: arial; font-size: 18px; margin-left: 20px; margin-top: 10px; display:inline-block;">Segera selesaikan pembayaran kamu, waktu kamu tinggal</span><br>
                         <?php
                         $a = explode(',', $booking_valid_until);
                         $b = explode(' ', $a[1] );
@@ -144,7 +146,9 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
                             $b[1] = 'Desember';
                         }
                         ?>
-                        <span style="font-family: arial; color: #023f75; font-size: 17px; margin-left: 20px; margin-bottom: 10px; display:inline-block;"><b><?php echo ($a[0].", ".$b[0]." ".$b[1]." ".$b[2]." ".$b[3]); ?></b></span>
+<!--                        <span style="font-family: arial; color: #023f75; font-size: 17px; margin-left: 20px; margin-bottom: 10px; display:inline-block;"><b>--><?php //echo ($a[0].", ".$b[0]." ".$b[1]." ".$b[2]." "); ?><!--</b>-->
+                            <b><span style="font-family: arial; color: #023f75; font-size: 18px; margin-left: 20px; margin-top: 5px; margin-bottom: 10px; display:inline-block" id="demo"></span></b>
+<!--                        </span>-->
                     </div>
                 </div>
 
@@ -661,3 +665,38 @@ $tax_rate = get_post_meta( $acc_id, 'trav_accommodation_tax_rate', true );
         return succeed;
     }
 </script>
+        <script>
+            // Set the date we're counting down to
+            var countDownDate = new Date("<?php echo $booking_time_until?>").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                var menit = new String(" menit ");
+                var jam = new String(" jam ");
+                var detik = new String(" detik ");
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result in the element with id="demo"
+                document.getElementById("demo").innerHTML = hours + jam.fontcolor( "black" ) + minutes + menit.fontcolor( "black" ) + seconds + detik.fontcolor( "black" );
+
+                // document.getElementById("demo").innerHTML = countDownDate;
+
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        </script>
