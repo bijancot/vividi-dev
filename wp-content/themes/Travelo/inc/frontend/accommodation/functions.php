@@ -1083,6 +1083,8 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
             $customer_address = $booking_data['address'];
             $customer_city = $booking_data['city'];
             $customer_zip = $booking_data['zip'];
+            $customer_adult = $booking_data['adults'];
+            $customer_kid = $booking_data['kids'];
             $customer_country = $booking_data['country'];
             $customer_special_requirements = $booking_data['special_requirements'];
 
