@@ -40,6 +40,7 @@ new Lightpick({
     selectForward: true,
     minDate: moment().startOf('month').add(3, 'day'),
     maxDate: moment().add(2, 'month').endOf('month').subtract('day'),
+    minDays: 2,
     onSelect: function(start, end){
         document.getElementById('result-2').innerHTML = rangeText(start, end);
     }

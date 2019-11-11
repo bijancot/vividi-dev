@@ -2,7 +2,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Atur Harga - <?= $properti ?> / <?= $kamar ?>
+            Atur Harga
+<!--            - --><?//= $properti ?><!-- / --><?//= $kamar ?>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -16,32 +17,39 @@
         <div class="row">
             <div class="col-xs-4">
                 <div class="card-body">
-                    <form action="<?php echo site_url('');?>" method="post">
+                    <?php echo form_open(base_url('properti/save_harga')); ?>
                         <div class="row">
                             <div class="col-md-5">
-                                <input type="hidden" id="demo-2_1" class="form-control form-control-sm" name="tgl_1"/>
-                                <input type="hidden" id="demo-2_2" class="form-control form-control-sm" name="tgl_2"/>
+                                <input type="hidden" id="demo-2_1" class="form-control" name="tgl_1"/>
+                                <input type="hidden" id="demo-2_2" class="form-control" name="tgl_2"/>
                             </div>
 
                         </div>
                         <p id="result-2">&nbsp;</p>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Allotment</label>
+                        <input type="text" name="allotment" class="form-control" placeholder="Angka" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Harga</label>
                         <div class="radio">
-                            <label><input type="radio" name="optradio" checked><?php echo $weekday; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $_SESSION['weekday']; ?>"><?php echo $_SESSION['weekday']; ?></label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio"><?php echo $weekend; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $_SESSION['weekend']; ?>"><?php echo $_SESSION['weekend']; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio"><?php echo $hseasion; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $_SESSION['hseasion']; ?>"><?php echo $_SESSION['hseasion']; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio"><?php echo $psseason; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $_SESSION['psseason']; ?>"><?php echo $_SESSION['psseason']; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio">Kamar Kosong</label>
+                            <label><input type="radio" name="optradio" value="0">Kamar Kosong</label>
                         </div>
+                    </div>
                         <input type="submit" value="Submit">
-                    </form>
+                    <?php echo form_close(); ?>
                 </div>
             </div>
             <div class="col-xs-8">
@@ -59,6 +67,7 @@
                             </tr>
                             </thead>
                             <tbody>
+                                <!--
                                 <?php
                                     foreach ($data as $row) {
                                         ?>
@@ -72,6 +81,7 @@
                                         <?php
                                     }
                                 ?>
+                                -->
                             </tbody>
                             <tfoot>
                             <tr>
