@@ -1,9 +1,6 @@
-<?php
-	foreach ($data as $row) { ?>
-
 <p style="text-align: center;"><img class="aligncenter wp-image-3425 " src="https://vividi.id/wp-content/uploads/2019/09/logo-vividi-web-2.png" alt="" width="205" height="56" /><img class="size-medium wp-image-3190" src="https://vividi.id/wp-content/uploads/2019/09/Vividi-logo-Website-id-300x78.jpg" alt="" width="300" height="78" /><a title="[site_name]" href="[home_url]" target="_blank" rel="noopener">
 	</a></p>
-<p class="MsoNoSpacing" align="center"><span style="color: #003580; font-family: arial; font-size: 20px; font-weight: bold; text-align: left;"><?php echo $row->nama_awal; ?> </span><span style="color: #003580; font-family: arial; font-size: 20px; font-weight: bold;"><?php echo $row->nama_akhir; ?></span></p>
+<p class="MsoNoSpacing" align="center"><span style="color: #003580; font-family: arial; font-size: 20px; font-weight: bold; text-align: left;"></span><span style="color: #003580; font-family: arial; font-size: 20px; font-weight: bold;"></span></p>
 <p class="MsoNoSpacing" align="center"><span style="color: #000000; font-family: arial; font-size: 20px; font-weight: bold; text-align: left;">Pesanan kamu di </span><span style="color: #003580; font-family: arial; font-size: 20px; font-weight: bold;">[accommodation_name]</span></p>
 <p class="MsoNoSpacing" align="center"><span style="color: #000000; font-family: arial; font-size: 20px; font-weight: bold; text-align: left;">Dalam Status : </span><span style="color: #003580; font-family: arial; font-size: 20px; font-weight: bold;">MENUNGGU</span></p>
 <p class="MsoNoSpacing" align="center"><span style="color: #003580; font-family: arial; font-size: 20px; font-weight: bold;">ID Pemesanan</span> : <span style="color: #003580; font-family: arial; font-size: 20px; font-weight: bold;">[booking_no]</span></p>
@@ -123,4 +120,3 @@
 	<p class="MsoNoSpacing" style="text-align: center;" align="center"><a href="https://www.vividitranswisata.com/" target="_blank" rel="noopener"><b style="mso-bidi-font-weight: normal;"><span style="font-family: 'Helvetica',sans-serif; color: #e46c0a; mso-themecolor: accent6; mso-themeshade: 191; mso-style-textfill-fill-color: #E46C0A; mso-style-textfill-fill-themecolor: accent6; mso-style-textfill-fill-alpha: 100.0%; mso-style-textfill-fill-colortransforms: lumm=75000; background: white;">PT. Vividi Transindo Utama</span></b></a></p>
 
 </div>
-	<?php } ?>

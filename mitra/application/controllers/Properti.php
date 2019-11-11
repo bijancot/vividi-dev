@@ -226,6 +226,6 @@ class Properti extends CI_Controller {
 	public function data_booking($booking_no){
 		$data['data'] = $this->Model_properti->data_email($booking_no);
 		$data['folder'] = "Test";
-		$this->load->view('Test/real', $data);
+		$this->load->view('Test/booking', $data);
 	}
 }

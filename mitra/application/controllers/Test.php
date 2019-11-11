@@ -28,4 +28,16 @@ class Test extends CI_Controller {
 		$data['folder'] = "Test";
 		$this->load->view('Test/timer', $data);
 	}
+
+	public function booking()
+	{
+		$data['folder'] = "Test";
+		$this->load->view('Test/booking', $data);
+	}
+
+	public function payment()
+	{
+		$data['folder'] = "Test";
+		$this->load->view('Test/payment', $data);
+	}
 }
