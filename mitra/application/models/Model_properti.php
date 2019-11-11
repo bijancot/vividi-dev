@@ -47,6 +47,32 @@ class Model_properti extends CI_Model{
 		return $query->result();
 	}
 
+	function combo_tipe_properti(){
+		$query = $this->db->query("select t.term_id as id_tipe, t.name as tipe
+			from wpwj_terms t
+			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
+			where tt.taxonomy = 'accommodation_type'");
+		return $query->result();
+	}
+
+	function combo_country(){
+		$query = $this->db->query("select t.term_id as id_country, t.name as country
+			from wpwj_terms t
+			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
+			where tt.taxonomy = 'location'
+			and tt.parent = '0'");
+		return $query->result();
+	}
+
+	function combo_city($id){
+		$query = $this->db->query("select t.term_id as id_city, t.name as city
+			from wpwj_terms t
+			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
+			where tt.taxonomy = 'location'
+			and tt.parent = $id");
+		return $query->result();
+	}
+
 	function data_tipe_properti(){
 		$query = $this->db->query("select t.term_id as id, t.name as nama, tt.description as deskripsi, t.slug as slug, tt.count as jumlah 
 			from wpwj_terms t

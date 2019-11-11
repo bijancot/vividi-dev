@@ -24,6 +24,30 @@ class Properti extends CI_Controller {
 		$this->load->view('index',$data);
 	}
 
+	public function tambah_properti(){
+		$data['tipe'] = $this->Model_properti->combo_tipe_properti();
+		$data['country'] = $this->Model_properti->combo_country();
+		$data['folder'] = "properti";
+		$data['side'] = "properti";
+		$data['view'] = "insert";
+		$this->load->view('index',$data);
+	}
+
+	public function modal_city(){
+		$id = $this->input->post('country');
+		$data = $this->Model_properti->combo_city($id);
+		echo json_encode($data);
+	}
+
+	public function harga_modal()
+	{
+		$id = $_SESSION['ID'];
+		$data['data'] = $this->Model_properti->data_modal_properti($id);
+		$data['folder'] = "properti";
+		$data['side'] = "modal";
+		$this->load->view('index',$data);
+	}
+
 	public function send_email($booking_no)
 	{
 		$mitra = $_SESSION['email'];
@@ -69,22 +93,6 @@ class Properti extends CI_Controller {
 			echo 'Error! email tidak dapat dikirim.';
 		}
 	}
-
-	public function tambah_properti(){
-		$data['folder'] = "properti";
-		$data['side'] = "properti";
-		$data['view'] = "insert";
-		$this->load->view('index',$data);
-	}
-
-    public function harga_modal()
-    {
-        $id = $_SESSION['ID'];
-        $data['data'] = $this->Model_properti->data_modal_properti($id);
-        $data['folder'] = "properti";
-        $data['side'] = "modal";
-        $this->load->view('index',$data);
-    }
 
 	public function modal_kamar(){
         $id = $_SESSION['ID'];

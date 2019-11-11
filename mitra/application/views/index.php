@@ -64,8 +64,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php
     if ($folder == "dashboard") {
         $this->load->view($side);
-    } else if(isset($view) && $view == "insert"){
-    	$this->load->view($folder . '/insert_'.$side);
+    } else if(isset($view) && $view == "insert" && $side == "properti"){
+    	$data['tipe'] = $tipe;
+    	$data['country'] = $country;
+    	$this->load->view($folder . '/insert_'.$side, $data);
 	} else {
 //        include 'properti/view_tipe_kamar.php';
         $this->load->view($folder . '/view_' . $side, $data);
@@ -157,6 +159,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $('#jenis_kamar').html(html);
                }
              });
+        });
+
+        $('#country').change(function(){
+            var country = $(this).val();
+            $.ajax({
+                url : "<?php echo site_url('properti/modal_city')?>",
+                method : "POST",
+                data : {country: country},
+                async : false,
+                dataType : 'json',
+                success: function(data){
+                    var html = '';
+                    var i;
+                    for(i=0; i<data.length; i++){
+                        html += '<option value="'+data[i].id_city+'_'+data[i].city+'">'+data[i].city+'</option>';
+                    }
+                    $('#city').html(html);
+                }
+            });
         });
     });
 </script>
