@@ -322,6 +322,7 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
         $bank = sanitize_text_field($_POST['bank']);
 //        $bank = $customer_info['bank'];
         $no_bank = explode(' ',$bank);
+        $na_bank = explode(' ',$no_bank);
         foreach ( $post_fields as $post_field ) {
             if ( ! empty( $_POST[ $post_field ] ) ) {
                 $customer_info[ $post_field ] = sanitize_text_field( $_POST[ $post_field ] );
@@ -355,6 +356,7 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
             'phone'                 => '',
             'bank'                  => $no_bank[1],
             'no_rekening'           => $no_bank[0],
+            'nama_bank'             => $no_bank[2],
             'no_ktp'                => '',
             'no_passport'           => '',
             'address'               => '',
