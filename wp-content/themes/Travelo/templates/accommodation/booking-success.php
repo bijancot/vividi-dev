@@ -250,19 +250,46 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
                     </div>
                 </div>
 
-                <div class="row" style="margin-top: 10px">
-                    <div class="col-sm-6 col-md-8" style="background-color: #F5F4F4">
-                        <a href="http://localhost/vividi-dev/mitra/Properti/email_confirm/<?php $booking_data['booking_no']; ?>">
+                <div class="row" style="margin-top: 10px;float: left; margin-bottom: 10px">
+                    <div class="col-sm-6 col-md-6" style="width: 400px; float: left; background-color: #F5F4F4;">
+                        <a href="http://localhost/vividi-dev/mitra/Properti/email_confirm/<?php echo($booking_data['booking_no']); ?>">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/email.png"
-                                 style="display: inline;width:72px; height:60px; margin-left: 200px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>
+                                 style="display: inline;width:72px; height:60px; margin-left: 150px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>
                         </a>
-                        <a href="https://api.whatsapp.com/send?phone=6281331398067&text=Pemesan dengan nama <?php echo $booking_data['first_name'] . " " . $booking_data['last_name']; ?>
-                        sudah melakukan pembayaran melalui bank <?php echo $booking_data['nama_bank'];?> rekening <?php echo $booking_data['no_rekening']; ?>">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/whatsapp.png"
-                                 style="display: inline;width:72px; height:60px; margin-left: 200px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6" style="width: 400px; float: left; background-color: #F5F4F4; margin-left: 20px">
+                        <a href="https://api.whatsapp.com/send?phone=6281211118486&text=
+                        Konfirmasi Pembayaran atas nama <?php echo ($booking_data['first_name']." ".$booking_data['last_name']);?> kode Booking <?php echo ($booking_data['booking_no'])?> untuk
+                        pemesanan <?php echo ($accommodation_name);?> telah melakukan pembayaran melalui <?php echo($booking_data['nama_bank']); ?> dengan Nominal <?php echo($booking_total_price); ?>">
+                            <img src="
+                        <?php echo get_template_directory_uri(); ?>/images/whatsapp.png"
+                                 style="display: inline;width:72px; height:60px;margin-left: 150px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>
                         </a>
                     </div>
                 </div>
+
+
+                <!--                <div class="row" style="margin-top: 10px; display: inline-block">-->
+                <!--                    <div class="col-sm-6 col-md-8" style="background-color: #F5F4F4">-->
+                <!--                        <a href="http://localhost/vividi-dev/mitra/Properti/email_confirm/-->
+                <?php //echo($booking_data['booking_no']); ?><!--">-->
+                <!--                            <img src="-->
+                <?php //echo get_template_directory_uri(); ?><!--/images/email.png"-->
+                <!--                                 style="display: inline;width:72px; height:60px; margin-left: 200px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>-->
+                <!--                        </a>-->
+                <!--                    </div>-->
+                <!--                    <div>-->
+                <!--                        <a href="https://api.whatsapp.com/send?phone=6281331398067&text=Pemesan dengan nama --><?php //echo $booking_data['first_name'] . " " . $booking_data['last_name']; ?>
+                <!--                        sudah melakukan pembayaran melalui bank -->
+                <?php //echo $booking_data['nama_bank']; ?><!-- rekening -->
+                <?php //echo $booking_data['no_rekening']; ?><!--">-->
+                <!--                            <img src="-->
+                <?php //echo get_template_directory_uri(); ?><!--/images/whatsapp.png"-->
+                <!--                                 style="display: inline;width:72px; height:60px; margin-left: 200px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>-->
+                <!--                        </a>-->
+                <!--                    </div>-->
+                <!--                </div>-->
 
                 <div class="row" style="margin-top: 10px">
                     <div class="col-sm-6 col-md-8" style="background-color: #F5F4F4">
