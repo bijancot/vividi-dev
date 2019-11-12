@@ -3,7 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Properti extends CI_Controller {
 
-
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('Model_properti');
+        $this->load->database();
+    }
 
 	public function index()
 	{
@@ -149,16 +154,15 @@ class Properti extends CI_Controller {
         $kamar = $this->input->post('jenis_kamar');
         $prop = explode("_",$properti);
         $ka = explode("_",$kamar);
-//        $data['properti'] = $prop[1];
-//        $data['kamar'] = $ka[1];
-//        $data['data'] = $this->Model_properti->data_atur_harga($prop[0], $ka[0]);
-        $data['data'] = $this->Model_properti->data_semua_properti();
-//        $data['weekday'] = $this->input->post('weekday');
-//        $data['weekend'] = $this->input->post('weekend');
-//        $data['hseasion'] = $this->input->post('hseasion');
-//        $data['psseason'] = $this->input->post('psseason');
-        $s = array('weekday' => $this->input->post('weekday'), 'weekend' => $this->input->post('weekend'), 'hseasion' => $this->input->post('hseasion'), 'psseason' => $this->input->post('psseason'));
-        $this->session->set_userdata($s);
+        $data['properti'] = $prop[1];
+        $data['kamar'] = $ka[1];
+        $data['id_properti'] = $prop[0];
+        $data['id_kamar'] = $ka[0];
+        $data['data'] = $this->Model_properti->data_atur_harga($prop[0], $ka[0]);
+        $data['weekday'] = $this->input->post('weekday');
+        $data['weekend'] = $this->input->post('weekend');
+        $data['hseasion'] = $this->input->post('hseasion');
+        $data['psseason'] = $this->input->post('psseason');
         $data['folder'] = "properti";
         $data['side'] = "harga";
         $this->load->view('index',$data);
@@ -239,16 +243,34 @@ class Properti extends CI_Controller {
     }
 
     public function save_harga() {
-	    $allotment = $this->input->post('allotment');
-	    $harga = $this->input->post('optradio');
+        $properti = $this->input->post('properti');
+        $kamar = $this->input->post('jenis_kamar');
+        $prop = explode("_",$properti);
+        $ka = explode("_",$kamar);
+        $data['properti'] = $prop[1];
+        $data['kamar'] = $ka[1];
+        $data['id_properti'] = $prop[0];
+        $data['id_kamar'] = $ka[0];
+
+        $allotment = $this->input->post('allotment');
+        $harga = $this->input->post('optradio');
         $tgl_1 = $this->input->post('tgl_1');
         $date1 = str_replace('/', '-', $tgl_1);
         $newDate1 = date("Y-m-d", strtotime($date1));
         $tgl_2 = $this->input->post('tgl_2');
         $date2 = str_replace('/', '-', $tgl_2);
         $newDate2 = date("Y-m-d", strtotime($date2));
-        $this->Model_properti->save_atur_harga($newDate1, $newDate2, $allotment, $harga);
-        redirect(base_url('properti/atur_harga'));
+        $this->Model_properti->save_atur_harga($newDate1, $newDate2, $allotment, $harga, $prop[0], $ka[0]);
+
+        $data['data'] = $this->Model_properti->data_atur_harga($prop[0], $ka[0]);
+        $data['weekday'] = $this->input->post('weekday');
+        $data['weekend'] = $this->input->post('weekend');
+        $data['hseasion'] = $this->input->post('hseasion');
+        $data['psseason'] = $this->input->post('psseason');
+        $data['folder'] = "properti";
+        $data['side'] = "harga";
+
+        $this->load->view('index',$data);
     }
 
     public function pesan()

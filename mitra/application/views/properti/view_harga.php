@@ -2,8 +2,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Atur Harga
-<!--            - --><?//= $properti ?><!-- / --><?//= $kamar ?>
+            Atur Harga - <?= $properti ?> / <?= $kamar ?>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -19,9 +18,15 @@
                 <div class="card-body">
                     <?php echo form_open(base_url('properti/save_harga')); ?>
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-5" style="align-content: center">
                                 <input type="hidden" id="demo-2_1" class="form-control" name="tgl_1"/>
                                 <input type="hidden" id="demo-2_2" class="form-control" name="tgl_2"/>
+                                <input type="hidden" name="weekday" class="form-control" value="<?php echo $weekday; ?>" />
+                                <input type="hidden" name="weekend" class="form-control" value="<?php echo $weekend; ?>" />
+                                <input type="hidden" name="hseasion" class="form-control" value="<?php echo $hseasion; ?>" />
+                                <input type="hidden" name="psseason" class="form-control" value="<?php echo $psseason; ?>" />
+                                <input type="hidden" name="properti" class="form-control" value="<?php echo $id_properti.'_'.$properti; ?>" />
+                                <input type="hidden" name="jenis_kamar" class="form-control" value="<?php echo $id_kamar.'_'.$kamar; ?>" />
                             </div>
 
                         </div>
@@ -33,22 +38,22 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">Harga</label>
                         <div class="radio">
-                            <label><input type="radio" name="optradio" value="<?php echo $_SESSION['weekday']; ?>"><?php echo $_SESSION['weekday']; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $weekday; ?>"><?php echo $weekday; ?></label>
                         </div>
                         <div class="radio">
-                            <label><input type="radio" name="optradio" value="<?php echo $_SESSION['weekend']; ?>"><?php echo $_SESSION['weekend']; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $weekend; ?>"><?php echo $weekend; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $_SESSION['hseasion']; ?>"><?php echo $_SESSION['hseasion']; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $hseasion; ?>"><?php echo $hseasion; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $_SESSION['psseason']; ?>"><?php echo $_SESSION['psseason']; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $psseason; ?>"><?php echo $psseason; ?></label>
                         </div>
                         <div class="radio disabled">
                             <label><input type="radio" name="optradio" value="0">Kamar Kosong</label>
                         </div>
                     </div>
-                        <input type="submit" value="Submit">
+                        <input type="submit" class="btn btn-success" value="Submit">
                     <?php echo form_close(); ?>
                 </div>
             </div>
@@ -67,7 +72,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                                <!--
+
                                 <?php
                                     foreach ($data as $row) {
                                         ?>
@@ -81,7 +86,7 @@
                                         <?php
                                     }
                                 ?>
-                                -->
+
                             </tbody>
                             <tfoot>
                             <tr>

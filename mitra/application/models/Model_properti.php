@@ -417,47 +417,52 @@ class Model_properti extends CI_Model{
         }
     }
 
-    public function save_atur_harga($tgl_1, $tgl_2, $allotment, $harga){
-	    $properti = 1;
-	    $room = 2;
+    public function save_atur_harga($tgl_1, $tgl_2, $allotment, $harga, $id_properti, $id_type_kamar){
         $this->db->select_max('id');
         $data = $this->db->get('wpwj_trav_accommodation_vacancies');
         $keyTransaksi = "";
         foreach ($data->result() as $row) {
             $keyTransaksi = $row->id + 1;
         }
+        $this->db->where('accommodation_id =', $id_properti);
+        $this->db->where('room_type_id =', $id_type_kamar);
         $sql = $this->db->get('wpwj_trav_accommodation_vacancies');
         $this->db->where('date_from <=', $tgl_1);
         $this->db->where('date_to >', $tgl_1);
-        $this->db->where('accommodation_id =', $properti);
-        $this->db->where('room_type_id =', $room);
+        $this->db->where('accommodation_id =', $id_properti);
+        $this->db->where('room_type_id =', $id_type_kamar);
         $cek = $this->db->get('wpwj_trav_accommodation_vacancies');
         if ($cek->num_rows() > 0) {
             foreach ($sql->result() as $row) {
                 if ($tgl_1 == $row->date_from) {
                     if ($tgl_2 == $row->date_to) {
                         $data_new = array(
-                            'stagging' => "a"
+                            'rooms' => $allotment,
+                            'price_per_room' => $harga
                         );
-                        $this->db->where('no', $row->no);
-                        $this->db->update('date', $data_new);
+                        $this->db->where('id', $row->id);
+                        $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
                         break;
                     } else if ($tgl_2 < $row->date_to) {
                         $data = array(
-                            'no' => $keyTransaksi,
+                            'id' => $keyTransaksi,
                             'date_from' => $tgl_1,
                             'date_to' => $tgl_2,
-                            'stagging' => '3'
+                            'accommodation_id' => $id_properti,
+                            'room_type_id' => $id_type_kamar,
+                            'rooms' => $allotment,
+                            'price_per_room' => $harga,
+                            'price_per_person' => '',
+                            'child_price' => ''
                         );
-                        $this->db->insert('date', $data);
+                        $this->db->insert('wpwj_trav_accommodation_vacancies', $data);
                         foreach ($sql->result() as $r) {
                             if ($tgl_2 >= $r->date_from && $tgl_2 < $r->date_to) {
                                 $data_new = array(
-                                    'date_from' => $tgl_2,
-                                    'stagging' => "a"
+                                    'date_from' => $tgl_2
                                 );
-                                $this->db->where('no', $r->no);
-                                $this->db->update('date', $data_new);
+                                $this->db->where('id', $r->id);
+                                $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
                             }
                         }
                         break;
@@ -465,21 +470,23 @@ class Model_properti extends CI_Model{
                         foreach ($sql->result() as $r) {
                             if ($tgl_1 >= $r->date_from && $tgl_1 < $r->date_to) {
                                 $data_new = array(
-                                    'date_to' => $tgl_2
+                                    'date_to' => $tgl_2,
+                                    'rooms' => $allotment,
+                                    'price_per_room' => $harga
                                 );
-                                $this->db->where('no', $r->no);
-                                $this->db->update('date', $data_new);
+                                $this->db->where('id', $r->id);
+                                $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
                             }
                             if ($tgl_2 >= $r->date_from && $tgl_2 < $r->date_to) {
                                 $data_new = array(
                                     'date_from' => $tgl_2
                                 );
-                                $this->db->where('no', $r->no);
-                                $this->db->update('date', $data_new);
+                                $this->db->where('id', $r->id);
+                                $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
                             }
                             if ($tgl_1 < $r->date_from && $tgl_2 >= $r->date_to) {
-                                $this->db->where('no', $r->no);
-                                $this->db->delete('date');
+                                $this->db->where('id', $r->id);
+                                $this->db->delete('wpwj_trav_accommodation_vacancies');
                             }
                         }
                         break;
@@ -491,24 +498,34 @@ class Model_properti extends CI_Model{
                                 $data_new = array(
                                     'date_to' => $tgl_1
                                 );
-                                $this->db->where('no', $r->no);
-                                $this->db->update('date', $data_new);
+                                $this->db->where('id', $r->id);
+                                $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
 
                                 $data = array(
-                                    'no' => $keyTransaksi,
+                                    'id' => $keyTransaksi,
                                     'date_from' => $tgl_1,
                                     'date_to' => $tgl_2,
-                                    'stagging' => 'b'
+                                    'accommodation_id' => $id_properti,
+                                    'room_type_id' => $id_type_kamar,
+                                    'rooms' => $allotment,
+                                    'price_per_room' => $harga,
+                                    'price_per_person' => '',
+                                    'child_price' => ''
                                 );
-                                $this->db->insert('date', $data);
+                                $this->db->insert('wpwj_trav_accommodation_vacancies', $data);
 
-                                $data_n = array(
-                                    'no' => $keyTransaksi + 1,
+                                $data = array(
+                                    'id' => $keyTransaksi + 1,
                                     'date_from' => $tgl_2,
                                     'date_to' => $row->date_to,
-                                    'stagging' => $row->no
+                                    'accommodation_id' => $id_properti,
+                                    'room_type_id' => $id_type_kamar,
+                                    'rooms' => $row->rooms,
+                                    'price_per_room' => $row->price_per_room,
+                                    'price_per_person' => '',
+                                    'child_price' => ''
                                 );
-                                $this->db->insert('date', $data_n);
+                                $this->db->insert('wpwj_trav_accommodation_vacancies', $data);
                             }
                         }
                         break;
@@ -518,44 +535,54 @@ class Model_properti extends CI_Model{
                                 $data_new = array(
                                     'date_to' => $tgl_1
                                 );
-                                $this->db->where('no', $r->no);
-                                $this->db->update('date', $data_new);
+                                $this->db->where('id', $r->id);
+                                $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
 
                                 $data = array(
-                                    'no' => $keyTransaksi,
+                                    'id' => $keyTransaksi,
                                     'date_from' => $tgl_1,
                                     'date_to' => $tgl_2,
-                                    'stagging' => $row->no
+                                    'accommodation_id' => $id_properti,
+                                    'room_type_id' => $id_type_kamar,
+                                    'rooms' => $allotment,
+                                    'price_per_room' => $harga,
+                                    'price_per_person' => '',
+                                    'child_price' => ''
                                 );
-                                $this->db->insert('date', $data);
+                                $this->db->insert('wpwj_trav_accommodation_vacancies', $data);
                             }
                             if ($tgl_2 >= $r->date_from && $tgl_2 <= $r->date_to) {
                                 $data_new = array(
                                     'date_from' => $tgl_2
                                 );
-                                $this->db->where('no', $r->no);
-                                $this->db->update('date', $data_new);
+                                $this->db->where('id', $r->id);
+                                $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
                             }
                             if ($tgl_1 < $r->date_from && $tgl_2 > $r->date_to) {
-                                $this->db->where('no', $r->no);
-                                $this->db->delete('date');
+                                $this->db->where('id', $r->id);
+                                $this->db->delete('wpwj_trav_accommodation_vacancies');
                             }
                         }
                         break;
                     } else if ($tgl_2 == $row->date_to) {
                         $data_new = array(
                             'date_to' => $tgl_1,
-                            'stagging' => "a"
+                            'price_per_room' => $harga
                         );
-                        $this->db->where('no', $row->no);
-                        $this->db->update('date', $data_new);
+                        $this->db->where('id', $row->id);
+                        $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
                         $data = array(
-                            'no' => $keyTransaksi,
+                            'id' => $keyTransaksi,
                             'date_from' => $tgl_1,
                             'date_to' => $tgl_2,
-                            'stagging' => $row->no
+                            'accommodation_id' => $id_properti,
+                            'room_type_id' => $id_type_kamar,
+                            'rooms' => $allotment,
+                            'price_per_room' => $harga,
+                            'price_per_person' => '',
+                            'child_price' => ''
                         );
-                        $this->db->insert('date', $data);
+                        $this->db->insert('wpwj_trav_accommodation_vacancies', $data);
                         break;
                     }
                 }
@@ -565,53 +592,53 @@ class Model_properti extends CI_Model{
                 'id' => $keyTransaksi,
                 'date_from' => $tgl_1,
                 'date_to' => $tgl_2,
-                'accommodation_id' => $properti,
-                'room_type_id' => $room,
+                'accommodation_id' => $id_properti,
+                'room_type_id' => $id_type_kamar,
                 'rooms' => $allotment,
                 'price_per_room' => $harga,
                 'price_per_person' => '',
                 'child_price' => ''
             );
             $this->db->insert('wpwj_trav_accommodation_vacancies', $data);
-//            foreach ($sql->result() as $r) {
-//                if ($tgl_2 < $r->date_to) {
-//                    if ($tgl_2 >= $r->date_from && $tgl_2 < $r->date_to) {
-//                        $data_new = array(
-//                            'date_from' => $tgl_2,
-//                            'stagging' => "a"
-//                        );
-//                        $this->db->where('no', $r->no);
-//                        $this->db->update('date', $data_new);
-//                    }
-//                } else if ($tgl_2 > $r->date_to) {
-//                    foreach ($sql->result() as $r) {
-//                        if ($tgl_1 >= $r->date_from && $tgl_1 < $r->date_to) {
-//                            $data_new = array(
-//                                'date_to' => $tgl_2
-//                            );
-//                            $this->db->where('no', $r->no);
-//                            $this->db->update('date', $data_new);
-//                        }
-//                        if ($tgl_2 >= $r->date_from && $tgl_2 <= $r->date_to) {
-//                            $data_new = array(
-//                                'date_from' => $tgl_2
-//                            );
-//                            $this->db->where('no', $r->no);
-//                            $this->db->update('date', $data_new);
-//                        }
-//                        if ($tgl_1 < $r->date_from && $tgl_2 >= $r->date_to) {
-//                            $this->db->where('no', $r->no);
-//                            $this->db->delete('date');
-//                        }
-//                    }
-//                } else if ($tgl_2 == $r->date_to) {
+            foreach ($sql->result() as $r) {
+                if ($tgl_2 < $r->date_to) {
+                    if ($tgl_2 >= $r->date_from && $tgl_2 < $r->date_to) {
+                        $data_new = array(
+                            'date_from' => $tgl_2
+                        );
+                        $this->db->where('id', $r->id);
+                        $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
+                    }
+                } else if ($tgl_2 > $r->date_to) {
+                    foreach ($sql->result() as $r) {
+                        if ($tgl_1 >= $r->date_from && $tgl_1 < $r->date_to) {
+                            $data_new = array(
+                                'date_to' => $tgl_2
+                            );
+                            $this->db->where('id', $r->id);
+                            $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
+                        }
+                        if ($tgl_2 >= $r->date_from && $tgl_2 <= $r->date_to) {
+                            $data_new = array(
+                                'date_from' => $tgl_2
+                            );
+                            $this->db->where('id', $r->id);
+                            $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
+                        }
+                        if ($tgl_1 < $r->date_from && $tgl_2 >= $r->date_to) {
+                            $this->db->where('id', $r->id);
+                            $this->db->delete('wpwj_trav_accommodation_vacancies');
+                        }
+                    }
+                } else if ($tgl_2 == $r->date_to) {
 //                    $data_new = array(
-//                        'stagging' => "a"
+//                        'rooms' => $allotment,
+//                        'price_per_room' => $harga
 //                    );
-//                    $this->db->where('no', $row->no);
-//                    $this->db->update('date', $data_new);
-//                }
-//            }
+//                    $this->db->where('id', $row->id);
+//                    $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
+                }
+            }
         }
     }
 
