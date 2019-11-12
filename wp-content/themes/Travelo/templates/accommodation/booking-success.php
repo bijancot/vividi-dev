@@ -252,7 +252,7 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
 
                 <div class="row" style="margin-top: 10px">
                     <div class="col-sm-6 col-md-8" style="background-color: #F5F4F4">
-                        <a href="http://localhost/vividi-dev/mitra/sendmail/send_email">
+                        <a href="http://localhost/vividi-dev/mitra/Properti/email_confirm/<?php $booking_data['booking_no']; ?>">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/email.png"
                                  style="display: inline;width:72px; height:60px; margin-left: 200px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>
                         </a>

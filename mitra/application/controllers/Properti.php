@@ -89,6 +89,52 @@ class Properti extends CI_Controller {
 		}
 	}
 
+	public function email_confirm($booking_no)
+	{
+//		$mitra = $_SESSION['email'];
+		$admin = 'omibalola@gmail.com';
+		// Konfigurasi email
+		$config = [
+			'mailtype'  => 'html',
+			'charset'   => 'utf-8',
+			'protocol'  => 'smtp',
+			'smtp_host' => 'smtp.gmail.com',
+			'smtp_user' => 'omibalola@gmail.com',  // Email gmail
+			'smtp_pass'   => 'naninandatokorewa',  // Password gmail
+			'smtp_crypto' => 'ssl',
+			'smtp_port'   => 465,
+			'crlf'    => "\r\n",
+			'newline' => "\r\n"
+		];
+
+		// Load library email dan konfigurasinya
+		$this->load->library('email', $config);
+
+		// Email dan nama pengirim
+		$this->email->from('omibalola@gmail.com', 'Testing Email');
+
+//		$list = array($mitra, $admin);
+		// Email penerima
+		$this->email->to($admin); // Ganti dengan email tujuan
+
+		// Lampiran email, isi dengan url/path file
+//		$this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
+
+		// Subject email
+		$this->email->subject('Testing VIVIDI & Email');
+		$data['data'] = $this->Model_properti->data_email($booking_no);
+		// Isi email
+		$body = $this->load->view('Test/confirm.php',$data,  TRUE);
+		$this->email->message($body);
+
+		// Tampilkan pesan sukses atau error
+		if ($this->email->send()) {
+			echo 'Sukses! email berhasil dikirim.';
+		} else {
+			echo 'Error! email tidak dapat dikirim.';
+		}
+	}
+
 	public function modal_kamar(){
         $id = $_SESSION['ID'];
         $prop = $this->input->post('prop');
