@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ece85b3-69df-4287-bcd7-dfb43c9634a6" name="Default Changelist" comment="Modal Tipe Kamar">
+    <list default="true" id="0ece85b3-69df-4287-bcd7-dfb43c9634a6" name="Default Changelist" comment="insert properti">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mitra/application/controllers/Properti.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/controllers/Properti.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/view_semua.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/properti/view_semua.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/insert_properti.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/properti/insert_properti.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +100,9 @@
       <workItem from="1573399046588" duration="211000" />
       <workItem from="1573399901336" duration="4782000" />
       <workItem from="1573410578101" duration="340000" />
-      <workItem from="1573411148759" duration="151000" />
+      <workItem from="1573411148759" duration="889000" />
+      <workItem from="1573483906202" duration="9786000" />
+      <workItem from="1573569522183" duration="5911000" />
     </task>
     <task id="LOCAL-00001" summary="Upload new">
       <created>1571403378645</created>
@@ -222,7 +223,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573130051413</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="insert properti">
+      <created>1573411409854</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1573411409854</updated>
+    </task>
+    <task id="LOCAL-00019" summary="template insert properti">
+      <created>1573494481987</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1573494481987</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,6 +273,8 @@
     <MESSAGE value="Edit Date" />
     <MESSAGE value="Insert type room to db" />
     <MESSAGE value="Fasilitas Kamar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fasilitas Kamar" />
+    <MESSAGE value="insert properti" />
+    <MESSAGE value="template insert properti" />
+    <option name="LAST_COMMIT_MESSAGE" value="template insert properti" />
   </component>
 </project>

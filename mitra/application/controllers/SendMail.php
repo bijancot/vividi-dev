@@ -19,9 +19,9 @@ class SendMail extends CI_Controller {
 			'mailtype' => 'html',
 			'charset' => 'utf-8',
 			'protocol' => 'smtp',
-			'smtp_host' => 'smtp.gmail.com',
-			'smtp_user' => 'omibalola@gmail.com',  // Email gmail
-			'smtp_pass' => 'naninandatokorewa',  // Password gmail
+			'smtp_host' => 'mail.vividi.id',
+			'smtp_user' => 'info@vividi.id',  // Email gmail
+			'smtp_pass' => 'hafiz110118',  // Password gmail
 			'smtp_crypto' => 'ssl',
 			'smtp_port' => 465,
 			'crlf' => "\r\n",
@@ -32,7 +32,7 @@ class SendMail extends CI_Controller {
 		$this->load->library('email', $config);
 
 		// Email dan nama pengirim
-		$this->email->from('omibalola@gmail.com', 'Testing Email');
+		$this->email->from('info@vividi.id', 'Testing Email');
 
 //		$list = array($mitra, $admin);
 		// Email penerima
@@ -45,12 +45,12 @@ class SendMail extends CI_Controller {
 		$this->email->subject('Testing VIVIDI & Email');
 //		$data['data'] = $this->Model_properti->data_email($booking_no);
 		// Isi email
-		$body = $this->load->view('Test/real.php', '', TRUE);
-		$this->email->message($body);
+//		$body = $this->load->view('Test/real.php', '', TRUE);
+		$this->email->message('halo');
 
 		// Tampilkan pesan sukses atau error
 		if ($this->email->send()) {
-			redirect('http://localhost/vividi-dev/halaman-member/?ihc_ap_menu=orders');
+			echo 'Email sukses di kirim';
 		} else {
 			echo 'Error! email tidak dapat dikirim.';
 		}

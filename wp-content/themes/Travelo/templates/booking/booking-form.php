@@ -90,17 +90,17 @@ do_action( 'trav_booking_form_before' );
                 <div style="text-align: left;display: inline-block"><label><?php _e('PILIH REKENING TUJUAN', 'trav'); ?></label></div>
             </div>
             <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
-                <input type="radio" name="bank" value="8161382019 https://vividi.id/wp-content/themes/Travelo/images/payment/bca.png bca">
+                <input type="radio" name="bank" value="8161382019 https://vividi.id/wp-content/themes/Travelo/images/payment/bca.png BCA">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/payment/bca.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
                 <span class="pull-right" style="margin-top: 20px; font-size: 15px">8161382019</span>
             </div>
             <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
-                <input type="radio" name="bank" value="005101003100309 https://vividi.id/wp-content/themes/Travelo/images/payment/bri.png bri">
+                <input type="radio" name="bank" value="005101003100309 https://vividi.id/wp-content/themes/Travelo/images/payment/bri.png BRI">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/payment/bri.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
                 <span class="pull-right" style="margin-top: 20px; font-size: 15px">005101003100309</span>
             </div>
             <div class="col-sm-6 col-md-12" style="background-color: #E9E6E6">
-                <input type="radio" name="bank" value="1440020190804 https://vividi.id/wp-content/themes/Travelo/images/payment/mandiri.png mandiri">
+                <input type="radio" name="bank" value="1440020190804 https://vividi.id/wp-content/themes/Travelo/images/payment/mandiri.png MANDIRI">
                 <img src="<?php echo get_template_directory_uri(); ?>/images/payment/mandiri.png" style="display: inline;width:72px; height:48px; margin:4px; border-radius:5px; border:1px solid gray;"/>
                 <span class="pull-right" style="margin-top: 20px; font-size: 15px">1440020190804</span>
             </div>

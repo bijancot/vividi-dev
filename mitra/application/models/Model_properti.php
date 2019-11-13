@@ -692,6 +692,7 @@ class Model_properti extends CI_Model{
 			ab.date_to as check_out,
 			ab.bank as bank,
 			ab.email as email,
+			ab.nama_bank as nama_bank,
 			ab.phone as phone,
 			ab.no_rekening as nomor_rek,
 			ab.valid_until as batas_waktu,
