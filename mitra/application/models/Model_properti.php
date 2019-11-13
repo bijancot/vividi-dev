@@ -216,6 +216,26 @@ class Model_properti extends CI_Model{
         return $query->result();
     }
 
+    function semua_harga($id){
+        $query = $this->db->query("select av.id as id, 
+            pproperti.post_title as properti, 
+            pkamar.post_title as kamar, 
+            av.date_from as dari, 
+            av.date_to as sampai, 
+            av.rooms as allotment ,
+            av.price_per_room as harga
+            from wpwj_trav_accommodation_vacancies av
+            left join wpwj_posts pproperti on av.accommodation_id = pproperti.ID
+            left join wpwj_posts pkamar on av.room_type_id = pkamar.ID
+            left join wpwj_users u on u.ID = pproperti.post_author
+            where pproperti.post_type = 'accommodation'
+            and pkamar.post_type = 'room_type'
+            and pproperti.post_status = 'publish'
+            and pkamar.post_status = 'publish'
+            and u.ID = ".$id);
+        return $query->result();
+    }
+
     public function save_type_kamar($id,$time,$properti,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload) {
         $this->db->select_max('ID');
         $data = $this->db->get('wpwj_posts');
@@ -558,7 +578,7 @@ class Model_properti extends CI_Model{
                                 $this->db->where('id', $r->id);
                                 $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
                             }
-                            if ($tgl_1 < $r->date_from && $tgl_2 > $r->date_to) {
+                            if ($tgl_1 < $r->date_from && $tgl_2 >= $r->date_to) {
                                 $this->db->where('id', $r->id);
                                 $this->db->delete('wpwj_trav_accommodation_vacancies');
                             }
@@ -566,8 +586,7 @@ class Model_properti extends CI_Model{
                         break;
                     } else if ($tgl_2 == $row->date_to) {
                         $data_new = array(
-                            'date_to' => $tgl_1,
-                            'price_per_room' => $harga
+                            'date_to' => $tgl_1
                         );
                         $this->db->where('id', $row->id);
                         $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
@@ -631,12 +650,8 @@ class Model_properti extends CI_Model{
                         }
                     }
                 } else if ($tgl_2 == $r->date_to) {
-//                    $data_new = array(
-//                        'rooms' => $allotment,
-//                        'price_per_room' => $harga
-//                    );
-//                    $this->db->where('id', $row->id);
-//                    $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
+                    $this->db->where('id', $r->id);
+                    $this->db->delete('wpwj_trav_accommodation_vacancies');
                 }
             }
         }

@@ -44,6 +44,7 @@ class Properti extends CI_Controller {
 	{
 		$id = $_SESSION['ID'];
 		$data['data'] = $this->Model_properti->data_modal_properti($id);
+        $data['harga'] = $this->Model_properti->semua_harga($id);
 		$data['folder'] = "properti";
 		$data['side'] = "modal";
 		$this->load->view('index',$data);
@@ -166,7 +167,16 @@ class Properti extends CI_Controller {
         $data['psseason'] = $this->input->post('psseason');
         $data['folder'] = "properti";
         $data['side'] = "harga";
-        $this->load->view('index',$data);
+        $this->form_validation->set_rules('weekday', 'a', 'required|numeric|greater_than[0.99]|regex_match[/^[0-9,]+$/]');
+        $this->form_validation->set_rules('weekend', 'a', 'required|numeric|greater_than[0.99]|regex_match[/^[0-9,]+$/]');
+        $this->form_validation->set_rules('hseasion', 'a', 'required|numeric|greater_than[0.99]|regex_match[/^[0-9,]+$/]');
+        $this->form_validation->set_rules('psseason', 'a', 'required|numeric|greater_than[0.99]|regex_match[/^[0-9,]+$/]');
+        $this->form_validation->set_error_delimiters('<br><div class="alert alert-danger" role="alert">', '</div>');
+        if ($this->form_validation->run() == FALSE) {
+            redirect(base_url('properti/harga_modal'));
+        } else {
+            $this->load->view('index',$data);
+        }
     }
 
     public function tipe_properti()

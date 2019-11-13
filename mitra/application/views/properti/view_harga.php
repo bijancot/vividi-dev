@@ -33,21 +33,21 @@
                         <p id="result-2">&nbsp;</p>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Allotment</label>
-                        <input type="text" name="allotment" class="form-control" placeholder="Angka" required>
+                        <input type="number" class="form-control" style="width: 300px" name="allotment" value="1" min="1">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Harga</label>
-                        <div class="radio">
-                            <label><input type="radio" name="optradio" value="<?php echo $weekday; ?>"><?php echo $weekday; ?></label>
-                        </div>
-                        <div class="radio">
-                            <label><input type="radio" name="optradio" value="<?php echo $weekend; ?>"><?php echo $weekend; ?></label>
+                        <div class="radio disabled">
+                            <label><input type="radio" name="optradio" value="<?php echo $weekday; ?>"><?php echo "Rp.".$weekday." - Weekday"; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $hseasion; ?>"><?php echo $hseasion; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $weekend; ?>"><?php echo "Rp.".$weekend." - Weekend"; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $psseason; ?>"><?php echo $psseason; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $hseasion; ?>"><?php echo "Rp.".$hseasion." - High Seasion"; ?></label>
+                        </div>
+                        <div class="radio disabled">
+                            <label><input type="radio" name="optradio" value="<?php echo $psseason; ?>"><?php echo "Rp.".$psseason." - Peek Season"; ?></label>
                         </div>
                         <div class="radio disabled">
                             <label><input type="radio" name="optradio" value="0">Kamar Kosong</label>
@@ -68,11 +68,10 @@
                                 <th>Date To</th>
                                 <th>Allotment</th>
                                 <th>Harga</th>
-                                <th></th>
+<!--                                <th></th>-->
                             </tr>
                             </thead>
                             <tbody>
-
                                 <?php
                                     foreach ($data as $row) {
                                         ?>
@@ -81,7 +80,9 @@
                                         <td><?php echo $row->sampai;?></td>
                                         <td><?php echo $row->allotment;?></td>
                                         <td><?php echo $row->harga;?></td>
-                                        <td><button class="btn btn-block" data-effect="mfp-zoomIn" id="<?php echo $row->id;?>" onclick="clickButton(<?php echo $row->id;?>)">Lihat</button></td>
+                                        <!--
+                                            <td><button class="btn btn-block" data-effect="mfp-zoomIn" id="<?php echo $row->id;?>" onclick="clickButton(<?php echo $row->id;?>)">Lihat</button></td>
+                                        -->
                                         </tr>
                                         <?php
                                     }
@@ -94,7 +95,7 @@
                                 <th>Date To</th>
                                 <th>Allotment</th>
                                 <th>Harga</th>
-                                <th></th>
+<!--                                <th></th>-->
                             </tr>
                             </tfoot>
                         </table>
