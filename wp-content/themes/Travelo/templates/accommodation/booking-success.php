@@ -90,8 +90,9 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
             <!--                        <a>[booking_created]</a>-->
             <!--                    </div>-->
             <!--                </div>-->
-            </dl>
-            <div style="width: 1200px;  margin:0 auto; margin-left: 150px">
+            <!--            </dl>-->
+
+            <div style="margin-left: auto; margin-right: auto">
                 <div class="row">
                     <div class="col-sm-6 col-md-8" style="background-color: #cccccc">
                         <img src="https://vividi.id/wp-content/uploads/2019/10/new-logo.png" alt="" width="205"
@@ -251,17 +252,16 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
                 </div>
 
                 <div class="row" style="margin-top: 10px;float: left; margin-bottom: 10px">
-                    <div class="col-sm-6 col-md-6" style="width: 400px; float: left; background-color: #F5F4F4;">
+                    <div class="col-sm-6 col-md-6" style="width: 370px; float: left; background-color: #F5F4F4;">
                         <a href="http://localhost/vividi-dev/mitra/Properti/email_confirm/<?php echo($booking_data['booking_no']); ?>">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/email.png"
                                  style="display: inline;width:72px; height:60px; margin-left: 150px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>
                         </a>
                     </div>
 
-                    <div class="col-sm-6 col-md-6" style="width: 400px; float: left; background-color: #F5F4F4; margin-left: 20px">
-                        <a href="https://api.whatsapp.com/send?phone=6281211118486&text=
-                        Konfirmasi Pembayaran atas nama <?php echo ($booking_data['first_name']." ".$booking_data['last_name']);?> kode Booking <?php echo ($booking_data['booking_no'])?> untuk
-                        pemesanan <?php echo ($accommodation_name);?> telah melakukan pembayaran melalui <?php echo($booking_data['nama_bank']); ?> dengan Nominal <?php echo($booking_total_price); ?>">
+                    <div class="col-sm-6 col-md-6"
+                         style="width: 370px; float: left; background-color: #F5F4F4; margin-left: 20px">
+                        <a href="https://api.whatsapp.com/send?phone=6281211118486&text=Konfirmasi Pembayaran atas nama <?php echo($booking_data['first_name'] . " " . $booking_data['last_name']); ?> kode Booking <?php echo($booking_data['booking_no']) ?> untuk pemesanan <?php echo($accommodation_name); ?> telah melakukan pembayaran melalui <?php echo($booking_data['nama_bank']); ?> dengan Nominal <?php echo($booking_total_price); ?>">
                             <img src="
                         <?php echo get_template_directory_uri(); ?>/images/whatsapp.png"
                                  style="display: inline;width:72px; height:60px;margin-left: 150px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>
@@ -298,7 +298,7 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
                     </div>
                 </div>
 
-                <div class="row" style="margin-top: 10px; display: inline-block; margin-right: 14px">
+                <div class="row" style="margin-top: 10px; display: inline-block; margin-right: 18px">
                     <div class="col-sm-6 col-md-12" style="background-color: #F5F4F4;height:75px;">
                         <span style="color: #000000; font-family: arial; font-size: 15px; display: inline-block; margin-left: 10px; margin-top: 10px; margin-right: 10px">Kirim Pesan Cepat</span><br>
                         <a style="text-decoration: none;"
@@ -324,9 +324,9 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
                     </div>
                 </div>
 
-                <div class="row" style="margin-top: 10px;display: inline-block; margin-right: 14px">
+                <div class="row" style="margin-top: 10px;display: inline-block; margin-right: 18px">
                     <div class="col-sm-6 col-md-12" style="background-color: #F5F4F4;height:75px;">
-                        <span style="color: #000000; font-family: arial; font-size: 15px; display: inline-block; margin-left: 10px; margin-top: 10px; margin-right: 10px">Bantuan Melalui Email</span><br>
+                        <span style="color: #000000; font-family: arial; font-size: 12px; display: inline-block; margin-left: 10px; margin-top: 10px; margin-right: 10px">Bantuan Melalui Email</span><br>
                         <img src="https://vividi.id/wp-content/themes/Travelo/images/email.png" alt=""
                              style="margin-left: 10px; height: 25px; margin-right:5px;margin-top: 10px; margin-bottom: 10px"/>
                         <a href="mailto:info@vividi.id">
@@ -335,7 +335,7 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
                     </div>
                 </div>
 
-                <div class="row" style="margin-top: 10px;display: inline-block; margin-right: 14px">
+                <div class="row" style="margin-top: 10px;display: inline-block; margin-right: 18px">
                     <div class="col-sm-6 col-md-12" style="background-color: #F5F4F4;height:75px;">
                         <span style="color: #000000; font-family: arial; font-size: 15px; display: inline-block; margin-left: 20px; margin-top: 10px; margin-right: 15px">Bantuan Telepon</span><br>
                         <img src="https://vividi.id/wp-content/themes/Travelo/images/telephone.jpg" alt=""
@@ -347,7 +347,7 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
 
                 <div class="row" style="margin-top: 10px;display: inline-block;">
                     <div class="col-sm-6 col-md-12" style="background-color: #F5F4F4;height:75px;">
-                        <span style="color: #000000; font-family: arial; font-size: 15px; display: inline-block; margin-left: 20px; margin-top: 10px; margin-right: 15px">Bantuan mendesak 24 jam</span><br>
+                        <span style="color: #000000; font-family: arial; font-size: 15px; display: inline-block; margin-left: 20px; margin-top: 10px; margin-right: 15px">Bantuan 24 jam</span><br>
                         <img src="https://vividi.id/wp-content/themes/Travelo/images/telephone.jpg" alt=""
                              style="height: 25px; margin-left: 10px;margin-top: 10px; margin-bottom: 10px"/>
                         <a style="color: #023f75; text-decoration: none; display: inline-block; margin-top: 20px; margin-right: 30px;  float: right"
@@ -436,389 +436,391 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
             <!--        --><?php //generated_dynamic_sidebar(); ?>
             <!--    </div>-->
         </div>
-        <!--<div id="change-date" class="travelo-box travelo-modal-box">-->
-        <!--    <div>-->
-        <!--        <a href="#" class="logo-modal">--><?php //bloginfo( 'name' );?><!--<img src="-->
-        <?php //echo esc_url( $logo_url ); ?><!--" alt="--><?php //bloginfo('name'); ?><!--"></a>-->
-        <!--    </div>-->
-        <!--    <form id="change-date-form" method="post">-->
-        <!--        <input type="hidden" name="action" value="acc_check_room_availability">-->
-        <!--        <input type="hidden" name="booking_no" value="-->
-        <?php //echo esc_attr( $booking_data['booking_no'] ); ?><!--">-->
-        <!--        <input type="hidden" name="pin_code" value="-->
-        <?php //echo esc_attr( $booking_data['pin_code'] ); ?><!--">-->
-        <!--        --><?php //wp_nonce_field( 'booking-' . $booking_data['booking_no'], '_wpnonce', false ); ?>
-        <!--        <div class="update-search clearfix">-->
-        <!--            <div class="row">-->
-        <!--                <div class="col-xs-12">-->
-        <!--                    <label>--><?php //_e( 'CHECK IN','trav' ); ?><!--</label>-->
-        <!--                    <div class="datepicker-wrap validation-field from-today">-->
-        <!--                        <input name="date_from" type="text" placeholder="-->
-        <?php //echo trav_get_date_format('html') ?><!--" class="input-text full-width" value="-->
-        <?php //echo esc_attr( $date_from ); ?><!--" />-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                <div class="col-xs-12">-->
-        <!--                    <label>--><?php //_e( 'CHECK OUT','trav' ); ?><!--</label>-->
-        <!--                    <div class="datepicker-wrap validation-field from-today">-->
-        <!--                        <input name="date_to" type="text" placeholder="-->
-        <?php //echo trav_get_date_format('html') ?><!--" class="input-text full-width" value="-->
-        <?php //echo esc_attr( $date_to ); ?><!--" />-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                <div class="col-xs-4">-->
-        <!--                    <label>--><?php //_e( 'KAMAR','trav' ); ?><!--</label>-->
-        <!--                    <div class="selector validation-field">-->
-        <!--                        <select name="rooms" class="full-width">-->
-        <!--                            --><?php
-        //                                $rooms = ( isset( $booking_data['rooms'] ) && is_numeric( (int) $booking_data['rooms'] ) )?(int) $booking_data['rooms']:1;
-        //                                for ( $i = 1; $i <= $search_max_rooms; $i++ ) {
-        //                                    $selected = '';
-        //                                    if ( $i == $rooms ) $selected = 'selected';
-        //                                    echo '<option value="' . esc_attr( $i ). '" ' . esc_attr( $selected ) . '>' . esc_html( $i ). '</option>';
-        //                                }
-        //                            ?>
-        <!--                        </select>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                <div class="col-xs-4">-->
-        <!--                    <label>--><?php //_e( 'DEWASA','trav' ); ?><!--</label>-->
-        <!--                    <div class="selector validation-field">-->
-        <!--                        <select name="adults" class="full-width">-->
-        <!--                            --><?php
-        //                                $adults = ( isset( $booking_data['adults'] ) && is_numeric( (int) $booking_data['adults'] ) )?(int) $booking_data['adults']:1;
-        //                                for ( $i = 1; $i <= $search_max_adults; $i++ ) {
-        //                                    $selected = '';
-        //                                    if ( $i == $adults ) $selected = 'selected';
-        //                                    echo '<option value="' . esc_attr( $i ). '" ' . esc_attr( $selected ) . '>' . esc_html( $i ). '</option>';
-        //                                }
-        //                            ?>
-        <!--                        </select>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                <div class="col-xs-4">-->
-        <!--                    <label>--><?php //_e( 'ANAK','trav' ); ?><!--</label>-->
-        <!--                    <div class="selector validation-field">-->
-        <!--                        <select name="kids" class="full-width">-->
-        <!--                            --><?php
-        //                                $kids = ( isset( $booking_data['kids'] ) && is_numeric( (int) $booking_data['kids'] ) )?(int) $booking_data['kids']:0;
-        //                                for ( $i = 0; $i <= $search_max_kids; $i++ ) {
-        //                                    $selected = '';
-        //                                    if ( $i == $kids ) $selected = 'selected';
-        //                                    echo '<option value="' . esc_attr( $i ). '" ' . esc_attr( $selected ) . '>' . esc_html( $i ). '</option>';
-        //                                }
-        //                            ?>
-        <!--                        </select>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                <div class="clearer"></div>-->
-        <!--                <div class="col-xs-12 age-of-children -->
-        <?php //if ( $kids == 0) echo 'no-display'?><!--">-->
-        <!--                    <div class="row">-->
-        <!--                    --><?php
-        //                        $kid_nums = ( $kids > 0 )?$kids:1;
-        //                        for ( $kid_num = 1; $kid_num <= $kid_nums; $kid_num++ ) { ?>
-        <!--                    -->
-        <!--                        <div class="col-xs-4 child-age-field">-->
-        <!--                            <label>-->
-        <?php //echo esc_html( __( 'ANAK ', 'trav' ) . $kid_num ) ?><!--</label>-->
-        <!--                            <div class="selector validation-field">-->
-        <!--                                <select name="child_ages[]" class="full-width">-->
-        <!--                                    --><?php
-        //                                        $max_kid_age = 17;
-        //                                        $child_ages = ( isset( $booking_data['child_ages'][ $kid_num -1 ] ) && is_numeric( (int) $booking_data['child_ages'][ $kid_num -1 ] ) )?(int) $booking_data['child_ages'][ $kid_num -1 ]:0;
-        //                                        for ( $i = 0; $i <= $max_kid_age; $i++ ) {
-        //                                            $selected = '';
-        //                                            if ( $i == $child_ages ) $selected = 'selected';
-        //                                            echo '<option value="' . esc_attr( $i ). '" ' . esc_attr( $selected ) . '>' . esc_html( $i ). '</option>';
-        //                                        }
-        //                                    ?>
-        <!--                                </select>-->
-        <!--                            </div>-->
-        <!--                        </div>-->
-        <!--                    --><?php //} ?>
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                <div class="col-xs-12 update_booking_date_row">-->
-        <!--                    <div class="booking-details"></div>-->
-        <!--                    <div class="row">-->
-        <!--                        <div class="col-xs-12">-->
-        <!--                            <button id="update_booking_date" data-animation-duration="1" data-animation-type="bounce" class="full-width icon-check animated bounce" type="submit">-->
-        <?php //_e( "UBAH SEKARANG", "trav" ); ?><!--</button>-->
-        <!--                        </div>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--    </form>-->
-        <!--</div>-->
-        <!--<div id="change-room" class="travelo-box travelo-modal-box">-->
-        <!--    <div>-->
-        <!--        <a href="#" class="logo-modal">--><?php //bloginfo( 'name' );?><!--<img src="-->
-        <?php //echo esc_url( $logo_url ); ?><!--" alt="--><?php //bloginfo('name'); ?><!--"></a>-->
-        <!--    </div>-->
-        <!--    <form id="change-room-form" method="post">-->
-        <!--        <input type="hidden" name="action" value="acc_change_room">-->
-        <!--        <input type="hidden" name="booking_no" value="-->
-        <?php //echo esc_attr( $booking_data['booking_no'] ); ?><!--">-->
-        <!--        <input type="hidden" name="pin_code" value="-->
-        <?php //echo esc_attr( $booking_data['pin_code'] ); ?><!--">-->
-        <!--        --><?php //wp_nonce_field( 'booking-' . $booking_data['booking_no'], '_wpnonce', false ); ?>
-        <!--        <div class="update-search clearfix">-->
-        <!--            <div class="row">-->
-        <!--                <div class="col-xs-12">-->
-        <!--                    <label>--><?php //_e( 'KAMAR TERSEDIA','trav' ); ?><!--</label>-->
-        <!--                    <div class="selector validation-field">-->
-        <!--                        <select name="room_type_id" class="full-width" data-original-val="-->
-        <?php //echo esc_attr( $room_type_id ) ?><!--">-->
-        <!--                            --><?php
-        //                                $return_value = trav_acc_get_available_rooms( $acc_id, $booking_data['date_from'], $booking_data['date_to'], $booking_data['rooms'], $booking_data['adults'], $booking_data['kids'], $booking_data['child_ages'], $booking_data['booking_no'], $booking_data['pin_code'] );
-        //                                if ( ! empty ( $return_value ) && is_array( $return_value ) ) {
-        //                                    foreach ( $return_value['bookable_room_type_ids'] as $room_id ) {
-        //                                        $room_price = 0;
-        //                                        foreach ( $return_value['check_dates'] as $check_date ) {
-        //                                            $room_price += (float) $return_value['prices'][ $room_id ][ $check_date ]['total'];
-        //                                        }
-        //                                        $room_price *= ( 1 + $tax_rate / 100 );
-        //                                        $selected = '';
-        //                                        $room_id_lang = trav_room_clang_id( $room_id );
-        //                                        if ( $room_id_lang == $room_type_id ) $selected = 'selected';
-        //                                        echo '<option value="' . esc_attr( $room_id ) . '" ' . esc_attr( $selected ) . '>' . esc_html( get_the_title( $room_id_lang ) . ' (' . trav_get_price_field( $room_price, $booking_data['currency_code'], 0 ) . ')' ) . '</option>';
-        //                                    }
-        //                                }
-        //                            ?>
-        <!--                        </select>-->
-        <!--                    </div>-->
-        <!--                </div>-->
-        <!--                <div class="col-xs-12">-->
-        <!--                    <button id="update_booking_room" data-animation-duration="1" data-animation-type="bounce" class="full-width icon-check animated bounce" type="submit">-->
-        <?php //_e( "UBAH KAMAR", "trav" ); ?><!--</button>-->
-        <!--                </div>-->
-        <!--            </div>-->
-        <!--        </div>-->
-        <!--    </form>-->
-        <!--</div>-->
-        <style>#ui-datepicker-div {
-                z-index: 10004 !important;
+    </div>
+</div>
+<!--<div id="change-date" class="travelo-box travelo-modal-box">-->
+<!--    <div>-->
+<!--        <a href="#" class="logo-modal">--><?php //bloginfo( 'name' );?><!--<img src="-->
+<?php //echo esc_url( $logo_url ); ?><!--" alt="--><?php //bloginfo('name'); ?><!--"></a>-->
+<!--    </div>-->
+<!--    <form id="change-date-form" method="post">-->
+<!--        <input type="hidden" name="action" value="acc_check_room_availability">-->
+<!--        <input type="hidden" name="booking_no" value="-->
+<?php //echo esc_attr( $booking_data['booking_no'] ); ?><!--">-->
+<!--        <input type="hidden" name="pin_code" value="-->
+<?php //echo esc_attr( $booking_data['pin_code'] ); ?><!--">-->
+<!--        --><?php //wp_nonce_field( 'booking-' . $booking_data['booking_no'], '_wpnonce', false ); ?>
+<!--        <div class="update-search clearfix">-->
+<!--            <div class="row">-->
+<!--                <div class="col-xs-12">-->
+<!--                    <label>--><?php //_e( 'CHECK IN','trav' ); ?><!--</label>-->
+<!--                    <div class="datepicker-wrap validation-field from-today">-->
+<!--                        <input name="date_from" type="text" placeholder="-->
+<?php //echo trav_get_date_format('html') ?><!--" class="input-text full-width" value="-->
+<?php //echo esc_attr( $date_from ); ?><!--" />-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xs-12">-->
+<!--                    <label>--><?php //_e( 'CHECK OUT','trav' ); ?><!--</label>-->
+<!--                    <div class="datepicker-wrap validation-field from-today">-->
+<!--                        <input name="date_to" type="text" placeholder="-->
+<?php //echo trav_get_date_format('html') ?><!--" class="input-text full-width" value="-->
+<?php //echo esc_attr( $date_to ); ?><!--" />-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xs-4">-->
+<!--                    <label>--><?php //_e( 'KAMAR','trav' ); ?><!--</label>-->
+<!--                    <div class="selector validation-field">-->
+<!--                        <select name="rooms" class="full-width">-->
+<!--                            --><?php
+//                                $rooms = ( isset( $booking_data['rooms'] ) && is_numeric( (int) $booking_data['rooms'] ) )?(int) $booking_data['rooms']:1;
+//                                for ( $i = 1; $i <= $search_max_rooms; $i++ ) {
+//                                    $selected = '';
+//                                    if ( $i == $rooms ) $selected = 'selected';
+//                                    echo '<option value="' . esc_attr( $i ). '" ' . esc_attr( $selected ) . '>' . esc_html( $i ). '</option>';
+//                                }
+//                            ?>
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xs-4">-->
+<!--                    <label>--><?php //_e( 'DEWASA','trav' ); ?><!--</label>-->
+<!--                    <div class="selector validation-field">-->
+<!--                        <select name="adults" class="full-width">-->
+<!--                            --><?php
+//                                $adults = ( isset( $booking_data['adults'] ) && is_numeric( (int) $booking_data['adults'] ) )?(int) $booking_data['adults']:1;
+//                                for ( $i = 1; $i <= $search_max_adults; $i++ ) {
+//                                    $selected = '';
+//                                    if ( $i == $adults ) $selected = 'selected';
+//                                    echo '<option value="' . esc_attr( $i ). '" ' . esc_attr( $selected ) . '>' . esc_html( $i ). '</option>';
+//                                }
+//                            ?>
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xs-4">-->
+<!--                    <label>--><?php //_e( 'ANAK','trav' ); ?><!--</label>-->
+<!--                    <div class="selector validation-field">-->
+<!--                        <select name="kids" class="full-width">-->
+<!--                            --><?php
+//                                $kids = ( isset( $booking_data['kids'] ) && is_numeric( (int) $booking_data['kids'] ) )?(int) $booking_data['kids']:0;
+//                                for ( $i = 0; $i <= $search_max_kids; $i++ ) {
+//                                    $selected = '';
+//                                    if ( $i == $kids ) $selected = 'selected';
+//                                    echo '<option value="' . esc_attr( $i ). '" ' . esc_attr( $selected ) . '>' . esc_html( $i ). '</option>';
+//                                }
+//                            ?>
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="clearer"></div>-->
+<!--                <div class="col-xs-12 age-of-children -->
+<?php //if ( $kids == 0) echo 'no-display'?><!--">-->
+<!--                    <div class="row">-->
+<!--                    --><?php
+//                        $kid_nums = ( $kids > 0 )?$kids:1;
+//                        for ( $kid_num = 1; $kid_num <= $kid_nums; $kid_num++ ) { ?>
+<!--                    -->
+<!--                        <div class="col-xs-4 child-age-field">-->
+<!--                            <label>-->
+<?php //echo esc_html( __( 'ANAK ', 'trav' ) . $kid_num ) ?><!--</label>-->
+<!--                            <div class="selector validation-field">-->
+<!--                                <select name="child_ages[]" class="full-width">-->
+<!--                                    --><?php
+//                                        $max_kid_age = 17;
+//                                        $child_ages = ( isset( $booking_data['child_ages'][ $kid_num -1 ] ) && is_numeric( (int) $booking_data['child_ages'][ $kid_num -1 ] ) )?(int) $booking_data['child_ages'][ $kid_num -1 ]:0;
+//                                        for ( $i = 0; $i <= $max_kid_age; $i++ ) {
+//                                            $selected = '';
+//                                            if ( $i == $child_ages ) $selected = 'selected';
+//                                            echo '<option value="' . esc_attr( $i ). '" ' . esc_attr( $selected ) . '>' . esc_html( $i ). '</option>';
+//                                        }
+//                                    ?>
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    --><?php //} ?>
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xs-12 update_booking_date_row">-->
+<!--                    <div class="booking-details"></div>-->
+<!--                    <div class="row">-->
+<!--                        <div class="col-xs-12">-->
+<!--                            <button id="update_booking_date" data-animation-duration="1" data-animation-type="bounce" class="full-width icon-check animated bounce" type="submit">-->
+<?php //_e( "UBAH SEKARANG", "trav" ); ?><!--</button>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+<!--<div id="change-room" class="travelo-box travelo-modal-box">-->
+<!--    <div>-->
+<!--        <a href="#" class="logo-modal">--><?php //bloginfo( 'name' );?><!--<img src="-->
+<?php //echo esc_url( $logo_url ); ?><!--" alt="--><?php //bloginfo('name'); ?><!--"></a>-->
+<!--    </div>-->
+<!--    <form id="change-room-form" method="post">-->
+<!--        <input type="hidden" name="action" value="acc_change_room">-->
+<!--        <input type="hidden" name="booking_no" value="-->
+<?php //echo esc_attr( $booking_data['booking_no'] ); ?><!--">-->
+<!--        <input type="hidden" name="pin_code" value="-->
+<?php //echo esc_attr( $booking_data['pin_code'] ); ?><!--">-->
+<!--        --><?php //wp_nonce_field( 'booking-' . $booking_data['booking_no'], '_wpnonce', false ); ?>
+<!--        <div class="update-search clearfix">-->
+<!--            <div class="row">-->
+<!--                <div class="col-xs-12">-->
+<!--                    <label>--><?php //_e( 'KAMAR TERSEDIA','trav' ); ?><!--</label>-->
+<!--                    <div class="selector validation-field">-->
+<!--                        <select name="room_type_id" class="full-width" data-original-val="-->
+<?php //echo esc_attr( $room_type_id ) ?><!--">-->
+<!--                            --><?php
+//                                $return_value = trav_acc_get_available_rooms( $acc_id, $booking_data['date_from'], $booking_data['date_to'], $booking_data['rooms'], $booking_data['adults'], $booking_data['kids'], $booking_data['child_ages'], $booking_data['booking_no'], $booking_data['pin_code'] );
+//                                if ( ! empty ( $return_value ) && is_array( $return_value ) ) {
+//                                    foreach ( $return_value['bookable_room_type_ids'] as $room_id ) {
+//                                        $room_price = 0;
+//                                        foreach ( $return_value['check_dates'] as $check_date ) {
+//                                            $room_price += (float) $return_value['prices'][ $room_id ][ $check_date ]['total'];
+//                                        }
+//                                        $room_price *= ( 1 + $tax_rate / 100 );
+//                                        $selected = '';
+//                                        $room_id_lang = trav_room_clang_id( $room_id );
+//                                        if ( $room_id_lang == $room_type_id ) $selected = 'selected';
+//                                        echo '<option value="' . esc_attr( $room_id ) . '" ' . esc_attr( $selected ) . '>' . esc_html( get_the_title( $room_id_lang ) . ' (' . trav_get_price_field( $room_price, $booking_data['currency_code'], 0 ) . ')' ) . '</option>';
+//                                    }
+//                                }
+//                            ?>
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-xs-12">-->
+<!--                    <button id="update_booking_room" data-animation-duration="1" data-animation-type="bounce" class="full-width icon-check animated bounce" type="submit">-->
+<?php //_e( "UBAH KAMAR", "trav" ); ?><!--</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </form>-->
+<!--</div>-->
+<style>#ui-datepicker-div {
+        z-index: 10004 !important;
+    }
+
+    .update-search > div.row > div {
+        margin-bottom: 10px;
+    }
+
+    .booking-details .other-details dt, .booking-details .other-details dd {
+        padding: 0.2em 0;
+    }
+
+    .update-search > div.row > div:last-child {
+        margin-bottom: 0 !important;
+    } </style>
+<script>
+    tjq = jQuery;
+    tjq(document).ready(function () {
+        tjq('.btn-cancel-booking').click(function (e) {
+            e.preventDefault();
+            var r = confirm("<?php echo __('Kamu yakin akan membatalkan pesanan ini?', 'trav') ?>");
+            if (r == true) {
+                tjq.ajax({
+                    type: "POST",
+                    url: ajaxurl,
+                    data: {
+                        action: 'acc_cancel_booking',
+                        edit_booking_no: '<?php echo esc_js($booking_data['booking_no']) ?>',
+                        pin_code: '<?php echo esc_js($booking_data['pin_code']) ?>'
+                    },
+                    success: function (response) {
+                        if (response.success == 1) {
+                            trav_show_modal(1, response.result);
+                            setTimeout(function () {
+                                window.location.href = tjq('.btn-cancel-booking').attr('href');
+                            }, 3000);
+                        } else {
+                            alert(response.result);
+                        }
+                    }
+                });
+            }
+            return false;
+        });
+        tjq('body').on('change', '#change-date-form input, #change-date-form select', function () {
+            var booking_data = tjq('#change-date-form').serialize();
+            tjq('.update_booking_date_row').hide();
+            var date_from = tjq('#change-date-form').find('input[name="date_from"]').datepicker("getDate").getTime();
+            var date_to = tjq('#change-date-form').find('input[name="date_to"]').datepicker("getDate").getTime();
+            var one_day = 1000 * 60 * 60 * 24;
+            var minimum_stay = 0;
+            if (date_from >= date_to) {
+                alert('<?php echo __('Tangga Check In kamu setelah Tanggal Check Out. Periksa kembali.', 'trav'); ?>');
+                return false;
             }
 
-            .update-search > div.row > div {
-                margin-bottom: 10px;
+            <?php if ( !empty($acc_meta["trav_accommodation_minimum_stay"]) ) { ?>
+
+            minimum_stay = <?php echo esc_js($acc_meta["trav_accommodation_minimum_stay"][0])?>;
+            if (date_from + one_day * minimum_stay - date_to > 0) {
+                alert('<?php echo sprintf(__('Minimu menginap di properti ini %d Malam. Silahkan ubah atau cari yang lain.', 'trav'), $acc_meta["trav_accommodation_minimum_stay"][0]) ?>');
+                return false;
             }
 
-            .booking-details .other-details dt, .booking-details .other-details dd {
-                padding: 0.2em 0;
-            }
+            <?php } ?>
 
-            .update-search > div.row > div:last-child {
-                margin-bottom: 0 !important;
-            } </style>
-        <script>
-            tjq = jQuery;
-            tjq(document).ready(function () {
-                tjq('.btn-cancel-booking').click(function (e) {
-                    e.preventDefault();
-                    var r = confirm("<?php echo __('Kamu yakin akan membatalkan pesanan ini?', 'trav') ?>");
-                    if (r == true) {
-                        tjq.ajax({
-                            type: "POST",
-                            url: ajaxurl,
-                            data: {
-                                action: 'acc_cancel_booking',
-                                edit_booking_no: '<?php echo esc_js($booking_data['booking_no']) ?>',
-                                pin_code: '<?php echo esc_js($booking_data['pin_code']) ?>'
-                            },
-                            success: function (response) {
-                                if (response.success == 1) {
-                                    trav_show_modal(1, response.result);
-                                    setTimeout(function () {
-                                        window.location.href = tjq('.btn-cancel-booking').attr('href');
-                                    }, 3000);
-                                } else {
-                                    alert(response.result);
-                                }
-                            }
+            jQuery.ajax({
+                url: ajaxurl,
+                type: "POST",
+                data: booking_data,
+                success: function (response) {
+                    if (response.success == 1) {
+                        tjq('.booking-details').html(response.result);
+                        tjq('.update_booking_date_row').show();
+                    } else {
+                        tjq('.update_booking_date_row').hide();
+                        alert(response.result);
+                    }
+                }
+            });
+        });
+        tjq('body').on('click', '#update_booking_date', function (e) {
+            e.preventDefault();
+            tjq('#change-date-form input[name="action"]').val('acc_update_booking_date');
+            var booking_data = tjq('#change-date-form').serialize();
+            tjq('.travelo-modal-box').fadeOut();
+            jQuery.ajax({
+                url: ajaxurl,
+                type: "POST",
+                data: booking_data,
+                success: function (response) {
+                    if (response.success == 1) {
+                        tjq('.opacity-overlay').fadeOut(400, function () {
+                            trav_show_modal(1, response.result, '')
                         });
+                        setTimeout(function () {
+                            location.reload();
+                        }, 3000);
+                    } else {
+                        trav_show_modal(0, response.result, '');
                     }
-                    return false;
-                });
-                tjq('body').on('change', '#change-date-form input, #change-date-form select', function () {
-                    var booking_data = tjq('#change-date-form').serialize();
-                    tjq('.update_booking_date_row').hide();
-                    var date_from = tjq('#change-date-form').find('input[name="date_from"]').datepicker("getDate").getTime();
-                    var date_to = tjq('#change-date-form').find('input[name="date_to"]').datepicker("getDate").getTime();
-                    var one_day = 1000 * 60 * 60 * 24;
-                    var minimum_stay = 0;
-                    if (date_from >= date_to) {
-                        alert('<?php echo __('Tangga Check In kamu setelah Tanggal Check Out. Periksa kembali.', 'trav'); ?>');
-                        return false;
-                    }
-
-                    <?php if ( !empty($acc_meta["trav_accommodation_minimum_stay"]) ) { ?>
-
-                    minimum_stay = <?php echo esc_js($acc_meta["trav_accommodation_minimum_stay"][0])?>;
-                    if (date_from + one_day * minimum_stay - date_to > 0) {
-                        alert('<?php echo sprintf(__('Minimu menginap di properti ini %d Malam. Silahkan ubah atau cari yang lain.', 'trav'), $acc_meta["trav_accommodation_minimum_stay"][0]) ?>');
-                        return false;
-                    }
-
-                    <?php } ?>
-
-                    jQuery.ajax({
-                        url: ajaxurl,
-                        type: "POST",
-                        data: booking_data,
-                        success: function (response) {
-                            if (response.success == 1) {
-                                tjq('.booking-details').html(response.result);
-                                tjq('.update_booking_date_row').show();
-                            } else {
-                                tjq('.update_booking_date_row').hide();
-                                alert(response.result);
-                            }
-                        }
-                    });
-                });
-                tjq('body').on('click', '#update_booking_date', function (e) {
-                    e.preventDefault();
-                    tjq('#change-date-form input[name="action"]').val('acc_update_booking_date');
-                    var booking_data = tjq('#change-date-form').serialize();
-                    tjq('.travelo-modal-box').fadeOut();
-                    jQuery.ajax({
-                        url: ajaxurl,
-                        type: "POST",
-                        data: booking_data,
-                        success: function (response) {
-                            if (response.success == 1) {
-                                tjq('.opacity-overlay').fadeOut(400, function () {
-                                    trav_show_modal(1, response.result, '')
-                                });
-                                setTimeout(function () {
-                                    location.reload();
-                                }, 3000);
-                            } else {
-                                trav_show_modal(0, response.result, '');
-                            }
-                        }
-                    });
-                    return false;
-                });
-                tjq('#update_booking_room').click(function () {
-                    if (tjq('select[name="room_type_id"]').val() == tjq('select[name="room_type_id"]').data('original-val')) {
-                        tjq(".opacity-overlay").fadeOut();
-                        return false;
-                    }
-                    var booking_data = tjq('#change-room-form').serialize();
-                    tjq('.travelo-modal-box').fadeOut();
-                    jQuery.ajax({
-                        url: ajaxurl,
-                        type: "POST",
-                        data: booking_data,
-                        success: function (response) {
-                            if (response.success == 1) {
-                                tjq('.opacity-overlay').fadeOut(400, function () {
-                                    trav_show_modal(1, response.result, '')
-                                });
-                                setTimeout(function () {
-                                    location.reload();
-                                }, 3000);
-                            } else {
-                                alert(response.result);
-                            }
-                        }
-                    });
-                    return false;
-                });
+                }
             });
-        </script>
-
-        <script>
-            document.getElementById("copyButton").addEventListener("click", function () {
-                copyToClipboard(document.getElementById("copyTarget"));
-            });
-
-            function copyToClipboard(elem) {
-                // create hidden text element, if it doesn't already exist
-                var targetId = "_hiddenCopyText_";
-                var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
-                var origSelectionStart, origSelectionEnd;
-                if (isInput) {
-                    // can just use the original source element for the selection and copy
-                    target = elem;
-                    origSelectionStart = elem.selectionStart;
-                    origSelectionEnd = elem.selectionEnd;
-                } else {
-                    // must use a temporary form element for the selection and copy
-                    target = document.getElementById(targetId);
-                    if (!target) {
-                        var target = document.createElement("textarea");
-                        target.style.position = "absolute";
-                        target.style.left = "-9999px";
-                        target.style.top = "0";
-                        target.id = targetId;
-                        document.body.appendChild(target);
-                    }
-                    target.textContent = elem.textContent;
-                }
-                // select the content
-                var currentFocus = document.activeElement;
-                target.focus();
-                target.setSelectionRange(0, target.value.length);
-
-                // copy the selection
-                var succeed;
-                try {
-                    succeed = document.execCommand("copy");
-                } catch (e) {
-                    succeed = false;
-                }
-                // restore original focus
-                if (currentFocus && typeof currentFocus.focus === "function") {
-                    currentFocus.focus();
-                }
-
-                if (isInput) {
-                    // restore prior selection
-                    elem.setSelectionRange(origSelectionStart, origSelectionEnd);
-                } else {
-                    // clear temporary content
-                    target.textContent = "";
-                }
-                return succeed;
+            return false;
+        });
+        tjq('#update_booking_room').click(function () {
+            if (tjq('select[name="room_type_id"]').val() == tjq('select[name="room_type_id"]').data('original-val')) {
+                tjq(".opacity-overlay").fadeOut();
+                return false;
             }
-        </script>
-        <script>
-            // Set the date we're counting down to
-            var countDownDate = new Date("<?php echo $booking_time_until?>").getTime();
-
-            // Update the count down every 1 second
-            var x = setInterval(function () {
-
-                // Get today's date and time
-                var now = new Date().getTime();
-
-                // Find the distance between now and the count down date
-                var distance = countDownDate - now;
-
-                var menit = new String(" menit ");
-                var jam = new String(" jam ");
-                var detik = new String(" detik ");
-
-                // Time calculations for days, hours, minutes and seconds
-                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                // Display the result in the element with id="demo"
-                document.getElementById("demo").innerHTML = hours + jam.fontcolor("black") + minutes + menit.fontcolor("black") + seconds + detik.fontcolor("black");
-
-                // document.getElementById("demo").innerHTML = countDownDate;
-
-                // If the count down is finished, write some text
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("demo").innerHTML = "EXPIRED";
+            var booking_data = tjq('#change-room-form').serialize();
+            tjq('.travelo-modal-box').fadeOut();
+            jQuery.ajax({
+                url: ajaxurl,
+                type: "POST",
+                data: booking_data,
+                success: function (response) {
+                    if (response.success == 1) {
+                        tjq('.opacity-overlay').fadeOut(400, function () {
+                            trav_show_modal(1, response.result, '')
+                        });
+                        setTimeout(function () {
+                            location.reload();
+                        }, 3000);
+                    } else {
+                        alert(response.result);
+                    }
                 }
-            }, 1000);
-        </script>
+            });
+            return false;
+        });
+    });
+</script>
+
+<script>
+    document.getElementById("copyButton").addEventListener("click", function () {
+        copyToClipboard(document.getElementById("copyTarget"));
+    });
+
+    function copyToClipboard(elem) {
+        // create hidden text element, if it doesn't already exist
+        var targetId = "_hiddenCopyText_";
+        var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+        var origSelectionStart, origSelectionEnd;
+        if (isInput) {
+            // can just use the original source element for the selection and copy
+            target = elem;
+            origSelectionStart = elem.selectionStart;
+            origSelectionEnd = elem.selectionEnd;
+        } else {
+            // must use a temporary form element for the selection and copy
+            target = document.getElementById(targetId);
+            if (!target) {
+                var target = document.createElement("textarea");
+                target.style.position = "absolute";
+                target.style.left = "-9999px";
+                target.style.top = "0";
+                target.id = targetId;
+                document.body.appendChild(target);
+            }
+            target.textContent = elem.textContent;
+        }
+        // select the content
+        var currentFocus = document.activeElement;
+        target.focus();
+        target.setSelectionRange(0, target.value.length);
+
+        // copy the selection
+        var succeed;
+        try {
+            succeed = document.execCommand("copy");
+        } catch (e) {
+            succeed = false;
+        }
+        // restore original focus
+        if (currentFocus && typeof currentFocus.focus === "function") {
+            currentFocus.focus();
+        }
+
+        if (isInput) {
+            // restore prior selection
+            elem.setSelectionRange(origSelectionStart, origSelectionEnd);
+        } else {
+            // clear temporary content
+            target.textContent = "";
+        }
+        return succeed;
+    }
+</script>
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("<?php echo $booking_time_until?>").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        var menit = new String(" menit ");
+        var jam = new String(" jam ");
+        var detik = new String(" detik ");
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+        document.getElementById("demo").innerHTML = hours + jam.fontcolor("black") + minutes + menit.fontcolor("black") + seconds + detik.fontcolor("black");
+
+        // document.getElementById("demo").innerHTML = countDownDate;
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+    }, 1000);
+</script>
