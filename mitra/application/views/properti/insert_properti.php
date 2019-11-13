@@ -1,11 +1,12 @@
 <style>
 	.slidecontainer {
-		width: 20%;
+		width: 50%;
 	}
 
 	.slider {
 		-webkit-appearance: none;
 		width: 100%;
+		margin-top: 15px;
 		height: 15px;
 		border-radius: 5px;
 		background: #d3d3d3;
@@ -51,42 +52,43 @@
 	<section class="content">
 		<div class="row">
 			<div class="col-xs-12">
-				<div class="box box-primary">
-					<!-- box-body -->
-					<div class="box-body">
-						<form role="form">
-							<div class="form-group">
-								<label>Judul</label>
-								<input type="text" class="form-control" name="judul" placeholder="Enter ..." required>
-							</div>
-							<div class="form-group">
-								<label>Deskripsi</label>
-								<textarea class="form-control" name="deskripsi" rows="6" placeholder="Enter ..." required></textarea>
-							</div>
-						</form>
+				<?php echo form_open('properti/save_properti'); ?>
+				<div class="col-xs-12">
+					<div class="box box-primary">
+						<!-- box-body -->
+						<div class="box-body">
+							<form role="form">
+								<div class="form-group">
+									<label>Judul</label>
+									<input type="text" class="form-control" name="judul" placeholder="Enter ..." required>
+								</div>
+								<div class="form-group">
+									<label>Deskripsi</label>
+									<textarea class="form-control" name="deskripsi" rows="6" placeholder="Enter ..." required></textarea>
+								</div>
+						</div>
+						<!-- /.box-body -->
 					</div>
-					<!-- /.box-body -->
 				</div>
 				<!-- /.box -->
-
-				<div class="box box-primary">
-					<div class="box-header with-border">
-						<h3 class="box-title">Details</h3>
-					</div>
-					<!-- /.box-body -->
-					<div class="box-body">
-						<form role="form">
-							<div class="form-group">
+				<div class="col-xs-4">
+					<div class="box box-primary">
+						<div class="box-header with-border">
+							<h3 class="box-title">Details</h3>
+						</div>
+						<!-- /.box-body -->
+						<div class="box-body">
+							<div class="form-group col-xs-12">
 								<label>Tipe Properti</label>
 								<select class="form-control" name="tipe_properti">
 									<option>--Pilih--</option>
 									<?php
 									foreach ($tipe as $row) { ?>
-									<option value="<?= $row->id_tipe ?>"><?= $row->tipe ?></option>
+										<option value="<?= $row->id_tipe ?>"><?= $row->tipe ?></option>
 									<?php } ?>
 								</select>
 							</div>
-							<div class="form-group">
+							<div class="form-group col-xs-6">
 								<label>Fasilitas</label>
 								<div class="checkbox">
 									<label>
@@ -134,29 +136,41 @@
 									</label>
 								</div>
 							</div>
-							<div class="form-group slidecontainer">
+							<div class="form-group slidecontainer col-xs-6">
 								<label>Bintang Hotel : <span id="bintang"></span></label>
 								<input type="range" class="slider" name="bintang" id="star" min="0" max="5" value="0">
 								<p style="font-size: 13px; font-style: italic; margin: 5px 0 5px; color: #666">Jika akomodasi ini tidak memiliki peringkat maka isi 0</p>
 							</div>
-							<div class="form-group">
+							<div class="form-group col-xs-12">
 								<label>Minimal menginap</label>
 								<input type="number" class="form-control" name="stay">
 								<p style="font-size: 13px; font-style: italic; margin: 5px 0 5px; color: #666">Kosongkan jika akomodasi tidak memiliki batas minimal</p>
 							</div>
-							<div class="form-group">
+							<div class="form-group col-xs-6">
 								<label>Foto Akomodasi</label>
 								<input type="file" class="form-control" name="foto[]" accept="image/*" multiple>
 							</div>
-							<div class="form-group">
+							<div class="form-group col-xs-6">
 								<label>Logo Akomodasi</label>
-								<input type="file" class="form-control" name="logo[]" accept="image/*">
+								<input type="file" class="form-control" name="logo" accept="image/*">
 							</div>
-							<div class="form-group">
+							<div class="form-group col-xs-12">
 								<label>Deskripsi Singkat</label>
 								<textarea class="form-control" name="deskripsi_singkat" rows="3" placeholder="Enter ..." required></textarea>
 							</div>
-							<div class="form-group">
+						</div>
+						<!-- /.box-body -->
+					</div>
+				</div>
+
+				<div class="col-xs-8">
+					<div class="box box-primary">
+						<div class="box-header with-border">
+							<h3 class="box-title">Lokasi dan Info Lain</h3>
+						</div>
+						<!-- /.box-body -->
+						<div class="box-body">
+							<div class="form-group col-xs-6">
 								<label>Negara</label>
 								<select class="form-control" name="country" id="country">
 									<option>--Pilih--</option>
@@ -166,19 +180,39 @@
 									<?php } ?>
 								</select>
 							</div>
-							<div class="form-group">
+							<div class="form-group  col-xs-6">
 								<label>Kota</label>
 								<select class="form-control" name="city" id="city">
 									<option>--Pilih--</option>
 								</select>
 							</div>
-						</form>
-					</div>
-					<!-- /.box-body -->
-					<div class="box-footer">
-						<button type="submit" class="btn btn-primary">Submit</button>
+							<div class="form-group col-xs-6">
+								<label>No Telepon</label>
+								<input type="text" class="form-control" name="telepon" placeholder="No Telepon">
+							</div>
+							<div class="form-group col-xs-6">
+								<label>Email</label>
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+									<input type="email" class="form-control" name="email" placeholder="Email">
+								</div>
+							</div>
+							<div class="form-group col-xs-6">
+								<label>Alamat</label>
+								<input type="text" class="form-control" name="alamat" placeholder="Alamat">
+							</div>
+							<div class="form-group col-xs-12">
+								<label>Lokasi</label>
+								<input type="text" class="form-control" name="lokasi" placeholder="Lokasi">
+							</div>
+						</div>
+						<div class="box-footer">
+							<button type="submit" class="btn btn-primary">Submit</button>
+						</div>
 					</div>
 				</div>
+
+				<?php echo form_close(); ?>
 				<!-- /.box -->
 			</div>
 		</div>

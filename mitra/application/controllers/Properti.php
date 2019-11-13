@@ -7,6 +7,7 @@ class Properti extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Model_properti');
+		$this->load->library('session');
 		$this->load->database();
 	}
 
@@ -222,6 +223,62 @@ class Properti extends CI_Controller {
         }
         return $result;
     }
+
+    public function upload_foto_properti() {
+        $config['upload_path']          = './assets/images/hotel/';
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 10000;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto')) {
+            $result = ['Status' => 'success', 'file' => $this->upload->data()];
+        } else {
+            $result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
+        }
+        return $result;
+    }
+
+    public function upload_logo_properti() {
+        $config['upload_path']          = './assets/images/hotel/';
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 10000;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('logo')) {
+            $result = ['Status' => 'success', 'file' => $this->upload->data()];
+        } else {
+            $result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
+        }
+        return $result;
+    }
+
+	public function save_properti() {
+		$id = $_SESSION['ID'];
+		$judul = $this->input->post('judul');
+		$deskripsi = $this->input->post('deskripsi');
+		$tipe_properti = $this->input->post('tipe_properti');
+		$fasilitas = $this->input->post('fasilitas');
+		$bintang = $this->input->post('bintang');
+		$stay = $this->input->post('stay');
+		$foto = $this->input->post('foto');
+		$logo = $this->input->post('logo');
+		$deskripsi_singkat = $this->input->post('deskripsi_singkat');
+		$country = $this->input->post('country');
+		$city = $this->input->post('city');
+		$telepon = $this->input->post('telepon');
+		$email = $this->input->post('email');
+		$alamat = $this->input->post('alamat');
+		$lokasi = $this->input->post('lokasi');
+		$upload = $this->upload_foto();
+		if ($upload['Status'] == 'success') {
+			$this->Model_properti->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload);
+		} else {
+			echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";
+		}
+		redirect(base_url('properti/tipe_kamar'));
+	}
 
     public function save_type_kamar() {
         $id = $_SESSION['ID'];
