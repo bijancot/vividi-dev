@@ -26,8 +26,8 @@
 			<span
 				style="font-family: arial; margin-left: 20px; margin-top: 10px; display:inline-block; font-size: 22px"><b>[accommodation_name]</b></span><br>
 			<span style="font-family: arial; margin-left: 20px; margin-top: 5px; display:inline-block; font-size: 15px">[booking_checkin_time] | [booking_nights] Malam</span><br>
-<!--			<span-->
-<!--				style="font-family: arial; margin-bottom: 10px; margin-left: 20px; margin-top: 5px; display:inline-block; font-size: 15px">Check-Out : [booking_checkout_time]</span>-->
+			<!--			<span-->
+			<!--				style="font-family: arial; margin-bottom: 10px; margin-left: 20px; margin-top: 5px; display:inline-block; font-size: 15px">Check-Out : [booking_checkout_time]</span>-->
 		</div>
 	</div>
 
@@ -72,42 +72,15 @@
 			<span
 				style="font-family: arial; font-size: 15px; margin-left: 20px; display: inline-block; margin-top: 2px">Lakukan konfirmasi pembayaran agar Kami dapat segera memproses voucher hotel ke alamat Email Kamu.</span><br>
 			<span
-				style="color: #000000; font-family: arial; font-size: 15px; margin-left: 20px; display: inline-block; margin-top: 2px; margin-bottom: 10px;">Caranya mudah, klik tombol konfirmasi melalui E-mail atau Whatsapp di bawah ini.</span>
-		</div>
-	</div>
-
-	<!--	<div class="row" style="margin-top: 10px">-->
-	<!--	<div class="col-sm-6 col-md-6" style="float: left; background-color: #F5F4F4;">-->
-	<!--			<a href="http://localhost/vividi-dev/mitra/Properti/email_confirm/['booking_no]">-->
-	<!--				<img src="https://vividi.id/wp-content/themes/Travelo/images/email.png"-->
-	<!--					 style="display: inline;width:72px; height:60px; margin-left: 150px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>-->
-	<!--			</a>-->
-	<!--		</div>-->
-	<!---->
-	<!--		<div class="col-sm-6 col-md-6" style="float: left; background-color: #F5F4F4; margin-left: 20px">-->
-	<!--			<a href="https://api.whatsapp.com/send?phone=6281211118486&text=-->
-	<!--                        Konfirmasi Pembayaran atas nama [customer_first_name] [customer_last_name] kode Booking ['booking_no'] untuk-->
-	<!--                        pemesanan [accommodation_name] telah melakukan pembayaran melalui ['nama_bank'] dengan Nominal [booking_total_price]">-->
-	<!--				<img src="-->
-	<!--                        https://vividi.id/wp-content/themes/Travelo/images/whatsapp.png"-->
-	<!--					 style="display: inline;width:72px; height:60px;margin-left: 150px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>-->
-	<!--			</a>-->
-	<!--		</div>-->
-	<!--	</div>-->
-	<div class="row" style="margin-top: 10px">
-		<div class="col-sm-6 col-md-6" style="float: left; background-color: #F5F4F4;">
+				style="color: #000000; font-family: arial; font-size: 15px; margin-left: 20px; display: inline-block; margin-top: 2px; margin-bottom: 10px;">Caranya mudah, klik tombol konfirmasi melalui E-mail atau Whatsapp di bawah ini.</span><br>
 			<a href="https://vividi.id/mitra/Properti/email_confirm/[booking_no]">
 				<img src="https://vividi.id/wp-content/themes/Travelo/images/email.png"
-					 style="width:72px; height:60px; margin-left: 150px; border-radius:5px; margin-top: 10px;
+					 style="margin-left: 20px;float:left;width:72px; height:60px;border-radius:5px; margin-top: 10px;
 			margin-bottom: 10px "/>
 			</a>
-		</div>
-		<div class="col-sm-6 col-md-6" style="margin-left:10px;background-color: #F5F4F4;">
-			<a href="https://api.whatsapp.com/send?phone=6281211118486&text=
-                       Konfirmasi Pembayaran atas nama [customer_first_name] [customer_last_name] kode Booking [booking_no] untuk
-                    pemesanan [accommodation_name] telah melakukan pembayaran melalui [nama_bank] dengan Nominal [booking_total_price]">
+			<a href="https://api.whatsapp.com/send?phone=6281211118486&text=Konfirmasi Pembayaran atas nama [customer_first_name] [customer_last_name] kode Booking [booking_no] telah melakukan pembayaran melalui [customer_nama_bank] dengan Nominal [booking_total_price] untuk pemesanan [accommodation_name]">
 				<img src="https://vividi.id/wp-content/themes/Travelo/images/whatsapp.png"
-					 style="width:72px; height:60px; margin-left: 250px; border-radius:5px; margin-top: 10px;
+					 style="margin-left: 20px; width:72px; height:60px; border-radius:5px; margin-top: 10px;
 			margin-bottom: 10px "/>
 			</a>
 		</div>

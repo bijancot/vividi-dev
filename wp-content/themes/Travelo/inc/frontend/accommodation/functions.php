@@ -1079,6 +1079,7 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
             $customer_country_code = $booking_data['country_code'];
             $customer_phone = $booking_data['phone'];
             $customer_bank  = $booking_data['bank'];
+            $customer_nama_bank  = $booking_data['nama_bank'];
             $customer_no_rekening = $booking_data['no_rekening'];
             $customer_address = $booking_data['address'];
             $customer_city = $booking_data['city'];
@@ -1123,7 +1124,11 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
                 'customer_country_code',
                 'customer_phone',
                 'customer_bank',
+                'customer_bank',
+                'customer_nama_bank',
                 'customer_no_rekening',
+                'customer_adult',
+                'customer_kid',
                 'customer_address',
                 'customer_city',
                 'customer_zip',

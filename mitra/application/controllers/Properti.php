@@ -136,7 +136,8 @@ class Properti extends CI_Controller {
 
 		// Tampilkan pesan sukses atau error
 		if ($this->email->send()) {
-			redirect('http://localhost/vividi-dev/halaman-member/?ihc_ap_menu=orders');
+//			redirect('http://localhost/vividi-dev/halaman-member/?ihc_ap_menu=orders');
+			echo 'Sukses';
 		} else {
 			echo 'Error! email tidak dapat dikirim.';
 		}
@@ -306,7 +307,7 @@ class Properti extends CI_Controller {
 		} else {
 			echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";
 		}
-        redirect(base_url('properti/tipe_kamar'));
+        redirect(base_url('Properti/tipe_kamar'));
     }
 
     public function save_harga() {

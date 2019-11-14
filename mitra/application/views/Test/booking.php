@@ -59,7 +59,7 @@
 			</span><br>
 			<span
 				style="color: #000000; font-family: arial; margin-top: 5px; margin-left: 20px; display:inline-block;  font-size: 15px">
-				Check In
+				Check Out
 			</span>
 		</div>
 		<div class="col-sm-6 col-md-6"
@@ -71,7 +71,7 @@
 			<span style="color: #000000; font-family: arial; margin-left: 20px; display:inline-block;  font-size: 15px">
 				Tamu per Kamar</span><br>
 			<span style="color: #003580; font-family: arial; margin-left: 20px; display:inline-block;  font-size: 15px">
-				[customer_adult]</span><br>
+				[customer_adult] Dewasa, [customer_kid] Anak</span><br>
 			<span style="color: #000000; font-family: arial; margin-left: 20px; display:inline-block;  font-size: 15px">
 				Jumlah Kamar</span><br>
 			<span style="color: #003580; font-family: arial; margin-left: 20px; display:inline-block;  font-size: 15px">

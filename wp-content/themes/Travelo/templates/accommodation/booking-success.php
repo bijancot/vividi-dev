@@ -14,7 +14,7 @@ $acc_meta = get_post_meta($acc_id);
 $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
 ?>
 <div class="row">
-    <div class="col-sm-8 col-md-12">
+    <div class="col-sm-8 col-md-9">
         <div class="booking-information travelo-box">
 
             <?php do_action('trav_acc_conf_form_before', $booking_data); ?>
@@ -26,9 +26,11 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
 
                 <div class="booking-confirmation clearfix">
                     <!--                    <i class="soap-icon-recommend icon circle"></i>-->
-                    <h4 style="text-align: center"
-                        class="main-message"><?php _e('Terima Kasih. Pesanan kamu sudah masuk dalam sistem kami, dan Kami telah mengirim email ke Kamu.', 'trav'); ?></h4>
-                    <p style="color: #000000; text-align: center"><?php _e('Lakukan Pembayaran sebelum 60 Menit Kedepan atau pesanan kamu akan terhapus Otomatis oleh Sistem.', 'trav'); ?></p>
+                    <!--                    <h4 style="text-align: center"-->
+                    <!--                        class="main-message">-->
+                    <?php //_e('Terima Kasih. Pesanan kamu sudah masuk dalam sistem kami, dan Kami telah mengirim email ke Kamu.', 'trav'); ?><!--</h4>-->
+                    <!--                    <p style="color: #000000; text-align: center">-->
+                    <?php //_e('Lakukan Pembayaran sebelum 60 Menit Kedepan atau pesanan kamu akan terhapus Otomatis oleh Sistem.', 'trav'); ?><!--</p>-->
                     <!-- <a href="#" class="button btn-small print-button uppercase">print Details</a> -->
                 </div>
                 <br/>
@@ -92,7 +94,7 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
             <!--                </div>-->
             <!--            </dl>-->
 
-            <div style="margin-left: auto; margin-right: auto">
+            <div class="container" style="margin-left: auto; margin-right: auto">
                 <div class="row">
                     <div class="col-sm-6 col-md-8" style="background-color: #cccccc">
                         <img src="https://vividi.id/wp-content/uploads/2019/10/new-logo.png" alt="" width="205"
@@ -247,49 +249,19 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
                     <div class="col-sm-6 col-md-8" style="background-color: #F5F4F4">
                         <span style="color: #000000; font-family: arial; font-size: 20px; display: inline-block; margin-left: 20px; margin-top: 10px">Apabila Kamu sudah melakukan pembayaran</span><br>
                         <span style="color: #000000; font-family: arial; font-size: 12px; margin-left: 20px; display: inline-block; margin-top: 2px">Lakukan konfirmasi pembayaran agar Kami dapat segera memproses voucher hotel ke alamat Email Kamu.</span><br>
-                        <span style="color: #000000; font-family: arial; font-size: 12px; margin-left: 20px; display: inline-block; margin-top: 2px; margin-bottom: 10px;">Caranya mudah, klik tombol konfirmasi melalui E-mail atau Whatsapp di bawah ini.</span>
-                    </div>
-                </div>
-
-                <div class="row" style="margin-top: 10px;float: left; margin-bottom: 10px">
-                    <div class="col-sm-6 col-md-6" style="width: 370px; float: left; background-color: #F5F4F4;">
+                        <span style="color: #000000; font-family: arial; font-size: 12px; margin-left: 20px; display: inline-block; margin-top: 2px; margin-bottom: 10px;">Caranya mudah, klik tombol konfirmasi melalui E-mail atau Whatsapp di bawah ini.</span><br>
                         <a href="http://localhost/vividi-dev/mitra/Properti/email_confirm/<?php echo($booking_data['booking_no']); ?>">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/email.png"
-                                 style="display: inline;width:72px; height:60px; margin-left: 150px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>
+                            <img src="https://vividi.id/wp-content/themes/Travelo/images/email.png"
+                                 style="margin-left: 20px;float:left;width:72px; height:60px;border-radius:5px; margin-top: 10px;
+			margin-bottom: 10px "/>
                         </a>
-                    </div>
-
-                    <div class="col-sm-6 col-md-6"
-                         style="width: 370px; float: left; background-color: #F5F4F4; margin-left: 20px">
-                        <a href="https://api.whatsapp.com/send?phone=6281211118486&text=Konfirmasi Pembayaran atas nama <?php echo($booking_data['first_name'] . " " . $booking_data['last_name']); ?> kode Booking <?php echo($booking_data['booking_no']) ?> untuk pemesanan <?php echo($accommodation_name); ?> telah melakukan pembayaran melalui <?php echo($booking_data['nama_bank']); ?> dengan Nominal <?php echo($booking_total_price); ?>">
-                            <img src="
-                        <?php echo get_template_directory_uri(); ?>/images/whatsapp.png"
-                                 style="display: inline;width:72px; height:60px;margin-left: 150px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>
+                        <a href="https://api.whatsapp.com/send?phone=6281211118486&text=Konfirmasi Pembayaran atas nama <?php echo($booking_data['first_name'] . " " . $booking_data['last_name']); ?>kode Booking <?php echo($booking_data['booking_no']) ?> untuk pemesanan <?php echo($accommodation_name); ?> telah melakukan pembayaran melalui <?php echo($booking_data['nama_bank']); ?> dengan Nominal <?php echo($booking_total_price); ?>">
+                            <img src="https://vividi.id/wp-content/themes/Travelo/images/whatsapp.png"
+                                 style="margin-left: 20px; width:72px; height:60px; border-radius:5px; margin-top: 10px;
+			margin-bottom: 10px "/>
                         </a>
                     </div>
                 </div>
-
-
-                <!--                <div class="row" style="margin-top: 10px; display: inline-block">-->
-                <!--                    <div class="col-sm-6 col-md-8" style="background-color: #F5F4F4">-->
-                <!--                        <a href="http://localhost/vividi-dev/mitra/Properti/email_confirm/-->
-                <?php //echo($booking_data['booking_no']); ?><!--">-->
-                <!--                            <img src="-->
-                <?php //echo get_template_directory_uri(); ?><!--/images/email.png"-->
-                <!--                                 style="display: inline;width:72px; height:60px; margin-left: 200px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>-->
-                <!--                        </a>-->
-                <!--                    </div>-->
-                <!--                    <div>-->
-                <!--                        <a href="https://api.whatsapp.com/send?phone=6281331398067&text=Pemesan dengan nama --><?php //echo $booking_data['first_name'] . " " . $booking_data['last_name']; ?>
-                <!--                        sudah melakukan pembayaran melalui bank -->
-                <?php //echo $booking_data['nama_bank']; ?><!-- rekening -->
-                <?php //echo $booking_data['no_rekening']; ?><!--">-->
-                <!--                            <img src="-->
-                <?php //echo get_template_directory_uri(); ?><!--/images/whatsapp.png"-->
-                <!--                                 style="display: inline;width:72px; height:60px; margin-left: 200px; border-radius:5px; margin-top: 10px; margin-bottom: 10px "/>-->
-                <!--                        </a>-->
-                <!--                    </div>-->
-                <!--                </div>-->
 
                 <div class="row" style="margin-top: 10px">
                     <div class="col-sm-6 col-md-8" style="background-color: #F5F4F4">
@@ -298,7 +270,7 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
                     </div>
                 </div>
 
-                <div class="row" style="margin-top: 10px; display: inline-block; margin-right: 18px">
+                <div class="row" style="margin-top: 10px; display: inline-block; margin-right: 25px">
                     <div class="col-sm-6 col-md-12" style="background-color: #F5F4F4;height:75px;">
                         <span style="color: #000000; font-family: arial; font-size: 15px; display: inline-block; margin-left: 10px; margin-top: 10px; margin-right: 10px">Kirim Pesan Cepat</span><br>
                         <a style="text-decoration: none;"
@@ -324,7 +296,7 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
                     </div>
                 </div>
 
-                <div class="row" style="margin-top: 10px;display: inline-block; margin-right: 18px">
+                <div class="row" style="margin-top: 10px;display: inline-block; margin-right: 25px">
                     <div class="col-sm-6 col-md-12" style="background-color: #F5F4F4;height:75px;">
                         <span style="color: #000000; font-family: arial; font-size: 12px; display: inline-block; margin-left: 10px; margin-top: 10px; margin-right: 10px">Bantuan Melalui Email</span><br>
                         <img src="https://vividi.id/wp-content/themes/Travelo/images/email.png" alt=""
@@ -335,7 +307,7 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
                     </div>
                 </div>
 
-                <div class="row" style="margin-top: 10px;display: inline-block; margin-right: 18px">
+                <div class="row" style="margin-top: 10px;display: inline-block; margin-right: 25px">
                     <div class="col-sm-6 col-md-12" style="background-color: #F5F4F4;height:75px;">
                         <span style="color: #000000; font-family: arial; font-size: 15px; display: inline-block; margin-left: 20px; margin-top: 10px; margin-right: 15px">Bantuan Telepon</span><br>
                         <img src="https://vividi.id/wp-content/themes/Travelo/images/telephone.jpg" alt=""
