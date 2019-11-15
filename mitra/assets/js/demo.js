@@ -31,6 +31,9 @@ if (!window.location.href.startsWith('file')) {
     });
 }};
 
+var today = new Date();
+var dd = today.getDate();
+
 new Lightpick({
     field: document.getElementById('demo-2_1'),
     secondField: document.getElementById('demo-2_2'),
@@ -38,8 +41,7 @@ new Lightpick({
     singleDate: false,
     numberOfMonths: 1,
     selectForward: true,
-    minDate: moment().startOf('month').add(3, 'day'),
-    maxDate: moment().add(2, 'month').endOf('month').subtract('day'),
+    minDate: moment().startOf('month').add(dd-1,'day'),
     minDays: 2,
     onSelect: function(start, end){
         document.getElementById('result-2').innerHTML = rangeText(start, end);

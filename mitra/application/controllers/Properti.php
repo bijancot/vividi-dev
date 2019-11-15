@@ -220,21 +220,6 @@ class Properti extends CI_Controller {
         echo json_encode($filter_view);
     }
 
-    public function upload_foto() {
-        $config['upload_path']          = './assets/images/hotel/';
-        $config['allowed_types']        = 'jpeg|jpg|png';
-        $config['max_size']             = 10000;
-
-        $this->load->library('upload', $config);
-
-        if ($this->upload->do_upload('foto')) {
-            $result = ['Status' => 'success', 'file' => $this->upload->data()];
-        } else {
-            $result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
-        }
-        return $result;
-    }
-
     public function upload_foto_properti() {
         $config['upload_path']          = './assets/images/hotel/';
         $config['allowed_types']        = 'jpeg|jpg|png';
@@ -290,6 +275,21 @@ class Properti extends CI_Controller {
 		}
 		redirect(base_url('properti/tipe_kamar'));
 	}
+
+    public function upload_foto() {
+        $config['upload_path']          = './assets/images/hotel/';
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 10000;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto')) {
+            $result = ['Status' => 'success', 'file' => $this->upload->data()];
+        } else {
+            $result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
+        }
+        return $result;
+    }
 
     public function save_type_kamar() {
         $id = $_SESSION['ID'];

@@ -20,14 +20,20 @@
           <!-- small box -->
           <div class="small-box bg-aqua">
             <div class="inner">
-              <h3>150</h3>
+                <?php
+                $no_menunggu=0;
+                foreach ($data_menunggu as $row) {
+                    $no_menunggu++;
+                }
+                ?>
+                <h3><?php echo $no_menunggu; ?></h3>
 
-              <p>New Orders</p>
+              <p>Pesanan Baru</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+<!--            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
         </div>
         <!-- ./col -->
@@ -35,14 +41,20 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <?php
+                $no_batal=0;
+                foreach ($data_batal as $row) {
+                    $no_batal++;
+                }
+                ?>
+                <h3><?php echo $no_batal; ?></h3>
 
-              <p>Bounce Rate</p>
+              <p>Pesanan Cancel</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+<!--            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
         </div>
         <!-- ./col -->
@@ -50,14 +62,20 @@
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>44</h3>
+                <?php
+                $no_sukses=0;
+                foreach ($data_sukses as $row) {
+                    $no_sukses++;
+                }
+                ?>
+                <h3><?php echo $no_sukses; ?></h3>
 
-              <p>User Registrations</p>
+              <p>Pesanan Sukses</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+<!--            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
         </div>
         <!-- ./col -->
@@ -65,14 +83,20 @@
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>65</h3>
+                <?php
+                $no=0;
+                foreach ($data as $row) {
+                    $no++;
+                }
+                ?>
+              <h3><?php echo $no; ?></h3>
 
-              <p>Unique Visitors</p>
+              <p>Properti</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+<!--            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
           </div>
         </div>
         <!-- ./col -->
