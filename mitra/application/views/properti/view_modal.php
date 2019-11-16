@@ -44,8 +44,9 @@
                                     <td><?php echo $row->sampai; ?></td>
                                     <td><?php echo $row->allotment; ?></td>
                                     <td><?php echo $row->harga; ?></td>
-                                    <td><a href="<?= site_url('Properti/sukses/'.$row->id); ?>"
-                                           class="btn btn-block btn-primary">Ubah Harga</a></td>
+                                    <td>
+                                        <button type="button" id="ubah" class="btn btn-primary" style="margin-bottom: 10px" data-toggle="modal" data-id="<?php echo $row->id ?>" onclick="clickButton(<?php echo $row->id ?>)">Ubah Harga</button>
+                                    </td>
                                 </tr>
                                 <?php
                             }
@@ -100,12 +101,6 @@
                             <option value="">-- Pilih --</option>
                         </select>
                     </div>
-                    <!--                    <div class="form-group">-->
-                    <!--                        <label for="exampleInputPassword1">Kontrak</label>-->
-                    <!--                        <input type="text" name="tgl_mulai" class="form-control" placeholder="Tanggal Mulai" required>-->
-                    <!--                        <input type="text" name="tgl_selesai" class="form-control" placeholder="Tanggal Selesai"-->
-                    <!--                               required>-->
-                    <!--                    </div>-->
                     <div class="form-group">
                         <label for="exampleInputPassword1">Harga</label>
                         <input type="text" name="weekday" class="form-control" placeholder="Harga Weekday" required>
@@ -124,4 +119,20 @@
         </div>
     </div>
     <!-- End Modal Login -->
+    <!-- Modal Detail -->
+    <div id="modal_detail" class="modal fade" role="dialog">
+
+    </div>
+    <!-- End Modal Detail -->
 </div>
+<script type="text/javascript">
+    function clickButton(id){
+        var postdata = {id: id};
+        var url =  "<?= site_url('properti/modal_ubah_harga')?>";
+        $.post(url, postdata, function(data) {
+            var results = JSON.parse(data);
+            $('#modal_detail').html(results);
+        });
+        $('#modal_detail').modal('show');
+    }
+</script>

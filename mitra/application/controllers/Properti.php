@@ -220,6 +220,16 @@ class Properti extends CI_Controller {
         echo json_encode($filter_view);
     }
 
+    public function modal_ubah_harga()
+    {
+        $id = $_SESSION['ID'];
+        $post = $this->input->post('id');
+        $data['data'] = $this->Model_properti->modal_ubah_harga($id,$post);
+        $filter_view = $this->load->view('properti/modal_ubah_harga', $data, TRUE);
+
+        echo json_encode($filter_view);
+    }
+
     public function upload_foto_properti() {
         $config['upload_path']          = './assets/images/hotel/';
         $config['allowed_types']        = 'jpeg|jpg|png';
@@ -341,9 +351,22 @@ class Properti extends CI_Controller {
         $this->load->view('index',$data);
     }
 
+    public function save_ubah_harga() {
+        $id = $this->input->post('id');
+        $harga = $this->input->post('harga');
+        $this->form_validation->set_rules('harga', 'a', 'required|numeric|greater_than[0.99]|regex_match[/^[0-9,]+$/]');
+        if ($this->form_validation->run() == FALSE) {
+            $this->Model_properti->save_harga_baru($id, $harga);
+        }
+        redirect(base_url('Properti/harga_modal'));
+    }
+
     public function pesan()
     {
-        $data['data'] = $this->Model_properti->data_pesan();
+        $data['data'] = $this->Model_properti->data_pesan_menunggu();
+        $data['data_batal'] = $this->Model_properti->data_pesan_batal();
+        $data['data_sukses'] = $this->Model_properti->data_pesan_sukses();
+        $data['data_semua'] = $this->Model_properti->data_pesan();
         $data['folder'] = "properti";
         $data['side'] = "pesan";
         $this->load->view('index',$data);

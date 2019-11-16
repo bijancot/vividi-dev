@@ -305,6 +305,27 @@ class Model_properti extends CI_Model{
         return $query->result();
     }
 
+    function modal_ubah_harga($id,$post){
+        $query = $this->db->query("select av.id as id, 
+            pproperti.post_title as properti, 
+            pkamar.post_title as kamar, 
+            av.date_from as dari, 
+            av.date_to as sampai, 
+            av.rooms as allotment ,
+            av.price_per_room as harga
+            from wpwj_trav_accommodation_vacancies av
+            left join wpwj_posts pproperti on av.accommodation_id = pproperti.ID
+            left join wpwj_posts pkamar on av.room_type_id = pkamar.ID
+            left join wpwj_users u on u.ID = pproperti.post_author
+            where pproperti.post_type = 'accommodation'
+            and pkamar.post_type = 'room_type'
+            and pproperti.post_status = 'publish'
+            and pkamar.post_status = 'publish'
+            and av.id = ".$post."
+            and u.ID = ".$id);
+        return $query->result();
+    }
+
     public function save_type_kamar($id,$time,$properti,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload) {
         $this->db->select_max('ID');
         $data = $this->db->get('wpwj_posts');
@@ -724,6 +745,14 @@ class Model_properti extends CI_Model{
                 }
             }
         }
+    }
+
+    public function save_harga_baru($id, $harga) {
+        $data_new = array(
+            'price_per_room' => $harga
+        );
+        $this->db->where('id', $id);
+        $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
     }
 
     public function get_sukses($booking_no){

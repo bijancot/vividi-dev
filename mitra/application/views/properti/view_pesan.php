@@ -13,57 +13,173 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example2" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>No Booking</th>
-                  <th>Pemesan</th>
-                  <th>Check In</th>
-                  <th>Check Out</th>
-                  <th>Properti</th>
-                  <th>Tipe Kamar</th>
-                  <th>Jumlah</th>
-                  <th>Harga</th>
-                  <th>Tanggal Pesan</th>
-                  <th>Status</th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                  <?php 
-                    $no=1; 
-                    foreach ($data as $row) { ?>
-                    <tr>
-                    <td><?php echo $row->booking_no;?></td>
-                    <td><?php echo $row->nama_awal;?> <?php echo $row->nama_akhir;?></td>
-                    <td><?php echo $row->check_in;?></td>
-                    <td><?php echo $row->check_out;?></td>
-                    <td><?php echo $row->properti;?></td>
-                    <td><?php echo $row->tipe_kamar;?></td>
-                    <td><?php echo $row->jumlah;?></td>
-                    <td><?php echo $row->harga;?></td>
-                    <td><?php echo $row->pesan;?></td>
-                    <td><?php echo $row->status;?></td>
-                    <td>
-                        <a href="<?= site_url('Properti/sukses/'.$row->booking_no); ?>" class="btn btn-block btn-primary">Sukses</a>
-<!--                        <a href="--><?//= site_url('SendMail/send_email/'); ?><!--" class="btn btn-block btn-primary">Sukses</a>-->
-						<a href="<?= site_url('Properti/gagal/'.$row->id); ?>" class="btn btn-block btn-danger">Cancel</a>
-                    </td>
-                    </tr>
-                  <?php } ?>
-                </tbody>
-              </table>
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Custom Tabs -->
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
+                        <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="true">Batal</a></li>
+                        <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Sukses</a></li>
+                        <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab_1">
+                            <table id="example2" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>No Booking</th>
+                                    <th>Pemesan</th>
+                                    <th>Check In</th>
+                                    <th>Check Out</th>
+                                    <th>Properti</th>
+                                    <th>Tipe Kamar</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga</th>
+                                    <th>Tanggal Pesan</th>
+                                    <th>Status</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $no=1;
+                                foreach ($data as $row) { ?>
+                                    <tr>
+                                        <td><?php echo $row->booking_no;?></td>
+                                        <td><?php echo $row->nama_awal;?> <?php echo $row->nama_akhir;?></td>
+                                        <td><?php echo $row->check_in;?></td>
+                                        <td><?php echo $row->check_out;?></td>
+                                        <td><?php echo $row->properti;?></td>
+                                        <td><?php echo $row->tipe_kamar;?></td>
+                                        <td><?php echo $row->jumlah;?></td>
+                                        <td><?php echo $row->harga;?></td>
+                                        <td><?php echo $row->pesan;?></td>
+                                        <td><?php echo $row->status;?></td>
+                                        <td>
+                                            <a href="<?= site_url('Properti/sukses/'.$row->booking_no); ?>" class="btn btn-block btn-primary">Sukses</a>
+                                            <!--                        <a href="--><?//= site_url('SendMail/send_email/'); ?><!--" class="btn btn-block btn-primary">Sukses</a>-->
+                                            <a href="<?= site_url('Properti/gagal/'.$row->id); ?>" class="btn btn-block btn-danger">Cancel</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="tab_2">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>No Booking</th>
+                                    <th>Pemesan</th>
+                                    <th>Check In</th>
+                                    <th>Check Out</th>
+                                    <th>Properti</th>
+                                    <th>Tipe Kamar</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga</th>
+                                    <th>Tanggal Pesan</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                foreach ($data_batal as $row) { ?>
+                                    <tr>
+                                        <td><?php echo $row->booking_no;?></td>
+                                        <td><?php echo $row->nama_awal;?> <?php echo $row->nama_akhir;?></td>
+                                        <td><?php echo $row->check_in;?></td>
+                                        <td><?php echo $row->check_out;?></td>
+                                        <td><?php echo $row->properti;?></td>
+                                        <td><?php echo $row->tipe_kamar;?></td>
+                                        <td><?php echo $row->jumlah;?></td>
+                                        <td><?php echo $row->harga;?></td>
+                                        <td><?php echo $row->pesan;?></td>
+                                        <td><?php echo $row->status;?></td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="tab_3">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>No Booking</th>
+                                    <th>Pemesan</th>
+                                    <th>Check In</th>
+                                    <th>Check Out</th>
+                                    <th>Properti</th>
+                                    <th>Tipe Kamar</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga</th>
+                                    <th>Tanggal Pesan</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                foreach ($data_sukses as $row) { ?>
+                                    <tr>
+                                        <td><?php echo $row->booking_no;?></td>
+                                        <td><?php echo $row->nama_awal;?> <?php echo $row->nama_akhir;?></td>
+                                        <td><?php echo $row->check_in;?></td>
+                                        <td><?php echo $row->check_out;?></td>
+                                        <td><?php echo $row->properti;?></td>
+                                        <td><?php echo $row->tipe_kamar;?></td>
+                                        <td><?php echo $row->jumlah;?></td>
+                                        <td><?php echo $row->harga;?></td>
+                                        <td><?php echo $row->pesan;?></td>
+                                        <td><?php echo $row->status;?></td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="tab_4">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>No Booking</th>
+                                    <th>Pemesan</th>
+                                    <th>Check In</th>
+                                    <th>Check Out</th>
+                                    <th>Properti</th>
+                                    <th>Tipe Kamar</th>
+                                    <th>Jumlah</th>
+                                    <th>Harga</th>
+                                    <th>Tanggal Pesan</th>
+                                    <th>Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                foreach ($data_semua as $row) { ?>
+                                    <tr>
+                                        <td><?php echo $row->booking_no;?></td>
+                                        <td><?php echo $row->nama_awal;?> <?php echo $row->nama_akhir;?></td>
+                                        <td><?php echo $row->check_in;?></td>
+                                        <td><?php echo $row->check_out;?></td>
+                                        <td><?php echo $row->properti;?></td>
+                                        <td><?php echo $row->tipe_kamar;?></td>
+                                        <td><?php echo $row->jumlah;?></td>
+                                        <td><?php echo $row->harga;?></td>
+                                        <td><?php echo $row->pesan;?></td>
+                                        <td><?php echo $row->status;?></td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+                <!-- nav-tabs-custom -->
             </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
         </div>
-      </div>
       <!-- Small boxes (Stat box) -->
     </section>
     <!-- /.content -->
