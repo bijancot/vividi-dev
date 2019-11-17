@@ -7,6 +7,7 @@ class Test extends CI_Controller {
     {
 		parent::__construct();
 		$this->load->database();
+		$this->load->model("Model_properti");
     }
 
 	public function index()
@@ -39,5 +40,12 @@ class Test extends CI_Controller {
 	{
 		$data['folder'] = "Test";
 		$this->load->view('Test/payment', $data);
+	}
+
+	public function voucher()
+	{
+		$data['data'] = $this->Model_properti->data_email('8JO62I');
+		$data['folder'] = "Test";
+		$this->load->view('Test/voucher', $data);
 	}
 }

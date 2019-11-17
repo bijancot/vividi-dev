@@ -52,16 +52,17 @@ class Properti extends CI_Controller {
 
 	public function send_email($booking_no)
 	{
-		$mitra = $_SESSION['email'];
-		$admin = 'omibalola@gmail.com';
+		$data['data'] = $this->Model_properti->data_email($booking_no);
+		$mitra = $this->Model_properti->email_owner($booking_no);
+		$cust = $this->Model_properti->email_custowner($booking_no);
 		// Konfigurasi email
 		$config = [
 			'mailtype'  => 'html',
 			'charset'   => 'utf-8',
 			'protocol'  => 'smtp',
-			'smtp_host' => 'smtp.gmail.com',
-			'smtp_user' => 'omibalola@gmail.com',  // Email gmail
-			'smtp_pass'   => 'naninandatokorewa',  // Password gmail
+			'smtp_host' => 'mail.vividi.id',
+			'smtp_user' => 'info@vividi.id',  // Email gmail
+			'smtp_pass' => 'hafiz110118',  // Password gmail
 			'smtp_crypto' => 'ssl',
 			'smtp_port'   => 465,
 			'crlf'    => "\r\n",
@@ -72,9 +73,9 @@ class Properti extends CI_Controller {
 		$this->load->library('email', $config);
 
 		// Email dan nama pengirim
-		$this->email->from('omibalola@gmail.com', 'Testing Email');
+		$this->email->from('omibalola@gmail.com', 'E-Voucher Pemesanan Akomodasi');
 
-		$list = array($mitra, $admin);
+		$list = array($mitra, $cust);
 		// Email penerima
 		$this->email->to($list); // Ganti dengan email tujuan
 
@@ -82,15 +83,14 @@ class Properti extends CI_Controller {
 //		$this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
 
 		// Subject email
-		$this->email->subject('Testing VIVIDI & Email');
-		$data['data'] = $this->Model_properti->data_email($booking_no);
+		$this->email->subject('E-Voucher Pemesanan Akomodasi');
 		// Isi email
-		$body = $this->load->view('Test/real.php',$data,  TRUE);
+		$body = $this->load->view('Test/voucher.php',$data,  TRUE);
 		$this->email->message($body);
 
 		// Tampilkan pesan sukses atau error
 		if ($this->email->send()) {
-			echo 'Sukses! email berhasil dikirim.';
+			redirect(base_url('properti/pesan'));
 		} else {
 			echo 'Error! email tidak dapat dikirim.';
 		}

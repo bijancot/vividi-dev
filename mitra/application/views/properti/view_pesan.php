@@ -56,11 +56,11 @@
                                         <td><?php echo $row->harga;?></td>
                                         <td><?php echo $row->pesan;?></td>
                                         <td><?php echo $row->status;?></td>
-                                        <td>
-                                            <a href="<?= site_url('Properti/sukses/'.$row->booking_no); ?>" class="btn btn-block btn-primary">Sukses</a>
-                                            <!--                        <a href="--><?//= site_url('SendMail/send_email/'); ?><!--" class="btn btn-block btn-primary">Sukses</a>-->
-                                            <a href="<?= site_url('Properti/gagal/'.$row->id); ?>" class="btn btn-block btn-danger">Cancel</a>
-                                        </td>
+										<td>
+											<a href="<?= site_url('Properti/sukses/'.$row->booking_no); ?>" class="btn btn-block btn-primary">Sukses</a>
+											<!--                        <a href="--><?//= site_url('SendMail/send_email/'); ?><!--" class="btn btn-block btn-primary">Sukses</a>-->
+											<a href="<?= site_url('Properti/gagal/'.$row->id); ?>" class="btn btn-block btn-danger">Cancel</a>
+										</td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -133,6 +133,11 @@
                                         <td><?php echo $row->harga;?></td>
                                         <td><?php echo $row->pesan;?></td>
                                         <td><?php echo $row->status;?></td>
+										<td>
+											<a href="<?= site_url('Properti/sukses/'.$row->booking_no); ?>" class="btn btn-block btn-primary">Sukses</a>
+											<!--                        <a href="--><?//= site_url('SendMail/send_email/'); ?><!--" class="btn btn-block btn-primary">Sukses</a>-->
+											<a href="<?= site_url('Properti/gagal/'.$row->id); ?>" class="btn btn-block btn-danger">Cancel</a>
+										</td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
