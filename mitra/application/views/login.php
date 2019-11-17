@@ -42,6 +42,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <div class="pull-left">Belum punya akun ? <a href="Register">Daftar</a></div>
                     <input type="submit" class="btn btn-success" value="Login" name="submit">
                 </div>
             <?php echo form_close(); ?>

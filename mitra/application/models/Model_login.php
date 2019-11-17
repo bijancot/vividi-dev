@@ -6,7 +6,7 @@ class model_login extends CI_Model
     {
         $this->db->where('user_login', $user);
         $this->db->where('user_pass', $pass);
-        return $this->db->get('wpwj_users')->num_rows();;
+        return $this->db->get('wpwj_users')->num_rows();
     }
 
     function proses_login($user, $pass)
