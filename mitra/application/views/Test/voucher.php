@@ -14,7 +14,7 @@ foreach ($data as $row) {
 					 style="margin-top: 10px;margin-bottom: 10px; margin-left: 5px"/>
 				<span>E-Voucher</span>
 				<span
-					style="margin-right: 15px; margin-top: 10px; color: #000000; font-family: arial; font-size: 20px; font-weight: bold;float: right">Booking ID<br>
+					style="margin-right: 15px; margin-top: 10px; color: #000000; font-family: arial; font-size: 20px; font-weight: bold;float: right">BOOKING ID<br>
 			<span
 				style="display: inline-block;color: #003580; font-family: arial; font-size: 20px; font-weight: bold; margin-bottom: 10px"><?php echo $row->booking_no; ?></span>
 		</span>
@@ -23,7 +23,7 @@ foreach ($data as $row) {
 
 		<div class="row" style="margin-top: 10px">
 			<div class="col-sm-6 col-md-6"
-				 style="min-height: 200px; width: 500px;float: left; background-color: #F5F4F4">
+				 style="min-height: 200px; width: 395px;float: left; background-color: #F5F4F4">
 				<b><span
 						style="color: #000000; font-family: arial; margin-left: 20px; margin-top: 10px; display:inline-block; font-size: 20px"><?php echo $row->nama_properti; ?>
 				</b></span>
@@ -50,14 +50,14 @@ foreach ($data as $row) {
 			</span>
 			</div>
 			<div class="col-sm-6 col-md-6"
-				 style="width: 285px; float: left; margin-left: 10px;">
-				<img style="height: 200px; width: 285px;" src="<?php echo $row->thumbnail; ?>"/>
+				 style="width: 385px; float: left; margin-left: 10px;">
+				<img style="height: 200px; width: 395px;" src="<?php echo $row->thumbnail; ?>"/>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="col-sm-6 col-md-6"
-				 style="min-height: 200px; margin-top: 10px;width: 500px;float: left; background-color: #F5F4F4">
+				 style="min-height: 200px; margin-top: 10px;width: 395px;float: left; background-color: #F5F4F4">
 				<b><span
 						style="color: #003580; font-family: arial; margin-left: 20px; margin-top: 10px; display:inline-block; font-size: 25px">
 				Detail Pesanan
@@ -89,7 +89,7 @@ foreach ($data as $row) {
 				<?php echo $row->pesan_tambahan; ?></span><br>
 			</div>
 			<div class="col-sm-6 col-md-6"
-				 style="margin-top: 10px;width: 285px; min-height: 200px;float: left; background-color: #F5F4F4; margin-left: 10px">
+				 style="margin-top: 10px;width: 395px; min-height: 200px;float: left; background-color: #F5F4F4; margin-left: 10px">
 			<span
 				style="margin-top: 10px; color: #000000; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
 				Tipe Kamar</span><br>
@@ -151,7 +151,7 @@ foreach ($data as $row) {
 						check-in.
 					</li>
 					<li>Mungkin pihak akomodasi akan meminta deposit check-in.</li>
-					<li>Apabila ada pesan tambahan yang kami minta, semua akan kembali sesuai ketersediaan disaat
+					<li>Apabila ada pesan tambahan yang kamu minta, semua akan kembali sesuai ketersediaan disaat
 						check-in
 					</li>
 					<li>Apabila kamu akan check-in lebih awal atau terlambat diluar jam yang telah ditentukan, sebaiknya

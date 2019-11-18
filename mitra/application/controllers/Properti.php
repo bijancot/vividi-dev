@@ -73,7 +73,7 @@ class Properti extends CI_Controller {
 		$this->load->library('email', $config);
 
 		// Email dan nama pengirim
-		$this->email->from('omibalola@gmail.com', 'E-Voucher Pemesanan Akomodasi');
+		$this->email->from('info@vividi.id', 'E-Voucher Pemesanan Akomodasi');
 
 		$list = array($mitra, $cust);
 		// Email penerima
@@ -136,8 +136,8 @@ class Properti extends CI_Controller {
 
 		// Tampilkan pesan sukses atau error
 		if ($this->email->send()) {
-//			redirect('http://localhost/vividi-dev/halaman-member/?ihc_ap_menu=orders');
-			echo 'Sukses';
+			redirect('http://localhost/vividi-dev/halaman-member/?ihc_ap_menu=orders');
+//			echo 'Sukses';
 		} else {
 			echo 'Error! email tidak dapat dikirim.';
 		}

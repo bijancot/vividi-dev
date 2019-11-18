@@ -7,7 +7,7 @@
 				 style="margin-top: 10px;margin-bottom: 10px; margin-left: 5px"/>
 			<span>E-Booking</span>
 			<span
-				style="margin-right: 15px; margin-top: 10px; color: #000000; font-family: arial; font-size: 20px; font-weight: bold;float: right">Booking ID<br>
+				style="margin-right: 15px; margin-top: 10px; color: #000000; font-family: arial; font-size: 20px; font-weight: bold;float: right">BOOKING ID<br>
 			<span
 				style="display: inline-block;color: #003580; font-family: arial; font-size: 20px; font-weight: bold; margin-bottom: 10px">[booking_no]</span>
 		</span>
@@ -15,17 +15,18 @@
 	</div>
 
 	<div class="row" style="margin-top: 10px">
-		<div class="col-sm-6 col-md-6" style="width: 500px;float: left; background-color: #F5F4F4">
+		<div class="col-sm-6 col-md-6"
+			 style="min-height: 200px; width: 500px;float: left; background-color: #F5F4F4">
 			<b><span
 					style="color: #000000; font-family: arial; margin-left: 20px; margin-top: 10px; display:inline-block; font-size: 20px">[accommodation_name]</b></span>
 			<br>
-			<span style="color: #000000; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
+			<span style="margin-top: 5px; color: #000000; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
 				[accommodation_address]</span><br>
-			<span style="color: #000000; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
+			<span style="margin-top: 5px; color: #000000; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
 				[accommodation_city]</span><br>
-			<span style="color: #000000; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
+			<span style="margin-top: 5px; color: #000000; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
 				[accommodation_country]</span><br>
-			<span style="color: #000000; font-family: arial; margin-left: 20px; display:inline-block;  font-size: 15px">Telepon :
+			<span style="margin-top: 5px; color: #000000; font-family: arial; margin-left: 20px; display:inline-block;  font-size: 15px">Telepon :
 				[accommodation_phone]</span><br>
 			<span
 				style="color: #000000; font-family: arial; margin-top: 5px; margin-left: 20px; display:inline-block;  font-size: 15px">
@@ -37,13 +38,14 @@
 			</span>
 		</div>
 		<div class="col-sm-6 col-md-6"
-			 style="width: 285px; float: left; margin-left: 10px; max-width:100%;max-height:100%;">
+			 style="width: 285px; float: left; margin-left: 10px;">
 			[accommodation_thumbnail]
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="col-sm-6 col-md-6" style="margin-top: 10px;width: 500px;float: left; background-color: #F5F4F4">
+		<div class="col-sm-6 col-md-6"
+			 style="min-height: 220px; margin-top: 10px;width: 500px;float: left; background-color: #F5F4F4">
 			<b><span
 					style="color: #003580; font-family: arial; margin-left: 20px; margin-top: 10px; display:inline-block; font-size: 25px">
 				Detail Pesanan
@@ -77,7 +79,7 @@
 			</span>
 		</div>
 		<div class="col-sm-6 col-md-6"
-			 style="margin-top: 10px;width: 285px; max-height: 100%;float: left; background-color: #F5F4F4; margin-left: 10px">
+			 style="margin-top: 10px;width: 285px; min-height: 220px;float: left; background-color: #F5F4F4; margin-left: 10px">
 			<span style="color: #000000; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
 				Tipe Kamar</span><br>
 			<span style="color: #003580; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
