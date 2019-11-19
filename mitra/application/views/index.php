@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
     <!-- Header -->
-    <?php $this->load->view('inc/header'); ?>
+    <?php $this->load->view('inc/header', $data); ?>
     <!-- End Header -->
 
     <!-- Sidebar -->

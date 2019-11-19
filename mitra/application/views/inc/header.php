@@ -33,10 +33,12 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <button type="button" class="btn btn-default btn-flat" data-toggle="modal" data-target="#modal_profile">
+                                    Profile
+                                </button>
                             </div>
                             <div class="pull-right">
-                                <a href="<?= base_url('Login/logout'); ?>" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="<?= base_url('Login/logout'); ?>" class="btn btn-default btn-flat">Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -45,3 +47,45 @@
         </div>
     </nav>
 </header>
+<!-- Modal login -->
+<div id="modal_profile" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Profile</h4>
+            </div>
+            <?php echo form_open(base_url('home/edit_profile')); ?>
+            <div class="modal-body">
+                <?php foreach ($data_profile as $row) { ?>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" name="email" class="form-control" value="<?php echo $row->email; ?>" required>
+                </div>
+                <div class="form-group">
+                    <label>Nama Depan</label>
+                    <input type="text" name="depan" class="form-control" value="<?php echo $row->awal; ?>" required>
+                </div>
+                <div class="form-group">
+                    <label>Nama Belakang</label>
+                    <input type="text" name="belakang" class="form-control" value="<?php echo $row->akhir; ?>" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="text" name="password" class="form-control" placeholder="Password" required>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="text" name="confirm" class="form-control" placeholder="Confirm Password" required>
+                </div>
+                    <p style="font-size: 13px; font-style: italic; margin: 5px 0 5px; color: #666">*Kosongkan password jika kamu tidak ingin mengatur ulang password</p>
+                <?php } ?>
+            </div>
+            <div class="modal-footer">
+                <input type="submit" class="btn btn-success" value="Ubah" name="submit">
+            </div>
+            <?php echo form_close(); ?>
+        </div>
+    </div>
+</div>
+<!-- End Modal Login -->

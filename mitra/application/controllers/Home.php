@@ -18,8 +18,14 @@ class Home extends CI_Controller {
         $data['data_batal'] = $this->Model_properti->data_pesan_batal();
         $data['data_menunggu'] = $this->Model_properti->data_pesan_menunggu();
         $data['data_sukses'] = $this->Model_properti->data_pesan_sukses();
+        $data['data_profile'] = $this->Model_properti->data_profile($id);
 		$data['folder'] = "dashboard";
 		$data['side'] = "dashboard";
 		$this->load->view('index',$data);
 	}
+
+	public function edit_profile()
+    {
+
+    }
 }

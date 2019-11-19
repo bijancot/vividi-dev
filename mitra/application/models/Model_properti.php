@@ -1,8 +1,10 @@
-<?php 
- 
-class Model_properti extends CI_Model{
-	function data_semua_properti(){
-		$query = $this->db->query("select posts.ID as id, posts.post_title as Judul,
+<?php
+
+class Model_properti extends CI_Model
+{
+    function data_semua_properti()
+    {
+        $query = $this->db->query("select posts.ID as id, posts.post_title as Judul,
 			 t.name AS Tipe_Properti,
 			 (select t.name from wpwj_terms t left join wpwj_postmeta pm on t.term_id = pm.meta_value where pm.meta_value = pmkota.meta_value group by posts.ID) as Kota,
 			 (select t.name from wpwj_terms t left join wpwj_postmeta pm on t.term_id = pm.meta_value where pm.meta_value = pmnegara.meta_value group by posts.ID) as Negara,
@@ -20,11 +22,12 @@ class Model_properti extends CI_Model{
 			 AND pmkota.meta_key = 'trav_accommodation_city'
 			 AND pmnegara.meta_key = 'trav_accommodation_country'
 			 GROUP BY posts.ID");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-	function data_properti($id){
-		$query = $this->db->query("select posts.ID as id, posts.post_title as Judul,
+    function data_properti($id)
+    {
+        $query = $this->db->query("select posts.ID as id, posts.post_title as Judul,
 			 t.name AS Tipe_Properti,
 			 (select t.name from wpwj_terms t left join wpwj_postmeta pm on t.term_id = pm.meta_value where pm.meta_value = pmkota.meta_value group by posts.ID) as Kota,
 			 (select t.name from wpwj_terms t left join wpwj_postmeta pm on t.term_id = pm.meta_value where pm.meta_value = pmnegara.meta_value group by posts.ID) as Negara,
@@ -41,59 +44,65 @@ class Model_properti extends CI_Model{
 			 AND (term_taxonomy_id = 58 OR term_taxonomy_id = 102 OR term_taxonomy_id = 183 OR term_taxonomy_id = 184)
 			 AND pmkota.meta_key = 'trav_accommodation_city'
 			 AND pmnegara.meta_key = 'trav_accommodation_country'
-			 AND posts.post_author = ".$id."
+			 AND posts.post_author = " . $id . "
 			 GROUP BY posts.ID
              order by posts.post_date desc");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-	function combo_tipe_properti(){
-		$query = $this->db->query("select t.term_id as id_tipe, t.name as tipe
+    function combo_tipe_properti()
+    {
+        $query = $this->db->query("select t.term_id as id_tipe, t.name as tipe
 			from wpwj_terms t
 			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
 			where tt.taxonomy = 'accommodation_type'");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-	function combo_country(){
-		$query = $this->db->query("select t.term_id as id_country, t.name as country
+    function combo_country()
+    {
+        $query = $this->db->query("select t.term_id as id_country, t.name as country
 			from wpwj_terms t
 			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
 			where tt.taxonomy = 'location'
 			and tt.parent = '0'");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-	function combo_city($id){
-		$query = $this->db->query("select t.term_id as id_city, t.name as city
+    function combo_city($id)
+    {
+        $query = $this->db->query("select t.term_id as id_city, t.name as city
 			from wpwj_terms t
 			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
 			where tt.taxonomy = 'location'
 			and tt.parent = $id");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-	function data_tipe_properti(){
-		$query = $this->db->query("select t.term_id as id, t.name as nama, tt.description as deskripsi, t.slug as slug, tt.count as jumlah 
+    function data_tipe_properti()
+    {
+        $query = $this->db->query("select t.term_id as id, t.name as nama, tt.description as deskripsi, t.slug as slug, tt.count as jumlah 
 			from wpwj_terms t
 			left join wpwj_term_taxonomy tt
 			on t.term_id = tt.term_id
 			where tt.taxonomy = 'accommodation_type'
 			order by t.name ASC");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-	function data_fasilitas(){
-		$query = $this->db->query("select t.term_id as id, t.name as nama, tt.description as deskripsi, t.slug as slug, tt.count as jumlah 
+    function data_fasilitas()
+    {
+        $query = $this->db->query("select t.term_id as id, t.name as nama, tt.description as deskripsi, t.slug as slug, tt.count as jumlah 
 			from wpwj_terms t
 			left join wpwj_term_taxonomy tt
 			on t.term_id = tt.term_id
 			where tt.taxonomy = 'amenity'
 			order by t.name ASC");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-	function data_tipe_kamar($id){
+    function data_tipe_kamar($id)
+    {
         $query = $this->db->query("select p.ID as id, p.post_title as judul, 
              post.post_title as properti, 
              pmdewasa.meta_value as dewasa,
@@ -112,13 +121,14 @@ class Model_properti extends CI_Model{
              AND p.post_type = 'room_type'
              AND post.post_type = 'accommodation'
              AND p.post_status = 'publish'
-             AND p.post_author = ".$id."
+             AND p.post_author = " . $id . "
              group by p.id
              order by tanggal desc");
         return $query->result();
     }
 
-    function data_detail_tipe_kamar($id, $post){
+    function data_detail_tipe_kamar($id, $post)
+    {
         $query = $this->db->query("select p.ID as id, p.post_title as judul, 
              post.post_title as properti, 
              pmdewasa.meta_value as dewasa,
@@ -137,15 +147,16 @@ class Model_properti extends CI_Model{
              AND p.post_type = 'room_type'
              AND post.post_type = 'accommodation'
              AND p.post_status = 'publish'
-             AND p.post_author = ".$id."
-             AND p.ID = ".$post."
+             AND p.post_author = " . $id . "
+             AND p.ID = " . $post . "
              group by p.id
              order by tanggal desc");
         return $query->result();
     }
 
-	function data_pesan(){
-		$query = $this->db->query("select ab.id as id,
+    function data_pesan()
+    {
+        $query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
 			 ab.last_name as nama_akhir,
@@ -165,10 +176,11 @@ class Model_properti extends CI_Model{
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
 			 order by pesan desc");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-    function data_pesan_batal(){
+    function data_pesan_batal()
+    {
         $query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
@@ -191,7 +203,8 @@ class Model_properti extends CI_Model{
         return $query->result();
     }
 
-    function data_pesan_menunggu(){
+    function data_pesan_menunggu()
+    {
         $query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
@@ -214,7 +227,8 @@ class Model_properti extends CI_Model{
         return $query->result();
     }
 
-    function data_pesan_sukses(){
+    function data_pesan_sukses()
+    {
         $query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
@@ -237,19 +251,21 @@ class Model_properti extends CI_Model{
         return $query->result();
     }
 
-	function data_modal_properti($id){
-		$query = $this->db->query("select p.id, p.post_title as properti
+    function data_modal_properti($id)
+    {
+        $query = $this->db->query("select p.id, p.post_title as properti
 			from wpwj_posts p 
 			left join wpwj_users u on p.post_author = u.ID
 			where p.post_type = 'accommodation'
 			AND p.post_status = 'publish'
-			AND p.post_author = ".$id."
+			AND p.post_author = " . $id . "
             order by p.id desc");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-	function data_modal_kamar($id, $prop){
-		$query = $this->db->query("select p.ID as id, p.post_title as kamar
+    function data_modal_kamar($id, $prop)
+    {
+        $query = $this->db->query("select p.ID as id, p.post_title as kamar
              from wpwj_posts p
              left join wpwj_postmeta pmroom on p.id = pmroom.post_id
              left join wpwj_posts post on post.id = pmroom.meta_value
@@ -258,14 +274,15 @@ class Model_properti extends CI_Model{
              AND p.post_type = 'room_type'
              AND post.post_type = 'accommodation'
              AND p.post_status = 'publish'
-             AND p.post_author = ".$id."
-             AND pmroom.meta_value = ".$prop."
+             AND p.post_author = " . $id . "
+             AND pmroom.meta_value = " . $prop . "
              group by p.id
              order by p.id desc");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-    function data_atur_harga($prop, $kamar){
+    function data_atur_harga($prop, $kamar)
+    {
         $query = $this->db->query("select av.id as id, 
             pproperti.post_title as properti, 
             pkamar.post_title as kamar, 
@@ -280,32 +297,13 @@ class Model_properti extends CI_Model{
             and pkamar.post_type = 'room_type'
             and pproperti.post_status = 'publish'
             and pkamar.post_status = 'publish'
-            and av.accommodation_id = ".$prop."
-            and av.room_type_id = ".$kamar);
+            and av.accommodation_id = " . $prop . "
+            and av.room_type_id = " . $kamar);
         return $query->result();
     }
 
-    function semua_harga($id){
-        $query = $this->db->query("select av.id as id, 
-            pproperti.post_title as properti, 
-            pkamar.post_title as kamar, 
-            av.date_from as dari, 
-            av.date_to as sampai, 
-            av.rooms as allotment ,
-            av.price_per_room as harga
-            from wpwj_trav_accommodation_vacancies av
-            left join wpwj_posts pproperti on av.accommodation_id = pproperti.ID
-            left join wpwj_posts pkamar on av.room_type_id = pkamar.ID
-            left join wpwj_users u on u.ID = pproperti.post_author
-            where pproperti.post_type = 'accommodation'
-            and pkamar.post_type = 'room_type'
-            and pproperti.post_status = 'publish'
-            and pkamar.post_status = 'publish'
-            and u.ID = ".$id);
-        return $query->result();
-    }
-
-    function modal_ubah_harga($id,$post){
+    function semua_harga($id)
+    {
         $query = $this->db->query("select av.id as id, 
             pproperti.post_title as properti, 
             pkamar.post_title as kamar, 
@@ -321,12 +319,34 @@ class Model_properti extends CI_Model{
             and pkamar.post_type = 'room_type'
             and pproperti.post_status = 'publish'
             and pkamar.post_status = 'publish'
-            and av.id = ".$post."
-            and u.ID = ".$id);
+            and u.ID = " . $id);
         return $query->result();
     }
 
-    public function save_type_kamar($id,$time,$properti,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload) {
+    function modal_ubah_harga($id, $post)
+    {
+        $query = $this->db->query("select av.id as id, 
+            pproperti.post_title as properti, 
+            pkamar.post_title as kamar, 
+            av.date_from as dari, 
+            av.date_to as sampai, 
+            av.rooms as allotment ,
+            av.price_per_room as harga
+            from wpwj_trav_accommodation_vacancies av
+            left join wpwj_posts pproperti on av.accommodation_id = pproperti.ID
+            left join wpwj_posts pkamar on av.room_type_id = pkamar.ID
+            left join wpwj_users u on u.ID = pproperti.post_author
+            where pproperti.post_type = 'accommodation'
+            and pkamar.post_type = 'room_type'
+            and pproperti.post_status = 'publish'
+            and pkamar.post_status = 'publish'
+            and av.id = " . $post . "
+            and u.ID = " . $id);
+        return $query->result();
+    }
+
+    public function save_type_kamar($id, $time, $properti, $judul, $deskripsi, $remaja, $anak, $fasilitas, $upload)
+    {
         $this->db->select_max('ID');
         $data = $this->db->get('wpwj_posts');
         $keyTransaksi = "";
@@ -352,7 +372,7 @@ class Model_properti extends CI_Model{
             'post_modified_gmt' => $time,
             'post_content_filtered' => '',
             'post_parent' => '0',
-            'guid' => 'https://vividi.id/?post_type=room_type&#038;p='.$keyTransaksi,
+            'guid' => 'https://vividi.id/?post_type=room_type&#038;p=' . $keyTransaksi,
             'menu_order' => '0',
             'post_type' => 'room_type',
             'post_mime_type' => '',
@@ -361,7 +381,7 @@ class Model_properti extends CI_Model{
         $this->db->insert('wpwj_posts', $data);
 
         $data_image = array(
-            'ID' => $keyTransaksi+1,
+            'ID' => $keyTransaksi + 1,
             'post_author' => $id,
             'post_date' => $time,
             'post_date_gmt' => $time,
@@ -379,7 +399,7 @@ class Model_properti extends CI_Model{
             'post_modified_gmt' => $time,
             'post_content_filtered' => '',
             'post_parent' => $properti,
-            'guid' => 'https://vividi.id/mitra/assets/images/hotel/'.$upload['file']['file_name'],
+            'guid' => 'https://vividi.id/mitra/assets/images/hotel/' . $upload['file']['file_name'],
             'menu_order' => '0',
             'post_type' => 'attachment',
             'post_mime_type' => 'image/jpeg',
@@ -401,112 +421,112 @@ class Model_properti extends CI_Model{
         );
         $this->db->insert('wpwj_postmeta', $data1);
         $data2 = array(
-            'meta_id' => $key+1,
+            'meta_id' => $key + 1,
             'post_id' => $keyTransaksi,
             'meta_key' => '_edit_last',
             'meta_value' => $id
         );
         $this->db->insert('wpwj_postmeta', $data2);
         $data3 = array(
-            'meta_id' => $key+2,
+            'meta_id' => $key + 2,
             'post_id' => $keyTransaksi,
             'meta_key' => '_thumbnail_id',
-            'meta_value' => $keyTransaksi+1
+            'meta_value' => $keyTransaksi + 1
         );
         $this->db->insert('wpwj_postmeta', $data3);
         $data4 = array(
-            'meta_id' => $key+3,
+            'meta_id' => $key + 3,
             'post_id' => $keyTransaksi,
             'meta_key' => 'sbg_selected_sidebar_replacement',
             'meta_value' => 'a:1:{i:0;s:1:"0";}'
         );
         $this->db->insert('wpwj_postmeta', $data4);
         $data5 = array(
-            'meta_id' => $key+4,
+            'meta_id' => $key + 4,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_room_accommodation',
             'meta_value' => $properti
         );
         $this->db->insert('wpwj_postmeta', $data5);
         $data6 = array(
-            'meta_id' => $key+5,
+            'meta_id' => $key + 5,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_room_max_adults',
             'meta_value' => $remaja
         );
         $this->db->insert('wpwj_postmeta', $data6);
         $data7 = array(
-            'meta_id' => $key+6,
+            'meta_id' => $key + 6,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_room_max_kids',
             'meta_value' => $anak
         );
         $this->db->insert('wpwj_postmeta', $data7);
         $data8 = array(
-            'meta_id' => $key+7,
+            'meta_id' => $key + 7,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_post_media_type',
             'meta_value' => 'img'
         );
         $this->db->insert('wpwj_postmeta', $data8);
         $data9 = array(
-            'meta_id' => $key+8,
+            'meta_id' => $key + 8,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_gallery_imgs',
-            'meta_value' => $keyTransaksi+1
+            'meta_value' => $keyTransaksi + 1
         );
         $this->db->insert('wpwj_postmeta', $data9);
         $data10 = array(
-            'meta_id' => $key+9,
+            'meta_id' => $key + 9,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_post_gallery_type',
             'meta_value' => 'sld_1'
         );
         $this->db->insert('wpwj_postmeta', $data10);
         $data11 = array(
-            'meta_id' => $key+10,
+            'meta_id' => $key + 10,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_post_direction_nav',
             'meta_value' => '1'
         );
         $this->db->insert('wpwj_postmeta', $data11);
         $data12 = array(
-            'meta_id' => $key+11,
+            'meta_id' => $key + 11,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_post_video_width',
             'meta_value' => '0'
         );
         $this->db->insert('wpwj_postmeta', $data12);
         $data13 = array(
-            'meta_id' => $key+12,
+            'meta_id' => $key + 12,
             'post_id' => $keyTransaksi,
             'meta_key' => 'sbg_selected_sidebar',
             'meta_value' => 'a:1:{i:0;s:1:"0";}'
         );
         $this->db->insert('wpwj_postmeta', $data13);
         $data14 = array(
-            'meta_id' => $key+13,
+            'meta_id' => $key + 13,
             'post_id' => $keyTransaksi,
             'meta_key' => '_wpb_vc_js_status',
             'meta_value' => 'false'
         );
         $this->db->insert('wpwj_postmeta', $data14);
         $data15 = array(
-            'meta_id' => $key+14,
+            'meta_id' => $key + 14,
             'post_id' => $keyTransaksi,
             'meta_key' => 'trav_count_post_views',
             'meta_value' => '0'
         );
         $this->db->insert('wpwj_postmeta', $data15);
         $data16 = array(
-            'meta_id' => $key+15,
-            'post_id' => $keyTransaksi+1,
+            'meta_id' => $key + 15,
+            'post_id' => $keyTransaksi + 1,
             'meta_key' => '_wp_attached_file',
-            'meta_value' => '../../mitra/assets/images/hotel/'.$upload['file']['file_name']
+            'meta_value' => '../../mitra/assets/images/hotel/' . $upload['file']['file_name']
         );
         $this->db->insert('wpwj_postmeta', $data16);
 
-        foreach($fasilitas as $amenity) {
+        foreach ($fasilitas as $amenity) {
             $list = array(
                 'object_id' => $keyTransaksi,
                 'term_taxonomy_id' => $amenity,
@@ -515,19 +535,20 @@ class Model_properti extends CI_Model{
             $this->db->insert('wpwj_term_relationships', $list);
 
             $this->db->select('count');
-            $this->db->where('term_taxonomy_id = ',$amenity);
+            $this->db->where('term_taxonomy_id = ', $amenity);
             $rslt = $this->db->get('wpwj_term_taxonomy');
             foreach ($rslt->result() as $r) {
                 $new = array(
-                    'count' => $r->count+1
+                    'count' => $r->count + 1
                 );
                 $this->db->where('term_taxonomy_id', $amenity);
-                $this->db->update('wpwj_term_taxonomy',$new);
+                $this->db->update('wpwj_term_taxonomy', $new);
             }
         }
     }
 
-    public function save_atur_harga($tgl_1, $tgl_2, $allotment, $harga, $id_properti, $id_type_kamar){
+    public function save_atur_harga($tgl_1, $tgl_2, $allotment, $harga, $id_properti, $id_type_kamar)
+    {
         $this->db->select_max('id');
         $data = $this->db->get('wpwj_trav_accommodation_vacancies');
         $keyTransaksi = "";
@@ -747,7 +768,8 @@ class Model_properti extends CI_Model{
         }
     }
 
-    public function save_harga_baru($id, $harga) {
+    public function save_harga_baru($id, $harga)
+    {
         $data_new = array(
             'price_per_room' => $harga
         );
@@ -755,34 +777,37 @@ class Model_properti extends CI_Model{
         $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
     }
 
-    public function get_sukses($booking_no){
+    public function get_sukses($booking_no)
+    {
         $this->db->select('status');
-        $this->db->where('booking_no = ',$booking_no);
+        $this->db->where('booking_no = ', $booking_no);
         $rslt = $this->db->get('wpwj_trav_accommodation_bookings');
         foreach ($rslt->result() as $r) {
             $new = array(
                 'status' => '2'
             );
             $this->db->where('booking_no', $booking_no);
-            $this->db->update('wpwj_trav_accommodation_bookings',$new);
+            $this->db->update('wpwj_trav_accommodation_bookings', $new);
         }
     }
 
-	public function get_cancel($id){
-		$this->db->select('status');
-		$this->db->where('id = ',$id);
-		$rslt = $this->db->get('wpwj_trav_accommodation_bookings');
-		foreach ($rslt->result() as $r) {
-			$new = array(
-				'status' => '0'
-			);
-			$this->db->where('id', $id);
-			$this->db->update('wpwj_trav_accommodation_bookings',$new);
-		}
-	}
+    public function get_cancel($id)
+    {
+        $this->db->select('status');
+        $this->db->where('id = ', $id);
+        $rslt = $this->db->get('wpwj_trav_accommodation_bookings');
+        foreach ($rslt->result() as $r) {
+            $new = array(
+                'status' => '0'
+            );
+            $this->db->where('id', $id);
+            $this->db->update('wpwj_trav_accommodation_bookings', $new);
+        }
+    }
 
-	public function data_email($booking_no){
-		$query = $this->db->query("select ab.id as id,
+    public function data_email($booking_no)
+    {
+        $query = $this->db->query("select ab.id as id,
 			ab.booking_no as booking_no,
 			ab.first_name as nama_awal,
 			ab.email as cust_email,
@@ -832,11 +857,12 @@ class Model_properti extends CI_Model{
 			where ab.booking_no = '$booking_no'
 			and pkamar.post_type = 'room_type'
 			order by tgl_pesan desc");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-	public function email_custowner($booking_no){
-		$query = $this->db->query("select ab.id as id,
+    public function email_custowner($booking_no)
+    {
+        $query = $this->db->query("select ab.id as id,
 			ab.booking_no as booking_no,
 			ab.first_name as nama_awal,
 			ab.last_name as nama_akhir,
@@ -845,21 +871,35 @@ class Model_properti extends CI_Model{
 			from wpwj_trav_accommodation_bookings ab
 			where ab.booking_no = '$booking_no'
 			order by tgl_pesan desc");
-		Foreach ($query->result() as $row) {
-			$email = $row->email;
-			return $email;
-		}
-	}
+        Foreach ($query->result() as $row) {
+            $email = $row->email;
+            return $email;
+        }
+    }
 
-	public function email_owner($booking_no){
-		$query = $this->db->query("select u.user_email
+    public function email_owner($booking_no)
+    {
+        $query = $this->db->query("select u.user_email
 		from wpwj_users u
 		left join wpwj_posts p on u.ID = p.post_author
 		left join wpwj_trav_accommodation_bookings ab on p.ID = ab.accommodation_id
 		where ab.booking_no = '$booking_no'");
-		Foreach ($query->result() as $row) {
-			$email = $row->user_email;
-			return $email;
-		}
-	}
+        Foreach ($query->result() as $row) {
+            $email = $row->user_email;
+            return $email;
+        }
+    }
+
+    public function data_profile($id)
+    {
+        $query = $this->db->query("select u.id as id, 
+        u.user_email as email,
+        umfirst.meta_value as awal,
+        umlast.meta_value as akhir
+        from wpwj_users u
+        left join wpwj_usermeta umfirst on (u.ID = umfirst.user_id and umfirst.meta_key = 'first_name')
+        left join wpwj_usermeta umlast on (u.ID = umlast.user_id and umlast.meta_key = 'last_name')
+        where u.id = '$id'");
+        return $query->result();
+    }
 }
