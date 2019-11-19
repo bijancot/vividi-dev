@@ -41,13 +41,10 @@
 <body>
 <!-- Autocomplete location search input -->
 <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
-<div id="map"></div>
+<div id="map" style="width:50%;height:380px;"></div>
 <ul id="geoData">
-	<li>Full Address: <span id="location"></span></li>
-<!--	<li>Postal Code: <span id="postal_code"></span></li>-->
-<!--	<li>Country: <span id="country"></span></li>-->
-	<li>Latitude: <span id="lat"></span></li>
-	<li>Longitude: <span id="lng"></span></li>
+	<input type="text" id="lat" name="lat" value="">
+	<input type="text" id="lng" name="lng" value="">
 </ul>
 <script>
 	var marker;
@@ -105,21 +102,21 @@
 				map.setZoom(17);
 			}
 
-			var address = '';
-			if (place.address_components) {
-				address = [
-					(place.address_components[0] && place.address_components[0].short_name || ''),
-					(place.address_components[1] && place.address_components[1].short_name || ''),
-					(place.address_components[2] && place.address_components[2].short_name || '')
-				].join(' ');
-			}
+			// var address = '';
+			// if (place.address_components) {
+			// 	address = [
+			// 		(place.address_components[0] && place.address_components[0].short_name || ''),
+			// 		(place.address_components[1] && place.address_components[1].short_name || ''),
+			// 		(place.address_components[2] && place.address_components[2].short_name || '')
+			// 	].join(' ');
+			// }
 
-			infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
-			infowindow.open(map, marker);
-
-			document.getElementById('location').innerHTML = place.formatted_address;
-			document.getElementById('lat').innerHTML = place.geometry.location.lat();
-			document.getElementById('lng').innerHTML = place.geometry.location.lng();
+			// infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
+			// infowindow.open(map, marker);
+			//
+			// document.getElementById('location').innerHTML = place.formatted_address;
+			// document.getElementById('lat').innerHTML = place.geometry.location.lat();
+			// document.getElementById('lng').innerHTML = place.geometry.location.lng();
 		});
 
 		// even listner ketika peta diklik

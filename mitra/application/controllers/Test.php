@@ -43,6 +43,12 @@ class Test extends CI_Controller
 		$this->load->view('Test/payment', $data);
 	}
 
+	public function receipt()
+	{
+		$data['folder'] = "Test";
+		$this->load->view('Test/receipt', $data);
+	}
+
 	public function voucher()
 	{
 		$data['data'] = $this->Model_properti->data_email('87DSJF');
