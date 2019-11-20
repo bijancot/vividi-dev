@@ -275,6 +275,7 @@
     <MESSAGE value="Fasilitas Kamar" />
     <MESSAGE value="insert properti" />
     <MESSAGE value="template insert properti" />
-    <option name="LAST_COMMIT_MESSAGE" value="template insert properti" />
+    <MESSAGE value="Fix Template Email Receipt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Template Email Receipt" />
   </component>
 </project>

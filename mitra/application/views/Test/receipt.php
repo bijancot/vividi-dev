@@ -71,5 +71,51 @@
 				</tr>
 			</table>
 		</div>
+
+		<div class="col-sm-6 col-md-8" style="background-color: #cccccc">
+			<span style="display: inline-block; margin-left: 20px; margin-top: 20px; margin-bottom: 5px">Detail Pembelian</span>
+			<table border="1" style="margin-left: 20px">
+				<tr>
+					<td>No</td>
+					<td>Jenis Produk</td>
+					<td>Deskripsi</td>
+					<td>Jml</td>
+					<td>Satuan (Rp)</td>
+					<td>Total (Rp)</td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Akomodasi</td>
+					<td>Hotel Jambuluwuk Resort</td>
+					<td>2</td>
+					<td>1.400.000</td>
+					<td>2.800.000</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td>Sarapan Pagi, Twin Bed</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="4"></td>
+					<td>TOTAL</td>
+					<td>2.800.000</td>
+				</tr>
+				<tr>
+					<td colspan="4"></td>
+					<td>ADMIN</td>
+					<td>----</td>
+				</tr>
+				<tr>
+					<td colspan="4"></td>
+					<td>JUMLAH</td>
+					<td>2.800.000</td>
+				</tr>
+			</table>
+		</div>
+
 	</div>
 </div>
