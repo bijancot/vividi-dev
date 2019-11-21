@@ -18,14 +18,35 @@
                 <!-- Custom Tabs -->
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
-                        <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="true">Batal</a></li>
-                        <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Sukses</a></li>
-                        <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
+						<?php
+						$seg = $this->uri->segment(3);
+						if($seg == 'tab_1'){?>
+							<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
+						<?php } else{ ?>
+							<li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
+						<?php }
+
+						if($seg == 'tab_2'){?>
+                        	<li class="active"><a href="#tab_2" data-toggle="tab" aria-expanded="true">Batal</a></li>
+						<?php } else{ ?>
+							<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="true">Batal</a></li>
+						<?php }
+
+						if($seg == 'tab_3'){?>
+                        	<li class="active"><a href="#tab_3" data-toggle="tab" aria-expanded="false">Sukses</a></li>
+						<?php } else{ ?>
+							<li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Sukses</a></li>
+						<?php }
+
+						if($seg == 'tab_4'){?>
+                        	<li class="active"><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
+						<?php } else{ ?>
+							<li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
+						<?php } ?>
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane active" id="tab_1">
-                            <table id="example2" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>No Booking</th>
@@ -68,7 +89,7 @@
                         </div>
                         <!-- /.tab-pane -->
                         <div class="tab-pane" id="tab_2">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example3" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>No Booking</th>
@@ -104,7 +125,7 @@
                         </div>
                         <!-- /.tab-pane -->
                         <div class="tab-pane" id="tab_3">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example4" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>No Booking</th>
@@ -144,7 +165,7 @@
                             </table>
                         </div>
                         <div class="tab-pane" id="tab_4">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example5" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
                                     <th>No Booking</th>

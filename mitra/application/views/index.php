@@ -138,6 +138,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             'info': true,
             'autoWidth': true
         })
+        $('#example3').DataTable()
+        $('#example4').DataTable()
+        $('#example5').DataTable()
     })
 </script>
 <script type="text/javascript">

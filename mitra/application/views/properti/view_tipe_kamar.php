@@ -3,6 +3,10 @@
     <section class="content-header">
         <h1>
             Tipe Kamar
+			<button type="button" class="btn btn-primary" style="margin-bottom: 10px" data-toggle="modal"
+					data-target="#modal_kamar">
+				Tambah Tipe Kamar
+			</button>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -18,10 +22,6 @@
                 <div class="box">
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <button type="button" class="btn btn-default" style="margin-bottom: 10px" data-toggle="modal"
-                                data-target="#modal_kamar">
-                            Tambah Tipe Kamar
-                        </button>
                         <table id="example2" class="table table-bordered table-striped">
                             <thead>
                             <tr>
@@ -46,10 +46,6 @@
                                     <td><?php echo $row->penulis; ?></td>
                                     <td><?php echo $row->tanggal; ?></td>
                                     <td>
-                                        <!-- <button class="btn btn-block" data-effect="mfp-zoomIn" data-toggle="modal"
-                                                id="<?php echo $row->id; ?>"
-                                                onclick="clickButton(<?php echo $row->id; ?>)">Lihat
-                                        </button> -->
                                     <button type="button" id="detail" class="btn btn-default" style="margin-bottom: 10px" data-toggle="modal" data-id="<?php echo $row->id ?>" onclick="clickButton(<?php echo $row->id ?>)">Detail</button>
                                     </td>
                                 </tr>

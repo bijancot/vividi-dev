@@ -13,14 +13,13 @@ class Model_properti extends CI_Model
 			 from wpwj_posts posts 
 			 LEFT JOIN wpwj_term_relationships tr on posts.id = tr.object_id
 			 LEFT JOIN wpwj_terms t on t.term_id = tr.term_taxonomy_id
+			 LEFT JOIN wpwj_term_taxonomy tt on tt.term_id = t.term_id
 			 LEFT JOIN wpwj_users users on users.ID = posts.post_author
-			 LEFT JOIN wpwj_postmeta pmkota on posts.id = pmkota.post_id
-			 LEFT JOIN wpwj_postmeta pmnegara on posts.id = pmnegara.post_id
+			 LEFT JOIN wpwj_postmeta pmkota on (posts.id = pmkota.post_id AND pmkota.meta_key = 'trav_accommodation_city')
+			 LEFT JOIN wpwj_postmeta pmnegara on (posts.id = pmnegara.post_id AND pmnegara.meta_key = 'trav_accommodation_country')
 			 WHERE posts.post_status = 'publish' 
 			 AND posts.post_type = 'accommodation' 
-			 AND (term_taxonomy_id = 58 OR term_taxonomy_id = 102 OR term_taxonomy_id = 183 OR term_taxonomy_id = 184)
-			 AND pmkota.meta_key = 'trav_accommodation_city'
-			 AND pmnegara.meta_key = 'trav_accommodation_country'
+			 AND tt.taxonomy = 'accommodation_type'
 			 GROUP BY posts.ID");
         return $query->result();
     }
@@ -36,19 +35,50 @@ class Model_properti extends CI_Model
 			 from wpwj_posts posts 
 			 LEFT JOIN wpwj_term_relationships tr on posts.id = tr.object_id
 			 LEFT JOIN wpwj_terms t on t.term_id = tr.term_taxonomy_id
+			 LEFT JOIN wpwj_term_taxonomy tt on tt.term_id = t.term_id
 			 LEFT JOIN wpwj_users users on users.ID = posts.post_author
-			 LEFT JOIN wpwj_postmeta pmkota on posts.id = pmkota.post_id
-			 LEFT JOIN wpwj_postmeta pmnegara on posts.id = pmnegara.post_id
+			 LEFT JOIN wpwj_postmeta pmkota on (posts.id = pmkota.post_id AND pmkota.meta_key = 'trav_accommodation_city')
+			 LEFT JOIN wpwj_postmeta pmnegara on (posts.id = pmnegara.post_id AND pmnegara.meta_key = 'trav_accommodation_country')
 			 WHERE posts.post_status = 'publish' 
 			 AND posts.post_type = 'accommodation' 
-			 AND (term_taxonomy_id = 58 OR term_taxonomy_id = 102 OR term_taxonomy_id = 183 OR term_taxonomy_id = 184)
-			 AND pmkota.meta_key = 'trav_accommodation_city'
-			 AND pmnegara.meta_key = 'trav_accommodation_country'
-			 AND posts.post_author = " . $id . "
+			 AND tt.taxonomy = 'accommodation_type'
+			 AND posts.post_author = ".$id."
 			 GROUP BY posts.ID
-             order by posts.post_date desc");
-        return $query->result();
-    }
+       order by posts.post_date desc");
+		return $query->result();
+	}
+
+	function data_detail_properti($id,$post){
+		$query = $this->db->query("select p.ID as id,
+			p.post_title as judul,
+			p.post_content as deskripsi,
+			t.name as tipe_properti,
+			pmstar.meta_value as star,
+			pmstay.meta_value as stay,
+			pmbrief.meta_value as brief,
+			(select t.name from wpwj_terms t left join wpwj_postmeta pm on t.term_id = pm.meta_value where pm.meta_value = pmcountry.meta_value group by p.ID) as country,
+			(select t.name from wpwj_terms t left join wpwj_postmeta pm on t.term_id = pm.meta_value where pm.meta_value = pmcity.meta_value group by p.ID) as city,
+			pmphone.meta_value as phone,
+			pmemail.meta_value as email,
+			pmalamat.meta_value as alamat,
+			pmlokasi.meta_value as lokasi
+			from wpwj_posts p
+			left join wpwj_term_relationships tr on p.ID = tr.object_id
+			left join wpwj_term_taxonomy tt on tt.term_id = tr.term_taxonomy_id
+			left join wpwj_terms t on t.term_id = tt.term_id
+			left join wpwj_postmeta pmstar on (pmstar.post_id = p.ID and pmstar.meta_key = 'trav_accommodation_star_rating')
+			left join wpwj_postmeta pmstay on (pmstay.post_id = p.ID and pmstay.meta_key = 'trav_accommodation_minimum_stay')
+			left join wpwj_postmeta pmbrief on (pmbrief.post_id = p.ID and pmbrief.meta_key = 'trav_accommodation_brief')
+			left join wpwj_postmeta pmcountry on (pmcountry.post_id = p.ID and pmcountry.meta_key = 'trav_accommodation_country')
+			left join wpwj_postmeta pmcity on (pmcity.post_id = p.ID and pmcity.meta_key = 'trav_accommodation_city')
+			left join wpwj_postmeta pmphone on (pmphone.post_id = p.ID and pmphone.meta_key = 'trav_accommodation_phone')
+			left join wpwj_postmeta pmemail on (pmemail.post_id = p.ID and pmemail.meta_key = 'trav_accommodation_email')
+			left join wpwj_postmeta pmalamat on (pmalamat.post_id = p.ID and pmalamat.meta_key = 'trav_accommodation_address')
+			left join wpwj_postmeta pmlokasi on (pmlokasi.post_id = p.ID and pmlokasi.meta_key = 'trav_accommodation_loc')
+			where tt.taxonomy = 'accommodation_type'
+			and p.id = ".$post);
+		return $query->result();
+	}
 
     function combo_tipe_properti()
     {
@@ -110,53 +140,40 @@ class Model_properti extends CI_Model
              users.display_name as penulis,
              p.post_date as tanggal
              from wpwj_posts p
-             left join wpwj_postmeta pmroom on p.id = pmroom.post_id
+             left join wpwj_postmeta pmroom on (p.id = pmroom.post_id and pmroom.meta_key = 'trav_room_accommodation')
              left join wpwj_posts post on post.id = pmroom.meta_value
-             left join wpwj_postmeta pmdewasa on p.id = pmdewasa.post_id
-             left join wpwj_postmeta pmanak on p.id = pmanak.post_id
+             left join wpwj_postmeta pmdewasa on (p.id = pmdewasa.post_id and pmdewasa.meta_key = 'trav_room_max_adults')
+             left join wpwj_postmeta pmanak on (p.id = pmanak.post_id and pmanak.meta_key = 'trav_room_max_kids')
              LEFT JOIN wpwj_users users on users.ID = p.post_author
-             where pmdewasa.meta_key = 'trav_room_max_adults'
-             AND pmanak.meta_key = 'trav_room_max_kids'
-             AND pmroom.meta_key = 'trav_room_accommodation'
-             AND p.post_type = 'room_type'
+             where p.post_type = 'room_type'
              AND post.post_type = 'accommodation'
              AND p.post_status = 'publish'
-             AND p.post_author = " . $id . "
+             AND p.post_author = ".$id."
              group by p.id
              order by tanggal desc");
         return $query->result();
     }
 
-    function data_detail_tipe_kamar($id, $post)
-    {
-        $query = $this->db->query("select p.ID as id, p.post_title as judul, 
-             post.post_title as properti, 
-             pmdewasa.meta_value as dewasa,
-             pmanak.meta_value as anak,
-             users.display_name as penulis,
-             p.post_date as tanggal
-             from wpwj_posts p
-             left join wpwj_postmeta pmroom on p.id = pmroom.post_id
-             left join wpwj_posts post on post.id = pmroom.meta_value
-             left join wpwj_postmeta pmdewasa on p.id = pmdewasa.post_id
-             left join wpwj_postmeta pmanak on p.id = pmanak.post_id
-             LEFT JOIN wpwj_users users on users.ID = p.post_author
-             where pmdewasa.meta_key = 'trav_room_max_adults'
-             AND pmanak.meta_key = 'trav_room_max_kids'
-             AND pmroom.meta_key = 'trav_room_accommodation'
-             AND p.post_type = 'room_type'
-             AND post.post_type = 'accommodation'
-             AND p.post_status = 'publish'
-             AND p.post_author = " . $id . "
-             AND p.ID = " . $post . "
-             group by p.id
-             order by tanggal desc");
+    function data_detail_tipe_kamar($id, $post){
+        $query = $this->db->query("select pkamar.id as id,
+			pkamar.post_title as nama_kamar,
+			pprop.post_title as nama_prop,
+			pkamar.post_content as deskripsi,
+			pmdewasa.meta_value as dewasa,
+			pmanak.meta_value as anak
+			from wpwj_posts pkamar
+			left join wpwj_postmeta pmprop on (pkamar.id = pmprop.post_id and pmprop.meta_key = 'trav_room_accommodation')
+			left join wpwj_posts pprop on pprop.id = pmprop.meta_value
+			left join wpwj_postmeta pmdewasa on (pkamar.id = pmdewasa.post_id and pmdewasa.meta_key = 'trav_room_max_adults')
+			left join wpwj_postmeta pmanak on (pkamar.id = pmanak.post_id and pmanak.meta_key = 'trav_room_max_kids')
+			where pkamar.post_type = 'room_type'
+			and pprop .post_type = 'accommodation'
+			and pkamar.id = ".$post);
         return $query->result();
     }
 
-    function data_pesan()
-    {
-        $query = $this->db->query("select ab.id as id,
+	function data_pesan($id){
+		$query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
 			 ab.last_name as nama_akhir,
@@ -175,12 +192,12 @@ class Model_properti extends CI_Model
 			 from wpwj_trav_accommodation_bookings ab
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
+			 where p_prop.post_author = ".$id."
 			 order by pesan desc");
-        return $query->result();
-    }
+		return $query->result();
+	}
 
-    function data_pesan_batal()
-    {
+    function data_pesan_batal($id){
         $query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
@@ -199,12 +216,12 @@ class Model_properti extends CI_Model
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
 			 where ab.status = '0'
+			 and p_prop.post_author = ".$id."
 			 order by pesan desc");
         return $query->result();
     }
 
-    function data_pesan_menunggu()
-    {
+    function data_pesan_menunggu($id){
         $query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
@@ -223,12 +240,12 @@ class Model_properti extends CI_Model
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
 			 where ab.status = '1'
+			 and p_prop.post_author = ".$id."
 			 order by pesan desc");
         return $query->result();
     }
 
-    function data_pesan_sukses()
-    {
+    function data_pesan_sukses($id){
         $query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
@@ -247,6 +264,7 @@ class Model_properti extends CI_Model
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
 			 where ab.status = '2'
+			 and p_prop.post_author = ".$id."
 			 order by pesan desc");
         return $query->result();
     }
@@ -345,8 +363,13 @@ class Model_properti extends CI_Model
         return $query->result();
     }
 
-    public function save_type_kamar($id, $time, $properti, $judul, $deskripsi, $remaja, $anak, $fasilitas, $upload)
-    {
+	public function save_properti(){
+		$this->db->select_max('ID');
+		$data = $this->db->get('wpwj_posts');
+		$keyTransaksi ="";
+	}
+
+    public function save_type_kamar($id,$time,$properti,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload) {
         $this->db->select_max('ID');
         $data = $this->db->get('wpwj_posts');
         $keyTransaksi = "";
@@ -398,8 +421,8 @@ class Model_properti extends CI_Model
             'post_modified' => $time,
             'post_modified_gmt' => $time,
             'post_content_filtered' => '',
-            'post_parent' => $properti,
-            'guid' => 'https://vividi.id/mitra/assets/images/hotel/' . $upload['file']['file_name'],
+            'post_parent' => $keyTransaksi,
+            'guid' => 'https://vividi.id/mitra/assets/images/hotel/'.$upload['file']['file_name'],
             'menu_order' => '0',
             'post_type' => 'attachment',
             'post_mime_type' => 'image/jpeg',

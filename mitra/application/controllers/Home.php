@@ -15,9 +15,12 @@ class Home extends CI_Controller {
 	{
         $id = $_SESSION['ID'];
         $data['data'] = $this->Model_properti->data_properti($id);
-        $data['data_batal'] = $this->Model_properti->data_pesan_batal();
-        $data['data_menunggu'] = $this->Model_properti->data_pesan_menunggu();
-        $data['data_sukses'] = $this->Model_properti->data_pesan_sukses();
+        $data['data_batal'] = $this->Model_properti->data_pesan_batal($id);
+        $data['data_menunggu'] = $this->Model_properti->data_pesan_menunggu($id);
+        $data['data_sukses'] = $this->Model_properti->data_pesan_sukses($id);
+        $data['data_batal'] = $this->Model_properti->data_pesan_batal($id);
+        $data['data_menunggu'] = $this->Model_properti->data_pesan_menunggu($id);
+        $data['data_sukses'] = $this->Model_properti->data_pesan_sukses($id);
         $data['data_profile'] = $this->Model_properti->data_profile($id);
 		$data['folder'] = "dashboard";
 		$data['side'] = "dashboard";

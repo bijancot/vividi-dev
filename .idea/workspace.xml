@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ece85b3-69df-4287-bcd7-dfb43c9634a6" name="Default Changelist" comment="insert properti">
+    <list default="true" id="0ece85b3-69df-4287-bcd7-dfb43c9634a6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/mitra/application/views/properti/modal_properti.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mitra/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/controllers/Home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mitra/application/controllers/Properti.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/controllers/Properti.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/insert_properti.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/properti/insert_properti.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mitra/application/models/Model_properti.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/models/Model_properti.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mitra/application/views/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/dashboard.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mitra/application/views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/modal_tipe_kamar.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/properti/modal_tipe_kamar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/view_pesan.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/properti/view_pesan.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/view_semua.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/properti/view_semua.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/view_tipe_kamar.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/properti/view_tipe_kamar.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,6 +111,14 @@
       <workItem from="1573411148759" duration="889000" />
       <workItem from="1573483906202" duration="9786000" />
       <workItem from="1573569522183" duration="5911000" />
+      <workItem from="1573655795256" duration="365000" />
+      <workItem from="1573730030695" duration="3884000" />
+      <workItem from="1573749803948" duration="2423000" />
+      <workItem from="1573917468639" duration="3973000" />
+      <workItem from="1574003689912" duration="2735000" />
+      <workItem from="1574088240688" duration="7794000" />
+      <workItem from="1574174909383" duration="4921000" />
+      <workItem from="1574346992517" duration="1256000" />
     </task>
     <task id="LOCAL-00001" summary="Upload new">
       <created>1571403378645</created>
@@ -237,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573494481987</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="insert properti">
+      <created>1573655964588</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1573655964588</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,9 +296,8 @@
     <MESSAGE value="Edit Date" />
     <MESSAGE value="Insert type room to db" />
     <MESSAGE value="Fasilitas Kamar" />
-    <MESSAGE value="insert properti" />
     <MESSAGE value="template insert properti" />
-    <MESSAGE value="Fix Template Email Receipt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Template Email Receipt" />
+    <MESSAGE value="insert properti" />
+    <option name="LAST_COMMIT_MESSAGE" value="insert properti" />
   </component>
 </project>

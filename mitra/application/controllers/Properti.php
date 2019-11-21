@@ -40,6 +40,28 @@ class Properti extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function modal_properti()
+	{
+		$id = $_SESSION['ID'];
+		$post = $this->input->post('id');
+		$data['data'] = $this->Model_properti->data_detail_properti($id,$post);
+		$amenity = $this->db->query("select t.name as amenity
+			from wpwj_terms t
+			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
+			left join wpwj_term_relationships tr on (tt.term_id = tr.term_taxonomy_id and tt.taxonomy = 'amenity')
+			where tr.object_id = ".$post);
+		$foto = $this->db->query("select pm.meta_value as foto
+			from wpwj_posts p
+			left join wpwj_postmeta pm on (p.ID = pm.post_id and pm.meta_key = '_wp_attached_file')
+			where p.post_type = 'attachment'
+			and p.post_parent = ".$post);
+		$data['amenity'] = $amenity->result();
+		$data['foto'] = $foto->result();
+		$filter_view = $this->load->view('properti/modal_properti', $data, TRUE);
+
+		echo json_encode($filter_view);
+	}
+
 	public function harga_modal()
 	{
 		$id = $_SESSION['ID'];
@@ -215,6 +237,18 @@ class Properti extends CI_Controller {
         $id = $_SESSION['ID'];
         $post = $this->input->post('id');
         $data['data'] = $this->Model_properti->data_detail_tipe_kamar($id,$post);
+        $amenity = $this->db->query("select t.name as amenity
+			from wpwj_terms t
+			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
+			left join wpwj_term_relationships tr on (tt.term_id = tr.term_taxonomy_id and tt.taxonomy = 'amenity')
+			where tr.object_id = ".$post);
+        $data['amenity'] = $amenity->result();
+		$foto = $this->db->query("select pm.meta_value as foto
+			from wpwj_posts p
+			left join wpwj_postmeta pm on (p.ID = pm.post_id and pm.meta_key = '_wp_attached_file')
+			where p.post_type = 'attachment'
+			and p.post_parent = ".$post);
+		$data['foto'] = $foto->result();
         $filter_view = $this->load->view('properti/modal_tipe_kamar', $data, TRUE);
 
         echo json_encode($filter_view);
@@ -268,8 +302,6 @@ class Properti extends CI_Controller {
 		$fasilitas = $this->input->post('fasilitas');
 		$bintang = $this->input->post('bintang');
 		$stay = $this->input->post('stay');
-		$foto = $this->input->post('foto');
-		$logo = $this->input->post('logo');
 		$deskripsi_singkat = $this->input->post('deskripsi_singkat');
 		$country = $this->input->post('country');
 		$city = $this->input->post('city');
@@ -277,8 +309,9 @@ class Properti extends CI_Controller {
 		$email = $this->input->post('email');
 		$alamat = $this->input->post('alamat');
 		$lokasi = $this->input->post('lokasi');
-		$upload = $this->upload_foto();
-		if ($upload['Status'] == 'success') {
+		$upload1 = $this->upload_foto_properti();
+		$upload2 = $this->upload_logo_properti();
+		if ($upload1['Status'] == 'success' && $upload2['Status'] == 'success') {
 			$this->Model_properti->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload);
 		} else {
 			echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";
@@ -363,10 +396,11 @@ class Properti extends CI_Controller {
 
     public function pesan()
     {
-        $data['data'] = $this->Model_properti->data_pesan_menunggu();
-        $data['data_batal'] = $this->Model_properti->data_pesan_batal();
-        $data['data_sukses'] = $this->Model_properti->data_pesan_sukses();
-        $data['data_semua'] = $this->Model_properti->data_pesan();
+		$id = $_SESSION['ID'];
+        $data['data'] = $this->Model_properti->data_pesan_menunggu($id);
+        $data['data_batal'] = $this->Model_properti->data_pesan_batal($id);
+        $data['data_sukses'] = $this->Model_properti->data_pesan_sukses($id);
+        $data['data_semua'] = $this->Model_properti->data_pesan($id);
         $data['folder'] = "properti";
         $data['side'] = "pesan";
         $this->load->view('index',$data);
