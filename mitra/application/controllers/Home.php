@@ -21,7 +21,12 @@ class Home extends CI_Controller {
         $data['data_batal'] = $this->Model_properti->data_pesan_batal($id);
         $data['data_menunggu'] = $this->Model_properti->data_pesan_menunggu($id);
         $data['data_sukses'] = $this->Model_properti->data_pesan_sukses($id);
-        $data['data_profile'] = $this->Model_properti->data_profile($id);
+        $profile = $this->Model_properti->data_profile($id);
+        $pemail = $profile->email;
+        $pawal = $profile->awal;
+        $pakhir = $profile->akhir;
+		$datax = array('awal' => $pawal, 'akhir' => $pakhir);
+		$this->session->set_userdata($datax);
 		$data['folder'] = "dashboard";
 		$data['side'] = "dashboard";
 		$this->load->view('index',$data);

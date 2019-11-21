@@ -55,20 +55,18 @@
             <div class="modal-header">
                 <h4 class="modal-title">Profile</h4>
             </div>
-            <?php echo form_open(base_url('home/edit_profile')); ?>
             <div class="modal-body">
-                <?php foreach ($data_profile as $row) { ?>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" class="form-control" value="<?php echo $row->email; ?>" required>
+                    <input type="text" name="email" class="form-control" value="<?php echo $_SESSION['email']; ?>" required>
                 </div>
                 <div class="form-group">
                     <label>Nama Depan</label>
-                    <input type="text" name="depan" class="form-control" value="<?php echo $row->awal; ?>" required>
+                    <input type="text" name="depan" class="form-control" value="<?php echo $_SESSION['awal']; ?>" required>
                 </div>
                 <div class="form-group">
                     <label>Nama Belakang</label>
-                    <input type="text" name="belakang" class="form-control" value="<?php echo $row->akhir; ?>" required>
+                    <input type="text" name="belakang" class="form-control" value="<?php echo $_SESSION['akhir']; ?>" required>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
@@ -79,12 +77,10 @@
                     <input type="text" name="confirm" class="form-control" placeholder="Confirm Password" required>
                 </div>
                     <p style="font-size: 13px; font-style: italic; margin: 5px 0 5px; color: #666">*Kosongkan password jika kamu tidak ingin mengatur ulang password</p>
-                <?php } ?>
             </div>
             <div class="modal-footer">
                 <input type="submit" class="btn btn-success" value="Ubah" name="submit">
             </div>
-            <?php echo form_close(); ?>
         </div>
     </div>
 </div>

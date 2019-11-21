@@ -34,7 +34,7 @@
 					<label>Bintang</label>
 					<p><?= $row->star ?></p>
 				</div>
-				<div class="form-group col-md-6">
+				<div class="form-group">
 					<label>Minimal Menginap</label>
 					<?php if($row->stay == ''){?>
 						<p>Tidak Ada Batas Minimal</p>
@@ -73,7 +73,7 @@
 						foreach ($foto as $f){
 							?>
 							<div class="col-sm-6 col-md-6">
-								<p><img src="../wp-content/uploads/<?= $f->foto ?>" width="100%"></p>
+								<p><img src="../wp-content/uploads/<?= $f->foto ?>" width="100%" height="150px"></p>
 							</div>
 						<?php } ?>
 					</div>

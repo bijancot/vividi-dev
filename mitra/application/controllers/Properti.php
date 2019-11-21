@@ -264,19 +264,55 @@ class Properti extends CI_Controller {
         echo json_encode($filter_view);
     }
 
-    public function upload_foto_properti() {
-        $config['upload_path']          = './assets/images/hotel/';
-        $config['allowed_types']        = 'jpeg|jpg|png';
-        $config['max_size']             = 10000;
+    public function upload_foto_properti1() {
+		$config['upload_path'] = './assets/images/hotel/';
+		$config['allowed_types'] = 'jpeg|jpg|png';
+		$config['max_size'] = 10000;
 
-        $this->load->library('upload', $config);
+		$this->load->library('upload', $config);
 
-        if ($this->upload->do_upload('foto')) {
-            $result = ['Status' => 'success', 'file' => $this->upload->data()];
-        } else {
-            $result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
-        }
-        return $result;
+		if ($this->upload->do_upload('foto1')) {
+			$result = ['Status' => 'success', 'file' => $this->upload->data()];
+		} else {
+			$result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
+			echo $result['file'];
+			print_r($config);
+		}
+		return $result;
+    }
+
+    public function upload_foto_properti2() {
+		$config['upload_path'] = './assets/images/hotel/';
+		$config['allowed_types'] = 'jpeg|jpg|png';
+		$config['max_size'] = 10000;
+
+		$this->load->library('upload', $config);
+
+		if ($this->upload->do_upload('foto2')) {
+			$result = ['Status' => 'success', 'file' => $this->upload->data()];
+		} else {
+			$result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
+			echo $result['file'];
+			print_r($config);
+		}
+		return $result;
+    }
+
+    public function upload_foto_properti3() {
+		$config['upload_path'] = './assets/images/hotel/';
+		$config['allowed_types'] = 'jpeg|jpg|png';
+		$config['max_size'] = 10000;
+
+		$this->load->library('upload', $config);
+
+		if ($this->upload->do_upload('foto3')) {
+			$result = ['Status' => 'success', 'file' => $this->upload->data()];
+		} else {
+			$result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
+			echo $result['file'];
+			print_r($config);
+		}
+		return $result;
     }
 
     public function upload_logo_properti() {
@@ -290,12 +326,16 @@ class Properti extends CI_Controller {
             $result = ['Status' => 'success', 'file' => $this->upload->data()];
         } else {
             $result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
+			echo $result['file'];
+			print_r($config);
         }
         return $result;
     }
 
 	public function save_properti() {
 		$id = $_SESSION['ID'];
+		date_default_timezone_set('Asia/Jakarta');
+		$time = date("Y-m-d h:i:s");
 		$judul = $this->input->post('judul');
 		$deskripsi = $this->input->post('deskripsi');
 		$tipe_properti = $this->input->post('tipe_properti');
@@ -304,19 +344,24 @@ class Properti extends CI_Controller {
 		$stay = $this->input->post('stay');
 		$deskripsi_singkat = $this->input->post('deskripsi_singkat');
 		$country = $this->input->post('country');
-		$city = $this->input->post('city');
+		$ci = $this->input->post('city');
+		$c = explode("_",$ci);
+		$city = $c[0];
 		$telepon = $this->input->post('telepon');
 		$email = $this->input->post('email');
 		$alamat = $this->input->post('alamat');
-		$lokasi = $this->input->post('lokasi');
-		$upload1 = $this->upload_foto_properti();
-		$upload2 = $this->upload_logo_properti();
-		if ($upload1['Status'] == 'success' && $upload2['Status'] == 'success') {
-			$this->Model_properti->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload);
+		$lat = $this->input->post('lat');
+		$lng = $this->input->post('lng');
+		$upload1 = $this->upload_foto_properti1();
+		$upload2 = $this->upload_foto_properti2();
+		$upload3 = $this->upload_foto_properti3();
+		$upload4 = $this->upload_logo_properti();
+		if ($upload1['Status'] == 'success' && $upload2['Status'] == 'success' && $upload3['Status'] == 'success' && $upload4['Status'] == 'success') {
+			$this->Model_properti->save_properti($id,$time,$deskripsi,$judul,$tipe_properti,$fasilitas,$bintang,$stay,$deskripsi_singkat,$country,$city,$telepon,$email,$alamat,$upload1,$upload2,$upload3,$upload4,$lat,$lng);
+			redirect(base_url('properti'));
 		} else {
 			echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";
 		}
-		redirect(base_url('properti/tipe_kamar'));
 	}
 
     public function upload_foto() {

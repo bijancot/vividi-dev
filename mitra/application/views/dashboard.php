@@ -91,12 +91,12 @@
                 ?>
               <h3><?php echo $no; ?></h3>
 
-              <p>Properti</p>
+              <p>Semua Pesanan</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="<?= base_url('properti/semua'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="<?= base_url('properti/pesan'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->

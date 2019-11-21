@@ -164,8 +164,8 @@
 	<section class="content">
 		<div class="row">
 			<div class="col-xs-12">
-				<?php echo form_open('properti/save_properti'); ?>
-				<div class="col-xs-12">
+				<?php echo form_open_multipart('properti/save_properti'); ?>
+				<div class="col-md-12 col-xs-12">
 					<div class="box box-primary">
 						<!-- box-body -->
 						<div class="box-body">
@@ -185,7 +185,7 @@
 					</div>
 				</div>
 				<!-- /.box -->
-				<div class="col-xs-4">
+				<div class="col-md-4 col-xs-12">
 					<div class="box box-primary">
 						<div class="box-header with-border">
 							<h3 class="box-title">Details</h3>
@@ -263,8 +263,16 @@
 									jika akomodasi tidak memiliki batas minimal</p>
 							</div>
 							<div class="form-group col-xs-6">
-								<label>Foto Akomodasi</label>
-								<input type="file" class="form-control" name="foto[]" accept="image/*" multiple>
+								<label>Foto Akomodasi 1</label>
+								<input type="file" class="form-control" name="foto1" accept="image/*" >
+							</div>
+							<div class="form-group col-xs-6">
+								<label>Foto Akomodasi 2</label>
+								<input type="file" class="form-control" name="foto2" accept="image/*" >
+							</div>
+							<div class="form-group col-xs-6">
+								<label>Foto Akomodasi 3</label>
+								<input type="file" class="form-control" name="foto3" accept="image/*" >
 							</div>
 							<div class="form-group col-xs-6">
 								<label>Logo Akomodasi</label>
@@ -280,7 +288,7 @@
 					</div>
 				</div>
 
-				<div class="col-xs-8" style="height:380px;">
+				<div class="col-md-8 col-xs-12">
 					<div class="box box-primary">
 						<div class="box-header with-border">
 							<h3 class="box-title">Lokasi dan Info Lain</h3>
