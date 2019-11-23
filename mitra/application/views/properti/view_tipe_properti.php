@@ -5,7 +5,7 @@
         Tipe Properti
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-laptop"></i> Home</a></li>
         <li><a href="#">Properti</a></li>
         <li class="active">Tipe Properti</li>
       </ol>

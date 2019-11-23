@@ -32,11 +32,11 @@
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
-                            <div class="pull-left">
-                                <button type="button" class="btn btn-default btn-flat" data-toggle="modal" data-target="#modal_profile">
-                                    Profile
-                                </button>
-                            </div>
+<!--                            <div class="pull-left">-->
+<!--                                <button type="button" class="btn btn-default btn-flat" data-toggle="modal" data-target="#modal_profile">-->
+<!--                                    Profile-->
+<!--                                </button>-->
+<!--                            </div>-->
                             <div class="pull-right">
                                 <a href="<?= base_url('Login/logout'); ?>" class="btn btn-default btn-flat">Logout</a>
                             </div>
@@ -47,41 +47,3 @@
         </div>
     </nav>
 </header>
-<!-- Modal login -->
-<div id="modal_profile" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Profile</h4>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" name="email" class="form-control" value="<?php echo $_SESSION['email']; ?>" required>
-                </div>
-                <div class="form-group">
-                    <label>Nama Depan</label>
-                    <input type="text" name="depan" class="form-control" value="<?php echo $_SESSION['awal']; ?>" required>
-                </div>
-                <div class="form-group">
-                    <label>Nama Belakang</label>
-                    <input type="text" name="belakang" class="form-control" value="<?php echo $_SESSION['akhir']; ?>" required>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input type="text" name="password" class="form-control" placeholder="Password" required>
-                </div>
-                <div class="form-group">
-                    <label>Confirm Password</label>
-                    <input type="text" name="confirm" class="form-control" placeholder="Confirm Password" required>
-                </div>
-                    <p style="font-size: 13px; font-style: italic; margin: 5px 0 5px; color: #666">*Kosongkan password jika kamu tidak ingin mengatur ulang password</p>
-            </div>
-            <div class="modal-footer">
-                <input type="submit" class="btn btn-success" value="Ubah" name="submit">
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Modal Login -->

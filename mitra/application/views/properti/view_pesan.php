@@ -5,7 +5,7 @@
         Pesanan Tamu
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-laptop"></i> Home</a></li>
         <li><a href="#">Properti</a></li>
         <li class="active">Pesanan Tamu</li>
       </ol>
@@ -20,9 +20,9 @@
                     <ul class="nav nav-tabs">
 						<?php
 						$seg = $this->uri->segment(3);
-						if($seg == 'tab_1'){?>
+						if($seg == 'tab_1' || $seg == ''){?>
 							<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
-						<?php } else{ ?>
+						<?php } else { ?>
 							<li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
 						<?php }
 

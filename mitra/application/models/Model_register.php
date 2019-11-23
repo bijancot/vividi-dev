@@ -132,4 +132,53 @@ class model_register extends CI_Model
             return $cek;
         }
     }
+
+    function save_profile($id, $email, $depan, $belakang)
+    {
+        $data = array(
+            'user_email' => $email,
+            'display_name' => $depan.' '.$belakang
+        );
+        $this->db->where('ID', $id);
+        $this->db->update('wpwj_users', $data);
+
+        $data_depan = array(
+            'meta_value' => $depan
+        );
+        $array = array('user_id =' => $id, 'meta_key =' => 'first_name');
+        $this->db->where($array);
+        $this->db->update('wpwj_usermeta', $data_depan);
+
+        $data_belakang = array(
+            'meta_value' => $belakang
+        );
+        $array = array('user_id =' => $id, 'meta_key =' => 'last_name');
+        $this->db->where($array);
+        $this->db->update('wpwj_usermeta', $data_belakang);
+    }
+
+    function save_profile_pass($id, $email, $depan, $belakang, $pass)
+    {
+        $data = array(
+            'user_pass' => $pass,
+            'user_email' => $email,
+            'display_name' => $depan.' '.$belakang
+        );
+        $this->db->where('ID', $id);
+        $this->db->update('wpwj_users', $data);
+
+        $data_depan = array(
+            'meta_value' => $depan
+        );
+        $array = array('user_id =' => $id, 'meta_key =' => 'first_name');
+        $this->db->where($array);
+        $this->db->update('wpwj_usermeta', $data_depan);
+
+        $data_belakang = array(
+            'meta_value' => $belakang
+        );
+        $array = array('user_id =' => $id, 'meta_key =' => 'last_name');
+        $this->db->where($array);
+        $this->db->update('wpwj_usermeta', $data_belakang);
+    }
 }

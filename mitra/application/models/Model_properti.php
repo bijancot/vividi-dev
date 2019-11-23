@@ -1702,7 +1702,7 @@ class Model_properti extends CI_Model
 		$this->db->join('wpwj_usermeta umfirst', '(u.ID = umfirst.user_id and umfirst.meta_key = "first_name")');
 		$this->db->join('wpwj_usermeta umlast', '(u.ID = umlast.user_id and umlast.meta_key = "last_name")');
 		$this->db->where('u.id', $id);
-		$query = $this->db->get()->row();
-        return $query;
+		$query = $this->db->get();
+        return $query->result();
     }
 }

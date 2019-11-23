@@ -13,7 +13,7 @@
             <?php if ($side == 'dashboard') { ?>
                 <li class="active"><a href="<?= base_url('home'); ?>"><i class="fa fa-laptop"></i> <span>Dashboard</span></a></li>
             <?php } else { ?>
-                <li><a href="<?= base_url('home'); ?>"><i class="fa fa-laptop"></i> </span>Dashboard</a></a></li>
+                <li><a href="<?= base_url('home'); ?>"><i class="fa fa-laptop"></i> <span>Dashboard</span></a></li>
             <?php } ?>
             <?php if ($folder == 'properti'){ ?>
             <li class="active treeview menu-open">
@@ -54,6 +54,11 @@
                             <i class="fa fa-circle-o"></i> Pesanan Tamu</a></li>
                 </ul>
             </li>
+            <?php if ($side == 'profile') { ?>
+                <li class="active"><a href="<?= base_url('home/profile'); ?>"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+            <?php } else { ?>
+                <li><a href="<?= base_url('home/profile'); ?>"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+            <?php } ?>
         </ul>
     </section>
     <!-- /.sidebar -->
