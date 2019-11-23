@@ -171,14 +171,15 @@
 						<div class="box-body">
 							<form role="form">
 								<div class="form-group">
-									<label>Judul</label>
+									<label>Nama Properti</label>
 									<input type="text" class="form-control" name="judul" placeholder="Enter ..."
 										   required>
 								</div>
 								<div class="form-group">
 									<label>Deskripsi</label>
-									<textarea class="form-control" name="deskripsi" rows="6" placeholder="Enter ..."
+									<textarea class="form-control" name="deskripsi" rows="6" placeholder="Enter ..." minlength="200" maxlength="800" onkeyup="countChar(this)" id="textarea"
 											  required></textarea>
+									<div name="charNum" id="charNum"></div>
 								</div>
 						</div>
 						<!-- /.box-body -->
@@ -258,7 +259,7 @@
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Minimal menginap</label>
-								<input type="number" class="form-control" name="stay">
+								<input type="number" class="form-control" name="stay" value="1" min="1">
 								<p style="font-size: 13px; font-style: italic; margin: 5px 0 5px; color: #666">Kosongkan
 									jika akomodasi tidak memiliki batas minimal</p>
 							</div>
@@ -280,7 +281,7 @@
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Deskripsi Singkat</label>
-								<textarea class="form-control" name="deskripsi_singkat" rows="3" placeholder="Enter ..."
+								<textarea class="form-control" name="deskripsi_singkat" rows="3" placeholder="Enter ..." minlength="100" maxlength="200"
 										  required></textarea>
 							</div>
 						</div>
@@ -322,15 +323,15 @@
 									<input type="email" class="form-control" name="email" placeholder="Email">
 								</div>
 							</div>
-							<div class="form-group col-xs-6">
-								<label>Alamat</label>
-								<input type="text" class="form-control" name="alamat" placeholder="Alamat">
-							</div>
+<!--							<div class="form-group col-xs-6">-->
+<!--								<label>Alamat</label>-->
+<!--								<input type="text" class="form-control" name="alamat" placeholder="Alamat">-->
+<!--							</div>-->
 							<!--							<div class="form-group col-xs-12">-->
 							<!--								<label>Lokasi</label>-->
 							<!--								<input type="text" class="form-control" name="lokasi" placeholder="Lokasi">-->
 							<!--							</div>-->
-							<input id="searchInput" class="controls" type="text" placeholder="Enter a location">
+							<input id="searchInput" class="controls" type="text" name="alamat" placeholder="Enter a location">
 							<div id="map" style="width:100%;height:300px;"></div>
 							<ul id="geoData">
 								<input type="hidden" id="lat" name="lat" value="">
@@ -338,7 +339,7 @@
 							</ul>
 						</div>
 						<div class="box-footer">
-							<button type="submit" class="btn btn-primary">Submit</button>
+							<button type="submit" class="btn btn-primary">Simpan</button>
 						</div>
 					</div>
 				</div>
@@ -359,6 +360,12 @@
 	slider.oninput = function () {
 		output.innerHTML = this.value;
 	}
+
+    function countChar(val) {
+        var len = val.value.length;
+        var ml= val.maxLength;
+            $('#charNum').text(ml - len);
+    };
 </script>
 
 

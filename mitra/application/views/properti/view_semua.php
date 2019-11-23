@@ -24,12 +24,12 @@
               <table id="example2" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Judul</th>
+                  <th>Nama Properti</th>
                   <th>Tipe Properti</th>
                   <th>Kota</th>
                   <th>Negara</th>
                   <th>Penulis</th>
-                  <th>Tanggal</th>
+                  <th>Tanggal Input</th>
                   <th></th>
                 </tr>
                 </thead>
@@ -52,12 +52,12 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Judul</th>
+                  <th>Nama Properti</th>
                   <th>Tipe Properti</th>
                   <th>Kota</th>
                   <th>Negara</th>
                   <th>Penulis</th>
-                  <th>Tanggal</th>
+                  <th>Tanggal Input</th>
                   <th></th>
                 </tr>
                 </tfoot>

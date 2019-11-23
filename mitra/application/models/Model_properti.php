@@ -338,7 +338,8 @@ class Model_properti extends CI_Model
             and pkamar.post_type = 'room_type'
             and pproperti.post_status = 'publish'
             and pkamar.post_status = 'publish'
-            and u.ID = " . $id);
+            and u.ID = " . $id."
+            order by av.ID desc");
         return $query->result();
     }
 

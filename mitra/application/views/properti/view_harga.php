@@ -38,16 +38,16 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">Harga</label>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $weekday; ?>"><?php echo "Rp.".$weekday." - Weekday"; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $weekday; ?>"><?php echo "Rp.".number_format($weekday,0,"",".")." - Weekday"; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $weekend; ?>"><?php echo "Rp.".$weekend." - Weekend"; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $weekend; ?>"><?php echo "Rp.".number_format($weekend,0,"",".")." - Weekend"; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $hseasion; ?>"><?php echo "Rp.".$hseasion." - High Seasion"; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $hseasion; ?>"><?php echo "Rp.".number_format($hseasion,0,"",".")." - High Seasion"; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $psseason; ?>"><?php echo "Rp.".$psseason." - Peek Season"; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $psseason; ?>"><?php echo "Rp.".number_format($psseason,0,"",".")." - Peek Season"; ?></label>
                         </div>
                         <div class="radio disabled">
                             <label><input type="radio" name="optradio" value="0">Kamar Kosong</label>
@@ -79,7 +79,7 @@
                                         <td><?php echo $row->dari;?></td>
                                         <td><?php echo $row->sampai;?></td>
                                         <td><?php echo $row->allotment;?></td>
-                                        <td><?php echo $row->harga;?></td>
+                                        <td>Rp. <?php echo number_format($row->harga,0,"",".");?></td>
                                         <!--
                                             <td><button class="btn btn-block" data-effect="mfp-zoomIn" id="<?php echo $row->id;?>" onclick="clickButton(<?php echo $row->id;?>)">Lihat</button></td>
                                         -->

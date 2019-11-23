@@ -188,6 +188,7 @@ class Properti extends CI_Controller {
         $data['weekend'] = $this->input->post('weekend');
         $data['hseasion'] = $this->input->post('hseasion');
         $data['psseason'] = $this->input->post('psseason');
+        $data['kosong'] = $this->input->post('0');
         $data['folder'] = "properti";
         $data['side'] = "harga";
         $this->form_validation->set_rules('weekday', 'a', 'required|numeric|greater_than[0.99]|regex_match[/^[0-9,]+$/]');
@@ -408,8 +409,13 @@ class Properti extends CI_Controller {
         $data['id_properti'] = $prop[0];
         $data['id_kamar'] = $ka[0];
 
-        $allotment = $this->input->post('allotment');
         $harga = $this->input->post('optradio');
+        if($harga == 0){
+        	$allotment = 0;
+		}
+        else {
+			$allotment = $this->input->post('allotment');
+		}
         $tgl_1 = $this->input->post('tgl_1');
         $date1 = str_replace('/', '-', $tgl_1);
         $newDate1 = date("Y-m-d", strtotime($date1));

@@ -25,12 +25,12 @@
                         <table id="example2" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                                <th>Judul</th>
+                                <th>Kamar</th>
                                 <th>Properti</th>
                                 <th>Dewasa</th>
                                 <th>Anak</th>
                                 <th>Penulis</th>
-                                <th>Tanggal</th>
+                                <th>Tanggal Input</th>
                                 <th></th>
                             </tr>
                             </thead>
@@ -58,7 +58,7 @@
                                 <th>Dewasa</th>
                                 <th>Anak</th>
                                 <th>Penulis</th>
-                                <th>Tanggal</th>
+                                <th>Tanggal Input</th>
                                 <th></th>
                             </tr>
                             </tfoot>
@@ -102,11 +102,11 @@
                     </div>
                     <div class="form-group">
                         <label>Max Dewasa</label>
-                        <input type="text" name="remaja" class="form-control" placeholder="Dewasa" required>
+                        <input type="number" name="remaja" class="form-control" placeholder="Dewasa" min="1" value="1" required>
                     </div>
                     <div class="form-group">
                         <label>Max Anak</label>
-                        <input type="text" name="anak" class="form-control" placeholder="Anak" required>
+                        <input type="number" name="anak" class="form-control" placeholder="Anak" min="0" value="0" required>
                     </div>
                     <div class="form-group">
                         <label>Fasilitas</label><br>

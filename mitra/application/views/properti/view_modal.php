@@ -20,13 +20,13 @@
                             Atur Harga Baru
                         </button>
                         <br><br>
-                        <table id="example2" class="table table-bordered table-striped">
+                        <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th>Properti</th>
                                 <th>Jenis Kamar</th>
-                                <th>Date From</th>
-                                <th>Date To</th>
+                                <th>Mulai Dari</th>
+                                <th>Sampai</th>
                                 <th>Allotment</th>
                                 <th>Harga</th>
                                 <th>Aksi</th>
@@ -43,7 +43,7 @@
                                     <td><?php echo $row->dari; ?></td>
                                     <td><?php echo $row->sampai; ?></td>
                                     <td><?php echo $row->allotment; ?></td>
-                                    <td><?php echo $row->harga; ?></td>
+                                    <td><?php echo number_format($row->harga,0,"","."); ?></td>
                                     <td>
                                         <button type="button" id="ubah" class="btn btn-primary" style="margin-bottom: 10px" data-toggle="modal" data-id="<?php echo $row->id ?>" onclick="clickButton(<?php echo $row->id ?>)">Ubah Harga</button>
                                     </td>
@@ -57,8 +57,8 @@
                             <tr>
                                 <th>Properti</th>
                                 <th>Jenis Kamar</th>
-                                <th>Date From</th>
-                                <th>Date To</th>
+								<th>Mulai Dari</th>
+								<th>Sampai</th>
                                 <th>Allotment</th>
                                 <th>Harga</th>
                                 <th>Aksi</th>
