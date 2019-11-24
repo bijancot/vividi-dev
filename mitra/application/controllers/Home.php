@@ -32,21 +32,25 @@ class Home extends CI_Controller
     {
         $id = $this->input->post('id');
         $email = $this->input->post('email');
+        $cek = $this->input->post('cek');
         $depan = $this->input->post('depan');
         $belakang = $this->input->post('belakang');
         $pass = $this->input->post('password');
         $confirm = $this->input->post('confirm');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         if ($this->form_validation->run() != FALSE) {
-            if ($pass == '') {
-                $this->Model_register->save_profile($id, $email, $depan, $belakang);
-            } else {
+            if ($pass != '') {
                 if ($pass == $confirm) {
-                    $this->Model_register->save_profile_pass($id, $email, $depan, $belakang, $pass);
-                } else {
-                    $this->Model_register->save_profile($id, $email, $depan, $belakang);
+                    $this->Model_register->save_new_pass($id, $pass);
                 }
             }
+            if ($email != $cek) {
+                $cek_email = $this->Model_register->cek_email($email);
+                if ($cek_email == true){
+                    $this->Model_register->save_new_email($id, $email);
+                }
+            }
+            $this->Model_register->save_profile($id, $depan, $belakang);
             $_SESSION['nama'] = $depan . ' ' . $belakang;
         }
         redirect(base_url('home/profile'));

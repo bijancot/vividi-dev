@@ -19,6 +19,7 @@
                         <div class="modal-body">
                             <?php foreach ($data as $row) { ?>
                                 <input type="hidden" name="id" class="form-control" value="<?php echo $row->id; ?>" required>
+                                <input type="hidden" name="cek" class="form-control" value="<?php echo $row->email; ?>" required>
                             <div class="form-group">
                                 <label>Email</label>
                                 <input type="text" name="email" class="form-control" value="<?php echo $row->email; ?>" required>
