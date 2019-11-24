@@ -6,15 +6,15 @@
 				<h4 class="modal-title">Detail <?= $row->judul ?></h4>
 			</div>
 			<div class="modal-body">
-				<div class="form-group">
+				<div class="form-group col-md-12">
 					<label>Nama Properti</label>
 					<p><?= $row->judul ?></p>
 				</div>
-				<div class="form-group">
+				<div class="form-group col-md-12">
 					<label>Deskripsi</label>
 					<p><?= $row->deskripsi ?></p>
 				</div>
-				<div class="form-group">
+				<div class="form-group col-md-12">
 					<label>Fasilitas</label><br>
 					<div class="row">
 						<?php
@@ -34,7 +34,7 @@
 					<label>Bintang</label>
 					<p><?= $row->star ?></p>
 				</div>
-				<div class="form-group">
+				<div class="form-group col-md-12">
 					<label>Minimal Menginap</label>
 					<?php if($row->stay == ''){?>
 						<p>Tidak Ada Batas Minimal</p>
@@ -42,7 +42,7 @@
 						<p><?= $row->stay ?> Malam</p>
 					<?php } ?>
 				</div>
-				<div class="form-group">
+				<div class="form-group col-md-12">
 					<label>Deskripsi Singkat</label>
 					<p><?= $row->brief ?></p>
 				</div>
@@ -62,7 +62,7 @@
 					<label>Email</label>
 					<p><?= $row->email ?></p>
 				</div>
-				<div class="form-group">
+				<div class="form-group col-md-12">
 					<label>Alamat</label>
 					<p><?= $row->alamat ?></p>
 				</div>
@@ -73,7 +73,7 @@
 						foreach ($foto as $f){
 							?>
 							<div class="col-sm-6 col-md-6">
-								<p><img src="../wp-content/uploads/<?= $f->foto ?>" width="100%" height="150px"></p>
+								<p><img src="../wp-content/uploads/<?= $f->foto ?>" width="100%" height="200px"></p>
 							</div>
 						<?php } ?>
 					</div>

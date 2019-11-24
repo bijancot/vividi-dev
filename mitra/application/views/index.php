@@ -1,8 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
-<?php 
-  if(!isset($_SESSION['username'])){
+<?php
+  if($_SESSION['role'] == 'administrator'){
+  	redirect(base_url('Admin/home'));
+  }
+  else if(!isset($_SESSION['username'])){
     redirect(base_url());
   }
 ?>

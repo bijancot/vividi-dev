@@ -1,37 +1,84 @@
 <style>
-	.slidecontainer {
-		width: 50%;
-	}
+	@media only screen and (max-width: 600px){
+		.slidecontainer {
+			width: 100%;
+		}
+		.slider {
+			-webkit-appearance: none;
+			width: 100%;
+			margin-top: 15px;
+			height: 15px;
+			border-radius: 5px;
+			background: #d3d3d3;
+			outline: none;
+			opacity: 0.7;
+			-webkit-transition: .2s;
+			transition: opacity .2s;
+		}
 
-	.slider {
-		-webkit-appearance: none;
-		width: 100%;
-		margin-top: 15px;
-		height: 15px;
-		border-radius: 5px;
-		background: #d3d3d3;
-		outline: none;
-		opacity: 0.7;
-		-webkit-transition: .2s;
-		transition: opacity .2s;
-	}
+		.slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			background: #3c8dbc;
+			cursor: pointer;
+		}
 
-	.slider::-webkit-slider-thumb {
-		-webkit-appearance: none;
-		appearance: none;
-		width: 25px;
-		height: 25px;
-		border-radius: 50%;
-		background: #3c8dbc;
-		cursor: pointer;
-	}
+		.slider::-moz-range-thumb {
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			background: #3c8dbc;
+			cursor: pointer;
+		}
 
-	.slider::-moz-range-thumb {
-		width: 25px;
-		height: 25px;
-		border-radius: 50%;
-		background: #3c8dbc;
-		cursor: pointer;
+		.controls {
+			margin-top: 10px;
+			border: 1px solid transparent;
+			border-radius: 2px 0 0 2px;
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			height: 32px;
+			outline: none;
+			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+		}
+	}
+	@media only screen and (min-width: 601px) {
+		.slidecontainer {
+			width: 50%;
+		}
+		.slider {
+			-webkit-appearance: none;
+			width: 100%;
+			margin-top: 15px;
+			height: 15px;
+			border-radius: 5px;
+			background: #d3d3d3;
+			outline: none;
+			opacity: 0.7;
+			-webkit-transition: .2s;
+			transition: opacity .2s;
+		}
+
+		.slider::-webkit-slider-thumb {
+			-webkit-appearance: none;
+			appearance: none;
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			background: #3c8dbc;
+			cursor: pointer;
+		}
+
+		.slider::-moz-range-thumb {
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			background: #3c8dbc;
+			cursor: pointer;
+		}
 	}
 
 	.controls {
@@ -177,9 +224,9 @@
 								</div>
 								<div class="form-group">
 									<label>Deskripsi</label>
-									<textarea class="form-control" name="deskripsi" rows="6" placeholder="Enter ..." minlength="200" maxlength="800" onkeyup="countChar(this)" id="textarea"
+									<textarea class="form-control" name="deskripsi" rows="6" placeholder="Enter ..." minlength="200" maxlength="800" onkeyup="countChar1(this)" id="textarea"
 											  required></textarea>
-									<div name="charNum" id="charNum"></div>
+									<div name="charNum1" id="charNum1">800</div>
 								</div>
 						</div>
 						<!-- /.box-body -->
@@ -189,7 +236,7 @@
 				<div class="col-md-4 col-xs-12">
 					<div class="box box-primary">
 						<div class="box-header with-border">
-							<h3 class="box-title">Details</h3>
+							<h3 class="box-title">Detail</h3>
 						</div>
 						<!-- /.box-body -->
 						<div class="box-body">
@@ -203,7 +250,7 @@
 									<?php } ?>
 								</select>
 							</div>
-							<div class="form-group col-xs-6">
+							<div class="form-group col-xs-12 col-md-6">
 								<label>Fasilitas</label>
 								<div class="checkbox">
 									<label>
@@ -251,41 +298,79 @@
 									</label>
 								</div>
 							</div>
-							<div class="form-group slidecontainer col-xs-6">
+							<div class="form-group slidecontainer col-xs-12 col-md-6">
 								<label>Bintang Hotel : <span id="bintang"></span></label>
-								<input type="range" class="slider" name="bintang" id="star" min="0" max="5" value="0">
-								<p style="font-size: 13px; font-style: italic; margin: 5px 0 5px; color: #666">Jika
-									akomodasi ini tidak memiliki peringkat maka isi 0</p>
+								<input type="range" class="slider" name="bintang" id="star" min="1" max="5" value="1">
+							</div>
+							<div class="form-group col-xs-12">
+								<label>Minimal Harga Kamar</label>
+								<input type="number" class="form-control" name="harga">
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Minimal menginap</label>
 								<input type="number" class="form-control" name="stay" value="1" min="1">
-								<p style="font-size: 13px; font-style: italic; margin: 5px 0 5px; color: #666">Kosongkan
-									jika akomodasi tidak memiliki batas minimal</p>
 							</div>
-							<div class="form-group col-xs-6">
+							<div class="form-group col-xs-12 col-md-6">
 								<label>Foto Akomodasi 1</label>
 								<input type="file" class="form-control" name="foto1" accept="image/*" >
 							</div>
-							<div class="form-group col-xs-6">
+							<div class="form-group col-xs-12 col-md-6">
 								<label>Foto Akomodasi 2</label>
 								<input type="file" class="form-control" name="foto2" accept="image/*" >
 							</div>
-							<div class="form-group col-xs-6">
+							<div class="form-group col-xs-12 col-md-6">
 								<label>Foto Akomodasi 3</label>
 								<input type="file" class="form-control" name="foto3" accept="image/*" >
 							</div>
-							<div class="form-group col-xs-6">
+							<div class="form-group col-xs-12 col-md-6">
 								<label>Logo Akomodasi</label>
 								<input type="file" class="form-control" name="logo" accept="image/*">
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Deskripsi Singkat</label>
-								<textarea class="form-control" name="deskripsi_singkat" rows="3" placeholder="Enter ..." minlength="100" maxlength="200"
+								<textarea class="form-control" name="deskripsi_singkat" rows="3" placeholder="Enter ..." minlength="100" maxlength="200" onkeyup="countChar2(this)"
 										  required></textarea>
+								<div name="charNum2" id="charNum2">200</div>
 							</div>
 						</div>
 						<!-- /.box-body -->
+					</div>
+				</div>
+
+				<div class="col-md-8 col-xs-12">
+					<div class="box box-primary">
+						<div class="box-header with-border">
+							<h3 class="box-title">Kebijakan</h3>
+						</div>
+						<!-- /.box-body -->
+						<div class="box-body">
+							<div class="form-group col-xs-12 col-md-6">
+								<label>Check-in</label>
+								<input class="form-control" type="time" name="checkin" step="3600" value="00:00">
+							</div>
+							<div class="form-group col-xs-12 col-md-6">
+								<label>Check-out</label>
+								<input class="form-control" type="time" name="checkout" step="3600" value="00:00">
+							</div>
+							<div class="form-group col-xs-12">
+								<label>Pembatalan</label>
+								<textarea class="form-control" name="cancel" rows="3" placeholder="Enter ..." maxlength="100" onkeyup="countChar3(this)"
+										  required></textarea>
+								<div name="charNum3" id="charNum3">100</div>
+							</div>
+							<div class="form-group col-xs-12">
+								<label>Biaya anak dan Tempat Tidur Tambahan</label>
+								<textarea class="form-control" name="bed" rows="3" placeholder="Enter ..." maxlength="100" onkeyup="countChar4(this)"
+										  required></textarea>
+								<div name="charNum4" id="charNum4">100</div>
+							</div>
+							<div class="form-group col-xs-12">
+								<label>Peliharaan</label>
+								<textarea class="form-control" name="pet" rows="3" placeholder="Enter ..." maxlength="100" onkeyup="countChar5(this)"
+										  required></textarea>
+								<div name="charNum5" id="charNum5">100</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -323,14 +408,6 @@
 									<input type="email" class="form-control" name="email" placeholder="Email">
 								</div>
 							</div>
-<!--							<div class="form-group col-xs-6">-->
-<!--								<label>Alamat</label>-->
-<!--								<input type="text" class="form-control" name="alamat" placeholder="Alamat">-->
-<!--							</div>-->
-							<!--							<div class="form-group col-xs-12">-->
-							<!--								<label>Lokasi</label>-->
-							<!--								<input type="text" class="form-control" name="lokasi" placeholder="Lokasi">-->
-							<!--							</div>-->
 							<input id="searchInput" class="controls" type="text" name="alamat" placeholder="Enter a location">
 							<div id="map" style="width:100%;height:300px;"></div>
 							<ul id="geoData">
@@ -361,10 +438,30 @@
 		output.innerHTML = this.value;
 	}
 
-    function countChar(val) {
+    function countChar1(val) {
         var len = val.value.length;
         var ml= val.maxLength;
-            $('#charNum').text(ml - len);
+            $('#charNum1').text(ml - len);
+    };
+    function countChar2(val) {
+        var len = val.value.length;
+        var ml= val.maxLength;
+            $('#charNum2').text(ml - len);
+    };
+    function countChar3(val) {
+        var len = val.value.length;
+        var ml= val.maxLength;
+            $('#charNum3').text(ml - len);
+    };
+    function countChar4(val) {
+        var len = val.value.length;
+        var ml= val.maxLength;
+            $('#charNum4').text(ml - len);
+    };
+    function countChar5(val) {
+        var len = val.value.length;
+        var ml= val.maxLength;
+            $('#charNum5').text(ml - len);
     };
 </script>
 

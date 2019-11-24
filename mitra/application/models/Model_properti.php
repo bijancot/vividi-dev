@@ -361,7 +361,9 @@ class Model_properti extends CI_Model
         return $query->result();
     }
 
-	public function save_properti($id,$time,$deskripsi,$judul,$tipe_properti,$fasilitas,$bintang,$stay,$deskripsi_singkat,$country,$city,$telepon,$email,$alamat,$upload1,$upload2,$upload3,$upload4,$lat,$lng){
+	public function save_properti($id,$time,$deskripsi,$judul,$tipe_properti,$fasilitas,$bintang,$stay,$deskripsi_singkat,
+								  $country,$city,$telepon,$email,$alamat,$upload1,$upload2,$upload3,$upload4,$lat,$lng,
+								  $checkin,$checkout,$cancel,$bed,$pet,$kota,$harga){
 		$this->db->select_max('ID');
 		$data = $this->db->get('wpwj_posts');
 		$keyTransaksi ="";
@@ -381,7 +383,7 @@ class Model_properti extends CI_Model
 			'comment_status' => 'closed',
 			'ping_status' => 'closed',
 			'post_password' => '',
-			'post_name' => $judul,
+			'post_name' => str_replace(" ", "-", $judul),
 			'to_ping' => '',
 			'pinged' => '',
 			'post_modified' => $time,
@@ -395,12 +397,12 @@ class Model_properti extends CI_Model
 			'comment_count' => '0'
 		);
 		$this->db->insert('wpwj_posts', $data);
-		$i++;
 		$j = 1;
 
 		$fotoid = '';
+		$fotoid1 = $keyTransaksi + $i;
 			$data_image1 = array(
-				'ID' => $keyTransaksi + $i,
+				'ID' => $fotoid1,
 				'post_author' => $id,
 				'post_date' => $time,
 				'post_date_gmt' => $time,
@@ -411,7 +413,7 @@ class Model_properti extends CI_Model
 				'comment_status' => 'open',
 				'ping_status' => 'closed',
 				'post_password' => '',
-				'post_title' => $judul." ".$j,
+				'post_name' => str_replace(" ", "-", $judul)."-".$j,
 				'to_ping' => '',
 				'pinged' => '',
 				'post_modified' => $time,
@@ -425,12 +427,12 @@ class Model_properti extends CI_Model
 				'comment_count' => '0'
 			);
 			$this->db->insert('wpwj_posts', $data_image1);
-			$fotoid[0] = $keyTransaksi + $i;
 			$i++;
 			$j++;
 
+		$fotoid2 = $keyTransaksi + $i;
 			$data_image2 = array(
-				'ID' => $keyTransaksi + $i,
+				'ID' => $fotoid2,
 				'post_author' => $id,
 				'post_date' => $time,
 				'post_date_gmt' => $time,
@@ -441,7 +443,7 @@ class Model_properti extends CI_Model
 				'comment_status' => 'open',
 				'ping_status' => 'closed',
 				'post_password' => '',
-				'post_title' => $judul." ".$j,
+				'post_name' => str_replace(" ", "-", $judul)."-".$j,
 				'to_ping' => '',
 				'pinged' => '',
 				'post_modified' => $time,
@@ -455,12 +457,12 @@ class Model_properti extends CI_Model
 				'comment_count' => '0'
 			);
 			$this->db->insert('wpwj_posts', $data_image2);
-			$fotoid[1] = $keyTransaksi + $i;
 			$i++;
 			$j++;
 
+		$fotoid3 = $keyTransaksi + $i;
 			$data_image3 = array(
-				'ID' => $keyTransaksi + $i,
+				'ID' => $fotoid3,
 				'post_author' => $id,
 				'post_date' => $time,
 				'post_date_gmt' => $time,
@@ -471,7 +473,7 @@ class Model_properti extends CI_Model
 				'comment_status' => 'open',
 				'ping_status' => 'closed',
 				'post_password' => '',
-				'post_title' => $judul." ".$j,
+				'post_name' => str_replace(" ", "-", $judul)."-".$j,
 				'to_ping' => '',
 				'pinged' => '',
 				'post_modified' => $time,
@@ -485,7 +487,6 @@ class Model_properti extends CI_Model
 				'comment_count' => '0'
 			);
 			$this->db->insert('wpwj_posts', $data_image3);
-			$fotoid[2] = $keyTransaksi + $i;
 			$i++;
 			$j++;
 
@@ -495,13 +496,13 @@ class Model_properti extends CI_Model
 			'post_date' => $time,
 			'post_date_gmt' => $time,
 			'post_content' => '',
-			'post_title' => $judul + " " + $j,
+			'post_title' => $judul . " " .$j,
 			'post_excerpt' => '',
 			'post_status' => 'inherit',
 			'comment_status' => 'open',
 			'ping_status' => 'closed',
 			'post_password' => '',
-			'post_title' => $judul." ".$j,
+			'post_name' => str_replace(" ", "-", $judul)."-".$j,
 			'to_ping' => '',
 			'pinged' => '',
 			'post_modified' => $time,
@@ -530,7 +531,7 @@ class Model_properti extends CI_Model
 			'meta_id' => $key,
 			'post_id' => $keyTransaksi,
 			'meta_key' => 'trav_accommodation_avg_price',
-			'meta_value' => '0'
+			'meta_value' => $harga
 		);
 		$this->db->insert('wpwj_postmeta', $data1);
 		$k++;
@@ -625,16 +626,32 @@ class Model_properti extends CI_Model
 		$this->db->insert('wpwj_postmeta', $data11);
 		$k++;
 
-		for($i=0;$i<3;$i++){
-			$data_foto = array(
-				'meta_id' => $key + $k,
-				'post_id' => $keyTransaksi,
-				'meta_key' => 'trav_gallery_imgs',
-				'meta_value' => $fotoid[$i]
-			);
-			$this->db->insert('wpwj_postmeta', $data_foto);
-			$k++;
-		}
+		$data_foto1 = array(
+			'meta_id' => $key + $k,
+			'post_id' => $keyTransaksi,
+			'meta_key' => 'trav_gallery_imgs',
+			'meta_value' => $fotoid1
+		);
+		$this->db->insert('wpwj_postmeta', $data_foto1);
+		$k++;
+
+		$data_foto2 = array(
+			'meta_id' => $key + $k,
+			'post_id' => $keyTransaksi,
+			'meta_key' => 'trav_gallery_imgs',
+			'meta_value' => $fotoid2
+		);
+		$this->db->insert('wpwj_postmeta', $data_foto2);
+		$k++;
+
+		$data_foto3 = array(
+			'meta_id' => $key + $k,
+			'post_id' => $keyTransaksi,
+			'meta_key' => 'trav_gallery_imgs',
+			'meta_value' => $fotoid3
+		);
+		$this->db->insert('wpwj_postmeta', $data_foto3);
+		$k++;
 
 		$data12 = array(
 			'meta_id' => $key + $k,
@@ -712,7 +729,7 @@ class Model_properti extends CI_Model
 			'meta_id' => $key + $k,
 			'post_id' => $keyTransaksi,
 			'meta_key' => 'trav_accommodation_check_in',
-			'meta_value' => '2 PM'
+			'meta_value' => $checkin
 		);
 		$this->db->insert('wpwj_postmeta', $data19);
 		$k++;
@@ -721,7 +738,7 @@ class Model_properti extends CI_Model
 			'meta_id' => $key + $k,
 			'post_id' => $keyTransaksi,
 			'meta_key' => 'trav_accommodation_check_out',
-			'meta_value' => '11 AM'
+			'meta_value' => $checkout
 		);
 		$this->db->insert('wpwj_postmeta', $data20);
 		$k++;
@@ -730,7 +747,7 @@ class Model_properti extends CI_Model
 			'meta_id' => $key + $k,
 			'post_id' => $keyTransaksi,
 			'meta_key' => 'trav_accommodation_cancellation',
-			'meta_value' => ''
+			'meta_value' => $cancel
 		);
 		$this->db->insert('wpwj_postmeta', $data21);
 		$k++;
@@ -739,7 +756,7 @@ class Model_properti extends CI_Model
 			'meta_id' => $key + $k,
 			'post_id' => $keyTransaksi,
 			'meta_key' => 'trav_accommodation_extra_beds_detail',
-			'meta_value' => ''
+			'meta_value' => $bed
 		);
 		$this->db->insert('wpwj_postmeta', $data22);
 		$k++;
@@ -748,7 +765,7 @@ class Model_properti extends CI_Model
 			'meta_id' => $key + $k,
 			'post_id' => $keyTransaksi,
 			'meta_key' => 'trav_accommodation_pets',
-			'meta_value' => ''
+			'meta_value' => $pet
 		);
 		$this->db->insert('wpwj_postmeta', $data23);
 		$k++;
@@ -1068,9 +1085,40 @@ class Model_properti extends CI_Model
 		$this->db->insert('wpwj_postmeta', $data58);
 		$k++;
 
+		$thing = $this->db->query("select p.id as id, p.post_title as judul
+			from wpwj_posts p
+			left join wpwj_term_relationships tr on p.ID = tr.object_id
+			where p.post_type = 'things_to_do'
+			and tr.term_taxonomy_id = ".$city)->result();
+		foreach($thing as $t){
+			$data = array(
+				'meta_id' => $key + $k,
+				'post_id' => $keyTransaksi,
+				'meta_key' => 'trav_accommodation_ttd',
+				'meta_value' => $t->id
+			);
+			$this->db->insert('wpwj_postmeta', $data);
+			$k++;
+		}
+
+		$travel = $this->db->query("select p.id as id, p.post_title as judul
+				from wpwj_posts p
+				where p.post_type = 'travel_guide'
+				and p.post_title like '%Wisata ".$kota."%'")->result();
+		foreach($travel as $tg){
+			$data = array(
+				'meta_id' => $key + $k,
+				'post_id' => $keyTransaksi,
+				'meta_key' => 'trav_accommodation_tg',
+				'meta_value' => $tg->id
+			);
+			$this->db->insert('wpwj_postmeta', $data);
+			$k++;
+		}
+
 		$data59 = array(
 			'meta_id' => $key + $k,
-			'post_id' => $fotoid[0],
+			'post_id' => $fotoid1,
 			'meta_key' => '_wp_attached_file',
 			'meta_value' => '../../mitra/assets/images/hotel/' . $upload1['file']['file_name']
 		);
@@ -1079,7 +1127,7 @@ class Model_properti extends CI_Model
 
 		$data60 = array(
 			'meta_id' => $key + $k,
-			'post_id' => $fotoid[1],
+			'post_id' => $fotoid2,
 			'meta_key' => '_wp_attached_file',
 			'meta_value' => '../../mitra/assets/images/hotel/' . $upload2['file']['file_name']
 		);
@@ -1088,7 +1136,7 @@ class Model_properti extends CI_Model
 
 		$data61 = array(
 			'meta_id' => $key + $k,
-			'post_id' => $fotoid[2],
+			'post_id' => $fotoid3,
 			'meta_key' => '_wp_attached_file',
 			'meta_value' => '../../mitra/assets/images/hotel/' . $upload3['file']['file_name']
 		);
