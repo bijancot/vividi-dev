@@ -918,6 +918,8 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
 
             $check_in = get_post_meta( $booking_data['accommodation_id'], 'trav_accommodation_check_in', true );
             $check_out = get_post_meta( $booking_data['accommodation_id'], 'trav_accommodation_check_out', true );
+            $jamcheckin = date("G:i", strtotime($check_in));
+            $jamcheckout = date("G:i", strtotime($check_out));
             $check_in_time = empty( $check_in )?$booking_data['date_from']:( $booking_data['date_from'] . ' ' . $check_in );
             $check_out_time = empty( $check_out )?$booking_data['date_to']:( $booking_data['date_to'] . ' ' . $check_out );
 
@@ -972,7 +974,7 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
             } else {
                 $b[1] = 'Desember';
             }
-            $booking_checkin_time = $a[0].", ".$b[0]." ".$b[1]." ".$b[2];
+            $booking_checkin_time = $a[0].", ".$b[0]." ".$b[1]." ".$b[2].", Pukul " . $jamcheckin;
             $booking_checkout_time = date( 'l,j F Y', trav_strtotime($booking_data['date_to']) );
             $a = explode(',', $booking_checkout_time);
             $b = explode(' ', $a[1] );
@@ -1016,7 +1018,7 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
             } else {
                 $b[1] = 'Desember';
             }
-            $booking_checkout_time = $a[0].", ".$b[0]." ".$b[1]." ".$b[2];
+            $booking_checkout_time = $a[0].", ".$b[0]." ".$b[1]." ".$b[2] . ", Pukul " . $jamcheckout;
             $booking_rooms = $booking_data['rooms'];
             $booking_valid_until = date( 'l,j F Y H:i:s', trav_strtotime($booking_data['valid_until']) );
             $a = explode(',', $booking_valid_until);

@@ -38,9 +38,8 @@ foreach ($data as $row) {
 					style="color: #000000; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
 				<?php echo $row->negara; ?></span><br>
 				<span
-					style="margin-bottom: 10px; color: #000000; font-family: arial; margin-left: 20px; display:inline-block;  font-size: 15px">Telepon :
+					style="color: #000000; font-family: arial; margin-left: 20px; display:inline-block;  font-size: 15px">Telepon :
 				<?php echo $row->telepon; ?></span><br>
-				<div style="color: #ffffff; margin-bottom: 10px; background-color: #ffffff;">&nbsp</div>
 				<span
 					style="color: #000000; font-family: arial; margin-top: 5px; margin-left: 20px; display:inline-block;  font-size: 15px">
 				Pemesanan & Pembayaran Melalui

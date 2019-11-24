@@ -26,9 +26,8 @@
 				[accommodation_city]</span><br>
 			<span style="margin-top: 5px; color: #000000; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
 				[accommodation_country]</span><br>
-			<span style="margin-bottom: 10px; margin-top: 5px; color: #000000; font-family: arial; margin-left: 20px; display:inline-block;  font-size: 15px">Telepon :
+			<span style="margin-top: 5px; color: #000000; font-family: arial; margin-left: 20px; display:inline-block;  font-size: 15px">Telepon :
 				[accommodation_phone]</span><br>
-			<div style="color: #ffffff; margin-bottom: 5px; background-color: #ffffff">&nbsp</div>
 			<span
 				style="color: #000000; font-family: arial; margin-top: 5px; margin-left: 20px; display:inline-block;  font-size: 15px">
 				Sistem Pembayaran
@@ -68,7 +67,7 @@
 			</span><br>
 			<span
 				style="color: #000000; font-family: arial;margin-left: 20px; display:inline-block;  font-size: 15px">
-				[booking_checkin_time]
+				[booking_checkin_time], Pukul . 15.00
 			</span><br>
 			<span
 				style="color: #000000; font-family: arial; margin-top: 5px; margin-left: 20px; display:inline-block;  font-size: 15px">
@@ -76,7 +75,7 @@
 			</span><br>
 			<span
 				style="color: #000000; font-family: arial; margin-bottom: 10px; margin-left: 20px; display:inline-block;  font-size: 15px">
-				[booking_checkout_time]
+				[booking_checkout_time], Pukul . 21.00
 			</span>
 		</div>
 		<div class="col-sm-6 col-md-6"

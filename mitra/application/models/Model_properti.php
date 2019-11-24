@@ -173,7 +173,7 @@ class Model_properti extends CI_Model
         return $query->result();
     }
 
-	function data_pesan($id){
+	function data_pesan(){
 		$query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
@@ -193,12 +193,11 @@ class Model_properti extends CI_Model
 			 from wpwj_trav_accommodation_bookings ab
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
-			 where p_prop.post_author = ".$id."
 			 order by pesan desc");
 		return $query->result();
 	}
 
-    function data_pesan_batal($id){
+    function data_pesan_batal(){
         $query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
@@ -217,12 +216,11 @@ class Model_properti extends CI_Model
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
 			 where ab.status = '0'
-			 and p_prop.post_author = ".$id."
 			 order by pesan desc");
         return $query->result();
     }
 
-    function data_pesan_menunggu($id){
+    function data_pesan_menunggu(){
         $query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
@@ -241,12 +239,11 @@ class Model_properti extends CI_Model
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
 			 where ab.status = '1'
-			 and p_prop.post_author = ".$id."
 			 order by pesan desc");
         return $query->result();
     }
 
-    function data_pesan_sukses($id){
+    function data_pesan_sukses(){
         $query = $this->db->query("select ab.id as id,
 			 ab.booking_no as booking_no,
 			 ab.first_name as nama_awal,
@@ -265,7 +262,6 @@ class Model_properti extends CI_Model
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
 			 where ab.status = '2'
-			 and p_prop.post_author = ".$id."
 			 order by pesan desc");
         return $query->result();
     }
@@ -1622,6 +1618,7 @@ class Model_properti extends CI_Model
 			ab.booking_no as booking_no,
 			ab.first_name as nama_awal,
 			ab.email as cust_email,
+			ab.phone as cust_phone,
 			ab.last_name as nama_akhir,
 			ab.date_from as check_in,
 			ab.date_to as check_out,

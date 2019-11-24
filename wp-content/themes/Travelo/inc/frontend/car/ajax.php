@@ -165,7 +165,7 @@ if ( ! function_exists( 'trav_ajax_car_submit_booking' ) ) {
 		$latest_booking_id = $wpdb->get_var( 'SELECT id FROM ' . TRAV_CAR_BOOKINGS_TABLE . ' ORDER BY id DESC LIMIT 1' );
 //		$booking_no = mt_rand( 1000, 9999 );
         $random = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $booking_no = 'VVDS'. substr(str_shuffle($random), 0, 6);
+        $booking_no = substr(str_shuffle($random), 0, 6);
 		$pin_code = mt_rand( 1000, 9999 );
 		if ( ! isset( $_SESSION['exchange_rate'] ) ) trav_init_currency();
 		$default_booking_data = array(  'first_name'        => '',

@@ -45,13 +45,14 @@ class Test extends CI_Controller
 
 	public function receipt()
 	{
+		$data['data'] = $this->Model_properti->data_email('P45R0T');
 		$data['folder'] = "Test";
 		$this->load->view('Test/receipt', $data);
 	}
 
 	public function voucher()
 	{
-		$data['data'] = $this->Model_properti->data_email('87DSJF');
+		$data['data'] = $this->Model_properti->data_email('P45R0T');
 		$data['folder'] = "Test";
 		$this->load->view('Test/voucher', $data);
 	}
@@ -73,5 +74,4 @@ class Test extends CI_Controller
 		$data['folder'] = "Map";
 		$this->load->view('Map/map3', $data);
 	}
-
 }

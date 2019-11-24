@@ -34,7 +34,7 @@ class Login extends CI_Controller
                 $data = array('role' => $role[1], 'username' => $user , 'nama' => $nama , 'ID' => $id, 'email' => $email);
                 $this->session->set_userdata($data);
                 if ($role[1] == "administrator") {
-                    redirect(base_url('home'));
+                    redirect(base_url('Admin/home'));
                 } else if ($role[1] == "trav_busowner") {
                     redirect(base_url('home'));
                 } else {

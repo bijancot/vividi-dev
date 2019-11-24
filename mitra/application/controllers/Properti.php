@@ -77,6 +77,7 @@ class Properti extends CI_Controller {
 		$data['data'] = $this->Model_properti->data_email($booking_no);
 		$mitra = $this->Model_properti->email_owner($booking_no);
 		$cust = $this->Model_properti->email_custowner($booking_no);
+		$admin = 'order@vividi.id';
 		// Konfigurasi email
 		$config = [
 			'mailtype'  => 'html',
@@ -97,12 +98,9 @@ class Properti extends CI_Controller {
 		// Email dan nama pengirim
 		$this->email->from('info@vividi.id', 'E-Voucher Pemesanan Akomodasi');
 
-		$list = array($mitra, $cust);
+		$list = array($mitra, $cust, $admin);
 		// Email penerima
 		$this->email->to($list); // Ganti dengan email tujuan
-
-		// Lampiran email, isi dengan url/path file
-//		$this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
 
 		// Subject email
 		$this->email->subject('E-Voucher Pemesanan Akomodasi');
@@ -119,6 +117,50 @@ class Properti extends CI_Controller {
 	}
 
 	public function email_confirm($booking_no)
+	{
+//		$mitra = $_SESSION['email'];
+		$admin = 'order@vividi.id';
+		// Konfigurasi email
+		$config = [
+			'mailtype'  => 'html',
+			'charset'   => 'utf-8',
+			'protocol'  => 'smtp',
+			'smtp_host' => 'mail.vividi.id',
+			'smtp_user' => 'info@vividi.id',  // Email gmail
+			'smtp_pass' => 'hafiz110118',  // Password gmail
+			'smtp_crypto' => 'ssl',
+			'smtp_port'   => 465,
+			'crlf'    => "\r\n",
+			'newline' => "\r\n"
+		];
+
+		// Load library email dan konfigurasinya
+		$this->load->library('email', $config);
+
+		// Email dan nama pengirim
+		$this->email->from('info@vividi.id', 'Email Konfirmasi Pembayaran');
+
+//		$list = array($mitra, $admin);
+		// Email penerima
+		$this->email->to($admin); // Ganti dengan email tujuan
+
+		// Subject email
+		$this->email->subject('Email Konfirmasi Pembayaran');
+		$data['data'] = $this->Model_properti->data_email($booking_no);
+		// Isi email
+		$body = $this->load->view('Test/confirm.php',$data,  TRUE);
+		$this->email->message($body);
+
+		// Tampilkan pesan sukses atau error
+		if ($this->email->send()) {
+			redirect('https://vividi.id/halaman-member/?ihc_ap_menu=orders');
+//			echo 'Sukses';
+		} else {
+			echo 'Error! email tidak dapat dikirim.';
+		}
+	}
+
+	public function email_receipt($booking_no)
 	{
 //		$mitra = $_SESSION['email'];
 		$admin = 'omibalola@gmail.com';
@@ -146,20 +188,17 @@ class Properti extends CI_Controller {
 		// Email penerima
 		$this->email->to($admin); // Ganti dengan email tujuan
 
-		// Lampiran email, isi dengan url/path file
-//		$this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
-
 		// Subject email
 		$this->email->subject('Email Konfirmasi Pembayaran');
 		$data['data'] = $this->Model_properti->data_email($booking_no);
 		// Isi email
-		$body = $this->load->view('Test/confirm.php',$data,  TRUE);
+		$body = $this->load->view('Test/receipt.php',$data,  TRUE);
 		$this->email->message($body);
 
 		// Tampilkan pesan sukses atau error
 		if ($this->email->send()) {
-			redirect('http://localhost/vividi-dev/halaman-member/?ihc_ap_menu=orders');
-//			echo 'Sukses';
+//			redirect('http://localhost/vividi-dev/halaman-member/?ihc_ap_menu=orders');
+			echo 'Sukses';
 		} else {
 			echo 'Error! email tidak dapat dikirim.';
 		}
@@ -448,10 +487,10 @@ class Properti extends CI_Controller {
     public function pesan()
     {
 		$id = $_SESSION['ID'];
-        $data['data'] = $this->Model_properti->data_pesan_menunggu($id);
-        $data['data_batal'] = $this->Model_properti->data_pesan_batal($id);
-        $data['data_sukses'] = $this->Model_properti->data_pesan_sukses($id);
-        $data['data_semua'] = $this->Model_properti->data_pesan($id);
+        $data['data'] = $this->Model_properti->data_pesan_menunggu();
+        $data['data_batal'] = $this->Model_properti->data_pesan_batal();
+        $data['data_sukses'] = $this->Model_properti->data_pesan_sukses();
+        $data['data_semua'] = $this->Model_properti->data_pesan();
         $data['folder'] = "properti";
         $data['side'] = "pesan";
         $this->load->view('index',$data);
