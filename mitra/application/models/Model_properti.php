@@ -308,7 +308,7 @@ class Model_properti extends CI_Model
             av.date_from as dari, 
             av.date_to as sampai, 
             av.rooms as allotment ,
-            av.price_per_room as harga
+            av.price_normal as harga
             from wpwj_trav_accommodation_vacancies av
             left join wpwj_posts pproperti on av.accommodation_id = pproperti.ID
             left join wpwj_posts pkamar on av.room_type_id = pkamar.ID
@@ -329,7 +329,7 @@ class Model_properti extends CI_Model
             av.date_from as dari, 
             av.date_to as sampai, 
             av.rooms as allotment ,
-            av.price_per_room as harga
+            av.price_normal as harga
             from wpwj_trav_accommodation_vacancies av
             left join wpwj_posts pproperti on av.accommodation_id = pproperti.ID
             left join wpwj_posts pkamar on av.room_type_id = pkamar.ID
@@ -350,8 +350,8 @@ class Model_properti extends CI_Model
             pkamar.post_title as kamar, 
             av.date_from as dari, 
             av.date_to as sampai, 
-            av.rooms as allotment ,
-            av.price_per_room as harga
+            av.rooms as allotment,
+            av.price_normal as harga
             from wpwj_trav_accommodation_vacancies av
             left join wpwj_posts pproperti on av.accommodation_id = pproperti.ID
             left join wpwj_posts pkamar on av.room_type_id = pkamar.ID
@@ -1371,7 +1371,8 @@ class Model_properti extends CI_Model
                     if ($tgl_2 == $row->date_to) {
                         $data_new = array(
                             'rooms' => $allotment,
-                            'price_per_room' => $harga
+                            'price_normal' => $harga,
+                            'price_per_room' => $harga + ($harga*5/100)
                         );
                         $this->db->where('id', $row->id);
                         $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
@@ -1384,7 +1385,8 @@ class Model_properti extends CI_Model
                             'accommodation_id' => $id_properti,
                             'room_type_id' => $id_type_kamar,
                             'rooms' => $allotment,
-                            'price_per_room' => $harga,
+                            'price_normal' => $harga,
+                            'price_per_room' => $harga + ($harga*5/100),
                             'price_per_person' => '',
                             'child_price' => ''
                         );
@@ -1405,7 +1407,8 @@ class Model_properti extends CI_Model
                                 $data_new = array(
                                     'date_to' => $tgl_2,
                                     'rooms' => $allotment,
-                                    'price_per_room' => $harga
+                                    'price_normal' => $harga,
+                                    'price_per_room' => $harga + ($harga*5/100)
                                 );
                                 $this->db->where('id', $r->id);
                                 $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
@@ -1441,7 +1444,8 @@ class Model_properti extends CI_Model
                                     'accommodation_id' => $id_properti,
                                     'room_type_id' => $id_type_kamar,
                                     'rooms' => $allotment,
-                                    'price_per_room' => $harga,
+                                    'price_normal' => $harga,
+                                    'price_per_room' => $harga + ($harga*5/100),
                                     'price_per_person' => '',
                                     'child_price' => ''
                                 );
@@ -1454,7 +1458,8 @@ class Model_properti extends CI_Model
                                     'accommodation_id' => $id_properti,
                                     'room_type_id' => $id_type_kamar,
                                     'rooms' => $row->rooms,
-                                    'price_per_room' => $row->price_per_room,
+                                    'price_normal' => $row->price_normal,
+                                    'price_per_room' => $row->price_normal + ($row->price_normal*5/100),
                                     'price_per_person' => '',
                                     'child_price' => ''
                                 );
@@ -1478,7 +1483,8 @@ class Model_properti extends CI_Model
                                     'accommodation_id' => $id_properti,
                                     'room_type_id' => $id_type_kamar,
                                     'rooms' => $allotment,
-                                    'price_per_room' => $harga,
+                                    'price_normal' => $harga,
+                                    'price_per_room' => $harga + ($harga*5/100),
                                     'price_per_person' => '',
                                     'child_price' => ''
                                 );
@@ -1510,7 +1516,8 @@ class Model_properti extends CI_Model
                             'accommodation_id' => $id_properti,
                             'room_type_id' => $id_type_kamar,
                             'rooms' => $allotment,
-                            'price_per_room' => $harga,
+                            'price_normal' => $harga,
+                            'price_per_room' => $harga + ($harga*5/100),
                             'price_per_person' => '',
                             'child_price' => ''
                         );
@@ -1527,7 +1534,8 @@ class Model_properti extends CI_Model
                 'accommodation_id' => $id_properti,
                 'room_type_id' => $id_type_kamar,
                 'rooms' => $allotment,
-                'price_per_room' => $harga,
+                'price_normal' => $harga,
+                'price_per_room' => $harga + ($harga*5/100),
                 'price_per_person' => '',
                 'child_price' => ''
             );
@@ -1573,7 +1581,8 @@ class Model_properti extends CI_Model
     public function save_harga_baru($id, $harga)
     {
         $data_new = array(
-            'price_per_room' => $harga
+            'price_normal' => $harga,
+            'price_per_room' => $harga + ($harga*5/100)
         );
         $this->db->where('id', $id);
         $this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
