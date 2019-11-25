@@ -3,10 +3,10 @@
     <section class="content-header">
         <h1>
             Tipe Kamar
-			<button type="button" class="btn btn-primary" style="margin-bottom: 10px" data-toggle="modal"
-					data-target="#modal_kamar">
-				Tambah Tipe Kamar
-			</button>
+            <button type="button" class="btn btn-primary" style="margin-bottom: 10px" data-toggle="modal"
+                    data-target="#modal_kamar">
+                Tambah Tipe Kamar
+            </button>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-laptop"></i> Home</a></li>
@@ -46,7 +46,11 @@
                                     <td><?php echo $row->penulis; ?></td>
                                     <td><?php echo $row->tanggal; ?></td>
                                     <td>
-                                    <button type="button" id="detail" class="btn btn-default" style="margin-bottom: 10px" data-toggle="modal" data-id="<?php echo $row->id ?>" onclick="clickButton(<?php echo $row->id ?>)">Detail</button>
+                                        <button type="button" id="detail" class="btn btn-default"
+                                                style="margin-bottom: 10px" data-toggle="modal"
+                                                data-id="<?php echo $row->id ?>"
+                                                onclick="clickButton(<?php echo $row->id ?>)">Detail
+                                        </button>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -98,15 +102,19 @@
                     </div>
                     <div class="form-group">
                         <label>Deskripsi</label>
-                        <input type="text" name="deskripsi" class="form-control" placeholder="Deskripsi" required>
+                        <input type="text" name="deskripsi" minlength="50" maxlength="200" onkeyup="countChar1(this)" class="form-control"
+                               placeholder="Deskripsi" required>
+                        <div name="charNum1" id="charNum1">200</div>
                     </div>
                     <div class="form-group">
                         <label>Max Dewasa</label>
-                        <input type="number" name="remaja" class="form-control" placeholder="Dewasa" min="1" value="1" required>
+                        <input type="number" name="remaja" class="form-control" placeholder="Dewasa" min="1" value="1"
+                               required>
                     </div>
                     <div class="form-group">
                         <label>Max Anak</label>
-                        <input type="number" name="anak" class="form-control" placeholder="Anak" min="0" value="0" required>
+                        <input type="number" name="anak" class="form-control" placeholder="Anak" min="0" value="0"
+                               required>
                     </div>
                     <div class="form-group">
                         <label>Fasilitas</label><br>
@@ -148,18 +156,25 @@
 
     <!-- Modal Detail -->
     <div id="modal_detail" class="modal fade" role="dialog">
-        
+
     </div>
     <!-- End Modal Detail -->
 </div>
 <script type="text/javascript">
-  function clickButton(id){
-    var postdata = {id: id};
-    var url =  "<?= site_url('kamar/modal_tipe_kamar')?>";
-    $.post(url, postdata, function(data) {
-      var results = JSON.parse(data);
-      $('#modal_detail').html(results);
-    });
-    $('#modal_detail').modal('show');
-}
+    function clickButton(id) {
+        var postdata = {id: id};
+        var url = "<?= site_url('kamar/modal_tipe_kamar')?>";
+        $.post(url, postdata, function (data) {
+            var results = JSON.parse(data);
+            $('#modal_detail').html(results);
+        });
+        $('#modal_detail').modal('show');
+    }
+
+    function countChar1(val) {
+        var len = val.value.length;
+        var ml = val.maxLength;
+        $('#charNum1').text(ml - len);
+    };
 </script>
+

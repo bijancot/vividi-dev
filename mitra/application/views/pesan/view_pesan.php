@@ -20,28 +20,27 @@
                     <ul class="nav nav-tabs">
 						<?php
 						$seg = $this->uri->segment(3);
-						if($seg == 'tab_1' || $seg == ''){?>
+                        if($seg == 'tab_4' || $seg == ''){?>
+                        <li class="active"><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
+                        <?php } else{ ?>
+                        <li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
+                        <?php }
+						if($seg == 'tab_1'){?>
 							<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
 						<?php } else { ?>
 							<li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
 						<?php }
 
+                        if($seg == 'tab_3'){?>
+                            <li class="active"><a href="#tab_3" data-toggle="tab" aria-expanded="false">Sukses</a></li>
+                        <?php } else{ ?>
+                            <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Sukses</a></li>
+                        <?php }
+
 						if($seg == 'tab_2'){?>
                         	<li class="active"><a href="#tab_2" data-toggle="tab" aria-expanded="true">Batal</a></li>
 						<?php } else{ ?>
 							<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="true">Batal</a></li>
-						<?php }
-
-						if($seg == 'tab_3'){?>
-                        	<li class="active"><a href="#tab_3" data-toggle="tab" aria-expanded="false">Sukses</a></li>
-						<?php } else{ ?>
-							<li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Sukses</a></li>
-						<?php }
-
-						if($seg == 'tab_4'){?>
-                        	<li class="active"><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
-						<?php } else{ ?>
-							<li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
 						<?php } ?>
                     </ul>
                     <div class="tab-content">
@@ -59,7 +58,7 @@
                                     <th>Harga</th>
                                     <th>Tanggal Pesan</th>
                                     <th>Status</th>
-                                    <th></th>
+                                    <th>Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
