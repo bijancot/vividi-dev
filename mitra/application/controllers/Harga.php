@@ -56,7 +56,7 @@ class Harga extends CI_Controller
 		$this->form_validation->set_rules('psseason', 'a', 'required|numeric|greater_than[0.99]|regex_match[/^[0-9,]+$/]');
 		$this->form_validation->set_error_delimiters('<br><div class="alert alert-danger" role="alert">', '</div>');
 		if ($this->form_validation->run() == FALSE) {
-			redirect(base_url('harga/harga_modal'));
+			redirect(base_url('harga'));
 		} else {
 			$this->load->view('index',$data);
 		}
@@ -105,7 +105,7 @@ class Harga extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
 			$this->Model_harga->save_harga_baru($id, $harga);
 		}
-		redirect(base_url('harga/harga_modal'));
+		redirect(base_url('harga'));
 	}
 
 	public function modal_ubah_harga()

@@ -47,7 +47,7 @@ class Kamar extends CI_Controller
 			where p.post_type = 'attachment'
 			and p.post_parent = ".$post);
 		$data['foto'] = $foto->result();
-		$filter_view = $this->load->view('harga/modal_tipe_kamar', $data, TRUE);
+		$filter_view = $this->load->view('kamar/modal_tipe_kamar', $data, TRUE);
 
 		echo json_encode($filter_view);
 	}
@@ -83,7 +83,7 @@ class Kamar extends CI_Controller
 		} else {
 			echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";
 		}
-		redirect(base_url('harga/tipe_kamar'));
+		redirect(base_url('kamar'));
 	}
 
 }
