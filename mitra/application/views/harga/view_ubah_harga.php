@@ -16,10 +16,6 @@
 				<div class="box">
 					<!-- /.box-header -->
 					<div class="box-body">
-						<button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal_harga">
-							Atur Harga Baru
-						</button>
-						<br><br>
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 							<tr>

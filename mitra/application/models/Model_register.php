@@ -1,6 +1,6 @@
 <?php
 
-class model_register extends CI_Model
+class Model_register extends CI_Model
 {
     function save_mitra($user, $pass, $email, $n_depan, $n_belakang, $telepon, $time, $jabatan)
     {

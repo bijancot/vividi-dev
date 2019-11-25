@@ -962,35 +962,4 @@ class Model_properti extends CI_Model
 		}
 
 	}
-
-    public function email_custowner($booking_no)
-    {
-        $query = $this->db->query("select ab.id as id,
-			ab.booking_no as booking_no,
-			ab.first_name as nama_awal,
-			ab.last_name as nama_akhir,
-			ab.created as tgl_pesan,
-			ab.email as email
-			from wpwj_trav_accommodation_bookings ab
-			where ab.booking_no = '$booking_no'
-			order by tgl_pesan desc");
-        Foreach ($query->result() as $row) {
-            $email = $row->email;
-            return $email;
-        }
-    }
-
-    public function email_owner($booking_no)
-    {
-        $query = $this->db->query("select u.user_email
-		from wpwj_users u
-		left join wpwj_posts p on u.ID = p.post_author
-		left join wpwj_trav_accommodation_bookings ab on p.ID = ab.accommodation_id
-		where ab.booking_no = '$booking_no'");
-        Foreach ($query->result() as $row) {
-            $email = $row->user_email;
-            return $email;
-        }
-    }
-
 }

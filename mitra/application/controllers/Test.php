@@ -8,7 +8,7 @@ class Test extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->database();
-		$this->load->model("Model_properti");
+		$this->load->model("Model_email");
 	}
 
 	public function index()
@@ -23,6 +23,14 @@ class Test extends CI_Controller
 		$data['folder'] = "Test";
 //		$data['side'] = "dashboard";
 		$this->load->view('Test/real', $data);
+	}
+
+	public function confirm()
+	{
+		$data['folder'] = "Test";
+//		$data['side'] = "dashboard";
+		$data['data'] = $this->Model_email->data_email('7HWQYM');
+		$this->load->view('Test/confirm', $data);
 	}
 
 	public function timer()
@@ -45,14 +53,14 @@ class Test extends CI_Controller
 
 	public function receipt()
 	{
-		$data['data'] = $this->Model_properti->data_email('P45R0T');
+		$data['data'] = $this->Model_email->data_email('7HWQYM');
 		$data['folder'] = "Test";
 		$this->load->view('Test/receipt', $data);
 	}
 
 	public function voucher()
 	{
-		$data['data'] = $this->Model_properti->data_email('P45R0T');
+		$data['data'] = $this->Model_email->data_email('7HWQYM');
 		$data['folder'] = "Test";
 		$this->load->view('Test/voucher', $data);
 	}

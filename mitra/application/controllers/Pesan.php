@@ -14,7 +14,6 @@ class Pesan extends CI_Controller
 
 	public function view_pesan()
 	{
-		$id = $_SESSION['ID'];
 		$data['data'] = $this->Model_pesan->data_pesan_menunggu();
 		$data['data_batal'] = $this->Model_pesan->data_pesan_batal();
 		$data['data_sukses'] = $this->Model_pesan->data_pesan_sukses();

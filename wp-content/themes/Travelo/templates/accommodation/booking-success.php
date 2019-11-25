@@ -250,7 +250,7 @@ $tax_rate = get_post_meta($acc_id, 'trav_accommodation_tax_rate', true);
                         <span style="color: #000000; font-family: arial; font-size: 20px; display: inline-block; margin-left: 20px; margin-top: 10px">Apabila Kamu sudah melakukan pembayaran</span><br>
                         <span style="color: #000000; font-family: arial; font-size: 12px; margin-left: 20px; display: inline-block; margin-top: 2px">Lakukan konfirmasi pembayaran agar Kami dapat segera memproses voucher hotel ke alamat Email Kamu.</span><br>
                         <span style="color: #000000; font-family: arial; font-size: 12px; margin-left: 20px; display: inline-block; margin-top: 2px; margin-bottom: 10px;">Caranya mudah, klik tombol konfirmasi melalui E-mail atau Whatsapp di bawah ini.</span><br>
-                        <a href="http://localhost/vividi-dev/mitra/Properti/email_confirm/<?php echo($booking_data['booking_no']); ?>">
+                        <a href="http://localhost/vividi-dev/mitra/Admin/Pesan/email_confirm/<?php echo($booking_data['booking_no']); ?>">
                             <img src="https://vividi.id/wp-content/themes/Travelo/images/email.png"
                                  style="margin-left: 20px;float:left;width:72px; height:60px;border-radius:5px; margin-top: 10px;
 			margin-bottom: 10px "/>
