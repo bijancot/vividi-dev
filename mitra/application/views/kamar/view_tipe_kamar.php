@@ -80,7 +80,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Tambah Tipe Kamar</h4>
                 </div>
-                <?php echo form_open_multipart(base_url('properti/save_type_kamar')); ?>
+                <?php echo form_open_multipart(base_url('kamar/save_type_kamar')); ?>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Pilih Properti</label>
@@ -153,7 +153,7 @@
 <script type="text/javascript">
   function clickButton(id){
     var postdata = {id: id};
-    var url =  "<?= site_url('properti/modal_tipe_kamar')?>";
+    var url =  "<?= site_url('kamar/modal_tipe_kamar')?>";
     $.post(url, postdata, function(data) {
       var results = JSON.parse(data);
       $('#modal_detail').html(results);

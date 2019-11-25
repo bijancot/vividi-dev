@@ -67,10 +67,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php
     if ($folder == "dashboard" || $folder == "profile") {
         $this->load->view($side, $data);
-    } else if(isset($view) && $view == "insert" && $side == "properti"){
+    } else if(isset($view) && $view == "insert_properti"){
     	$data['tipe'] = $tipe;
     	$data['country'] = $country;
-    	$this->load->view($folder . '/insert_'.$side, $data);
+    	$this->load->view($folder . '/'.$view, $data);
 	} else {
 //        include 'properti/view_tipe_kamar.php';
         $this->load->view($folder . '/view_' . $side, $data);

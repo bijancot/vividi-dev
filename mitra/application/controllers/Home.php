@@ -8,7 +8,9 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Model_properti');
+        $this->load->model('Model_pesan');
         $this->load->model('Model_register');
+		$this->load->model('Model_profil');
         $this->load->library('session');
         $this->load->database();
     }
@@ -17,12 +19,12 @@ class Home extends CI_Controller
     {
         $id = $_SESSION['ID'];
         $data['data'] = $this->Model_properti->data_properti($id);
-        $data['data_batal'] = $this->Model_properti->data_pesan_batal($id);
-        $data['data_menunggu'] = $this->Model_properti->data_pesan_menunggu($id);
-        $data['data_sukses'] = $this->Model_properti->data_pesan_sukses($id);
-        $data['data_batal'] = $this->Model_properti->data_pesan_batal($id);
-        $data['data_menunggu'] = $this->Model_properti->data_pesan_menunggu($id);
-        $data['data_sukses'] = $this->Model_properti->data_pesan_sukses($id);
+        $data['data_batal'] = $this->Model_pesan->data_pesan_batal($id);
+        $data['data_menunggu'] = $this->Model_pesan->data_pesan_menunggu($id);
+        $data['data_sukses'] = $this->Model_pesan->data_pesan_sukses($id);
+        $data['data_batal'] = $this->Model_pesan->data_pesan_batal($id);
+        $data['data_menunggu'] = $this->Model_pesan->data_pesan_menunggu($id);
+        $data['data_sukses'] = $this->Model_pesan->data_pesan_sukses($id);
         $data['folder'] = "dashboard";
         $data['side'] = "dashboard";
         $this->load->view('index', $data);
@@ -59,7 +61,7 @@ class Home extends CI_Controller
     public function profile()
     {
         $id = $_SESSION['ID'];
-        $data['data'] = $this->Model_properti->data_profile($id);
+        $data['data'] = $this->Model_profil->data_profile($id);
         $data['folder'] = "profile";
         $data['side'] = "profile";
         $this->load->view('index', $data);

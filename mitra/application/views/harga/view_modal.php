@@ -82,7 +82,7 @@
                 <div class="modal-header">
                     <h4 class="modal-title">Atur Harga</h4>
                 </div>
-                <?php echo form_open(base_url('properti/atur_harga')); ?>
+                <?php echo form_open(base_url('harga/atur_harga')); ?>
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Pilih properti</label>
@@ -128,7 +128,7 @@
 <script type="text/javascript">
     function clickButton(id){
         var postdata = {id: id};
-        var url =  "<?= site_url('properti/modal_ubah_harga')?>";
+        var url =  "<?= site_url('harga/modal_ubah_harga')?>";
         $.post(url, postdata, function(data) {
             var results = JSON.parse(data);
             $('#modal_detail').html(results);

@@ -219,12 +219,12 @@
 							<form role="form">
 								<div class="form-group">
 									<label>Nama Properti</label>
-									<input type="text" class="form-control" name="judul" placeholder="Enter ..."
+									<input type="text" class="form-control" name="judul" placeholder="Masukkan Data ..."
 										   required>
 								</div>
 								<div class="form-group">
 									<label>Deskripsi</label>
-									<textarea class="form-control" name="deskripsi" rows="6" placeholder="Enter ..." minlength="200" maxlength="800" onkeyup="countChar1(this)" id="textarea"
+									<textarea class="form-control" name="deskripsi" rows="6" placeholder="Masukkan Data ..." minlength="200" maxlength="800" onkeyup="countChar1(this)" id="textarea"
 											  required></textarea>
 									<div name="charNum1" id="charNum1">800</div>
 								</div>
@@ -299,12 +299,12 @@
 								</div>
 							</div>
 							<div class="form-group slidecontainer col-xs-12 col-md-6">
-								<label>Bintang Hotel : <span id="bintang"></span></label>
+								<label>Hotel Bintang : <span id="bintang"></span></label>
 								<input type="range" class="slider" name="bintang" id="star" min="1" max="5" value="1">
 							</div>
 							<div class="form-group col-xs-12">
-								<label>Minimal Harga Kamar</label>
-								<input type="number" class="form-control" name="harga">
+								<label>Masukan Harga Kamar Terendah</label>
+								<input type="number" class="form-control" name="harga" min="0" value="0">
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Minimal menginap</label>
@@ -328,7 +328,7 @@
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Deskripsi Singkat</label>
-								<textarea class="form-control" name="deskripsi_singkat" rows="3" placeholder="Enter ..." minlength="100" maxlength="200" onkeyup="countChar2(this)"
+								<textarea class="form-control" name="deskripsi_singkat" rows="3" placeholder="Masukkan Data ..." minlength="100" maxlength="200" onkeyup="countChar2(this)"
 										  required></textarea>
 								<div name="charNum2" id="charNum2">200</div>
 							</div>
@@ -353,20 +353,20 @@
 								<input class="form-control" type="time" name="checkout" step="3600" value="00:00">
 							</div>
 							<div class="form-group col-xs-12">
-								<label>Pembatalan</label>
-								<textarea class="form-control" name="cancel" rows="3" placeholder="Enter ..." maxlength="100" onkeyup="countChar3(this)"
+								<label>Kebijakan Pembatalan</label>
+								<textarea class="form-control" name="cancel" rows="3" placeholder="Masukkan Data ..." maxlength="100" onkeyup="countChar3(this)"
 										  required></textarea>
 								<div name="charNum3" id="charNum3">100</div>
 							</div>
 							<div class="form-group col-xs-12">
-								<label>Biaya anak dan Tempat Tidur Tambahan</label>
-								<textarea class="form-control" name="bed" rows="3" placeholder="Enter ..." maxlength="100" onkeyup="countChar4(this)"
+								<label>Kebijakan Biaya anak dan Tempat Tidur Tambahan</label>
+								<textarea class="form-control" name="bed" rows="3" placeholder="Masukkan Data ..." maxlength="100" onkeyup="countChar4(this)"
 										  required></textarea>
 								<div name="charNum4" id="charNum4">100</div>
 							</div>
 							<div class="form-group col-xs-12">
-								<label>Peliharaan</label>
-								<textarea class="form-control" name="pet" rows="3" placeholder="Enter ..." maxlength="100" onkeyup="countChar5(this)"
+								<label>Kebijakan membawa binatang peliharaan</label>
+								<textarea class="form-control" name="pet" rows="3" placeholder="Masukkan Data ..." maxlength="100" onkeyup="countChar5(this)"
 										  required></textarea>
 								<div name="charNum5" id="charNum5">100</div>
 							</div>

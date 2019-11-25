@@ -7,7 +7,7 @@ foreach ($data as $row) {
             <div class="modal-header">
                 <h4 class="modal-title">Ubah Harga</h4>
             </div>
-            <?php echo form_open('properti/save_ubah_harga'); ?>
+            <?php echo form_open('harga/save_ubah_harga'); ?>
             <div class="modal-body">
                 <div class="form-group">
                     <input type="hidden" name="id" class="form-control" placeholder="Judul" value="<?= $row->id ?>" readonly>
@@ -21,20 +21,20 @@ foreach ($data as $row) {
                     <input type="text" name="kamar" class="form-control" placeholder="Deskripsi" value="<?= $row->kamar ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Date From</label>
+                    <label>Mulai Dari</label>
                     <input type="text" name="dari" class="form-control" placeholder="Dewasa" value="<?= $row->dari ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Date To</label>
+                    <label>Sampai</label>
                     <input type="text" name="sampai" class="form-control" placeholder="Anak" value="<?= $row->sampai ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label>Allotment</label>
-                    <input type="text" name="allotment" class="form-control" placeholder="Anak" value="<?= $row->allotment ?>" readonly>
+                    <input type="text" name="allotment" class="form-control" placeholder="Allotment" value="<?= $row->allotment ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label>Harga</label>
-                    <input type="text" name="harga" class="form-control" placeholder="Anak" value="<?= $row->harga ?>" required>
+                    <input type="text" name="harga" class="form-control" placeholder="Harga" value="<?= $row->harga ?>" required>
                 </div>
             </div>
             <div class="modal-footer">

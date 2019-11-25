@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-xs-4">
                 <div class="card-body">
-                    <?php echo form_open(base_url('properti/save_harga')); ?>
+                    <?php echo form_open(base_url('harga/save_harga')); ?>
                         <div class="row">
                             <div class="col-md-5" style="align-content: center">
                                 <input type="hidden" id="demo-2_1" class="form-control" name="tgl_1"/>
