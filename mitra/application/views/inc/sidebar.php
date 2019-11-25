@@ -66,8 +66,8 @@
 			<?php if ($folder == 'pesan') { ?>
 				<li class="active"><a href="#">
 			<?php } else { ?>
-				<li><a href="<?= base_url('pesan'); ?>">
-			<?php } ?><i class="fa fa-pie-chart"></i> <span>Kamar</span></a></li>
+				<li><a href="<?= base_url('pesan/view_pesan'); ?>">
+			<?php } ?><i class="fa fa-pie-chart"></i> <span>Pesanan Tamu</span></a></li>
 
 			<!--                <ul class="treeview-menu treeview-menu-visible">-->
 <!--                    --><?php //if ($side == 'semua'){ ?>

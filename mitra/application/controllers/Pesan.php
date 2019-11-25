@@ -12,7 +12,7 @@ class Pesan extends CI_Controller
 		$this->load->database();
 	}
 
-	public function index()
+	public function view_pesan()
 	{
 		$id = $_SESSION['ID'];
 		$data['data'] = $this->Model_pesan->data_pesan_menunggu();

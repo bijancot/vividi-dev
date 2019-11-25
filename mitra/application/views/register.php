@@ -23,6 +23,7 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
+                <span class="logo-lg"><img src="<?php echo base_url('/assets/new-logo.png'); ?>" style="width: 250px;"></span><br><br>
                 <h4 class="modal-title">Register Mitra</h4>
             </div>
             <?php echo form_open(base_url('register/cek_register')); ?>
@@ -36,23 +37,34 @@
                     <input type="text" name="email" class="form-control" placeholder="Email" required>
                 </div>
                 <div class="form-group">
-                    <label>First Name</label>
+                    <label>Nama Depan</label>
                     <input type="text" name="depan" class="form-control" placeholder="Nama Depan" required>
                 </div>
                 <div class="form-group">
-                    <label>Last Name</label>
+                    <label>Nama Belakang</label>
                     <input type="text" name="belakang" class="form-control" placeholder="Nama Belakang" required>
                 </div>
                 <div class="form-group">
                     <label>Telepon</label>
                     <input type="text" name="telp" class="form-control" placeholder="Nomor Telepon" required>
                 </div>
-                <input type="checkbox" name="terms" value="ok"> <a href="https://vividi.id/terms-conditions/">Accept our Terms & Conditions</a>
+                <div class="form-group">
+                    <label>Jabatan</label>
+                    <select class="form-control" name="role">
+                        <option value="Owner">Owner</option>
+                        <option value="Direktur">Direktur</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Sales Marketing">Sales Marketing</option>
+                    </select>
+                </div>
+<!--                <input type="checkbox" name="terms" value="ok"> <a href="https://vividi.id/terms-conditions/">Accept our Terms & Conditions</a>-->
             </div>
             <div class="modal-footer">
                 <div class="pull-left">Sudah punya akun ? <a href="Login">Login</a></div>
-                <input type="submit" class="btn btn-success" value="Daftar" name="submit">
+                <input type="submit" class="btn btn-primary" value="Daftar" name="submit">
             </div>
+            <center>MITRA DASHBOARD ver 1.9.01</center>
+            <br>
             <?php echo form_close(); ?>
         </div>
     </div>

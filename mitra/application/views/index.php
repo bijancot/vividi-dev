@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     } else if(isset($view) && $view == "insert_properti"){
     	$data['tipe'] = $tipe;
     	$data['country'] = $country;
-    	$this->load->view($folder . '/'.$view, $data);
+        $this->load->view($folder . '/'.$view, $data);
 	} else {
 //        include 'properti/view_tipe_kamar.php';
         $this->load->view($folder . '/view_' . $side, $data);
@@ -151,7 +151,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#properti').change(function(){
             var prop = $(this).val();
             $.ajax({
-                url : "<?php echo site_url('kamar/modal_kamar')?>",
+                url : "<?php echo site_url('properti/modal_kamar')?>",
                 method : "POST",
                 data : {prop: prop},
                 async : false,
@@ -170,7 +170,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#country').change(function(){
             var country = $(this).val();
             $.ajax({
-                url : "<?php echo site_url('properti/modal_city')?>",
+                url : "<?php echo site_url('kamar/modal_city')?>",
                 method : "POST",
                 data : {country: country},
                 async : false,
