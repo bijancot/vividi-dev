@@ -20,7 +20,7 @@
                 <?php } else { ?>
             <li class="treeview menu-open">
                 <?php } ?>
-                <a href="#"><i class="fa fa-pie-chart"></i><span>Menu Properti</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
+                <a href="#"><i class="fa fa-pie-chart"></i><span>Menu Pesanan</span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu treeview-menu-visible">
 <!--                    --><?php //if ($side == 'semua'){ ?>
@@ -51,7 +51,7 @@
                     <?php if ($side == 'pesan'){ ?>
                         <li class="active"><a href="#"><?php } else { ?>
                     <li><a href="<?= base_url('Admin/Pesan/pesan'); ?>"><?php } ?>
-                            <i class="fa fa-circle-o"></i> Pesanan Tamu</a></li>
+                            <i class="fa fa-circle-o"></i> Pesanan Hotel</a></li>
                 </ul>
             </li>
         </ul>

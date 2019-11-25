@@ -1,6 +1,11 @@
 <!--<link rel="stylesheet" href="https://vividi.id/mitra/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">-->
 <?php
-foreach ($data as $row) { ?>
+foreach ($data as $row) {
+	$jml = $row->jum_kamar;
+//	$satuan = number_format($row->harga_total,0,"",".");
+	$satuan = $row->harga_total;
+	$total = $jml * $satuan;
+	?>
 
 	<div style="width: 50%; margin:0 auto;">
 		<div class="row">
@@ -62,7 +67,7 @@ foreach ($data as $row) { ?>
 						<td style="font-weight: bold">VIVIDI TRANSWISATA MALANG</td>
 					</tr>
 					<tr>
-						<td><?php echo $row->nama_properti ;?></td>
+						<td></td>
 					</tr>
 					<tr>
 						<td>Kota Araya, Malang, Jawa Timur</td>
@@ -90,16 +95,16 @@ foreach ($data as $row) { ?>
 					<tr>
 						<td>1</td>
 						<td>Akomodasi</td>
-						<td>Hotel Jambuluwuk Resort</td>
+						<td><?php echo $row->nama_properti. " Check In ". $row->checkin ;?></td>
 						<td></td>
-						<td>1.400.000</td>
-						<td>2.800.000</td>
+						<td>Rp. <?php echo $satuan ;?></td>
+						<td>Rp. <?php echo $total ;?></td>
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
 						<td>Sarapan Pagi, Twin Bed</td>
-						<td>2</td>
+						<td><?php echo $jml ;?></td>
 						<td></td>
 						<td></td>
 					</tr>

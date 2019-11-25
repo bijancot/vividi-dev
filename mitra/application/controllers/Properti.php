@@ -23,7 +23,6 @@ class Properti extends CI_Controller {
 	public function tambah_properti(){
 		$data['tipe'] = $this->Model_properti->combo_tipe_properti();
 		$data['country'] = $this->Model_properti->combo_country();
-		$data['fasilitas'] = $this->Model_properti->data_fasilitas();
 		$data['folder'] = "properti";
 		$data['side'] = "insert_properti";
 		$data['view'] = "insert_properti";
@@ -141,26 +140,17 @@ class Properti extends CI_Controller {
 		$ci = $this->input->post('city');
 		$c = explode("_",$ci);
 		$city = $c[0];
-		$kota = $c[1];
 		$telepon = $this->input->post('telepon');
 		$email = $this->input->post('email');
 		$alamat = $this->input->post('alamat');
 		$lat = $this->input->post('lat');
 		$lng = $this->input->post('lng');
-		$checkin = $this->input->post('checkin');
-		$checkout = $this->input->post('checkout');
-		$cancel = $this->input->post('cancel');
-		$bed = $this->input->post('bed');
-		$pet = $this->input->post('pet');
-		$harga = $this->input->post('harga');
 		$upload1 = $this->upload_foto_properti1();
 		$upload2 = $this->upload_foto_properti2();
 		$upload3 = $this->upload_foto_properti3();
 		$upload4 = $this->upload_logo_properti();
 		if ($upload1['Status'] == 'success' && $upload2['Status'] == 'success' && $upload3['Status'] == 'success' && $upload4['Status'] == 'success') {
-			$this->Model_properti->save_properti($id,$time,$deskripsi,$judul,$tipe_properti,$fasilitas,$bintang,$stay,
-				$deskripsi_singkat,$country,$city,$telepon,$email,$alamat,$upload1,$upload2,$upload3,$upload4,$lat,$lng,
-				$checkin,$checkout,$cancel,$bed,$pet,$kota,$harga);
+			$this->Model_properti->save_properti($id,$time,$deskripsi,$judul,$tipe_properti,$fasilitas,$bintang,$stay,$deskripsi_singkat,$country,$city,$telepon,$email,$alamat,$upload1,$upload2,$upload3,$upload4,$lat,$lng);
 			redirect(base_url('properti'));
 		} else {
 			echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";
