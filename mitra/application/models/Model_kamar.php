@@ -335,14 +335,14 @@ class Model_kamar extends CI_Model
 		$this->db->insert('wpwj_postmeta', $data18);
         $data19 = array(
             'meta_id' => $key + 18,
-            'post_id' => $keyTransaksi + 1,
+            'post_id' => $keyTransaksi + 2,
             'meta_key' => '_wp_attached_file',
             'meta_value' => '../../mitra/assets/images/hotel/' . $upload2['file']['file_name']
         );
         $this->db->insert('wpwj_postmeta', $data19);
         $data20 = array(
             'meta_id' => $key + 19,
-            'post_id' => $keyTransaksi + 1,
+            'post_id' => $keyTransaksi + 3,
             'meta_key' => '_wp_attached_file',
             'meta_value' => '../../mitra/assets/images/hotel/' . $upload3['file']['file_name']
         );

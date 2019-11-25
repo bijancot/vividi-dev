@@ -23,19 +23,19 @@ class Register extends CI_Controller
         $email = $this->input->post('email');
         $n_depan = $this->input->post('depan');
         $n_belakang = $this->input->post('belakang');
+        $jabatan = $this->input->post('role');
         $nama = $n_depan." ".$n_belakang;
         $telepon = $this->input->post('telp');
-        $terms = $this->input->post('terms');
         $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
         $this->form_validation->set_rules('telp', 'Telephone', 'trim|required|numeric|greater_than[0.99]|regex_match[/^[0-9,]+$/]|max_length[12]');
         date_default_timezone_set('Asia/Jakarta');
         $time = date("Y-m-d h:i:s");
-        if ($this->form_validation->run() == FALSE || $terms != "ok") {
+        if ($this->form_validation->run() == FALSE) {
             redirect('Register');
         } else {
             $cek_email = $this->Model_register->cek_email($email);
             if ($cek_email == true){
-                $this->Model_register->save_mitra($user, $pass, $email, $n_depan, $n_belakang, $telepon, $time);
+                $this->Model_register->save_mitra($user, $pass, $email, $n_depan, $n_belakang, $telepon, $time, $jabatan);
                 $this->send_email($email, $user, $pass, $nama);
                 $this->send_admin($email, $user, $pass, $nama);
                 redirect('');

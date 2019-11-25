@@ -44,7 +44,7 @@
                             <?php } ?>
                         </div>
                         <div class="modal-footer">
-                            <input type="submit" class="btn btn-success" value="Ubah" name="submit">
+                            <input type="submit" class="btn btn-success" value="Ubah Profil" name="submit">
                         </div>
                         <?php echo form_close(); ?>
                     </div>
