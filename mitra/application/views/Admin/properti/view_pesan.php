@@ -19,8 +19,8 @@
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
 						<?php
-						$seg = $this->uri->segment(3);
-						if($seg == 'tab_1'){?>
+						$seg = $this->uri->segment(4);
+						if($seg == 'tab_1' || $seg == ''){?>
 							<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
 						<?php } else{ ?>
 							<li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>

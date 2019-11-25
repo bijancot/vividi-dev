@@ -132,7 +132,9 @@
                     </div>
                     <div class="form-group">
                         <label>Foto</label>
-                        <input type="file" class="form-control" name="foto">
+                        <input type="file" class="form-control" name="foto1">
+                        <input type="file" class="form-control" name="foto2">
+                        <input type="file" class="form-control" name="foto3">
                     </div>
                 </div>
                 <div class="modal-footer">

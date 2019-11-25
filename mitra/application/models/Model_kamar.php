@@ -86,7 +86,7 @@ class Model_kamar extends CI_Model
 		return $query->result();
 	}
 
-	public function save_type_kamar($id,$time,$properti,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload) {
+	public function save_type_kamar($id,$time,$properti,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload1,$upload2,$upload3) {
 		$this->db->select_max('ID');
 		$data = $this->db->get('wpwj_posts');
 		$keyTransaksi = "";
@@ -120,7 +120,7 @@ class Model_kamar extends CI_Model
 		);
 		$this->db->insert('wpwj_posts', $data);
 
-		$data_image = array(
+		$data_image1 = array(
 			'ID' => $keyTransaksi + 1,
 			'post_author' => $id,
 			'post_date' => $time,
@@ -132,20 +132,74 @@ class Model_kamar extends CI_Model
 			'comment_status' => 'open',
 			'ping_status' => 'closed',
 			'post_password' => '',
-			'post_name' => $judul,
+			'post_name' => str_replace(" ", "-", $judul)."-1",
 			'to_ping' => '',
 			'pinged' => '',
 			'post_modified' => $time,
 			'post_modified_gmt' => $time,
 			'post_content_filtered' => '',
 			'post_parent' => $keyTransaksi,
-			'guid' => 'https://vividi.id/mitra/assets/images/hotel/'.$upload['file']['file_name'],
+			'guid' => 'https://vividi.id/mitra/assets/images/hotel/'.$upload1['file']['file_name'],
 			'menu_order' => '0',
 			'post_type' => 'attachment',
 			'post_mime_type' => 'image/jpeg',
 			'comment_count' => '0'
 		);
-		$this->db->insert('wpwj_posts', $data_image);
+		$this->db->insert('wpwj_posts', $data_image1);
+
+        $data_image2 = array(
+            'ID' => $keyTransaksi + 2,
+            'post_author' => $id,
+            'post_date' => $time,
+            'post_date_gmt' => $time,
+            'post_content' => '',
+            'post_title' => $judul,
+            'post_excerpt' => '',
+            'post_status' => 'inherit',
+            'comment_status' => 'open',
+            'ping_status' => 'closed',
+            'post_password' => '',
+            'post_name' => str_replace(" ", "-", $judul)."-2",
+            'to_ping' => '',
+            'pinged' => '',
+            'post_modified' => $time,
+            'post_modified_gmt' => $time,
+            'post_content_filtered' => '',
+            'post_parent' => $keyTransaksi,
+            'guid' => 'https://vividi.id/mitra/assets/images/hotel/'.$upload2['file']['file_name'],
+            'menu_order' => '0',
+            'post_type' => 'attachment',
+            'post_mime_type' => 'image/jpeg',
+            'comment_count' => '0'
+        );
+        $this->db->insert('wpwj_posts', $data_image2);
+
+        $data_image3 = array(
+            'ID' => $keyTransaksi + 3,
+            'post_author' => $id,
+            'post_date' => $time,
+            'post_date_gmt' => $time,
+            'post_content' => '',
+            'post_title' => $judul,
+            'post_excerpt' => '',
+            'post_status' => 'inherit',
+            'comment_status' => 'open',
+            'ping_status' => 'closed',
+            'post_password' => '',
+            'post_name' => str_replace(" ", "-", $judul)."-3",
+            'to_ping' => '',
+            'pinged' => '',
+            'post_modified' => $time,
+            'post_modified_gmt' => $time,
+            'post_content_filtered' => '',
+            'post_parent' => $keyTransaksi,
+            'guid' => 'https://vividi.id/mitra/assets/images/hotel/'.$upload3['file']['file_name'],
+            'menu_order' => '0',
+            'post_type' => 'attachment',
+            'post_mime_type' => 'image/jpeg',
+            'comment_count' => '0'
+        );
+        $this->db->insert('wpwj_posts', $data_image3);
 
 		$this->db->select_max('meta_id');
 		$data = $this->db->get('wpwj_postmeta');
@@ -206,7 +260,7 @@ class Model_kamar extends CI_Model
 			'meta_id' => $key + 7,
 			'post_id' => $keyTransaksi,
 			'meta_key' => 'trav_post_media_type',
-			'meta_value' => 'img'
+			'meta_value' => 'sld'
 		);
 		$this->db->insert('wpwj_postmeta', $data8);
 		$data9 = array(
@@ -216,55 +270,83 @@ class Model_kamar extends CI_Model
 			'meta_value' => $keyTransaksi + 1
 		);
 		$this->db->insert('wpwj_postmeta', $data9);
-		$data10 = array(
-			'meta_id' => $key + 9,
-			'post_id' => $keyTransaksi,
-			'meta_key' => 'trav_post_gallery_type',
-			'meta_value' => 'sld_1'
-		);
-		$this->db->insert('wpwj_postmeta', $data10);
-		$data11 = array(
-			'meta_id' => $key + 10,
-			'post_id' => $keyTransaksi,
-			'meta_key' => 'trav_post_direction_nav',
-			'meta_value' => '1'
-		);
-		$this->db->insert('wpwj_postmeta', $data11);
+        $data10 = array(
+            'meta_id' => $key + 9,
+            'post_id' => $keyTransaksi,
+            'meta_key' => 'trav_gallery_imgs',
+            'meta_value' => $keyTransaksi + 2
+        );
+        $this->db->insert('wpwj_postmeta', $data10);
+        $data11 = array(
+            'meta_id' => $key + 10,
+            'post_id' => $keyTransaksi,
+            'meta_key' => 'trav_gallery_imgs',
+            'meta_value' => $keyTransaksi + 3
+        );
+        $this->db->insert('wpwj_postmeta', $data11);
 		$data12 = array(
 			'meta_id' => $key + 11,
 			'post_id' => $keyTransaksi,
-			'meta_key' => 'trav_post_video_width',
-			'meta_value' => '0'
+			'meta_key' => 'trav_post_gallery_type',
+			'meta_value' => 'sld_1'
 		);
 		$this->db->insert('wpwj_postmeta', $data12);
 		$data13 = array(
 			'meta_id' => $key + 12,
 			'post_id' => $keyTransaksi,
-			'meta_key' => 'sbg_selected_sidebar',
-			'meta_value' => 'a:1:{i:0;s:1:"0";}'
+			'meta_key' => 'trav_post_direction_nav',
+			'meta_value' => '1'
 		);
 		$this->db->insert('wpwj_postmeta', $data13);
 		$data14 = array(
 			'meta_id' => $key + 13,
 			'post_id' => $keyTransaksi,
-			'meta_key' => '_wpb_vc_js_status',
-			'meta_value' => 'false'
+			'meta_key' => 'trav_post_video_width',
+			'meta_value' => '0'
 		);
 		$this->db->insert('wpwj_postmeta', $data14);
 		$data15 = array(
 			'meta_id' => $key + 14,
 			'post_id' => $keyTransaksi,
-			'meta_key' => 'trav_count_post_views',
-			'meta_value' => '0'
+			'meta_key' => 'sbg_selected_sidebar',
+			'meta_value' => 'a:1:{i:0;s:1:"0";}'
 		);
 		$this->db->insert('wpwj_postmeta', $data15);
 		$data16 = array(
 			'meta_id' => $key + 15,
-			'post_id' => $keyTransaksi + 1,
-			'meta_key' => '_wp_attached_file',
-			'meta_value' => '../../mitra/assets/images/hotel/' . $upload['file']['file_name']
+			'post_id' => $keyTransaksi,
+			'meta_key' => '_wpb_vc_js_status',
+			'meta_value' => 'false'
 		);
 		$this->db->insert('wpwj_postmeta', $data16);
+		$data17 = array(
+			'meta_id' => $key + 16,
+			'post_id' => $keyTransaksi,
+			'meta_key' => 'trav_count_post_views',
+			'meta_value' => '0'
+		);
+		$this->db->insert('wpwj_postmeta', $data17);
+		$data18 = array(
+			'meta_id' => $key + 17,
+			'post_id' => $keyTransaksi + 1,
+			'meta_key' => '_wp_attached_file',
+			'meta_value' => '../../mitra/assets/images/hotel/' . $upload1['file']['file_name']
+		);
+		$this->db->insert('wpwj_postmeta', $data18);
+        $data19 = array(
+            'meta_id' => $key + 18,
+            'post_id' => $keyTransaksi + 1,
+            'meta_key' => '_wp_attached_file',
+            'meta_value' => '../../mitra/assets/images/hotel/' . $upload2['file']['file_name']
+        );
+        $this->db->insert('wpwj_postmeta', $data19);
+        $data20 = array(
+            'meta_id' => $key + 19,
+            'post_id' => $keyTransaksi + 1,
+            'meta_key' => '_wp_attached_file',
+            'meta_value' => '../../mitra/assets/images/hotel/' . $upload3['file']['file_name']
+        );
+        $this->db->insert('wpwj_postmeta', $data20);
 
 		foreach ($fasilitas as $amenity) {
 			$list = array(

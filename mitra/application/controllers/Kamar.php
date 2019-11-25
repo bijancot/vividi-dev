@@ -52,20 +52,50 @@ class Kamar extends CI_Controller
 		echo json_encode($filter_view);
 	}
 
-	public function upload_foto() {
+	public function upload_foto1() {
 		$config['upload_path']          = './assets/images/hotel/';
 		$config['allowed_types']        = 'jpeg|jpg|png';
 		$config['max_size']             = 10000;
 
 		$this->load->library('upload', $config);
 
-		if ($this->upload->do_upload('foto')) {
+		if ($this->upload->do_upload('foto1')) {
 			$result = ['Status' => 'success', 'file' => $this->upload->data()];
 		} else {
 			$result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
 		}
 		return $result;
 	}
+
+    public function upload_foto2() {
+        $config['upload_path']          = './assets/images/hotel/';
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 10000;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto2')) {
+            $result = ['Status' => 'success', 'file' => $this->upload->data()];
+        } else {
+            $result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
+        }
+        return $result;
+    }
+
+    public function upload_foto3() {
+        $config['upload_path']          = './assets/images/hotel/';
+        $config['allowed_types']        = 'jpeg|jpg|png';
+        $config['max_size']             = 10000;
+
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('foto3')) {
+            $result = ['Status' => 'success', 'file' => $this->upload->data()];
+        } else {
+            $result = ['Status' => 'error', 'file' => $this->upload->display_errors()];
+        }
+        return $result;
+    }
 
 	public function save_type_kamar() {
 		$id = $_SESSION['ID'];
@@ -77,9 +107,11 @@ class Kamar extends CI_Controller
 		$remaja = $this->input->post('remaja');
 		$anak = $this->input->post('anak');
 		$fasilitas = $this->input->post('amenity');
-		$upload = $this->upload_foto();
-		if ($upload['Status'] == 'success') {
-			$this->Model_kamar->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload);
+		$upload1 = $this->upload_foto1();
+		$upload2 = $this->upload_foto2();
+		$upload3 = $this->upload_foto3();
+		if ($upload1['Status'] == 'success' || $upload2['Status'] == 'success' || $upload3['Status'] == 'success') {
+			$this->Model_kamar->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload1,$upload2,$upload3);
 		} else {
 			echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";
 		}
