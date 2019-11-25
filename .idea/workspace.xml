@@ -2,27 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ece85b3-69df-4287-bcd7-dfb43c9634a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/mitra/application/controllers/Harga.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mitra/application/controllers/Kamar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mitra/application/controllers/Pesan.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mitra/application/models/Model_Profil.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mitra/application/models/Model_harga.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mitra/application/models/Model_kamar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mitra/application/models/Model_pesan.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mitra/application/views/harga/view_ubah_harga.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/controllers/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/controllers/Properti.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/controllers/Properti.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/models/Model_properti.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/models/Model_properti.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/views/inc/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/inc/sidebar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mitra/application/views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/insert_properti.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/properti/insert_properti.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/modal_tipe_kamar.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/kamar/modal_tipe_kamar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/modal_ubah_harga.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/harga/modal_ubah_harga.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/view_harga.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/harga/view_harga.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/view_modal.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/harga/view_modal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/view_pesan.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/pesan/view_pesan.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mitra/application/views/properti/view_tipe_kamar.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/kamar/view_tipe_kamar.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +118,7 @@
       <workItem from="1574346992517" duration="14380000" />
       <workItem from="1574520886446" duration="7773000" />
       <workItem from="1574606425042" duration="4075000" />
-      <workItem from="1574666087213" duration="5288000" />
+      <workItem from="1574666087213" duration="5440000" />
     </task>
     <task id="LOCAL-00001" summary="Upload new">
       <created>1571403378645</created>
@@ -301,7 +281,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574609277599</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="update sidebar">
+      <created>1574671462047</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1574671462047</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,6 +328,7 @@
     <MESSAGE value="detail properti dan detail kamar" />
     <MESSAGE value="insert properti" />
     <MESSAGE value="insert properti update (1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="insert properti update (1)" />
+    <MESSAGE value="update sidebar" />
+    <option name="LAST_COMMIT_MESSAGE" value="update sidebar" />
   </component>
 </project>
