@@ -47,7 +47,7 @@ foreach ($data as $row) {
 					foreach ($foto as $f){
 						?>
 						<div class="col-sm-6 col-md-6">
-							<p><img src="../../wp-content/uploads/<?= $f->foto ?>" width="100%"></p>
+							<p><img src="../wp-content/uploads/<?= $f->foto ?>" width="100%"></p>
 						</div>
 					<?php } ?>
 				</div>

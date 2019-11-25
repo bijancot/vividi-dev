@@ -39,7 +39,7 @@ class Properti extends CI_Controller {
 	{
 		$id = $_SESSION['ID'];
 		$post = $this->input->post('id');
-		$data['data'] = $this->Model_kamar->data_detail_properti($id,$post);
+		$data['data'] = $this->Model_properti->data_detail_properti($id,$post);
 		$amenity = $this->db->query("select t.name as amenity
 			from wpwj_terms t
 			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
