@@ -62,8 +62,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Content Wrapper. Contains page content -->
     <?php
-    if ($folder == "Admin") {
-        $this->load->view($side, $data);
+    if ($folder == "dashboard") {
+        $this->load->view('Admin/'.$side, $data);
     } else if(isset($view) && $view == "insert" && $side == "properti"){
     	$data['tipe'] = $tipe;
     	$data['country'] = $country;

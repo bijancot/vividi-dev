@@ -14,10 +14,11 @@ class Pesan extends CI_Controller
 
 	public function view_pesan()
 	{
-		$data['data'] = $this->Model_pesan->data_pesan_menunggu();
-		$data['data_batal'] = $this->Model_pesan->data_pesan_batal();
-		$data['data_sukses'] = $this->Model_pesan->data_pesan_sukses();
-		$data['data_semua'] = $this->Model_pesan->data_pesan();
+		$id = $_SESSION['ID'];
+		$data['data'] = $this->Model_pesan->data_pesan_menunggu_mitra($id);
+		$data['data_batal'] = $this->Model_pesan->data_pesan_batal_mitra($id);
+		$data['data_sukses'] = $this->Model_pesan->data_pesan_sukses_mitra($id);
+		$data['data_semua'] = $this->Model_pesan->data_pesan_mitra($id);
 		$data['folder'] = "pesan";
 		$data['side'] = "pesan";
 		$this->load->view('index',$data);

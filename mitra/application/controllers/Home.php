@@ -18,13 +18,10 @@ class Home extends CI_Controller
     public function index()
     {
         $id = $_SESSION['ID'];
-        $data['data'] = $this->Model_properti->data_properti($id);
-        $data['data_batal'] = $this->Model_pesan->data_pesan_batal($id);
-        $data['data_menunggu'] = $this->Model_pesan->data_pesan_menunggu($id);
-        $data['data_sukses'] = $this->Model_pesan->data_pesan_sukses($id);
-        $data['data_batal'] = $this->Model_pesan->data_pesan_batal($id);
-        $data['data_menunggu'] = $this->Model_pesan->data_pesan_menunggu($id);
-        $data['data_sukses'] = $this->Model_pesan->data_pesan_sukses($id);
+		$data['data'] = $this->Model_pesan->data_pesan_menunggu_mitra($id);
+		$data['data_batal'] = $this->Model_pesan->data_pesan_batal_mitra($id);
+		$data['data_sukses'] = $this->Model_pesan->data_pesan_sukses_mitra($id);
+		$data['data_semua'] = $this->Model_pesan->data_pesan_mitra($id);
         $data['folder'] = "dashboard";
         $data['side'] = "dashboard";
         $this->load->view('index', $data);

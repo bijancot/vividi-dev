@@ -22,7 +22,7 @@
                     <div class="inner">
                         <?php
                         $no_menunggu = 0;
-                        foreach ($data_menunggu as $row) {
+                        foreach ($data as $row) {
                             $no_menunggu++;
                         }
                         ?>

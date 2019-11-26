@@ -20,28 +20,27 @@
                     <ul class="nav nav-tabs">
 						<?php
 						$seg = $this->uri->segment(4);
-						if($seg == 'tab_1' || $seg == ''){?>
-							<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
+						if($seg == 'tab_4' || $seg == ''){?>
+							<li class="active"><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
 						<?php } else{ ?>
+							<li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
+						<?php }
+						if($seg == 'tab_1'){?>
+							<li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
+						<?php } else { ?>
 							<li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">Menunggu</a></li>
 						<?php }
 
-						if($seg == 'tab_2'){?>
-                        	<li class="active"><a href="#tab_2" data-toggle="tab" aria-expanded="true">Batal</a></li>
-						<?php } else{ ?>
-							<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="true">Batal</a></li>
-						<?php }
-
 						if($seg == 'tab_3'){?>
-                        	<li class="active"><a href="#tab_3" data-toggle="tab" aria-expanded="false">Sukses</a></li>
+							<li class="active"><a href="#tab_3" data-toggle="tab" aria-expanded="false">Sukses</a></li>
 						<?php } else{ ?>
 							<li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="false">Sukses</a></li>
 						<?php }
 
-						if($seg == 'tab_4'){?>
-                        	<li class="active"><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
+						if($seg == 'tab_2'){?>
+							<li class="active"><a href="#tab_2" data-toggle="tab" aria-expanded="true">Batal</a></li>
 						<?php } else{ ?>
-							<li class=""><a href="#tab_4" data-toggle="tab" aria-expanded="false">Semua</a></li>
+							<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="true">Batal</a></li>
 						<?php } ?>
                     </ul>
                     <div class="tab-content">
@@ -154,11 +153,6 @@
                                         <td><?php echo $row->harga;?></td>
                                         <td><?php echo $row->pesan;?></td>
                                         <td><?php echo $row->status;?></td>
-										<td>
-											<a href="<?= site_url('Admin/Pesan/sukses/'.$row->booking_no); ?>" class="btn btn-block btn-primary">Sukses</a>
-											<!--                        <a href="--><?//= site_url('SendMail/send_email/'); ?><!--" class="btn btn-block btn-primary">Sukses</a>-->
-											<a href="<?= site_url('Admin/Pesan/gagal/'.$row->id); ?>" class="btn btn-block btn-danger">Cancel</a>
-										</td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
