@@ -1,3 +1,4 @@
+<body class="red">
 <header class="main-header">
     <!-- Logo -->
     <a href="<?php echo base_url('home'); ?>" class="logo">
@@ -47,3 +48,4 @@
         </div>
     </nav>
 </header>
+</body>
