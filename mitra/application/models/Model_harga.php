@@ -83,6 +83,7 @@ class Model_harga extends CI_Model
 
 	public function save_atur_harga($tgl_1, $tgl_2, $allotment, $harga, $id_properti, $id_type_kamar)
 	{
+
 		$this->db->select_max('id');
 		$data = $this->db->get('wpwj_trav_accommodation_vacancies');
 		$keyTransaksi = "";
@@ -159,7 +160,7 @@ class Model_harga extends CI_Model
 						}
 						break;
 					}
-				} else if ($tgl_1 > $row->date_from && $tgl_1 <= $row->date_to) {
+				} else if ($tgl_1 > $row->date_from && $tgl_1 < $row->date_to) {
 					if ($tgl_2 < $row->date_to) {
 						foreach ($sql->result() as $r) {
 							if ($tgl_1 > $r->date_from && $tgl_1 <= $r->date_to) {
@@ -319,5 +320,24 @@ class Model_harga extends CI_Model
 		$this->db->where('id', $id);
 		$this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
 	}
+
+    public function save_harga($id, $weekday, $weekend, $high, $peek)
+    {
+        $this->db->select_max('id');
+        $data = $this->db->get('price');
+        $keyTransaksi = "";
+        foreach ($data->result() as $row) {
+            $keyTransaksi = $row->id + 1;
+        }
+        $data_new = array(
+            'id' => $keyTransaksi,
+            'id_rooms' => $id,
+            'weekday' => $weekday,
+            'weekend' => $weekend,
+            'high' => $high,
+            'peek' => $peek
+        );
+        $this->db->insert('price', $data_new);
+    }
 
 }

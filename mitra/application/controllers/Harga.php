@@ -56,13 +56,14 @@ class Harga extends CI_Controller
 		$this->form_validation->set_rules('psseason', 'a', 'required|numeric|greater_than[0.99]|regex_match[/^[0-9,]+$/]');
 		$this->form_validation->set_error_delimiters('<br><div class="alert alert-danger" role="alert">', '</div>');
 		if ($this->form_validation->run() == FALSE) {
-			redirect(base_url('harga'));
-		} else {
-			$this->load->view('index',$data);
+            redirect(base_url('harga'));
+        } else {
+//            $this->Model_harga->save_harga($ka[0], $data['weekday'], $data['weekend'], $data['hseasion'], $data['psseason']);
+            $this->load->view('index',$data);
 		}
 	}
 
-	public function save_harga() {
+	public function save_harga(){
 		$properti = $this->input->post('properti');
 		$kamar = $this->input->post('jenis_kamar');
 		$prop = explode("_",$properti);
@@ -75,8 +76,7 @@ class Harga extends CI_Controller
 		$harga = $this->input->post('optradio');
 		if($harga == 0){
 			$allotment = 0;
-		}
-		else {
+		} else {
 			$allotment = $this->input->post('allotment');
 		}
 		$tgl_1 = $this->input->post('tgl_1');
@@ -85,8 +85,9 @@ class Harga extends CI_Controller
 		$tgl_2 = $this->input->post('tgl_2');
 		$date2 = str_replace('/', '-', $tgl_2);
 		$newDate2 = date("Y-m-d", strtotime($date2));
-		$this->Model_harga->save_atur_harga($newDate1, $newDate2, $allotment, $harga, $prop[0], $ka[0]);
-
+		if ($tgl_1 != '' && $tgl_2 != ''){
+            $this->Model_harga->save_atur_harga($newDate1, $newDate2, $allotment, $harga, $prop[0], $ka[0]);
+        }
 		$data['data'] = $this->Model_harga->data_atur_harga($prop[0], $ka[0]);
 		$data['weekday'] = $this->input->post('weekday');
 		$data['weekend'] = $this->input->post('weekend');

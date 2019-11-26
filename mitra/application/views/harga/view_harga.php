@@ -38,19 +38,19 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">Harga</label>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $weekday; ?>"><?php echo "Rp.".number_format($weekday,0,"",".")." - Weekday"; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $weekday; ?>" required><?php echo "Rp.".number_format($weekday,0,"",".")." - Weekday"; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $weekend; ?>"><?php echo "Rp.".number_format($weekend,0,"",".")." - Weekend"; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $weekend; ?>" required><?php echo "Rp.".number_format($weekend,0,"",".")." - Weekend"; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $hseasion; ?>"><?php echo "Rp.".number_format($hseasion,0,"",".")." - High Seasion"; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $hseasion; ?>" required><?php echo "Rp.".number_format($hseasion,0,"",".")." - High Seasion"; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="<?php echo $psseason; ?>"><?php echo "Rp.".number_format($psseason,0,"",".")." - Peek Season"; ?></label>
+                            <label><input type="radio" name="optradio" value="<?php echo $psseason; ?>" required><?php echo "Rp.".number_format($psseason,0,"",".")." - Peek Season"; ?></label>
                         </div>
                         <div class="radio disabled">
-                            <label><input type="radio" name="optradio" value="0">Kamar Kosong</label>
+                            <label><input type="radio" name="optradio" value="0" required>Kamar Kosong</label>
                         </div>
                     </div>
                         <input type="submit" class="btn btn-success" value="Submit">
