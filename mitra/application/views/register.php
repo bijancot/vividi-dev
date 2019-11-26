@@ -15,16 +15,23 @@
             $('#mylogin').modal('show');
         });
     </script>
+    <style>
+        body {
+            background:url("<?php echo base_url('/assets/bg.jpg'); ?>") no-repeat center center  fixed;
+            /*background-repeat: no-repeat;*/
+            -webkit-background-size: cover;
+            background-size: cover;
+    </style>
 </head>
-<body>
+<body >
 <!-- Modal Register -->
 <div id="mylogin" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog">
+    <div class="modal-dialog col-xs-12" style="margin: 100px">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <span class="logo-lg"><img src="<?php echo base_url('/assets/new-logo.png'); ?>" style="width: 250px;"></span><br><br>
-                <h4 class="modal-title">Register Mitra</h4>
+                <h4 class="modal-title"><b>Register Mitra</b></h4>
             </div>
             <?php echo form_open(base_url('register/cek_register')); ?>
             <div class="modal-body">
@@ -49,6 +56,10 @@
                     <input type="text" name="telp" class="form-control" placeholder="Nomor Telepon" required>
                 </div>
                 <div class="form-group">
+                    <label>Properti</label>
+                    <input type="text" name="properti" class="form-control" placeholder="Properti" required>
+                </div>
+                <div class="form-group">
                     <label>Jabatan</label>
                     <select class="form-control" name="role">
                         <option value="Owner">Owner</option>
@@ -67,6 +78,8 @@
             <br>
             <?php echo form_close(); ?>
         </div>
+        <br>
+        <b>PT. VIVIDI TRANSINDO UTAMA</b>
     </div>
 </div>
 <!-- End Modal Register -->

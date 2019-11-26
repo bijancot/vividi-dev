@@ -20,16 +20,23 @@ if (isset($_SESSION['username'])) {
             $('#mylogin').modal('show');
         });
     </script>
+    <style>
+        body {
+            background:url("<?php echo base_url('/assets/bg.jpg'); ?>") no-repeat center center  fixed;
+            /*background-repeat: no-repeat;*/
+            -webkit-background-size: cover;
+            background-size: cover;
+    </style>
 </head>
 <body>
 <!-- Modal login -->
 <div id="mylogin" class="modal fade" role="dialog" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog">
+    <div class="modal-dialog col-xs-12" style="margin: 100px">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
                 <span class="logo-lg"><img src="<?php echo base_url('/assets/new-logo.png'); ?>" style="width: 250px;"></span><br><br>
-                <h4 class="modal-title">Login Mitra</h4>
+<!--                <h4 class="modal-title">Login Mitra</h4>-->
             </div>
             <?php echo form_open(base_url('login/ceklogin')); ?>
             <div class="modal-body">
