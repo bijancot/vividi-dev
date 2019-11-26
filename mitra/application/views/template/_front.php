@@ -9,16 +9,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
 
+<!--	<link rel="stylesheet" href="--><?//=base_url("assets/css/vividistyle.css")?><!--">-->
+	<link rel="stylesheet" href="<?=base_url("assets/css/bootstrap.min.css")?>">
 	<link rel="stylesheet" href="<?=base_url("assets/css/open-iconic-bootstrap.min.css")?>">
-	<link rel="stylesheet" href="<?=base_url("assets/css/css/animate.css")?>">
+	<link rel="stylesheet" href="<?=base_url("assets/css/animate.css")?>">
 	<link rel="stylesheet" href="<?=base_url("assets/css/owl.carousel.min.css")?>">
 	<link rel="stylesheet" href="<?=base_url("assets/css/owl.theme.default.min.css")?>">
 	<link rel="stylesheet" href="<?=base_url("assets/css/magnific-popup.css")?>">
 	<link rel="stylesheet" href="<?=base_url("assets/css/aos.css")?>">
 	<link rel="stylesheet" href="<?=base_url("assets/css/ionicons.min.css")?>">
-	<link rel="stylesheet" href="<?=base_url("assets/css/css/bootstrap-datepicker.css")?>">
+	<link rel="stylesheet" href="<?=base_url("assets/css/bootstrap-datepicker.css")?>">
 	<link rel="stylesheet" href="<?=base_url("assets/css/jquery.timepicker.css")?>">
-	<link rel="stylesheet" href="<?=base_url("assets/css/ionicons.min.css")?>">
 	<link rel="stylesheet" href="<?=base_url("assets/css/flaticon.css")?>">
 	<link rel="stylesheet" href="<?=base_url("assets/css/icomoon.css")?>">
 	<link rel="stylesheet" href="<?=base_url("assets/css/style.css")?>">
@@ -44,11 +45,38 @@
 			</div>
 		</div>
 	</nav>
-	
-	<section class="ftco-section services-section bg-light">
-		<?=$_content?>
-	</section> 
-	
+	<div class="hero-wrap js-fullheight" style="background-image: url('<?=base_url("assets/images/bg_1.jpg")?>');">
+<!--	<div class="hero-wrap js-fullheight bg-banner">-->
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+				<div class="col-md-9 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+					<h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><strong>Explore <br></strong> your amazing city</h1>
+					<p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Find great places to stay, eat, shop, or visit from local experts</p>
+					<div class="block-17 my-4">
+						<form action="" method="post" class="d-block d-flex">
+							<div class="fields d-block d-flex">
+								<div class="textfield-search one-third">
+									<input type="text" class="form-control" placeholder="Ex: food, service, hotel">
+								</div>
+							</div>
+							<input type="submit" class="search-submit btn btn-primary" value="Search">
+						</form>
+					</div>
+					<p>Or browse the highlights</p>
+					<p class="browse d-md-flex">
+						<span class="d-flex justify-content-md-center align-items-md-center"><a href="#"><i class="flaticon-fork"></i>Restaurant</a></span>
+						<span class="d-flex justify-content-md-center align-items-md-center"><a href="#"><i class="flaticon-hotel"></i>Hotel</a></span>
+						<span class="d-flex justify-content-md-center align-items-md-center"><a href="#"><i class="flaticon-meeting-point"></i>Places</a></span>
+						<span class="d-flex justify-content-md-center align-items-md-center"><a href="#"><i class="flaticon-shopping-bag"></i>Shopping</a></span>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<?=$_content?>
+
 	<footer class="ftco-footer ftco-bg-dark ftco-section">
 		<div class="container">
 			<div class="row mb-5">
@@ -111,7 +139,13 @@
 	</footer>
 
   <!-- loader -->
-<!--	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>-->
+<!--	<div id="ftco-loader" class="show fullscreen">-->
+<!--		<svg class="circular" width="48px" height="48px">-->
+<!--			<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>-->
+<!--			<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/>-->
+<!--		</svg>-->
+<!--	</div>-->
+
 
 	<script src="<?=base_url("assets/js/jquery.min.js")?>"></script>
 	<script src="<?=base_url("assets/js/jquery-migrate-3.0.1.min.js")?>"></script>
@@ -119,13 +153,13 @@
 	<script src="<?=base_url("assets/js/bootstrap.min.js")?>"></script>
 	<script src="<?=base_url("assets/js/jquery.easing.1.3.js")?>"></script>
 	<script src="<?=base_url("assets/js/jquery.waypoints.min.js")?>"></script>
-	<script src="<?=base_url("assets/js/jquery.stellar.js")?>"></script>
+	<script src="<?=base_url("assets/js/jquery.stellar.min.js")?>"></script>
 	<script src="<?=base_url("assets/js/owl.carousel.min.js")?>"></script>
 	<script src="<?=base_url("assets/js/jquery.magnific-popup.min.js")?>"></script>
 	<script src="<?=base_url("assets/js/aos.js")?>"></script>
 	<script src="<?=base_url("assets/js/jquery.animateNumber.min.js")?>"></script>
 	<script src="<?=base_url("assets/js/bootstrap-datepicker.js")?>"></script>
-	<script src="<?=base_url("assets/js/jquery.timepicker.js")?>"></script>
+	<script src="<?=base_url("assets/js/jquery.timepicker.min.js")?>"></script>
 	<script src="<?=base_url("assets/js/scrollax.min.js")?>"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="<?=base_url("assets/js/google-map.js")?>"></script>

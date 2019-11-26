@@ -1,0 +1,6 @@
+.bg-banner{
+	/*background-image: url('<?=base_url("assets/images/bg_1.jpg")?>') !important;*/
+	background-image: url('../images/bg_1.jpg') !important;
+	height: 625px !important;
+}
+
