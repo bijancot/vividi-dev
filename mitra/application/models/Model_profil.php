@@ -1,7 +1,7 @@
 <?php
 
 
-class Model_Profil extends CI_Model
+class Model_profil extends CI_Model
 {
 
 	public function data_profile($id)

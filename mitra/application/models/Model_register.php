@@ -2,7 +2,7 @@
 
 class Model_register extends CI_Model
 {
-    function save_mitra($user, $pass, $email, $n_depan, $n_belakang, $telepon, $time, $jabatan)
+    function save_mitra($user, $pass, $email, $n_depan, $n_belakang, $telepon, $time, $jabatan, $properti, $status)
     {
         $this->db->select_max('ID');
         $data = $this->db->get('wpwj_users');
@@ -28,6 +28,8 @@ class Model_register extends CI_Model
             'user_status' => '0',
             'telepon' => $telepon,
             'jabatan' => $jabatan,
+            'name_hotel' => $properti,
+            'status' => $status,
             'display_name' => $n_depan.' '.$n_belakang,
         );
         $this->db->insert('wpwj_users', $data);

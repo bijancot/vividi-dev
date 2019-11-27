@@ -11,11 +11,72 @@
  Target Server Version : 100408
  File Encoding         : 65001
 
- Date: 26/11/2019 13:30:49
+ Date: 27/11/2019 21:07:07
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for tb_booking
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_booking`;
+CREATE TABLE `tb_booking`  (
+  `f_id_booking` int(10) NOT NULL,
+  `f_kode_booking` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `f_kode_user` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi dengan kode user - tb user data;',
+  `f_kode_kamar` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi ke kode kamar - tb kamar;',
+  `f_check_in_bk` date NULL DEFAULT NULL,
+  `f_check_out_bk` date NULL DEFAULT NULL,
+  `f_jumlah_kamar` int(10) NULL DEFAULT NULL,
+  `f_total_harga` int(10) NULL DEFAULT NULL,
+  `f_tgl_booking` date NULL DEFAULT NULL,
+  `f_status_booking` enum('0','1','2') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '2' COMMENT '0:gagal,1:aktif,2:menunggu;',
+  PRIMARY KEY (`f_id_booking`, `f_kode_booking`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tb_detail_fasilitas
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_detail_fasilitas`;
+CREATE TABLE `tb_detail_fasilitas`  (
+  `f_detail_fasilitas` int(10) NOT NULL AUTO_INCREMENT,
+  `f_parent_fasilitas` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi ke kode_properti,kode kamar dll yang menggunakan fasilitas;',
+  `f_fasilitas` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi dengan id fasilitas;',
+  PRIMARY KEY (`f_detail_fasilitas`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tb_detail_harga
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_detail_harga`;
+CREATE TABLE `tb_detail_harga`  (
+  `f_id_detail_harga` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tb_detail_mitra
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_detail_mitra`;
+CREATE TABLE `tb_detail_mitra`  (
+  `f_id_detail_mitra` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `f_detail_properti_mitra` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_user_mitra` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`f_id_detail_mitra`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tb_detail_tour_guide
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_detail_tour_guide`;
+CREATE TABLE `tb_detail_tour_guide`  (
+  `f_id_detail_tour_guide` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `f_detail_kode_tg` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi kode tg di tb tour guide;',
+  `f_nama_detail_tg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_desc_tg` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `f_status_tg` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1' COMMENT '0:nonaktif;1:aktif;',
+  PRIMARY KEY (`f_id_detail_tour_guide`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_detail_upload
@@ -23,8 +84,37 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `tb_detail_upload`;
 CREATE TABLE `tb_detail_upload`  (
   `f_detail_upload_image` int(10) NULL DEFAULT NULL,
-  `f_id_image` int(10) NULL DEFAULT NULL COMMENT 'relasi ke id image;',
-  `f_kode_user` int(10) NULL DEFAULT NULL COMMENT 'relasi ke kode user;'
+  `f_kode_image` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi ke kode image - tb_image;',
+  `f_parent_image` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi ke kode properti, kode kamar, kode user dll;'
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tb_fasilitas
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_fasilitas`;
+CREATE TABLE `tb_fasilitas`  (
+  `f_id_fasilitas` int(10) NOT NULL AUTO_INCREMENT,
+  `f_nama_fasilitas` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_tipe_fasilitas` enum('0','1','2','3','4','5') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '0 global,1 properti,2 kamar,3 umrah,4 sewa kendaraan,5 tour;',
+  `f_status_fasilitas` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1',
+  PRIMARY KEY (`f_id_fasilitas`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tb_harga
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_harga`;
+CREATE TABLE `tb_harga`  (
+  `f_id_harga` int(10) NOT NULL,
+  `f_kode_properti` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi ke kode properti - tb properti;',
+  `f_kode_kamar` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi ke kode kamar - tb kamar;',
+  `f_harga_awal` int(10) NULL DEFAULT NULL,
+  `f_harga_akhir` int(10) NULL DEFAULT NULL,
+  `f_tanggal_awal` date NULL DEFAULT NULL,
+  `f_tanggal_akhir` date NULL DEFAULT NULL,
+  `f_allotment` int(10) NULL DEFAULT NULL,
+  `f_diskon_harga` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`f_id_harga`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -32,13 +122,28 @@ CREATE TABLE `tb_detail_upload`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_image`;
 CREATE TABLE `tb_image`  (
-  `f_id_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `f_id_image` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `f_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_title_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_desc_image` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
-  `f_tag_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi ke tag images;',
-  `f_owner_image` int(10) NULL DEFAULT NULL COMMENT 'relasi ke kode user;',
+  `f_tag_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi ke id tag images - tb tags image;',
   PRIMARY KEY (`f_id_image`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tb_kamar
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_kamar`;
+CREATE TABLE `tb_kamar`  (
+  `f_id_kamar` int(10) NOT NULL,
+  `f_kode_kamar` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `f_kode_properti` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi ke kode properti tb properti;',
+  `f_nama_kamar` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_desc_kamar` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `f_max_adult` int(10) NULL DEFAULT NULL,
+  `f_max_child` int(10) NULL DEFAULT NULL,
+  `f_status_kamar` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1' COMMENT '0:nonaktif;1:aktif;',
+  PRIMARY KEY (`f_id_kamar`, `f_kode_kamar`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -581,6 +686,16 @@ INSERT INTO `tb_kota` VALUES ('9436', '94', 'KABUPATEN DEIYAI');
 INSERT INTO `tb_kota` VALUES ('9471', '94', 'KOTA JAYAPURA');
 
 -- ----------------------------
+-- Table structure for tb_margin
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_margin`;
+CREATE TABLE `tb_margin`  (
+  `f_id_margin` int(10) NOT NULL,
+  `f_margin` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`f_id_margin`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
 -- Table structure for tb_meta
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_meta`;
@@ -597,40 +712,30 @@ CREATE TABLE `tb_meta`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_properti`;
 CREATE TABLE `tb_properti`  (
-  `f_id_properti` int(10) NOT NULL AUTO_INCREMENT,
+  `f_id_properti` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `f_kode_properti` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_nama_properti` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_desc_properti` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `f_short_desc_properti` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `f_tipe_properti` int(10) NULL DEFAULT NULL COMMENT 'relasi ke tb tipe properti;',
+  `f_tipe_properti` int(10) NULL DEFAULT NULL COMMENT 'relasi ke tb tipe;',
   `f_rate_properti` int(10) NULL DEFAULT NULL,
   `f_alamat_properti` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `f_kota_properti` int(10) NULL DEFAULT NULL COMMENT 'relasi ke tb kota;',
   `f_provinsi_properti` int(10) NULL DEFAULT NULL COMMENT 'relasi ke tb provinsi;',
   `f_durasi_properti` int(10) NULL DEFAULT NULL,
   `f_harga_properti` int(10) NULL DEFAULT NULL,
-  `f_image_properti` int(10) NULL DEFAULT NULL,
   `f_telepon_properti` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_check_in_properti` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_check_out_properti` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `f_ballroom` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:tidak;1:ya;',
-  `f_fitness` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:tidak;1:ya;',
-  `f_parkir` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:tidak;1:ya;',
-  `f_musik` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:tidak;1:ya;',
-  `f_kolam_renang` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:tidak;1:ya;',
-  `f_lift` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:tidak;1:ya;',
-  `f_playground` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:tidak;1:ya;',
-  `f_restoran` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:tidak;1:ya;',
-  `f_spa` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:tidak;1:ya;',
   `f_pembatalan_properti` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `f_biaya_anak` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `f_peliharaan` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `f_rating_member` int(10) NULL DEFAULT NULL,
   `f_meta_title_properti` int(10) NULL DEFAULT NULL COMMENT 'relasi ke tb id meta;',
-  `f_thumb_properti` int(10) NULL DEFAULT NULL,
   `f_author_properti` int(10) NULL DEFAULT NULL COMMENT 'relasi id user;',
+  `f_status_properti` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '1' COMMENT '0:nonaktif;1:aktif;',
   PRIMARY KEY (`f_id_properti`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_provinsi
@@ -681,13 +786,51 @@ INSERT INTO `tb_provinsi` VALUES ('91', 'PAPUA BARAT');
 INSERT INTO `tb_provinsi` VALUES ('94', 'PAPUA');
 
 -- ----------------------------
--- Table structure for tb_tag_properti
+-- Table structure for tb_tag_image
 -- ----------------------------
-DROP TABLE IF EXISTS `tb_tag_properti`;
-CREATE TABLE `tb_tag_properti`  (
-  `f_id_tag_properti` int(10) NOT NULL AUTO_INCREMENT,
-  `f_tag_properti` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`f_id_tag_properti`) USING BTREE
+DROP TABLE IF EXISTS `tb_tag_image`;
+CREATE TABLE `tb_tag_image`  (
+  `f_id_tag_image` int(10) NOT NULL,
+  `f_kode_image` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_tag_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`f_id_tag_image`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tb_tag_produk
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_tag_produk`;
+CREATE TABLE `tb_tag_produk`  (
+  `f_id_tag_produk` int(10) NOT NULL AUTO_INCREMENT,
+  `f_parent_produk` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi dengan kode properti, kode kamar, kode umrah dll;',
+  `f_tag_produk` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`f_id_tag_produk`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tb_things_todo
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_things_todo`;
+CREATE TABLE `tb_things_todo`  (
+  `f_id_ttd` int(10) NOT NULL AUTO_INCREMENT,
+  `f_kode_ttd` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `f_nama_ttd` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_kota_ttd` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi dengan tb kota;',
+  `f_desc_ttd` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `f_status_ttd` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:ga aktif,1:aktif;',
+  PRIMARY KEY (`f_id_ttd`, `f_kode_ttd`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tb_tipe
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_tipe`;
+CREATE TABLE `tb_tipe`  (
+  `f_id_tipe` int(10) NOT NULL AUTO_INCREMENT,
+  `f_nama_tipe` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_jenis_tipe` enum('0','1','2','3','4') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '0' COMMENT '0:global;1:properti:2:pakettour;3:paketumroh;4:sewakendaraan;',
+  `f_status_tipe` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:nonaktif;1:aktif;',
+  PRIMARY KEY (`f_id_tipe`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
@@ -700,10 +843,22 @@ CREATE TABLE `tb_tour`  (
   `f_nama_tour` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_desc_tour` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `f_short_desc_tour` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `f_lokasi_tour` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_lokasi_tour` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_durasi_tour` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`f_id_tour`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Table structure for tb_tour_guide
+-- ----------------------------
+DROP TABLE IF EXISTS `tb_tour_guide`;
+CREATE TABLE `tb_tour_guide`  (
+  `f_id_tour_guide` int(10) NOT NULL AUTO_INCREMENT,
+  `f_kode_tour_guide` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `f_nama_tour_guide` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_kota_tour_guide` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'relasi dengan tb kota;',
+  PRIMARY KEY (`f_id_tour_guide`, `f_kode_tour_guide`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for tb_umrah
@@ -720,22 +875,22 @@ CREATE TABLE `tb_umrah`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `tb_user_data`;
 CREATE TABLE `tb_user_data`  (
-  `f_id` int(10) NOT NULL AUTO_INCREMENT,
-  `f_kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `f_id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT,
+  `f_kode` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `f_nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `f_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `f_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_telepon` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `f_tempat_lahir` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `f_tempat_lahir` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_tanggal_lahir` date NULL DEFAULT NULL,
   `f_alamat` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
   `f_kota` int(10) NULL DEFAULT NULL,
-  `f_provinsi` int(255) NULL DEFAULT NULL,
+  `f_provinsi` int(10) NULL DEFAULT NULL,
   `f_gender` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `f_level` enum('1','2','3','4','5') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:superadmin;1:admin;2:mitra;3:member;',
   `f_status` enum('0','1','2') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '0:nonaktif;1:aktif;2:delay;',
-  PRIMARY KEY (`f_id`) USING BTREE
+  PRIMARY KEY (`f_id`, `f_kode`, `f_email`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 SET FOREIGN_KEY_CHECKS = 1;
