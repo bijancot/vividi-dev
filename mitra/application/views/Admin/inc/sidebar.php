@@ -54,6 +54,12 @@
                             <i class="fa fa-circle-o"></i> Pesanan Hotel</a></li>
                 </ul>
             </li>
+            <?php if ($side == 'profile') { ?>
+                <li class="active"><a href="<?= base_url('home/profile'); ?>"><i class="fa fa-list-alt"></i>
+                        <span>Cara Penggunaan</span></a></li>
+            <?php } else { ?>
+                <li><a href="<?= base_url('home/profile'); ?>"><i class="fa fa-list-alt"></i> <span>Cara Penggunaan</span></a></li>
+            <?php } ?>
         </ul>
     </section>
     <!-- /.sidebar -->

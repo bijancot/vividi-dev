@@ -58,7 +58,7 @@ class Harga extends CI_Controller
 		if ($this->form_validation->run() == FALSE) {
             redirect(base_url('harga'));
         } else {
-//            $this->Model_harga->save_harga($ka[0], $data['weekday'], $data['weekend'], $data['hseasion'], $data['psseason']);
+            $this->Model_harga->save_harga($ka[0], $data['weekday'], $data['weekend'], $data['hseasion'], $data['psseason']);
             $this->load->view('index',$data);
 		}
 	}
@@ -118,5 +118,13 @@ class Harga extends CI_Controller
 
 		echo json_encode($filter_view);
 	}
+
+    public function modal_harga()
+    {
+        $id = $this->input->post('id');
+        $new_id = explode("_", $id);
+        $data = $this->Model_harga->modal_harga($new_id[0]);
+        echo json_encode($data);
+    }
 
 }

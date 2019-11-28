@@ -101,7 +101,7 @@
                             <option value="">-- Pilih --</option>
                         </select>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="weekday" >
                         <label for="exampleInputPassword1">Harga</label>
                         <input type="text" name="weekday" class="form-control" placeholder="Harga Weekday" required>
                         <input type="text" name="weekend" class="form-control" placeholder="Harga Weekend" required>

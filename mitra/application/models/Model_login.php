@@ -6,7 +6,7 @@ class Model_login extends CI_Model
     {
         $this->db->where('user_login', $user);
         $this->db->where('user_pass', $pass);
-        return $this->db->get('wpwj_users')->num_rows();
+        return $this->db->get('wpwj_users');
     }
 
     function login($user, $pass){
@@ -16,7 +16,7 @@ class Model_login extends CI_Model
 
     function proses_login($user, $pass)
     {
-        $this->db->select('wpwj_users.user_email, wpwj_users.status, wpwj_users.user_login, wpwj_users.user_pass, wpwj_usermeta.meta_value, wpwj_users.display_name, wpwj_users.ID');
+        $this->db->select('wpwj_users.user_email, wpwj_users.user_login, wpwj_users.user_pass, wpwj_usermeta.meta_value, wpwj_users.display_name, wpwj_users.ID');
         $this->db->from('wpwj_users');
         $this->db->join('wpwj_usermeta', 'wpwj_users.ID = wpwj_usermeta.user_id');
         $this->db->where('wpwj_users.user_login', $user);

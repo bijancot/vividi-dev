@@ -323,21 +323,40 @@ class Model_harga extends CI_Model
 
     public function save_harga($id, $weekday, $weekend, $high, $peek)
     {
-        $this->db->select_max('id');
-        $data = $this->db->get('price');
-        $keyTransaksi = "";
-        foreach ($data->result() as $row) {
-            $keyTransaksi = $row->id + 1;
+        $this->db->where('id_rooms =', $id);
+        $cek = $this->db->get('price');
+        if ($cek->num_rows() != 1) {
+            $this->db->select_max('id');
+            $data = $this->db->get('price');
+            $keyTransaksi = "";
+            foreach ($data->result() as $row) {
+                $keyTransaksi = $row->id + 1;
+            }
+            $data_new = array(
+                'id' => $keyTransaksi,
+                'id_rooms' => $id,
+                'weekday' => $weekday,
+                'weekend' => $weekend,
+                'high' => $high,
+                'peek' => $peek
+            );
+            $this->db->insert('price', $data_new);
+        } else {
+            $data_new = array(
+                'weekday' => $weekday,
+                'weekend' => $weekend,
+                'high' => $high,
+                'peek' => $peek
+            );
+            $this->db->where('id_rooms', $id);
+            $this->db->update('price', $data_new);
         }
-        $data_new = array(
-            'id' => $keyTransaksi,
-            'id_rooms' => $id,
-            'weekday' => $weekday,
-            'weekend' => $weekend,
-            'high' => $high,
-            'peek' => $peek
-        );
-        $this->db->insert('price', $data_new);
+    }
+
+    public function modal_harga($id){
+        $this->db->where('id_rooms =', $id);
+        $sql = $this->db->get('price');
+        return $sql->result();
     }
 
 }
