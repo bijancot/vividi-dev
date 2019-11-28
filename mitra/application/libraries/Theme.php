@@ -16,6 +16,11 @@ class Theme
 		$data["_content"] = $this->_ci->load->view($view, $data, true);
 		$this->_ci->load->view("template/_front.php", $data);
 	}
+	function search($view, $data = NULL)
+	{
+		$data["_content"] = $this->_ci->load->view($view, $data, true);
+		$this->_ci->load->view("template/_search.php", $data);
+	}
 
 	function panel($view, $data = NULL)
 	{

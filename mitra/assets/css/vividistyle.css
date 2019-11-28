@@ -1,6 +1,105 @@
+body{
+	font-family: "Poppins", Arial, sans-serif !important;
+}
 .bg-banner{
-	/*background-image: url('<?=base_url("assets/images/bg_1.jpg")?>') !important;*/
 	background-image: url('../images/bg_1.jpg') !important;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+	background-position: center center !important;
 	height: 625px !important;
 }
-
+.bg-short{
+	background-image: url('../images/bg_1.jpg') !important;
+	background-size: cover !important;
+	background-repeat: no-repeat !important;
+	background-position: center center !important;
+	height: 400px;
+}
+li.nav-item:hover{
+	border-bottom: 1.5px solid #3fc3e8;
+}
+li.nav-item.cta-button:last-child:hover{
+	border: none;
+}
+.textfield-search{
+	width: 100%;
+}
+.nav-item.cta.cta-button> a.nav-link:hover{
+	background-color: #115da0 !important;
+	border-color: #3fc3e8 !important;
+}
+input.search-submit.btn.btn-primary.btn-cari{
+	background-color: #074175 !important;
+	border-color: #074175 !important;
+}
+input.search-submit.btn.btn-primary.btn-cari:hover{
+	background-color: #115da0 !important;
+	border-color: #115da0 !important;
+}
+.ftco-navbar-light.scrolled .nav-item.cta.cta-button > a{
+	background-color: #074175 !important;
+}.ftco-navbar-light.scrolled .nav-item.cta.cta-button > a:hover{
+	background-color: #115da0 !important;
+}
+.pad-greeting{
+	top:100px;
+}
+.txt-greeting{
+	font-size:60px;
+	color:#fff;
+	line-height: 1.2;
+}
+.short-greeting{
+	font-size:20px;
+	color:rgba(255, 255, 255, 0.8);
+}
+.txt-white{
+	color:#fff;
+}
+span.box-icon{
+	min-width:125px;
+	padding: 5px 15px;
+	height: 50px;
+	background: #ffffff;
+	margin-right: 15px;
+	font-size:20px;
+}
+span.box-icon:hover{
+	background:#074175;
+}
+.box-icon a{
+	color:#074175;
+}
+.icon-vividi{
+	color:#074175;
+}
+span.box-icon:hover .icon-vividi{
+	color:#ffffff !important;
+}
+span.box-icon:hover a{
+	color:#ffffff !important;
+}
+.services:hover{
+	background-color: #074175 !important;
+}
+.services .icon span{
+	color: #074175 !important;
+}
+.services:hover .icon span{
+	color: #ffffff !important;
+}
+.ftco-footer {
+	/*height: 450px !important;*/
+	font-size: 14px;
+	background: #222831;
+	padding: 50px 0 0 0!important;
+}
+.line-br{
+	border-bottom: 2px solid #cfcfcf;
+}
+.mb-5.no-bottom{
+	margin-bottom: 10px !important;
+}
+.owl-carousel .owl-nav .owl-prev, .owl-carousel .owl-nav .owl-next{
+	color:#074175 !important;
+}

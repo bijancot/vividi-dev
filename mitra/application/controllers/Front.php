@@ -10,68 +10,72 @@ class Front extends CI_Controller {
 		$this->theme->front("front/v_index");
 	}
 
-	public function search($page=0){
-		$data["active_menu"] = "home";
-		$data['page_heading'] = 'Pencarian Barang';
+//	public function search($page=0){
+	public function search(){
+//		$data["active_menu"] = "home";
+//		$data['page_heading'] = 'Pencarian Barang';
+//
+//		if (isset($_GET["q"])){
+//			@$q = ($_GET["q"]=="")?"all":urlencode($_GET["q"]);
+//		}
+//
+//		$data["cari"]   = array("q" => urldecode(@$q));
+//
+//		$where = array();
+//		//Filter for company name
+//		if ($data["cari"]["q"] != "") {
+//			if ($data["cari"]["q"] == "all") $data["cari"]["q"] = "";
+//			$where = "(
+//                        f_nama_mesin like '%".$this->db->escape_like_str($data["cari"]["q"])."%' or
+//                        f_nama_spare_part like '%".$this->db->escape_like_str($data["cari"]["q"])."%'
+//						) ";
+//		}
+//		$querysearch = @$q;
+//		$this->db->where($where);
+//		$this->load->library('pagination');
+//		$config = $this->my_config->pagination();
+//		$config['base_url']     = site_url("index/search/");
+//		$config['per_page']     = 10;
+//		$config["uri_segment"]  = 3;
+//		$config["suffix"]       = "?q=$querysearch";
+//		$config['total_rows']   = $this->db->join('tb_mesin','tb_mesin.f_kode_mesin=tb_produk.f_mesin','left')
+//			->join('tb_kategori_mesin','tb_kategori_mesin.f_id_kategori_mesin=tb_mesin.f_kategori_mesin','left')
+//			->join('tb_spare_part','tb_spare_part.f_kode_spare_part=tb_produk.f_spare_part','left')
+//			->join('tb_kategori_spare_part','tb_kategori_spare_part.f_id_kategori_spare_part=tb_spare_part.f_kategori_spare_part','left')
+//			->where('f_status_mesin','1')
+//			->or_where('f_status_spare_part','1')
+//			->get('tb_produk')->num_rows();
+//
+//		$config["num_links"]    = round($config["total_rows"] / $config["per_page"]);
+//		$this->pagination->initialize($config);
+//		//--
+//		$this->db->where($where)->limit($config['per_page'], $page);
+//
+//		$data["srch"] = $this->db->join("tb_mesin","tb_mesin.f_kode_mesin=tb_produk.f_mesin",'left')
+//			->join('tb_kategori_mesin','tb_kategori_mesin.f_id_kategori_mesin=tb_mesin.f_kategori_mesin','left')
+//			->join('tb_spare_part','tb_spare_part.f_kode_spare_part=tb_produk.f_spare_part','left')
+//			->join('tb_kategori_spare_part','tb_kategori_spare_part.f_id_kategori_spare_part=tb_spare_part.f_kategori_spare_part','left')
+//			->where('f_status_mesin','1')
+//			->or_where('f_status_spare_part','1')
+//			->get('tb_produk')->result_array();
 
-		if (isset($_GET["q"])){
-			@$q = ($_GET["q"]=="")?"all":urlencode($_GET["q"]);
-		}
-
-		$data["cari"]   = array("q" => urldecode(@$q));
-
-		$where = array();
-		//Filter for company name
-		if ($data["cari"]["q"] != "") {
-			if ($data["cari"]["q"] == "all") $data["cari"]["q"] = "";
-			$where = "(
-                        f_nama_mesin like '%".$this->db->escape_like_str($data["cari"]["q"])."%' or
-                        f_nama_spare_part like '%".$this->db->escape_like_str($data["cari"]["q"])."%'
-						) ";
-		}
-		$querysearch = @$q;
-		$this->db->where($where);
-		$this->load->library('pagination');
-		$config = $this->my_config->pagination();
-		$config['base_url']     = site_url("index/search/");
-		$config['per_page']     = 10;
-		$config["uri_segment"]  = 3;
-		$config["suffix"]       = "?q=$querysearch";
-		$config['total_rows']   = $this->db->join('tb_mesin','tb_mesin.f_kode_mesin=tb_produk.f_mesin','left')
-			->join('tb_kategori_mesin','tb_kategori_mesin.f_id_kategori_mesin=tb_mesin.f_kategori_mesin','left')
-			->join('tb_spare_part','tb_spare_part.f_kode_spare_part=tb_produk.f_spare_part','left')
-			->join('tb_kategori_spare_part','tb_kategori_spare_part.f_id_kategori_spare_part=tb_spare_part.f_kategori_spare_part','left')
-			->where('f_status_mesin','1')
-			->or_where('f_status_spare_part','1')
-			->get('tb_produk')->num_rows();
-
-		$config["num_links"]    = round($config["total_rows"] / $config["per_page"]);
-		$this->pagination->initialize($config);
-		//--
-		$this->db->where($where)->limit($config['per_page'], $page);
-
-		$data["srch"] = $this->db->join("tb_mesin","tb_mesin.f_kode_mesin=tb_produk.f_mesin",'left')
-			->join('tb_kategori_mesin','tb_kategori_mesin.f_id_kategori_mesin=tb_mesin.f_kategori_mesin','left')
-			->join('tb_spare_part','tb_spare_part.f_kode_spare_part=tb_produk.f_spare_part','left')
-			->join('tb_kategori_spare_part','tb_kategori_spare_part.f_id_kategori_spare_part=tb_spare_part.f_kategori_spare_part','left')
-			->where('f_status_mesin','1')
-			->or_where('f_status_spare_part','1')
-			->get('tb_produk')->result_array();
-
-		$this->theme->front("front/v_search",$data);
+//		$this->theme->front("front/v_search",$data);
+		$this->theme->search("front/v_search");
 	}
 
-	public function mesin($id){
-		$data["active_menu"] = "home";
-		$data['page_heading'] = 'Detail Mesin';
+//	public function detail($id){
+	public function detail(){
+//		$data["active_menu"] = "home";
+//		$data['page_heading'] = 'Detail Mesin';
+//
+//		$data["mesin"] = $this->db->join("tb_gambar","tb_gambar.f_id_gambar=tb_mesin.f_gambar_mesin","left")
+//			->join("tb_kategori_mesin","tb_kategori_mesin.f_id_kategori_mesin=tb_mesin.f_kategori_mesin","left")
+//			->join("tb_tag_mesin","tb_tag_mesin.f_id_tag_mesin=tb_mesin.f_tag_mesin","left")
+//			->where("f_kode_mesin",$id)
+//			->get("tb_mesin")->row_array();
 
-		$data["mesin"] = $this->db->join("tb_gambar","tb_gambar.f_id_gambar=tb_mesin.f_gambar_mesin","left")
-			->join("tb_kategori_mesin","tb_kategori_mesin.f_id_kategori_mesin=tb_mesin.f_kategori_mesin","left")
-			->join("tb_tag_mesin","tb_tag_mesin.f_id_tag_mesin=tb_mesin.f_tag_mesin","left")
-			->where("f_kode_mesin",$id)
-			->get("tb_mesin")->row_array();
-
-		$this->theme->front("front/v_produk",$data);
+//		$this->theme->front("front/v_produk",$data);
+		$this->theme->search("front/v_single_post");
 	}
 
 	public function spare_part($id){
