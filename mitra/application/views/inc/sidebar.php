@@ -71,27 +71,6 @@
 			<li><a href="<?= base_url('pesan/view_pesan'); ?>">
 					<?php } ?><i class="fa fa-pie-chart"></i> <span>Pesanan Tamu</span></a></li>
 
-			<!--                <ul class="treeview-menu treeview-menu-visible">-->
-			<!--                    --><?php //if ($side == 'semua'){ ?>
-			<!--                        <li class="active"><a href="#">--><?php //} else { ?>
-			<!--                    <li><a href="--><? //= base_url('properti'); ?><!--">--><?php //} ?>
-			<!--                            <i class="fa fa-circle-o"></i> Semua Properti</a></li>-->
-			<!---->
-			<!--                    --><?php //if ($side == 'tipe_kamar'){ ?>
-			<!--                        <li class="active"><a href="#">--><?php //} else { ?>
-			<!--                    <li><a href="--><? //= base_url('properti/tipe_kamar'); ?><!--">--><?php //} ?>
-			<!--                            <i class="fa fa-circle-o"></i> Tipe Kamar</a></li>-->
-			<!---->
-			<!--                    --><?php //if ($side == 'modal'){ ?>
-			<!--                        <li class="active"><a href="#">--><?php //} else { ?>
-			<!--                    <li><a href="--><? //= base_url('properti/harga_modal'); ?><!--">--><?php //} ?>
-			<!--                            <i class="fa fa-circle-o"></i> Atur Harga</a></li>-->
-			<!---->
-			<!--                    --><?php //if ($side == 'pesan'){ ?>
-			<!--                        <li class="active"><a href="#">--><?php //} else { ?>
-			<!--                    <li><a href="--><? //= base_url('properti/pesan'); ?><!--">--><?php //} ?>
-			<!--                            <i class="fa fa-circle-o"></i> Pesanan Tamu</a></li>-->
-			<!--                </ul>-->
 			<?php if ($side == 'profile') { ?>
 				<li class="active"><a href="<?= base_url('home/profile'); ?>"><i class="fa fa-user"></i>
 						<span>Profile</span></a></li>

@@ -177,4 +177,10 @@ class Model_register extends CI_Model
         $this->db->where('ID', $id);
         $this->db->update('wpwj_users', $data);
     }
+
+    function verifikasi(){
+    	$this->db->select('user_login, user_email, user_registered, display_name, name_hotel, jabatan, status, telepon');
+    	$this->db->where('status', 0);
+		return $this->db->get('wpwj_users');
+	}
 }

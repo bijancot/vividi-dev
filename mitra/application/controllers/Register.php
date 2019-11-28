@@ -39,7 +39,7 @@ class Register extends CI_Controller
 			if ($cek_email == true) {
 				$this->Model_register->save_mitra($user, $pass, $email, $n_depan, $n_belakang, $telepon, $time, $jabatan, $properti, $status);
 				$this->send_email($email, $user, $pass, $nama);
-				$this->send_admin($email, $user, $pass, $nama);
+				$this->send_admin($email, $user, $pass, $nama, $jabatan, $properti);
 				redirect('');
 			} else {
 				redirect('Register');

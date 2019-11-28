@@ -21,7 +21,6 @@ class Model_login extends CI_Model
         $this->db->join('wpwj_usermeta', 'wpwj_users.ID = wpwj_usermeta.user_id');
         $this->db->where('wpwj_users.user_login', $user);
         $this->db->where('wpwj_users.user_pass', $pass);
-//        $this->db->where('wpwj_users.status', $status);
         $this->db->where('wpwj_usermeta.meta_key', 'wpwj_capabilities');
         $query = $this->db->get()->row();
         return $query;
