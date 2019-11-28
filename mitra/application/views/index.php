@@ -157,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 async : false,
                 dataType : 'json',
                 success: function(data){
-                    var html = '';
+                    var html = '<option value=""> -- Pilih --</option>';
                     var i;
                     for(i=0; i<data.length; i++){
                         html += '<option value="'+data[i].id+'_'+data[i].kamar+'">'+data[i].kamar+'</option>';
@@ -176,14 +176,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 async : false,
                 dataType : 'json',
                 success: function(data){
-                    if (data.length != 0){
-                        var html = '';
-                    } else {
-                        var html = '<label for="exampleInputPassword1">Harga</label><input type="text" name="weekday" class="form-control" placeholder="Harga Weekday" required> <input type="text" name="weekend" class="form-control" placeholder="Harga Weekend" required> <input type="text" name="hseasion" class="form-control" placeholder="Harga High Season" required> <input type="text" name="psseason" class="form-control" placeholder="Harga Peek Season" required>';
-                    }
+                    var html = '<label for="exampleInputPassword1">Harga</label><input type="text" name="weekday" class="form-control" placeholder="Harga Weekday" required> <input type="text" name="weekend" class="form-control" placeholder="Harga Weekend" required> <input type="text" name="hseasion" class="form-control" placeholder="Harga High Season" required> <input type="text" name="psseason" class="form-control" placeholder="Harga Peek Season" required>';
                     var i;
                     for(i=0; i<data.length; i++) {
-                        html += '<label for="exampleInputPassword1">Harga</label><input type="text" name="weekday" value="' + data[i].weekday + '" class="form-control" required> <input type="text" name="weekend" value="' + data[i].weekend + '" class="form-control" required> <input type="text" name="hseasion" value="' + data[i].high + '" class="form-control" required> <input type="text" name="psseason" value="' + data[i].peek + '" class="form-control" required>';
+                        html = '<label for="exampleInputPassword1">Harga</label><input type="text" name="weekday" value="' + data[i].weekday + '" class="form-control" required> <input type="text" name="weekend" value="' + data[i].weekend + '" class="form-control" required> <input type="text" name="hseasion" value="' + data[i].high + '" class="form-control" required> <input type="text" name="psseason" value="' + data[i].peek + '" class="form-control" required>';
                     }
                     $('#weekday').html(html);
                 }
