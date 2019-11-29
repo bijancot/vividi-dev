@@ -47,6 +47,13 @@
 							<i class="fa fa-building-o"></i>Akun Mitra</a></li>
 				</ul>
 			</li>
+
+			<li><a href="#">
+					<i class="fa fa-list-alt"></i> <span>Cara Penggunaan</span></a></li>
+
+
+			<li><a href="#">
+					<i class="fa fa-pencil-square-o"></i> <span>Syarat dan Ketentuan</span></a></li>
 		</ul>
 	</section>
 	<!-- /.sidebar -->

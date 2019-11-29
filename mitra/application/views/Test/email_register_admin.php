@@ -29,6 +29,10 @@
 	Level : <b>MITRA PROPERTY</b>
 </p>
 <p>
+	<b>Status mitra masih tidak aktif. Silahkan masuk dashboard Admin, lalu pilih menu Verifikasi -> Akun Mitra, klik tombol verifikasi
+		untuk mengubah status mitra menjadi aktif dan mengirimkan email berisi password kepada mitra.</b>
+</p>
+<p>
 	<b style="color: #0A246A">PT. Vividi Transindo Utama</b>
 </p>
 <p>

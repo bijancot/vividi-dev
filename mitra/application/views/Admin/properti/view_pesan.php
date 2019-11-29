@@ -63,7 +63,6 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                $no=1;
                                 foreach ($data as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->booking_no;?></td>

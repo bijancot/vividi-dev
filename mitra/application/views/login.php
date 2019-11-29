@@ -50,7 +50,7 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="pull-left">Belum punya akun ? <a href="Register">Daftar</a></div>
+                <div class="pull-left">Belum punya akun ? <a href="<?php echo base_url('Register')?>">Daftar</a></div>
                 <input type="submit" class="btn btn-primary" value="Login" name="submit">
             </div>
             <center>MITRA DASHBOARD ver 1.9.01</center>

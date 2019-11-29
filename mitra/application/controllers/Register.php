@@ -28,6 +28,7 @@ class Register extends CI_Controller
 		$status = 0;
 		$nama = $n_depan . " " . $n_belakang;
 		$telepon = $this->input->post('telp');
+		$mitra = "Hotel";
 		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email');
 		$this->form_validation->set_rules('telp', 'Telephone', 'trim|required|numeric|greater_than[0.99]|regex_match[/^[0-9,]+$/]|max_length[12]');
 		date_default_timezone_set('Asia/Jakarta');
@@ -37,17 +38,19 @@ class Register extends CI_Controller
 		} else {
 			$cek_email = $this->Model_register->cek_email($email);
 			if ($cek_email == true) {
-				$this->Model_register->save_mitra($user, $pass, $email, $n_depan, $n_belakang, $telepon, $time, $jabatan, $properti, $status);
-				$this->send_email($email, $user, $pass, $nama);
+				$this->Model_register->save_mitra($user, $pass, $email, $n_depan, $n_belakang, $telepon, $time, $jabatan, $properti, $status, $mitra);
+				$this->send_email($email, $user, $properti, $nama);
 				$this->send_admin($email, $user, $pass, $nama, $jabatan, $properti);
-				redirect('');
+				$message = "Pendaftaran anda berhasil. Silahkan tunggu pihak Vividi mengaktifkan akun anda. Cek E-mail anda untuk mendapatkan password jika sudah akun sudah aktif.";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+				$this->load->view('login');
 			} else {
 				redirect('Register');
 			}
 		}
 	}
 
-	public function send_email($email, $user, $pass, $nama)
+	public function send_email($email, $user, $properti, $nama)
 	{
 		// Konfigurasi email
 		$config = [
@@ -81,8 +84,8 @@ class Register extends CI_Controller
 		// Isi email
 		$data['data'] = $email;
 		$data['user'] = $user;
-		$data['pass'] = $pass;
 		$data['nama'] = $nama;
+		$data['properti'] = $properti;
 		$body = $this->load->view('Test/email_register.php', $data, TRUE);
 		$this->email->message($body);
 

@@ -97,7 +97,7 @@ class Model_email extends CI_Model
 			from wpwj_trav_accommodation_bookings ab
 			where ab.booking_no = '$booking_no'
 			order by tgl_pesan desc");
-		Foreach ($query->result() as $row) {
+		foreach ($query->result() as $row) {
 			$email = $row->email;
 			return $email;
 		}
@@ -110,7 +110,7 @@ class Model_email extends CI_Model
 		left join wpwj_posts p on u.ID = p.post_author
 		left join wpwj_trav_accommodation_bookings ab on p.ID = ab.accommodation_id
 		where ab.booking_no = '$booking_no'");
-		Foreach ($query->result() as $row) {
+		foreach ($query->result() as $row) {
 			$email = $row->user_email;
 			return $email;
 		}

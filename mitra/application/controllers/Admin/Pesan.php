@@ -158,7 +158,6 @@ class Pesan extends CI_Controller
 	}
 
 	public function sukses($booking_no){
-		$id = $this->uri->segment(3);
 		$this->Model_email->get_sukses($booking_no);
 		$this->send_email($booking_no);
 		$this->email_receipt($booking_no);

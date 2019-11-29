@@ -15,12 +15,9 @@ class Akun extends CI_Controller
 		$this->load->database();
 	}
 
-	public function send_email($booking_no)
+	public function email_verifikasi($id)
 	{
-		$data['data'] = $this->Model_email->data_email($booking_no);
-		$mitra = $this->Model_email->email_owner($booking_no);
-		$cust = $this->Model_email->email_custowner($booking_no);
-//		$admin = 'order@vividi.id';
+		$mitra = $this->Model_register->verification_cust($id);
 		// Konfigurasi email
 		$config = [
 			'mailtype'  => 'html',
@@ -39,131 +36,34 @@ class Akun extends CI_Controller
 		$this->load->library('email', $config);
 
 		// Email dan nama pengirim
-		$this->email->from('info@vividi.id', 'VIVIDI E-Voucher '.$booking_no);
-
-		$list = array($mitra, $cust);
-		// Email penerima
-		$this->email->to($list); // Ganti dengan email tujuan
-
-		// Subject email
-		$this->email->subject('VIVIDI E-Voucher '.$booking_no);
-		// Isi email
-		$body = $this->load->view('Test/voucher.php',$data,  TRUE);
-		$this->email->message($body);
-
-		// Tampilkan pesan sukses atau error
-		if ($this->email->send()) {
-//			redirect(base_url('Admin/Pesan/pesan'));
-		} else {
-			echo 'Error! email tidak dapat dikirim.';
-		}
-	}
-
-	public function email_confirm($booking_no)
-	{
-//		$mitra = $_SESSION['email'];
-		$admin = 'omibalola@gmail.com';
-		// Konfigurasi email
-		$config = [
-			'mailtype'  => 'html',
-			'charset'   => 'utf-8',
-			'protocol'  => 'smtp',
-			'smtp_host' => 'mail.vividi.id',
-			'smtp_user' => 'info@vividi.id',  // Email gmail
-			'smtp_pass' => 'hafiz110118',  // Password gmail
-			'smtp_crypto' => 'ssl',
-			'smtp_port'   => 465,
-			'crlf'    => "\r\n",
-			'newline' => "\r\n"
-		];
-
-		// Load library email dan konfigurasinya
-		$this->load->library('email', $config);
-
-		// Email dan nama pengirim
-		$this->email->from('omibalola@gmail.com', 'Email Konfirmasi Pembayaran');
+		$this->email->from('info@vividi.id', 'E-mail Konfirmasi Akun');
 
 //		$list = array($mitra, $admin);
 		// Email penerima
-		$this->email->to($admin); // Ganti dengan email tujuan
+		$this->email->to($mitra); // Ganti dengan email tujuan
 
 		// Subject email
-		$this->email->subject('Email Konfirmasi Pembayaran');
-		$data['data'] = $this->Model_email->data_email($booking_no);
+		$this->email->subject('E-mail Konfirmasi Akun');
+		$data['data'] = $this->Model_register->confirm_verification($id);
 		// Isi email
-		$body = $this->load->view('Test/confirm.php',$data,  TRUE);
-		$this->email->message($body);
-
-		// Tampilkan pesan sukses atau error
-		if ($this->email->send()) {
-			redirect('http://localhost/vividi-dev/halaman-member/?ihc_ap_menu=orders');
-//			echo 'Sukses';
-		} else {
-			echo 'Error! email tidak dapat dikirim.';
-		}
-	}
-
-	public function email_receipt($booking_no)
-	{
-//		$mitra = $_SESSION['email'];
-		$cust = $this->Model_email->email_custowner($booking_no);
-		// Konfigurasi email
-		$config = [
-			'mailtype'  => 'html',
-			'charset'   => 'utf-8',
-			'protocol'  => 'smtp',
-			'smtp_host' => 'mail.vividi.id',
-			'smtp_user' => 'info@vividi.id',  // Email gmail
-			'smtp_pass' => 'hafiz110118',  // Password gmail
-			'smtp_crypto' => 'ssl',
-			'smtp_port'   => 465,
-			'crlf'    => "\r\n",
-			'newline' => "\r\n"
-		];
-
-		// Load library email dan konfigurasinya
-		$this->load->library('email', $config);
-
-		// Email dan nama pengirim
-		$this->email->from('info@vividi.id', 'VIVIDI E-Receipt '.$booking_no);
-
-//		$list = array($mitra, $admin);
-		// Email penerima
-		$this->email->to($cust); // Ganti dengan email tujuan
-
-		// Subject email
-		$this->email->subject('VIVIDI E-Receipt '.$booking_no);
-		$data['data'] = $this->Model_email->data_email($booking_no);
-		// Isi email
-		$body = $this->load->view('Test/receipt.php',$data,  TRUE);
+		$body = $this->load->view('Test/email_verification.php',$data,  TRUE);
 		$this->email->message($body);
 
 		// Tampilkan pesan sukses atau error
 		if ($this->email->send()) {
 //			redirect('http://localhost/vividi-dev/halaman-member/?ihc_ap_menu=orders');
-//			redirect(base_url('Admin/Pesan/pesan'));
+			echo 'Sukses';
 		} else {
 			echo 'Error! email tidak dapat dikirim.';
 		}
 	}
 
-	public function pesan()
-	{
-		$data['data'] = $this->Model_pesan->data_pesan_menunggu();
-		$data['data_batal'] = $this->Model_pesan->data_pesan_batal();
-		$data['data_sukses'] = $this->Model_pesan->data_pesan_sukses();
-		$data['data_semua'] = $this->Model_pesan->data_pesan();
-		$data['folder'] = "Admin/properti";
-		$data['side'] = "pesan";
-		$this->load->view('Admin/index',$data);
-	}
-
-	public function sukses($booking_no){
-		$id = $this->uri->segment(3);
-		$this->Model_email->get_sukses($booking_no);
-		$this->send_email($booking_no);
-		$this->email_receipt($booking_no);
-		redirect(base_url('Admin/Pesan/pesan'));
+	public function verifikasi(){
+		$id = $this->uri->segment(4);
+		$this->Model_register->get_verifikasi($id);
+		$this->email_verifikasi($id);
+//		$this->email_receipt($booking_no);
+		redirect(base_url('Admin/Akun/akun'));
 	}
 
 	public function gagal(){
@@ -174,6 +74,7 @@ class Akun extends CI_Controller
 
 	public function akun(){
 		$data['data'] = $this->Model_register->verifikasi();
+		$data['data_semua'] = $this->Model_register->semua_verifikasi();
 		$data['folder'] = "Admin/verifikasi";
 		$data['side'] = "verifikasi";
 		$this->load->view('Admin/index', $data);

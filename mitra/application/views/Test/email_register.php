@@ -13,14 +13,17 @@
         User name : <?php echo $user;?>
     </p>
     <p>
-        Password : <?php echo $pass;?>
-    </p>
-    <p>
         Email : <?php echo $data;?>
     </p>
+	<p>
+		Email : <?php echo $properti;?>
+	</p>
     <p>
         Level : <b>MITRA PROPERTY</b>
     </p>
+	<p>
+		<b>Dimohon untuk menunggu validasi akun anda dari pihak Vividi. Jika sudah tervalidasi, E-mail berisi password akan dikirim ke E-Mail Anda.</b>
+	</p>
     <p>
         <b style="color: #0A246A">PT. Vividi Transindo Utama</b>
     </p>

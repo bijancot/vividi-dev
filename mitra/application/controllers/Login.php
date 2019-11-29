@@ -25,15 +25,14 @@ class Login extends CI_Controller
 			$pass = $this->input->post('password');
 			$cek = $this->Model_login->cek_login($user, $pass);
 			if ($cek->num_rows() > 0) {
-//				$cek_status = $cek->row_array();
-//				if ($cek_status['status'] == 1) {
+				$cek_status = $cek->row_array();
+				if ($cek_status['status'] == 1) {
 					$pelogin = $this->Model_login->proses_login($user, $pass);
 					$level = $pelogin->meta_value;
 					$role = explode('"', $level);
 					$nama = $pelogin->display_name;
 					$id = $pelogin->ID;
 					$email = $pelogin->user_email;
-//					$status = $pelogin->status;
 					$data = array('role' => $role[1], 'username' => $user, 'nama' => $nama, 'ID' => $id, 'email' => $email);
 					$this->session->set_userdata($data);
 					if ($role[1] == "administrator") {
@@ -43,11 +42,15 @@ class Login extends CI_Controller
 					} else {
 
 					}
-//				} else {
-//					redirect("/");
-//				}
+				} else {
+					$message = "Akun anda belum tervalidasi, mohon tunggu validasi dari pihak Vividi.";
+					echo "<script type='text/javascript'>alert('$message');</script>";
+					$this->load->view('login');
+				}
 			} else {
-				redirect("/");
+				$message = "Username atau Password anda Salah.\\nSilahkan Coba Lagi.";
+				echo "<script type='text/javascript'>alert('$message');</script>";
+				$this->load->view('login');
 			}
 		}
 
