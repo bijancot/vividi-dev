@@ -186,6 +186,7 @@ class Model_register extends CI_Model
 		wpwj_users.user_registered, wpwj_users.display_name, wpwj_users.name_hotel, 
 		wpwj_users.jabatan, wpwj_users.status, wpwj_users.telepon');
 		$this->db->where('mitra', 'Hotel');
+		$this->db->where('status', 1);
 		return $this->db->get('wpwj_users')->result();
 	}
 

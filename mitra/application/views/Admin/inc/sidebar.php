@@ -11,10 +11,10 @@
 		<ul class="sidebar-menu" data-widget="tree">
 			<li class="header">MAIN NAVIGATION</li>
 			<?php if ($side == 'dashboard') { ?>
-				<li class="active"><a href="<?= base_url('home'); ?>"><i class="fa fa-laptop"></i>
+				<li class="active"><a href="<?= base_url('Admin/home'); ?>"><i class="fa fa-laptop"></i>
 						<span>Dashboard</span></a></li>
 			<?php } else { ?>
-				<li><a href="<?= base_url('home'); ?>"><i class="fa fa-laptop"></i> </span>Dashboard</a></a></li>
+				<li><a href="<?= base_url('Admin/home'); ?>"><i class="fa fa-laptop"></i> </span>Dashboard</a></a></li>
 			<?php } ?>
 			<?php if ($folder == 'properti'){ ?>
 		<li class="active treeview menu-open">
@@ -48,8 +48,11 @@
 				</ul>
 			</li>
 
-			<li><a href="#">
-					<i class="fa fa-list-alt"></i> <span>Cara Penggunaan</span></a></li>
+			<?php if ($folder == 'tutorial') { ?>
+			<li class="active"><a href="#">
+					<?php } else { ?>
+			<li><a href="<?= base_url('Admin/Tutorial/'); ?>">
+					<?php } ?><i class="fa fa-pie-chart"></i> <span>Cara Penggunaan</span></a></li>
 
 
 			<li><a href="#">

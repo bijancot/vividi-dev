@@ -43,7 +43,7 @@
 							<li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="true">Batal</a></li>
 						<?php } ?>
                     </ul>
-                    <div class="tab-content">
+                    <div class="table-responsive tab-content">
                         <div class="tab-pane active" id="tab_1">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
