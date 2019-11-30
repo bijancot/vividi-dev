@@ -138,9 +138,10 @@ class Model_register extends CI_Model
 		}
 	}
 
-	function save_profile($id, $depan, $belakang)
+	function save_profile($id, $depan, $belakang, $telepon)
 	{
 		$data = array(
+		    'telepon' => $telepon,
 			'display_name' => $depan . ' ' . $belakang
 		);
 		$this->db->where('ID', $id);
@@ -159,15 +160,6 @@ class Model_register extends CI_Model
 		$array = array('user_id =' => $id, 'meta_key =' => 'last_name');
 		$this->db->where($array);
 		$this->db->update('wpwj_usermeta', $data_belakang);
-	}
-
-	function save_new_pass($id, $pass)
-	{
-		$data = array(
-			'user_pass' => $pass
-		);
-		$this->db->where('ID', $id);
-		$this->db->update('wpwj_users', $data);
 	}
 
 	function save_new_email($id, $email)

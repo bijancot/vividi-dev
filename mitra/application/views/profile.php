@@ -6,7 +6,8 @@
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-laptop"></i> Home</a></li>
-            <li class="active">Profile</li>
+            <li><a href="<?= base_url('Home/profile'); ?>">Profile</a></li>
+            <li class="active">Edit Profile</li>
         </ol>
     </section>
     <section class="content">
@@ -16,14 +17,13 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <?php echo form_open(base_url('Home/edit_profile')); ?>
+                        <div class="modal-header">
+                            <h4><b>Detail Profile</b></h4>
+                        </div>
                         <div class="modal-body">
                             <?php foreach ($data as $row) { ?>
                                 <input type="hidden" name="id" class="form-control" value="<?php echo $row->id; ?>" required>
                                 <input type="hidden" name="cek" class="form-control" value="<?php echo $row->email; ?>" required>
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input type="text" name="email" class="form-control" value="<?php echo $row->email; ?>" required>
-                            </div>
                             <div class="form-group">
                                 <label>Nama Depan</label>
                                 <input type="text" name="depan" class="form-control" value="<?php echo $row->awal; ?>" required>
@@ -33,18 +33,18 @@
                                 <input type="text" name="belakang" class="form-control" value="<?php echo $row->akhir; ?>" required>
                             </div>
                             <div class="form-group">
-                                <label>Password</label>
-                                <input type="password" name="password" class="form-control" placeholder="Password">
+                                <label>Email</label>
+                                <input type="text" name="telepon" class="form-control" value="<?php echo $row->telepon; ?>" required>
                             </div>
                             <div class="form-group">
-                                <label>Confirm Password</label>
-                                <input type="password" name="confirm" class="form-control" placeholder="Confirm Password">
+                                <label>Email</label>
+                                <input type="text" name="email" class="form-control" value="<?php echo $row->email; ?>" required>
                             </div>
-                            <p style="font-size: 13px; font-style: italic; margin: 5px 0 5px; color: #666">*Kosongkan password jika kamu tidak ingin mengatur ulang password</p>
                             <?php } ?>
                         </div>
                         <div class="modal-footer">
-                            <input type="submit" class="btn btn-success" value="Ubah Profil" name="submit">
+                            <a href="<?= base_url('Profile/reset_pass'); ?>" class="btn btn-success" style="float: left">Reset Password</a>
+                            <input type="submit" class="btn btn-primary" value="Ubah Profil" name="submit">
                         </div>
                         <?php echo form_close(); ?>
                     </div>
