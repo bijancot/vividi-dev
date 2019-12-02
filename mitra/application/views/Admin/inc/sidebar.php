@@ -54,9 +54,11 @@
 			<li><a href="<?= base_url('Admin/Tutorial/'); ?>">
 					<?php } ?><i class="fa fa-pie-chart"></i> <span>Cara Penggunaan</span></a></li>
 
-
-			<li><a href="#">
-					<i class="fa fa-pencil-square-o"></i> <span>Syarat dan Ketentuan</span></a></li>
+            <?php if ($folder == 'message') { ?>
+            <li class="active"><a href="#">
+                    <?php } else { ?>
+            <li><a href="<?= base_url('Admin/Message/syarat_ketentuan'); ?>">
+                    <?php } ?><i class="fa fa-pencil-square-o"></i> <span>Syarat dan Ketentuan</span></a></li>
 		</ul>
 	</section>
 	<!-- /.sidebar -->
