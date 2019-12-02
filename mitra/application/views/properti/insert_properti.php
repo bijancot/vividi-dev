@@ -297,6 +297,12 @@
 										<input type="checkbox" name="fasilitas[]" value="207">Spa
 									</label>
 								</div>
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="fasilitas[]" value="<?= $fasilitas ?>>">Fasilitas Baru
+										<input type="text" name="fas" class="form-control">
+									</label>
+								</div>
 							</div>
 							<div class="form-group slidecontainer col-xs-12 col-md-6">
 								<label>Hotel Bintang : <span id="bintang"></span></label>

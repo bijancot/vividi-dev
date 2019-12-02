@@ -129,6 +129,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $(window).on('load', function () {
         $('#modal_harga').modal('show');
     });
+    $(window).on('load', function () {
+        $('#modal_user').modal('show');
+    });
 </script>
 <script>
     $(function () {

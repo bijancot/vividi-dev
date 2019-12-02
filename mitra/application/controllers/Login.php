@@ -33,7 +33,8 @@ class Login extends CI_Controller
 					$nama = $pelogin->display_name;
 					$id = $pelogin->ID;
 					$email = $pelogin->user_email;
-					$data = array('role' => $role[1], 'username' => $user, 'nama' => $nama, 'ID' => $id, 'email' => $email);
+					$hotel = $pelogin->name_hotel;
+					$data = array('role' => $role[1], 'username' => $user, 'nama' => $nama, 'ID' => $id, 'email' => $email, 'hotel' => $hotel);
 					$this->session->set_userdata($data);
 					if ($role[1] == "administrator") {
 						redirect(base_url('Admin/home'));

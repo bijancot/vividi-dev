@@ -83,7 +83,12 @@
                     <?php if ($side == 'profile'){ ?>
                 <li class="active"><a href="#"><?php } else { ?>
                     <li><a href="<?= base_url('home/profile'); ?>"><?php } ?>
-                            <i class="fa fa-circle-o"></i> Edit Profile</a></li>
+                            <i class="fa fa-circle-o"></i> Detail Profile</a></li>
+
+                    <?php if ($side == 'daftar'){ ?>
+                <li class="active"><a href="#"><?php } else { ?>
+                    <li><a href="<?= base_url('home/daftar'); ?>"><?php } ?>
+                            <i class="fa fa-circle-o"></i> Tambah User</a></li>
                 </ul>
             </li>
 

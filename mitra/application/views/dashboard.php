@@ -3,8 +3,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Dashboard
-            <small>Control panel</small>
+			<span style="color: red">MITRA DASHBOARD | </span> <span style="color: #09477E"><?= strtoupper($_SESSION['hotel'])?></span>
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-laptop"></i> Home</a></li>

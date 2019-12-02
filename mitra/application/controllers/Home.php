@@ -58,4 +58,12 @@ class Home extends CI_Controller
         $data['side'] = "profile";
         $this->load->view('index', $data);
     }
+
+    public function daftar(){
+    	$id = $_SESSION['ID'];
+		$data['data'] = $this->Model_profil->data_user($id);
+		$data['folder'] = "profile";
+		$data['side'] = "daftar";
+		$this->load->view('index', $data);
+	}
 }

@@ -19,7 +19,15 @@ class Properti extends CI_Controller {
 	public function tambah_properti(){
 		$data['tipe'] = $this->Model_properti->combo_tipe_properti();
 		$data['country'] = $this->Model_properti->combo_country();
-		$data['fasilitas'] = $this->Model_properti->data_fasilitas();
+//		$data['fasilitas'] = $this->Model_properti->data_fasilitas();
+		$this->db->select_max('term_id');
+		$fasilitas = $this->db->get('wpwj_terms');
+		$keyTransaksi ="";
+		$i = 1;
+		foreach ($fasilitas->result() as $row) {
+			$keyTransaksi = $row->term_id + $i;
+		}
+		$data['fasilitas'] = $keyTransaksi;
 		$data['folder'] = "properti";
 		$data['side'] = "insert_properti";
 		$data['view'] = "insert_properti";

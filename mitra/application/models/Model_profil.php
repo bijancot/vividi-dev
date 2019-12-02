@@ -19,6 +19,19 @@ class Model_profil extends CI_Model
         return $query->result();
     }
 
+    function data_user($id){
+    	$this->db->select('u.id as id,
+    	u.user_login as user,
+    	u.user_email as email,
+    	u.display_name as nama,
+    	u.telepon as telepon,
+    	u.jabatan as jabatan');
+		$this->db->from('wpwj_users u');
+		$this->db->where('u.id', $id);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
     function save_new_pass($id, $pass)
     {
 
