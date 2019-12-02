@@ -12,7 +12,7 @@
 	</section>
 
 	<!-- Main content -->
-	<section class="content">
+	<section class="table-responsive content">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="box">
@@ -74,7 +74,7 @@
 		<!--			<li class="active">Akun Mitra</li>-->
 		<!--		</ol>-->
 	</section>
-	<section class="content">
+	<section class="table-responsive content">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="box">

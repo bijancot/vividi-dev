@@ -16,6 +16,102 @@ class Register extends CI_Controller
 		$this->load->view('register');
 	}
 
+	public function send_email($email, $user, $properti, $nama)
+	{
+		// Konfigurasi email
+		$config = [
+			'mailtype' => 'html',
+			'charset' => 'utf-8',
+			'protocol' => 'smtp',
+			'smtp_host' => 'mail.vividi.id',
+			'smtp_user' => 'info@vividi.id',  // Email gmail
+			'smtp_pass' => 'devano2019',  // Password gmail
+			'smtp_crypto' => 'ssl',
+			'smtp_port' => 465,
+			'crlf' => "\r\n",
+			'newline' => "\r\n"
+		];
+
+		// Load library email dan konfigurasinya
+		$this->load->library('email', $config);
+
+		// Email dan nama pengirim
+		$this->email->from('info@vividi.id', 'Pendaftaran Member Baru Mitra Properti');
+
+//        $list = array($mitra, $cust);
+		// Email penerima
+		$this->email->to($email); // Ganti dengan email tujuan
+
+		// Lampiran email, isi dengan url/path file
+		//$this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
+
+		// Subject email
+		$this->email->subject('Pendaftaran Member Baru Mitra Properti');
+		// Isi email
+		$data['data'] = $email;
+		$data['user'] = $user;
+		$data['nama'] = $nama;
+		$data['properti'] = $properti;
+		$body = $this->load->view('Test/email_register.php', $data, TRUE);
+		$this->email->message($body);
+
+		// Tampilkan pesan sukses atau error
+		if ($this->email->send()) {
+//            redirect(base_url(''));
+		} else {
+			echo 'Error! email Mitra tidak dapat dikirim.';
+		}
+	}
+
+	public function send_admin($email, $user, $pass, $nama, $jabatan, $properti)
+	{
+		// Konfigurasi email
+		$config = [
+			'mailtype' => 'html',
+			'charset' => 'utf-8',
+			'protocol' => 'smtp',
+			'smtp_host' => 'mail.vividi.id',
+			'smtp_user' => 'info@vividi.id',  // Email gmail
+			'smtp_pass' => 'devano2019',  // Password gmail
+			'smtp_crypto' => 'ssl',
+			'smtp_port' => 465,
+			'crlf' => "\r\n",
+			'newline' => "\r\n"
+		];
+
+		// Load library email dan konfigurasinya
+		$this->load->library('email', $config);
+
+		// Email dan nama pengirim
+		$this->email->from('info@vividi.id', 'Pendaftaran Member Baru Mitra Properti');
+
+		//$list = array($mitra, $cust);
+		// Email penerima
+		$this->email->to('order@vividi.id'); // Ganti dengan email tujuan
+
+		// Lampiran email, isi dengan url/path file
+		//$this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
+
+		// Subject email
+		$this->email->subject('Pendaftaran Member Baru Mitra Properti');
+		// Isi email
+		$data['data'] = $email;
+		$data['user'] = $user;
+		$data['pass'] = $pass;
+		$data['nama'] = $nama;
+		$data['jabatan'] = $jabatan;
+		$data['properti'] = $properti;
+		$body = $this->load->view('Test/email_register_admin.php', $data, TRUE);
+		$this->email->message($body);
+
+		// Tampilkan pesan sukses atau error
+		if ($this->email->send()) {
+//            redirect(base_url(''));
+		} else {
+			echo 'Error! email Admin tidak dapat dikirim.';
+		}
+	}
+
 	public function cek_register()
 	{
 		$this->db->select_max('ID');
@@ -88,102 +184,6 @@ class Register extends CI_Controller
 			} else {
 				redirect('Register');
 			}
-		}
-	}
-
-	public function send_email($email, $user, $properti, $nama)
-	{
-		// Konfigurasi email
-		$config = [
-			'mailtype' => 'html',
-			'charset' => 'utf-8',
-			'protocol' => 'smtp',
-			'smtp_host' => 'mail.vividi.id',
-			'smtp_user' => 'info@vividi.id',  // Email gmail
-			'smtp_pass' => 'hafiz110118',  // Password gmail
-			'smtp_crypto' => 'ssl',
-			'smtp_port' => 465,
-			'crlf' => "\r\n",
-			'newline' => "\r\n"
-		];
-
-		// Load library email dan konfigurasinya
-		$this->load->library('email', $config);
-
-		// Email dan nama pengirim
-		$this->email->from('info@vividi.id', 'Pendaftaran Member Baru Mitra Properti');
-
-//        $list = array($mitra, $cust);
-		// Email penerima
-		$this->email->to($email); // Ganti dengan email tujuan
-
-		// Lampiran email, isi dengan url/path file
-		//$this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
-
-		// Subject email
-		$this->email->subject('Pendaftaran Member Baru Mitra Properti');
-		// Isi email
-		$data['data'] = $email;
-		$data['user'] = $user;
-		$data['nama'] = $nama;
-		$data['properti'] = $properti;
-		$body = $this->load->view('Test/email_register.php', $data, TRUE);
-		$this->email->message($body);
-
-		// Tampilkan pesan sukses atau error
-		if ($this->email->send()) {
-//            redirect(base_url(''));
-		} else {
-			echo 'Error! email tidak dapat dikirim.';
-		}
-	}
-
-	public function send_admin($email, $user, $pass, $nama, $jabatan, $properti)
-	{
-		// Konfigurasi email
-		$config = [
-			'mailtype' => 'html',
-			'charset' => 'utf-8',
-			'protocol' => 'smtp',
-			'smtp_host' => 'mail.vividi.id',
-			'smtp_user' => 'info@vividi.id',  // Email gmail
-			'smtp_pass' => 'hafiz110118',  // Password gmail
-			'smtp_crypto' => 'ssl',
-			'smtp_port' => 465,
-			'crlf' => "\r\n",
-			'newline' => "\r\n"
-		];
-
-		// Load library email dan konfigurasinya
-		$this->load->library('email', $config);
-
-		// Email dan nama pengirim
-		$this->email->from('info@vividi.id', 'Pendaftaran Member Baru Mitra Properti');
-
-		//$list = array($mitra, $cust);
-		// Email penerima
-		$this->email->to('omibalola@gmail.com'); // Ganti dengan email tujuan
-
-		// Lampiran email, isi dengan url/path file
-		//$this->email->attach('https://masrud.com/content/images/20181215150137-codeigniter-smtp-gmail.png');
-
-		// Subject email
-		$this->email->subject('Pendaftaran Member Baru Mitra Properti');
-		// Isi email
-		$data['data'] = $email;
-		$data['user'] = $user;
-		$data['pass'] = $pass;
-		$data['nama'] = $nama;
-		$data['jabatan'] = $jabatan;
-		$data['name_hotel'] = $properti;
-		$body = $this->load->view('Test/email_register_admin.php', $data, TRUE);
-		$this->email->message($body);
-
-		// Tampilkan pesan sukses atau error
-		if ($this->email->send()) {
-//            redirect(base_url(''));
-		} else {
-			echo 'Error! email tidak dapat dikirim.';
 		}
 	}
 }

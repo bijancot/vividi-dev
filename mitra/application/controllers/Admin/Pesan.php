@@ -27,7 +27,7 @@ class Pesan extends CI_Controller
 			'protocol'  => 'smtp',
 			'smtp_host' => 'mail.vividi.id',
 			'smtp_user' => 'info@vividi.id',  // Email gmail
-			'smtp_pass' => 'hafiz110118',  // Password gmail
+			'smtp_pass' => 'devano2019',  // Password gmail
 			'smtp_crypto' => 'ssl',
 			'smtp_port'   => 465,
 			'crlf'    => "\r\n",
@@ -69,7 +69,7 @@ class Pesan extends CI_Controller
 			'protocol'  => 'smtp',
 			'smtp_host' => 'mail.vividi.id',
 			'smtp_user' => 'info@vividi.id',  // Email gmail
-			'smtp_pass' => 'hafiz110118',  // Password gmail
+			'smtp_pass' => 'devano2019',  // Password gmail
 			'smtp_crypto' => 'ssl',
 			'smtp_port'   => 465,
 			'crlf'    => "\r\n",
@@ -113,7 +113,7 @@ class Pesan extends CI_Controller
 			'protocol'  => 'smtp',
 			'smtp_host' => 'mail.vividi.id',
 			'smtp_user' => 'info@vividi.id',  // Email gmail
-			'smtp_pass' => 'hafiz110118',  // Password gmail
+			'smtp_pass' => 'devano2019',  // Password gmail
 			'smtp_crypto' => 'ssl',
 			'smtp_port'   => 465,
 			'crlf'    => "\r\n",

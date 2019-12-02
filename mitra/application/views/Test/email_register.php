@@ -16,7 +16,7 @@
         Email : <?php echo $data;?>
     </p>
 	<p>
-		Email : <?php echo $properti;?>
+		Nama Hotel : <?php echo $properti;?>
 	</p>
     <p>
         Level : <b>MITRA PROPERTY</b>

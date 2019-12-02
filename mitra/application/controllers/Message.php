@@ -14,7 +14,7 @@ class Message extends CI_Controller
     public function penggunaan()
     {
         $data['data'] = $this->Model_message->penggunaan();
-        $data['folder'] = "message";
+        $data['folder'] = "Message";
         $data['side'] = "penggunaan";
         $this->load->view('index', $data);
     }
@@ -22,7 +22,7 @@ class Message extends CI_Controller
     public function syarat_ketentuan()
     {
         $data['data'] = $this->Model_message->syarat_ketentuan();
-        $data['folder'] = "message";
+        $data['folder'] = "Message";
         $data['side'] = "syarat_ketentuan";
         $this->load->view('index', $data);
     }
@@ -30,7 +30,7 @@ class Message extends CI_Controller
     public function hubungi()
     {
         $data['data'] = $this->Model_message->hubungi();
-        $data['folder'] = "message";
+        $data['folder'] = "Message";
         $data['side'] = "hubungi";
         $this->load->view('index', $data);
     }
@@ -38,7 +38,7 @@ class Message extends CI_Controller
     public function tentang()
     {
         $data['data'] = $this->Model_message->tentang();
-        $data['folder'] = "message";
+        $data['folder'] = "Message";
         $data['side'] = "tentang";
         $this->load->view('index', $data);
     }

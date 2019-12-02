@@ -10,7 +10,7 @@
             <li class="active">Atur Harga</li>
         </ol>
     </section>
-    <section class="content">
+    <section class="table-responsive content">
         <div class="row">
             <div class="col-xs-12">
                 <div class="box">
