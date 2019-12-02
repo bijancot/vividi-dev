@@ -41,14 +41,14 @@
         <li class="active"><a href="#">
         <?php } else { ?>
             <li><a href="<?= base_url('kamar'); ?>">
-                    <?php } ?><i class="fa fa-pie-chart"></i> <span>Kamar</span></a></li>
+                    <?php } ?><i class="fa fa-bed"></i> <span>Kamar</span></a></li>
 
             <?php if ($folder == 'harga'){ ?>
         <li class="active treeview menu-open">
         <?php } else { ?>
             <li class="treeview">
                 <?php } ?>
-                <a href="#"><i class="fa fa-pie-chart"></i><span>Harga Sewa</span><span class="pull-right-container"><i
+                <a href="#"><i class="fa fa-dollar"></i><span>Harga Sewa</span><span class="pull-right-container"><i
                                 class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">
@@ -69,7 +69,7 @@
         <li class="active"><a href="#">
         <?php } else { ?>
             <li><a href="<?= base_url('pesan/view_pesan'); ?>">
-                    <?php } ?><i class="fa fa-pie-chart"></i> <span>Pesanan Tamu</span></a></li>
+                    <?php } ?><i class="fa fa-list-alt"></i> <span>Pesanan Tamu</span></a></li>
 
             <?php if ($folder == 'profile'){ ?>
         <li class="active treeview menu-open">
@@ -83,24 +83,35 @@
                     <?php if ($side == 'profile'){ ?>
                 <li class="active"><a href="#"><?php } else { ?>
                     <li><a href="<?= base_url('home/profile'); ?>"><?php } ?>
-                            <i class="fa fa-circle-o"></i> Detail Profile</a></li>
+                            <i class="fa fa-circle-o"></i> Edit Profile</a></li>
                 </ul>
             </li>
 
-            <li><a href="#">
-                    <i class="fa fa-list-alt"></i> <span>Cara Penggunaan</span></a></li>
+            <?php if ($side == 'penggunaan') { ?>
+        <li class="active"><a href="#">
+        <?php } else { ?>
+            <li><a href="<?= base_url('Message/penggunaan'); ?>">
+                    <?php } ?><i class="fa fa-file-text-o"></i> <span>Cara Penggunaan</span></a></li>
 
+            <?php if ($side == 'syarat_ketentuan') { ?>
+        <li class="active"><a href="#">
+        <?php } else { ?>
+            <li><a href="<?= base_url('Message/syarat_ketentuan'); ?>">
+                    <?php } ?><i class="fa fa-pencil-square-o"></i> <span>Syarat dan Ketentuan</span></a></li>
 
-            <li><a href="#">
-                    <i class="fa fa-pencil-square-o"></i> <span>Syarat dan Ketentuan</span></a></li>
+            <?php if ($side == 'hubungi') { ?>
+        <li class="active"><a href="#">
+        <?php } else { ?>
+            <li><a href="<?= base_url('Message/hubungi'); ?>">
+                    <?php } ?><i class="fa fa-phone"></i> <span>Hubungi Kami</span></a></li>
 
+            <?php if ($side == 'tentang') { ?>
+            <li class="active"><a href="#">
+                    <?php } else { ?>
+            <li><a href="<?= base_url('Message/tentang'); ?>">
+                    <?php } ?><i class="fa fa-info"></i> <span>Tentang Dashboard Mitra</span></a></li>
 
-            <li><a href="#">
-                    <i class="fa fa-phone"></i> <span>Hubungi Kami</span></a></li>
-
-
-            <li><a href="#">
-                    <i class="fa fa-info"></i> <span>Tentang Dashboard Mitra</span></a></li>
+            <li><a href="<?= base_url('Login/logout'); ?>"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->

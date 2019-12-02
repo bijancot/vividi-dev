@@ -34,7 +34,7 @@
                     <!-- /.box-header -->
                     <div class="box-body pad">
                         <?php echo form_open(base_url('Admin/Message/save_syarat_ketentuan')); ?>
-                    <textarea id="editor1" name="editor1" rows="10" cols="80"></textarea>
+                    <textarea id="editor1" name="editor1" rows="10" cols="80"><?php echo $data; ?></textarea>
                         <div class="modal-footer">
                             <input type="submit" class="btn btn-primary" value="Simpan" name="submit">
                         </div>
@@ -65,7 +65,7 @@
                     <div class="box-body pad">
                         <?php echo form_open(base_url('Admin/Message/save_syarat_ketentuan')); ?>
                 <textarea class="textarea" name="editor1"  placeholder="Place some text here"
-                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                          style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $data; ?></textarea>
                         <div class="modal-footer">
                             <input type="submit" class="btn btn-primary" value="Simpan" name="submit">
                         </div>

@@ -48,17 +48,31 @@
 				</ul>
 			</li>
 
-			<?php if ($folder == 'tutorial') { ?>
+			<?php if ($side == 'penggunaan') { ?>
 			<li class="active"><a href="#">
 					<?php } else { ?>
-			<li><a href="<?= base_url('Admin/Tutorial/'); ?>">
-					<?php } ?><i class="fa fa-pie-chart"></i> <span>Cara Penggunaan</span></a></li>
+			<li><a href="<?= base_url('Admin/Message/penggunaan'); ?>">
+					<?php } ?><i class="fa fa-list-alt"></i> <span>Cara Penggunaan</span></a></li>
 
-            <?php if ($folder == 'message') { ?>
+            <?php if ($side == 'syarat_ketentuan') { ?>
             <li class="active"><a href="#">
                     <?php } else { ?>
             <li><a href="<?= base_url('Admin/Message/syarat_ketentuan'); ?>">
                     <?php } ?><i class="fa fa-pencil-square-o"></i> <span>Syarat dan Ketentuan</span></a></li>
+
+            <?php if ($side == 'hubungi') { ?>
+            <li class="active"><a href="#">
+                    <?php } else { ?>
+            <li><a href="<?= base_url('Admin/Message/hubungi'); ?>">
+                    <?php } ?><i class="fa fa-phone"></i> <span>Hubungi Kami</span></a></li>
+
+            <?php if ($side == 'tentang') { ?>
+            <li class="active"><a href="#">
+                    <?php } else { ?>
+            <li><a href="<?= base_url('Admin/Message/tentang'); ?>">
+                    <?php } ?><i class="fa fa-info"></i> <span>Tentang Dashboard Mitra</span></a></li>
+
+            <li><a href="<?= base_url('Login/logout'); ?>"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
 		</ul>
 	</section>
 	<!-- /.sidebar -->
