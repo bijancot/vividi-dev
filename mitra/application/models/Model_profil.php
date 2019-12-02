@@ -27,7 +27,7 @@ class Model_profil extends CI_Model
     	u.telepon as telepon,
     	u.jabatan as jabatan');
 		$this->db->from('wpwj_users u');
-		$this->db->where('u.id', $id);
+		$this->db->where('u.parent_id', $id);
 		$query = $this->db->get();
 		return $query->result();
 	}

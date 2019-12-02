@@ -84,7 +84,7 @@ class Register extends CI_Controller
 				$this->send_admin($email, $user, $pass, $nama, $jabatan, $properti);
 				$message = "Pendaftaran anda berhasil. Silahkan tunggu pihak Vividi mengaktifkan akun anda. Cek E-mail anda untuk mendapatkan password jika sudah akun sudah aktif.";
 				echo "<script type='text/javascript'>alert('$message');</script>";
-				redirect('home/daftar');
+				redirect('Home/daftar');
 			} else {
 				redirect('Register');
 			}
