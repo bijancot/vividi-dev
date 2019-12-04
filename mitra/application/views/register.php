@@ -4,6 +4,8 @@
     <title>Registrasi Mitra</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="<?php echo base_url('../wp-content/uploads/2019/09/favicon-vividi-3.png'); ?>"
+          type="image/x-icon"/>
     <!--    <link rel="stylesheet" href="--><?php //echo base_url('assets/css/bootstrap.min.css'); ?><!--" />-->
     <!--    <script src="--><?php //echo base_url('assets/js/jquery.min.js'); ?><!--"></script>-->
     <!--    <script src="--><?php //echo base_url('assets/js/bootstrap.min.js'); ?><!--"></script>-->
@@ -30,8 +32,11 @@
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <span class="logo-lg"><img src="<?php echo base_url('/assets/new-logo.png'); ?>" style="width: 250px;"></span><br><br>
-                <h4 class="modal-title"><b>Register Mitra</b></h4>
+                <img src="<?php echo base_url('/assets/new-logo.png'); ?>" style="width: 250px; float: right;">
+                <br><br><br>
+                <font size="4px" style="float: right"><b>MITRA <font color="red">DASHBOARD</font>&nbsp;&nbsp;</b></font>
+                <br><br>
+                <h4><b>Registrasi Mitra</b></h4>
             </div>
             <?php echo form_open(base_url('register/cek_register')); ?>
             <div class="modal-body">
@@ -71,15 +76,16 @@
 <!--                <input type="checkbox" name="terms" value="ok"> <a href="https://vividi.id/terms-conditions/">Accept our Terms & Conditions</a>-->
             </div>
             <div class="modal-footer">
-                <div class="pull-left">Sudah punya akun ? <a href="Login">Login</a></div>
+                <p style="float: left">Sudah punya akun ?</p><br><br>
+                <a href="<?php echo base_url('Login')?>" class="btn btn-primary" style="float: left">Login</a>
                 <input type="submit" class="btn btn-primary" value="Daftar" name="submit">
             </div>
-            <center>MITRA DASHBOARD ver 1.9.01</center>
+            <p style="float: right">Ver 1.9.01&nbsp;&nbsp;&nbsp;</p>
             <br>
             <?php echo form_close(); ?>
         </div>
         <br>
-        <b>PT. VIVIDI TRANSINDO UTAMA</b>
+        <b><font color="black">PT. VIVIDI TRANSINDO UTAMA</font></b>
     </div>
 </div>
 <!-- End Modal Register -->

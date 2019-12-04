@@ -9,6 +9,8 @@ if (isset($_SESSION['username'])) {
     <title>Login Mitra</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="<?php echo base_url('../wp-content/uploads/2019/09/favicon-vividi-3.png'); ?>"
+          type="image/x-icon"/>
     <!--    <link rel="stylesheet" href="--><?php //echo base_url('assets/css/bootstrap.min.css'); ?><!--" />-->
     <!--    <script src="--><?php //echo base_url('assets/js/jquery.min.js'); ?><!--"></script>-->
     <!--    <script src="--><?php //echo base_url('assets/js/bootstrap.min.js'); ?><!--"></script>-->
@@ -35,8 +37,9 @@ if (isset($_SESSION['username'])) {
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <span class="logo-lg"><img src="<?php echo base_url('/assets/new-logo.png'); ?>" style="width: 250px;"></span><br><br>
-<!--                <h4 class="modal-title">Login Mitra</h4>-->
+                <img src="<?php echo base_url('/assets/new-logo.png'); ?>" style="width: 250px; float: right;">
+                <br><br><br>
+                <font size="4px" style="float: right"><b>MITRA <font color="red">DASHBOARD</font>&nbsp;&nbsp;</b></font>
             </div>
             <?php echo form_open(base_url('login/ceklogin')); ?>
             <div class="modal-body">
@@ -50,13 +53,16 @@ if (isset($_SESSION['username'])) {
                 </div>
             </div>
             <div class="modal-footer">
-                <div class="pull-left">Belum punya akun ? <a href="<?php echo base_url('Register')?>">Daftar</a></div>
+                <p style="float: left">Belum punya akun ?</p><br><br>
+                <a href="<?php echo base_url('Register')?>" class="btn btn-primary" style="float: left">Daftar</a>
                 <input type="submit" class="btn btn-primary" value="Login" name="submit">
             </div>
-            <center>MITRA DASHBOARD ver 1.9.01</center>
+            <p style="float: right">Ver 1.9.01&nbsp;&nbsp;&nbsp;</p>
             <br>
             <?php echo form_close(); ?>
         </div>
+        <br>
+        <b><font color="black">PT. VIVIDI TRANSINDO UTAMA</font></b>
     </div>
 </div>
 <!-- End Modal Login -->
