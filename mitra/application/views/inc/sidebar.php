@@ -41,7 +41,7 @@
         <li class="active"><a href="#">
         <?php } else { ?>
             <li><a href="<?= base_url('kamar'); ?>">
-                    <?php } ?><i class="fa fa-bed"></i> <span>Kamar</span></a></li>
+                    <?php } ?><i class="fa fa-bed"></i> <span>Tipe Kamar</span></a></li>
 
             <?php if ($folder == 'harga'){ ?>
         <li class="active treeview menu-open">

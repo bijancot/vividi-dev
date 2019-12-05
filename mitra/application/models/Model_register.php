@@ -191,6 +191,27 @@ class Model_register extends CI_Model
 		return $this->db->get('wpwj_users')->result();
 	}
 
+	function semua_user()
+	{
+		$this->db->select('wpwj_users.ID, wpwj_users.user_login, wpwj_users.user_email, 
+		wpwj_users.user_registered, wpwj_users.display_name, wpwj_users.name_hotel, 
+		wpwj_users.jabatan, wpwj_users.status, wpwj_users.telepon');
+//		$this->db->where('mitra', 'Hotel');
+		$this->db->where('status', 1);
+		$this->db->from('wpwj_users');
+		return $this->db->get();
+
+		$result = [];
+		$data = $query->result_array();
+		foreach ($data as $dt) {
+//            $host = gethostbyname(gethostname());
+//            $dt['Img'] = 'http://' . $host . '/tempat.in/' . $dt['Logo'];
+			$result[] = $dt;
+		}
+
+		return $result;
+	}
+
 	public function get_verifikasi($id)
 	{
 		$this->db->select('status');

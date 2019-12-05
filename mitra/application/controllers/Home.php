@@ -11,8 +11,10 @@ class Home extends CI_Controller
         $this->load->model('Model_pesan');
         $this->load->model('Model_register');
 		$this->load->model('Model_profil');
-        $this->load->library('session');
         $this->load->database();
+		if ($_SESSION['ID'] == null){
+			redirect(base_url('Login'));
+		}
     }
 
     public function index()

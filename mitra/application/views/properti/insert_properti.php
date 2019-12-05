@@ -311,6 +311,7 @@
 							<div class="form-group col-xs-12">
 								<label>Sistem Pembayaran</label>
 								<input type="text" class="form-control" name="payment" id="payment" onkeypress="return isNumber(event)" value="H">
+								<h6>Isi sistem pembayaran seperti H-1, H+1, dan seterusnya.</h6>
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Masukan Harga Kamar Terendah</label>

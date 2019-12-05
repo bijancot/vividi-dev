@@ -7,8 +7,10 @@ class Profile extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Model_profil');
-        $this->load->library('session');
         $this->load->database();
+		if ($_SESSION['ID'] == null){
+			redirect(base_url('Login'));
+		}
     }
 
     public function reset_pass()

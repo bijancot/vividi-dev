@@ -58,12 +58,10 @@
                                     <th>Harga</th>
                                     <th>Tanggal Pesan</th>
                                     <th>Status</th>
-                                    <th>Aksi</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
-                                $no=1;
                                 foreach ($data as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->booking_no;?></td>
@@ -76,11 +74,6 @@
                                         <td><?php echo $row->harga;?></td>
                                         <td><?php echo $row->pesan;?></td>
                                         <td><?php echo $row->status;?></td>
-										<td>
-											<a href="<?= site_url('kamar/sukses/'.$row->booking_no); ?>" class="btn btn-block btn-primary">Sukses</a>
-											<!--                        <a href="--><?//= site_url('SendMail/send_email/'); ?><!--" class="btn btn-block btn-primary">Sukses</a>-->
-											<a href="<?= site_url('kamar/gagal/'.$row->id); ?>" class="btn btn-block btn-danger">Cancel</a>
-										</td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>

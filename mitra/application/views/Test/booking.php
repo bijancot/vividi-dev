@@ -35,7 +35,7 @@
 			</span><br>
 			<span
 				style="color: #003580; font-family: arial;margin-left: 20px; display:inline-block;  font-size: 15px">
-				Transfer H-1 sebelum tamu Check-In
+				Transfer [accommodation_payment] sebelum tamu Check-In
 			</span>
 		</div>
 		<div class="col-sm-6 col-md-6"

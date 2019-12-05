@@ -5,8 +5,10 @@ class Properti extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Model_properti');
-		$this->load->library('session');
 		$this->load->database();
+		if ($_SESSION['ID'] == null){
+			redirect(base_url('Login'));
+		}
 	}
 	public function index()
 	{

@@ -8,8 +8,10 @@ class Pesan extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Model_pesan');
-		$this->load->library('session');
 		$this->load->database();
+		if ($_SESSION['ID'] == null){
+			redirect(base_url('Login'));
+		}
 	}
 
 	public function view_pesan()

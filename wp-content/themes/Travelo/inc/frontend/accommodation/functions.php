@@ -904,6 +904,7 @@ if ( ! function_exists( 'trav_acc_send_confirmation_email' ) ) {
 
             // accommodation info
             $accommodation_name = get_the_title( $booking_data['accommodation_id'] );
+            $accommodation_payment = get_post_meta($booking_data['accommodation_id'], 'trav_accommodation_payment');
             $accommodation_url = esc_url( trav_get_permalink_clang( $booking_data['accommodation_id'] ) );
             $accommodation_thumbnail = get_the_post_thumbnail( $booking_data['accommodation_id'], 'list-thumb' );
             $accommodation_address = get_post_meta( $booking_data['accommodation_id'], 'trav_accommodation_address', true );

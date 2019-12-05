@@ -19,6 +19,7 @@ class Pesan extends CI_Controller
 		$data['data'] = $this->Model_email->data_email($booking_no);
 		$mitra = $this->Model_email->email_owner($booking_no);
 		$cust = $this->Model_email->email_custowner($booking_no);
+		$admin = 'order@vividi.id';
 //		$admin = 'order@vividi.id';
 		// Konfigurasi email
 		$config = [
@@ -40,7 +41,7 @@ class Pesan extends CI_Controller
 		// Email dan nama pengirim
 		$this->email->from('info@vividi.id', 'VIVIDI E-Voucher '.$booking_no);
 
-		$list = array($mitra, $cust);
+		$list = array($mitra, $cust, $admin);
 		// Email penerima
 		$this->email->to($list); // Ganti dengan email tujuan
 
@@ -61,7 +62,7 @@ class Pesan extends CI_Controller
 	public function email_confirm($booking_no)
 	{
 //		$mitra = $_SESSION['email'];
-		$admin = 'omibalola@gmail.com';
+		$admin = 'order@vividi.id';
 		// Konfigurasi email
 		$config = [
 			'mailtype'  => 'html',
@@ -80,7 +81,7 @@ class Pesan extends CI_Controller
 		$this->load->library('email', $config);
 
 		// Email dan nama pengirim
-		$this->email->from('omibalola@gmail.com', 'Email Konfirmasi Pembayaran');
+		$this->email->from('info@vividi.id', 'Email Konfirmasi Pembayaran');
 
 //		$list = array($mitra, $admin);
 		// Email penerima
@@ -106,6 +107,7 @@ class Pesan extends CI_Controller
 	{
 //		$mitra = $_SESSION['email'];
 		$cust = $this->Model_email->email_custowner($booking_no);
+		$admin = 'order@vividi.id';
 		// Konfigurasi email
 		$config = [
 			'mailtype'  => 'html',
@@ -128,7 +130,8 @@ class Pesan extends CI_Controller
 
 //		$list = array($mitra, $admin);
 		// Email penerima
-		$this->email->to($cust); // Ganti dengan email tujuan
+		$list = array($cust, $admin);
+		$this->email->to($list); // Ganti dengan email tujuan
 
 		// Subject email
 		$this->email->subject('VIVIDI E-Receipt '.$booking_no);
