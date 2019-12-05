@@ -44,6 +44,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet"
           href="<?php echo base_url('assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css'); ?>">
+	<!-- Select2 -->
+    <link rel="stylesheet"
+          href="<?php echo base_url('assets/bower_components/select2/dist/css/select2.min.css'); ?>">
+	<!-- AdminLTE App -->
+    <link rel="stylesheet"
+          href="<?php echo base_url('assets/dist/css/AdminLTE.min.css'); ?>">
     <!-- Google Font -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
@@ -116,6 +122,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?php echo base_url('assets/bower_components/jquery-slimscroll/jquery.slimscroll.min.js'); ?>"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url('assets/bower_components/fastclick/lib/fastclick.js'); ?>"></script>
+<!-- Select2 -->
+<script src="<?php echo base_url('assets/bower_components/select2/dist/js/select2.full.min.js'); ?>"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url('assets/dist/js/adminlte.min.js'); ?>"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

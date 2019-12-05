@@ -297,16 +297,20 @@
 										<input type="checkbox" name="fasilitas[]" value="207">Spa
 									</label>
 								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="fasilitas[]" value="<?= $fasilitas ?>>">Fasilitas Baru
-										<input type="text" name="fas" class="form-control">
-									</label>
-								</div>
+<!--								<div class="checkbox">-->
+<!--									<label>-->
+<!--										<input type="checkbox" name="fasilitas[]" value="--><?//= $fasilitas ?><!--">Fasilitas Baru-->
+<!--										<input type="text" name="fas" class="form-control">-->
+<!--									</label>-->
+<!--								</div>-->
 							</div>
 							<div class="form-group slidecontainer col-xs-12 col-md-6">
 								<label>Hotel Bintang : <span id="bintang"></span></label>
 								<input type="range" class="slider" name="bintang" id="star" min="1" max="5" value="1">
+							</div>
+							<div class="form-group col-xs-12">
+								<label>Sistem Pembayaran</label>
+								<input type="text" class="form-control" name="payment" onkeypress="return isNumber(event)" value="H+">
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Masukan Harga Kamar Terendah</label>
@@ -387,9 +391,9 @@
 						</div>
 						<!-- /.box-body -->
 						<div class="box-body">
-							<div class="form-group col-xs-6">
+							<div class="form-group col-xs-12 col-md-6">
 								<label>Negara</label>
-								<select class="form-control" name="country" id="country">
+								<select class="form-control select2" name="country" id="country" style="width: 100%;">
 									<option>--Pilih--</option>
 									<?php
 									foreach ($country as $row) { ?>
@@ -397,17 +401,17 @@
 									<?php } ?>
 								</select>
 							</div>
-							<div class="form-group  col-xs-6">
+							<div class="form-group col-xs-12 col-md-6">
 								<label>Kota</label>
-								<select class="form-control" name="city" id="city">
+								<select class="form-control select2" name="city" id="city" style="width: 100%;">
 									<option>--Pilih--</option>
 								</select>
 							</div>
-							<div class="form-group col-xs-6">
+							<div class="form-group col-xs-12 col-md-6">
 								<label>No Telepon</label>
 								<input type="text" class="form-control" name="telepon" placeholder="No Telepon">
 							</div>
-							<div class="form-group col-xs-6">
+							<div class="form-group col-xs-12 col-md-6">
 								<label>Email</label>
 								<div class="input-group">
 									<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
@@ -469,6 +473,16 @@
         var ml= val.maxLength;
             $('#charNum5').text(ml - len);
     };
+	function isNumber(event){
+	    var keycode = event.keyCode;
+	    if(keycode>48 && keycode<57 || keycode == 72 || keycode == 43 || keycode == 45){
+	        return true;
+		}
+	    return false;
+	}
+    $(document).ready(function() {
+        $('.select2').select2()
+    });
 </script>
 
 

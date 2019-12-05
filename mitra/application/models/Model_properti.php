@@ -134,7 +134,7 @@ class Model_properti extends CI_Model
 
 	public function save_properti($id,$time,$deskripsi,$judul,$tipe_properti,$fasilitas,$bintang,$stay,$deskripsi_singkat,
 								  $country,$city,$telepon,$email,$alamat,$upload1,$upload2,$upload3,$upload4,$lat,$lng,
-								  $checkin,$checkout,$cancel,$bed,$pet,$kota,$harga){
+								  $checkin,$checkout,$cancel,$bed,$pet,$kota,$harga,$payment){
 		$this->db->select_max('ID');
 		$data = $this->db->get('wpwj_posts');
 		$keyTransaksi ="";
@@ -391,8 +391,8 @@ class Model_properti extends CI_Model
 		$data11 = array(
 			'meta_id' => $key + $k,
 			'post_id' => $keyTransaksi,
-			'meta_key' => 'trav_accommodation_minimum_stay',
-			'meta_value' => $stay
+			'meta_key' => 'trav_accommodation_payment',
+			'meta_value' => $payment
 		);
 		$this->db->insert('wpwj_postmeta', $data11);
 		$k++;

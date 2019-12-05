@@ -122,6 +122,7 @@ class Properti extends CI_Controller {
 		$deskripsi = $this->input->post('deskripsi');
 		$tipe_properti = $this->input->post('tipe_properti');
 		$fasilitas = $this->input->post('fasilitas');
+		$payment = $this->input->post('payment');
 		$bintang = $this->input->post('bintang');
 		$stay = $this->input->post('stay');
 		$deskripsi_singkat = $this->input->post('deskripsi_singkat');
@@ -148,7 +149,7 @@ class Properti extends CI_Controller {
 		if ($upload1['Status'] == 'success' && $upload2['Status'] == 'success' && $upload3['Status'] == 'success' && $upload4['Status'] == 'success') {
 			$this->Model_properti->save_properti($id,$time,$deskripsi,$judul,$tipe_properti,$fasilitas,$bintang,$stay,
 				$deskripsi_singkat,$country,$city,$telepon,$email,$alamat,$upload1,$upload2,$upload3,$upload4,$lat,$lng,
-				$checkin,$checkout,$cancel,$bed,$pet,$kota,$harga);
+				$checkin,$checkout,$cancel,$bed,$pet,$kota,$harga,$payment);
 			redirect(base_url('properti'));
 		} else {
 			echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";
