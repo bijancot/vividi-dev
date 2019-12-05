@@ -310,7 +310,7 @@
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Sistem Pembayaran</label>
-								<input type="text" class="form-control" name="payment" onkeypress="return isNumber(event)" value="H+">
+								<input type="text" class="form-control" name="payment" id="payment" onkeypress="return isNumber(event)" value="H">
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Masukan Harga Kamar Terendah</label>
@@ -480,9 +480,16 @@
 		}
 	    return false;
 	}
+    $("#payment").keydown(function(e) {
+        var oldvalue=$(this).val();
+        var field=this;
+        setTimeout(function () {
+            if(field.value.indexOf('H') !== 0) {
+                $(field).val(oldvalue);
+            }
+        }, 1);
+    });
     $(document).ready(function() {
         $('.select2').select2()
     });
 </script>
-
-
