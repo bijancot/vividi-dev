@@ -16,10 +16,10 @@
     </section>
 
     <!-- Main content -->
-    <section class="table-responsive content">
+    <section class="content">
         <div class="row">
             <div class="col-xs-12">
-                <div class="box">
+                <div class="table-responsive box">
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table id="example2" class="table table-bordered table-striped">

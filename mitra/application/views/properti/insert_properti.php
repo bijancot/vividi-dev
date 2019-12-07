@@ -1,8 +1,9 @@
 <style>
-	@media only screen and (max-width: 600px){
+	@media only screen and (max-width: 600px) {
 		.slidecontainer {
 			width: 100%;
 		}
+
 		.slider {
 			-webkit-appearance: none;
 			width: 100%;
@@ -45,10 +46,12 @@
 			box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 		}
 	}
+
 	@media only screen and (min-width: 601px) {
 		.slidecontainer {
 			width: 50%;
 		}
+
 		.slider {
 			-webkit-appearance: none;
 			width: 100%;
@@ -224,7 +227,9 @@
 								</div>
 								<div class="form-group">
 									<label>Deskripsi</label>
-									<textarea class="form-control" name="deskripsi" rows="6" placeholder="Masukkan Data ..." minlength="200" maxlength="800" onkeyup="countChar1(this)" id="textarea"
+									<textarea class="form-control" name="deskripsi" rows="6"
+											  placeholder="Masukkan Data ..." minlength="200" maxlength="800"
+											  onkeyup="countChar1(this)" id="textarea"
 											  required></textarea>
 									<div name="charNum1" id="charNum1">800</div>
 								</div>
@@ -297,12 +302,13 @@
 										<input type="checkbox" name="fasilitas[]" value="207">Spa
 									</label>
 								</div>
-<!--								<div class="checkbox">-->
-<!--									<label>-->
-<!--										<input type="checkbox" name="fasilitas[]" value="--><?//= $fasilitas ?><!--">Fasilitas Baru-->
-<!--										<input type="text" name="fas" class="form-control">-->
-<!--									</label>-->
-<!--								</div>-->
+								<!--								<div class="checkbox">-->
+								<!--									<label>-->
+								<!--										<input type="checkbox" name="fasilitas[]" value="-->
+								<? //= $fasilitas ?><!--">Fasilitas Baru-->
+								<!--										<input type="text" name="fas" class="form-control">-->
+								<!--									</label>-->
+								<!--								</div>-->
 							</div>
 							<div class="form-group slidecontainer col-xs-12 col-md-6">
 								<label>Hotel Bintang : <span id="bintang"></span></label>
@@ -310,7 +316,8 @@
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Sistem Pembayaran</label>
-								<input type="text" class="form-control" name="payment" id="payment" onkeypress="return isNumber(event)" value="H">
+								<input type="text" class="form-control" name="payment" id="payment"
+									   onkeypress="return isNumber(event)" value="H">
 								<h6>Isi sistem pembayaran seperti H-1, H+1, dan seterusnya.</h6>
 							</div>
 							<div class="form-group col-xs-12">
@@ -323,15 +330,15 @@
 							</div>
 							<div class="form-group col-xs-12 col-md-6">
 								<label>Foto Akomodasi 1</label>
-								<input type="file" class="form-control" name="foto1" accept="image/*" >
+								<input type="file" class="form-control" name="foto1" accept="image/*">
 							</div>
 							<div class="form-group col-xs-12 col-md-6">
 								<label>Foto Akomodasi 2</label>
-								<input type="file" class="form-control" name="foto2" accept="image/*" >
+								<input type="file" class="form-control" name="foto2" accept="image/*">
 							</div>
 							<div class="form-group col-xs-12 col-md-6">
 								<label>Foto Akomodasi 3</label>
-								<input type="file" class="form-control" name="foto3" accept="image/*" >
+								<input type="file" class="form-control" name="foto3" accept="image/*">
 							</div>
 							<div class="form-group col-xs-12 col-md-6">
 								<label>Logo Akomodasi</label>
@@ -339,12 +346,35 @@
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Deskripsi Singkat</label>
-								<textarea class="form-control" name="deskripsi_singkat" rows="3" placeholder="Masukkan Data ..." minlength="100" maxlength="200" onkeyup="countChar2(this)"
+								<textarea class="form-control" name="deskripsi_singkat" rows="3"
+										  placeholder="Masukkan Data ..." minlength="100" maxlength="200"
+										  onkeyup="countChar2(this)"
 										  required></textarea>
 								<div name="charNum2" id="charNum2">200</div>
 							</div>
 						</div>
 						<!-- /.box-body -->
+					</div>
+
+					<div class="box box-primary">
+						<div class="box-header with-border">
+							<h3 class="box-title">Sistem Pembayaran</h3>
+						</div>
+
+						<div class="box-body">
+							<div class="form-group col-xs-12">
+								<label>Nama Pemilik Rekening</label>
+								<input type="text" class="form-control" name="acc_name" placeholder="Masukkan Data ..."
+									   required>
+							</div>
+
+							<div class="form-group col-xs-12">
+								<label>Nomor Rekening</label>
+								<input type="text" class="form-control" name="acc_name" placeholder="Masukkan Data ..."
+									   required>
+							</div>
+
+						</div>
 					</div>
 				</div>
 
@@ -365,19 +395,22 @@
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Kebijakan Pembatalan</label>
-								<textarea class="form-control" name="cancel" rows="3" placeholder="Masukkan Data ..." maxlength="100" onkeyup="countChar3(this)"
+								<textarea class="form-control" name="cancel" rows="3" placeholder="Masukkan Data ..."
+										  maxlength="100" onkeyup="countChar3(this)"
 										  required></textarea>
 								<div name="charNum3" id="charNum3">100</div>
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Kebijakan Biaya anak dan Tempat Tidur Tambahan</label>
-								<textarea class="form-control" name="bed" rows="3" placeholder="Masukkan Data ..." maxlength="100" onkeyup="countChar4(this)"
+								<textarea class="form-control" name="bed" rows="3" placeholder="Masukkan Data ..."
+										  maxlength="100" onkeyup="countChar4(this)"
 										  required></textarea>
 								<div name="charNum4" id="charNum4">100</div>
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Kebijakan membawa binatang peliharaan</label>
-								<textarea class="form-control" name="pet" rows="3" placeholder="Masukkan Data ..." maxlength="100" onkeyup="countChar5(this)"
+								<textarea class="form-control" name="pet" rows="3" placeholder="Masukkan Data ..."
+										  maxlength="100" onkeyup="countChar5(this)"
 										  required></textarea>
 								<div name="charNum5" id="charNum5">100</div>
 							</div>
@@ -419,7 +452,8 @@
 									<input type="email" class="form-control" name="email" placeholder="Email">
 								</div>
 							</div>
-							<input id="searchInput" class="controls" type="text" name="alamat" placeholder="Enter a location">
+							<input id="searchInput" class="controls" type="text" name="alamat"
+								   placeholder="Enter a location">
 							<div id="map" style="width:100%;height:300px;"></div>
 							<ul id="geoData">
 								<input type="hidden" id="lat" name="lat" value="">
@@ -449,48 +483,54 @@
 		output.innerHTML = this.value;
 	}
 
-    function countChar1(val) {
-        var len = val.value.length;
-        var ml= val.maxLength;
-            $('#charNum1').text(ml - len);
-    };
-    function countChar2(val) {
-        var len = val.value.length;
-        var ml= val.maxLength;
-            $('#charNum2').text(ml - len);
-    };
-    function countChar3(val) {
-        var len = val.value.length;
-        var ml= val.maxLength;
-            $('#charNum3').text(ml - len);
-    };
-    function countChar4(val) {
-        var len = val.value.length;
-        var ml= val.maxLength;
-            $('#charNum4').text(ml - len);
-    };
-    function countChar5(val) {
-        var len = val.value.length;
-        var ml= val.maxLength;
-            $('#charNum5').text(ml - len);
-    };
-	function isNumber(event){
-	    var keycode = event.keyCode;
-	    if(keycode>48 && keycode<57 || keycode == 72 || keycode == 43 || keycode == 45){
-	        return true;
+	function countChar1(val) {
+		var len = val.value.length;
+		var ml = val.maxLength;
+		$('#charNum1').text(ml - len);
+	};
+
+	function countChar2(val) {
+		var len = val.value.length;
+		var ml = val.maxLength;
+		$('#charNum2').text(ml - len);
+	};
+
+	function countChar3(val) {
+		var len = val.value.length;
+		var ml = val.maxLength;
+		$('#charNum3').text(ml - len);
+	};
+
+	function countChar4(val) {
+		var len = val.value.length;
+		var ml = val.maxLength;
+		$('#charNum4').text(ml - len);
+	};
+
+	function countChar5(val) {
+		var len = val.value.length;
+		var ml = val.maxLength;
+		$('#charNum5').text(ml - len);
+	};
+
+	function isNumber(event) {
+		var keycode = event.keyCode;
+		if (keycode > 48 && keycode < 57 || keycode == 72 || keycode == 43 || keycode == 45) {
+			return true;
 		}
-	    return false;
+		return false;
 	}
-    $("#payment").keydown(function(e) {
-        var oldvalue=$(this).val();
-        var field=this;
-        setTimeout(function () {
-            if(field.value.indexOf('H') !== 0) {
-                $(field).val(oldvalue);
-            }
-        }, 1);
-    });
-    $(document).ready(function() {
-        $('.select2').select2()
-    });
+
+	$("#payment").keydown(function (e) {
+		var oldvalue = $(this).val();
+		var field = this;
+		setTimeout(function () {
+			if (field.value.indexOf('H') !== 0) {
+				$(field).val(oldvalue);
+			}
+		}, 1);
+	});
+	$(document).ready(function () {
+		$('.select2').select2()
+	});
 </script>

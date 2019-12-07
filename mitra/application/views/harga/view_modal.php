@@ -13,7 +13,7 @@
     <section class="table-responsive content">
         <div class="row">
             <div class="col-xs-12">
-                <div class="box">
+                <div class="table-responsive box">
                     <!-- /.box-header -->
                     <div class="box-body">
                         <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal_harga">

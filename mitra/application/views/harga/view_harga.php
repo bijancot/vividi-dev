@@ -12,7 +12,7 @@
     </section>
 
     <!-- Main content -->
-    <section class="table-responsive content">
+    <section class="content">
         <div class="row">
             <div class="col-xs-4">
                 <div class="card-body">
