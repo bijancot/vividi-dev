@@ -315,12 +315,6 @@
 								<input type="range" class="slider" name="bintang" id="star" min="1" max="5" value="1">
 							</div>
 							<div class="form-group col-xs-12">
-								<label>Sistem Pembayaran</label>
-								<input type="text" class="form-control" name="payment" id="payment"
-									   onkeypress="return isNumber(event)" value="H">
-								<h6>Isi sistem pembayaran seperti H-1, H+1, dan seterusnya.</h6>
-							</div>
-							<div class="form-group col-xs-12">
 								<label>Masukan Harga Kamar Terendah</label>
 								<input type="number" class="form-control" name="harga" min="0" value="0">
 							</div>
@@ -370,8 +364,48 @@
 
 							<div class="form-group col-xs-12">
 								<label>Nomor Rekening</label>
-								<input type="text" class="form-control" name="acc_name" placeholder="Masukkan Data ..."
+								<input type="text" class="form-control" name="acc_no" placeholder="Masukkan Data ..."
 									   required>
+							</div>
+
+							<div class="form-group col-xs-12">
+								<label>Nama Bank</label>
+								<input type="text" class="form-control" name="bank_name" placeholder="Masukkan Data ..."
+									   required>
+							</div>
+
+							<div class="form-group col-xs-12">
+								<label>Cabang</label>
+								<input type="text" class="form-control" name="cabang" placeholder="Masukkan Data ..."
+									   required>
+							</div>
+
+							<div class="form-group col-xs-12">
+								<label>Kode Swift Rupiah</label>
+								<input type="text" class="form-control" name="swift" placeholder="Masukkan Data ..."
+									   required>
+							</div>
+
+							<div class="form-group col-xs-12">
+								<label>Sistem Pembayaran</label>
+								<select class="form-control select2" name="payment">
+									<option value="H-1 Sebelum Check-In">H-1 Sebelum Check-In</option>
+									<option value="Hari Check-In">Hari Check-In</option>
+									<option value="H+1 Setelah Check-In">H+1 Setelah Check-In</option>
+									<option value="H+2 Setelah Check-In">H+2 Setelah Check-In</option>
+									<option value="H+3 Setelah Check-In">H+3 Setelah Check-In</option>
+									<option value="H+4 Setelah Check-In">H+4 Setelah Check-In</option>
+									<option value="H+5 Setelah Check-In">H+5 Setelah Check-In</option>
+									<option value="H+6 Setelah Check-In">H+6 Setelah Check-In</option>
+									<option value="H+7 Setelah Check-In">H+7 Setelah Check-In</option>
+									<option value="H+8 Setelah Check-In">H+8 Setelah Check-In</option>
+									<option value="H+9 Setelah Check-In">H+9 Setelah Check-In</option>
+									<option value="H+10 Setelah Check-In">H+10 Setelah Check-In</option>
+									<option value="H+11 Setelah Check-In">H+11 Setelah Check-In</option>
+									<option value="H+12 Setelah Check-In">H+12 Setelah Check-In</option>
+									<option value="H+13 Setelah Check-In">H+13 Setelah Check-In</option>
+									<option value="H+14 Setelah Check-In">H+14 Setelah Check-In</option>
+								</select>
 							</div>
 
 						</div>

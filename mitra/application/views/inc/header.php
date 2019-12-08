@@ -23,25 +23,25 @@
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-header" style="height: 65px">
-                            <!--                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
-
-                            <p>
-                                <?= $_SESSION['nama'] ?>
-                            </p>
-                        </li>
+<!--                        <li class="user-header" style="height: 65px">-->
+<!--                                       <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
+<!---->
+<!--                            <p>-->
+<!--                                --><?//= $_SESSION['nama'] ?>
+<!--                            </p>-->
+<!--                        </li>-->
                         <!-- Menu Footer-->
-                        <li class="user-footer">
+<!--                        <li class="user-footer">-->
 <!--                            <div class="pull-left">-->
 <!--                                <button type="button" class="btn btn-default btn-flat" data-toggle="modal" data-target="#modal_profile">-->
 <!--                                    Profile-->
 <!--                                </button>-->
 <!--                            </div>-->
-                            <div class="pull-right">
-                                <a href="<?= base_url('Login/logout'); ?>" class="btn btn-default btn-flat">Logout</a>
-                            </div>
-                        </li>
-                    </ul>
+<!--                            <div class="pull-right">-->
+<!--                                <a href="--><?//= base_url('Login/logout'); ?><!--" class="btn btn-default btn-flat">Logout</a>-->
+<!--                            </div>-->
+<!--                        </li>-->
+<!--                    </ul>-->
                 </li>
             </ul>
         </div>

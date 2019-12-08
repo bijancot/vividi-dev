@@ -134,7 +134,7 @@ class Model_properti extends CI_Model
 
 	public function save_properti($id,$time,$deskripsi,$judul,$tipe_properti,$fasilitas,$bintang,$stay,$deskripsi_singkat,
 								  $country,$city,$telepon,$email,$alamat,$upload1,$upload2,$upload3,$upload4,$lat,$lng,
-								  $checkin,$checkout,$cancel,$bed,$pet,$kota,$harga,$payment){
+								  $checkin,$checkout,$cancel,$bed,$pet,$kota,$harga,$acc_name, $acc_no, $bank_name, $cabang, $swift, $payment){
 		$this->db->select_max('ID');
 		$data = $this->db->get('wpwj_posts');
 		$keyTransaksi ="";
@@ -167,7 +167,18 @@ class Model_properti extends CI_Model
 			'post_mime_type' => '',
 			'comment_count' => '0'
 		);
+
+		$data1 = array(
+			'acc_id' => $keyTransaksi,
+			'account_name' => $acc_name,
+			'account_number' => $acc_no,
+			'bank_name' => $bank_name,
+			'cabang' => $cabang,
+			'swift' => $swift,
+			'payment_system' => $payment
+		);
 		$this->db->insert('wpwj_posts', $data);
+		$this->db->insert('payment_accommodation_info', $data1);
 		$j = 1;
 
 		$fotoid = '';
