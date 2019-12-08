@@ -53,7 +53,8 @@
                             <label><input type="radio" name="optradio" value="0" required>Kamar Kosong</label>
                         </div>
                     </div>
-                        <input type="submit" class="btn btn-success" value="Submit">
+                    <a href="<?php echo base_url('harga')?>" class="btn btn-primary">Keluar</a>
+                    <input type="submit" class="btn btn-success" value="Simpan">
                     <?php echo form_close(); ?>
                 </div>
             </div>

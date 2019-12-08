@@ -48,6 +48,27 @@
 				</ul>
 			</li>
 
+            <?php if ($folder == 'profile'){ ?>
+            <li class="active treeview menu-open">
+                <?php } else { ?>
+            <li class="treeview">
+                <?php } ?>
+                <a href="#"><i class="fa fa-user"></i><span>Profil</span><span class="pull-right-container"><i
+                                class="fa fa-angle-left pull-right"></i></span>
+                </a>
+                <ul class="treeview-menu">
+                    <?php if ($side == 'profile'){ ?>
+                    <li class="active"><a href="#"><?php } else { ?>
+                    <li><a href="<?= base_url('Admin/profile'); ?>"><?php } ?>
+                            <i class="fa fa-circle-o"></i> Detail Profile</a></li>
+
+<!--                    --><?php //if ($side == 'daftar'){ ?>
+<!--                    <li class="active"><a href="#">--><?php //} else { ?>
+<!--                    <li><a href="--><?//= base_url('Admin/Profile/daftar'); ?><!--">--><?php //} ?>
+<!--                            <i class="fa fa-circle-o"></i> Tambah User</a></li>-->
+                </ul>
+            </li>
+
 			<?php if ($side == 'penggunaan') { ?>
 			<li class="active"><a href="#">
 					<?php } else { ?>
