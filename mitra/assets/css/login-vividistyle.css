@@ -1,0 +1,199 @@
+body {
+	background: url("../bg.jpg") no-repeat center center fixed; -webkit-background-size: cover; background-size: cover;
+}
+.modal-pop{
+	margin: 80px !important;
+}
+.logo{
+	float: none; margin: 0px auto !important; display: block !important; width: 250px;
+}
+.text-companies{
+	font-weight: 700; font-size: 16px; text-align: center; word-spacing:5px;
+}
+.text-companies span{
+	color:#c62828  !important;
+}
+.modal-footer{
+	display: block !important;
+}
+.btn-submit{
+	background-color: #074175 !important; border-color: #074175 !important; width: 200px; float: left;
+}
+.modal-login{
+	width:500px;height: 430px; margin-bottom: 10px; padding: 5px 10px;
+}
+.txt-daftar{
+	float: right !important; font-size: 16px; padding-top: 5px;
+}
+.txt-daftar a{
+	font-weight: bold;
+	color: #074175 !important;
+}
+.txt-companies-bot{
+	font-size: 12px; font-weight: 300; color:#FFFFFF;
+}
+.txt-companies-bot span{
+	float:right;
+}
+/*daftar*/
+.modal-pop-daftar{
+	margin: 80px !important;
+}
+.modal-daftar{
+	width:500px;height: 850px; margin-bottom: 10px; padding: 5px 10px;
+}
+.btn-daftar{
+	background-color: #074175 !important; border-color: #074175 !important; width: 200px; float: left;
+}
+@media screen and (max-width: 1024px) {
+	body{
+		background: url("../bg.jpg") no-repeat center center fixed; -webkit-background-size: cover; background-size: cover;
+	}
+	.modal-pop{
+		margin: 65px !important;
+	}
+	.modal-pop-daftar{
+		margin: 65px !important;
+	}
+}
+@media screen and (max-width: 992px) {
+	body{
+		background: url("../bg.jpg") no-repeat center center fixed; -webkit-background-size: cover; background-size: cover;
+	}
+	.modal-pop{
+		margin: 0px auto !important; padding-top:50px;
+	}
+	.modal-pop-daftar{
+		margin: 0px auto !important; padding-top:50px;
+	}
+}
+@media screen and (max-width: 575px) {
+	.modal-pop{
+		margin: 0px auto !important; padding: 30px 55px;
+	}
+	.modal-pop-daftar{
+		margin: 0px auto !important; padding: 30px 60px;
+	}
+	.modal-login{
+		width: 450px;
+	}
+	.modal-daftar{
+		width: 450px;
+	}
+	.btn-submit{
+		width: 180px;
+	}
+}
+@media screen and (max-width: 520px) {
+	.modal-pop{
+		padding: 35px;
+	}
+	.modal-pop-daftar{
+		padding: 35px;
+	}
+}
+@media screen and (max-width: 480px) {
+	.modal-pop{
+		margin: 0px auto !important; padding: 50px 65px;
+	}
+	.modal-pop-daftar{
+		margin: 0px auto !important; padding: 50px 65px;
+	}
+	.modal-login{
+		width: 350px;
+		height: 475px;
+	}
+	.modal-daftar{
+		width: 350px;
+		height: 900px;
+	}
+	.btn-submit {
+		width: 100% !important; margin-bottom: 15px;
+	}
+	.btn-daftar {
+		width: 100% !important; margin-bottom: 15px;
+	}
+	.txt-daftar{
+		float: none !important; text-align: center !important;
+	}
+}
+@media screen and (max-width: 414px) {
+	.modal-pop{
+		padding: 35px 32px;
+	}
+	.modal-login{
+		height: 465px;
+	}
+	.modal-pop-daftar{
+		padding: 35px 32px;
+	}
+}
+@media screen and (max-width: 375px) {
+	body{
+		font-size: 14px !important;
+	}
+	.modal-pop{
+		padding: 35px 38px;
+	}
+	.modal-login{
+		width: 300px;
+		height: 450px;
+	}
+	.modal-pop-daftar{
+		padding: 35px 38px;
+	}
+	.modal-daftar{
+		width: 300px;
+	}
+}
+@media screen and (max-width: 360px) {
+	.modal-login {
+		width: 280px;
+	}
+	.modal-pop{
+		padding: 35px 40px;
+	}
+	.modal-daftar {
+		width: 280px;
+	}
+	.modal-pop-daftar{
+		padding: 35px 40px;
+	}
+}
+@media screen and (max-width: 320px) {
+	.modal-pop{
+		padding: 35px;
+	}
+	.modal-login{
+		width: 250px;
+		height: 450px;
+	}
+	.modal-pop-daftar{
+		padding: 35px;
+	}
+	.modal-daftar{
+		width: 250px;
+	}
+	.txt-daftar{
+		font-size: 14px;
+	}
+	.txt-companies-bot span{
+		float: none;
+		text-align: center !important;
+	}
+}
+@media screen and (max-width: 240px) {
+	.modal-pop{
+		padding: 20px;
+	}
+	.modal-login{
+		width: 200px;
+		height: 475px;
+	}
+	.modal-pop-daftar{
+		padding: 20px;
+	}
+	.modal-daftar{
+		width: 200px;
+	}
+}
