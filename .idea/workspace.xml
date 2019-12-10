@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0ece85b3-69df-4287-bcd7-dfb43c9634a6" name="Default Changelist" comment="">
+    <list default="true" id="0ece85b3-69df-4287-bcd7-dfb43c9634a6" name="Default Changelist" comment="user">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mitra/application/views/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/dashboard.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mitra/application/views/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/mitra/application/views/index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,7 +44,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -119,6 +121,9 @@
       <workItem from="1574520886446" duration="7773000" />
       <workItem from="1574606425042" duration="4075000" />
       <workItem from="1574666087213" duration="5440000" />
+      <workItem from="1575293343337" duration="7807000" />
+      <workItem from="1575555036032" duration="4577000" />
+      <workItem from="1575986399652" duration="5326000" />
     </task>
     <task id="LOCAL-00001" summary="Upload new">
       <created>1571403378645</created>
@@ -288,7 +293,35 @@
       <option name="project" value="LOCAL" />
       <updated>1574671462047</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="user dashboard">
+      <created>1575299791653</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1575299791653</updated>
+    </task>
+    <task id="LOCAL-00026" summary="user maneh">
+      <created>1575299947684</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1575299947684</updated>
+    </task>
+    <task id="LOCAL-00027" summary="insert properti payment">
+      <created>1575557673409</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1575557673409</updated>
+    </task>
+    <task id="LOCAL-00028" summary="insert properti payment (2)">
+      <created>1575559164982</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1575559164982</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -329,6 +362,10 @@
     <MESSAGE value="insert properti" />
     <MESSAGE value="insert properti update (1)" />
     <MESSAGE value="update sidebar" />
-    <option name="LAST_COMMIT_MESSAGE" value="update sidebar" />
+    <MESSAGE value="user dashboard" />
+    <MESSAGE value="user maneh" />
+    <MESSAGE value="insert properti payment" />
+    <MESSAGE value="insert properti payment (2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="insert properti payment (2)" />
   </component>
 </project>
