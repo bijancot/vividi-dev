@@ -14,7 +14,7 @@
 				<li class="active"><a href="<?= base_url('Admin/home'); ?>"><i class="fa fa-laptop"></i>
 						<span>Dashboard</span></a></li>
 			<?php } else { ?>
-				<li><a href="<?= base_url('Admin/home'); ?>"><i class="fa fa-laptop"></i> </span>Dashboard</a></a></li>
+                <li><a href="<?= base_url('Admin/home'); ?>"><i class="fa fa-laptop"></i> <span>Dashboard</span></a></li>
 			<?php } ?>
 			<?php if ($folder == 'properti'){ ?>
 		<li class="active treeview menu-open">

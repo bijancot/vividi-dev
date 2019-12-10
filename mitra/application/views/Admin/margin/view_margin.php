@@ -12,11 +12,21 @@
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
-                <div class="box">
+                <div class="box" style="min-height: 430px">
                     <!-- /.box-header -->
                     <div class="box-body">
                         <?php echo form_open(base_url('Admin/margin/ubah_margin')); ?>
-                        <input type="submit" class="btn btn-primary" style="float: right" value="Ubah Margin" name="submit">
+                        <div class="modal-body">
+                            <h4><?php echo "Margin Harga Saat Ini : ".$data; ?></h4>
+                            <hr>
+                            <label>Atur Margin Baru</label>
+                            <div class="input-group input-group-sm">
+                                <input type="number" name="margin" class="form-control" value="0">
+                                <span class="input-group-btn">
+                                    <input type="submit" class="btn btn-info btn-flat" value="Ubah">
+                                </span>
+                            </div>
+                        </div>
                         <?php echo form_close(); ?>
                     </div>
                     <!-- /.box-body -->
