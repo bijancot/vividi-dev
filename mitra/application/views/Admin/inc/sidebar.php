@@ -69,6 +69,12 @@
                 </ul>
             </li>
 
+            <?php if ($side == 'margin') { ?>
+        <li class="active"><a href="#">
+        <?php } else { ?>
+            <li><a href="<?= base_url('Admin/Margin/'); ?>">
+                    <?php } ?><i class="fa fa-line-chart"></i> <span>Margin</span></a></li>
+
 			<?php if ($side == 'penggunaan') { ?>
 			<li class="active"><a href="#">
 					<?php } else { ?>
