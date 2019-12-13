@@ -162,7 +162,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#properti').change(function(){
             var prop = $(this).val();
             $.ajax({
-                url : "<?php echo site_url('kamar/modal_kamar')?>",
+                url : "<?php echo site_url('Kamar/modal_kamar')?>",
                 method : "POST",
                 data : {prop: prop},
                 async : false,
@@ -181,7 +181,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#jenis_kamar').change(function(){
             var id = $(this).val();
             $.ajax({
-                url : "<?php echo site_url('harga/modal_harga')?>",
+                url : "<?php echo site_url('Harga/modal_harga')?>",
                 method : "POST",
                 data : {id: id},
                 async : false,
@@ -200,7 +200,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $('#country').change(function(){
             var country = $(this).val();
             $.ajax({
-                url : "<?php echo site_url('properti/modal_city')?>",
+                url : "<?php echo site_url('Properti/modal_city')?>",
                 method : "POST",
                 data : {country: country},
                 async : false,
@@ -216,29 +216,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             });
         });
     });
+</script>
+<script>
+    <?php
+    $no_menunggu = 0;
+    foreach ($data as $row) {
+        $no_menunggu++;
+    }
 
-	<?php
-	$no_menunggu = 0;
-	foreach ($data as $row) {
-		$no_menunggu++;
-	}
+    $no_batal = 0;
+    foreach ($data_batal as $row) {
+        $no_batal++;
+    }
 
-	$no_batal = 0;
-	foreach ($data_batal as $row) {
-		$no_batal++;
-	}
+    $no_sukses = 0;
+    foreach ($data_sukses as $row) {
+        $no_sukses++;
+    }
 
-	$no_sukses = 0;
-	foreach ($data_sukses as $row) {
-		$no_sukses++;
-	}
+    $no = 0;
+    foreach ($data_semua as $row) {
+        $no++;
+    }
 
-	$no = 0;
-	foreach ($data_semua as $row) {
-		$no++;
-	}
-
-	?>
+    ?>
     $(function () {
         /*
 		 * DONUT CHART
@@ -259,8 +260,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     label      : {
                         show     : true,
                         radius   : 2 / 3,
-							formatter: labelFormatter,
-							threshold: 0.1
+                        formatter: labelFormatter,
+                        threshold: 0.1
                     }
 
                 }
@@ -273,7 +274,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		 * END DONUT CHART
 		 */
 
-    })
+    });
 
     /*
 	 * Custom Label formatter
