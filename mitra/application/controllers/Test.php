@@ -29,7 +29,7 @@ class Test extends CI_Controller
 	{
 		$data['folder'] = "Test";
 //		$data['side'] = "dashboard";
-		$data['data'] = $this->Model_email->data_email('7HWQYM');
+		$data['data'] = $this->Model_email->data_email('MK6S1F');
 		$this->load->view('Test/confirm', $data);
 	}
 
@@ -41,6 +41,7 @@ class Test extends CI_Controller
 
 	public function booking()
 	{
+		$data['data'] = $this->Model_email->data_email('MK6S1F');
 		$data['folder'] = "Test";
 		$this->load->view('Test/booking', $data);
 	}
@@ -53,14 +54,14 @@ class Test extends CI_Controller
 
 	public function receipt()
 	{
-		$data['data'] = $this->Model_email->data_email('7HWQYM');
+		$data['data'] = $this->Model_email->data_email('MK6S1F');
 		$data['folder'] = "Test";
 		$this->load->view('Test/receipt', $data);
 	}
 
 	public function voucher()
 	{
-		$data['data'] = $this->Model_email->data_email('7HWQYM');
+		$data['data'] = $this->Model_email->data_email('MK6S1F');
 		$data['folder'] = "Test";
 		$this->load->view('Test/voucher', $data);
 	}

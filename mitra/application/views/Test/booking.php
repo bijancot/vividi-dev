@@ -15,10 +15,8 @@
 	</div>
 
 	<div class="row" style="margin-top: 10px">
-		<div class="col-sm-6 col-md-6"
-			 style="min-height: 200px; width: 500px;float: left; background-color: #F5F4F4">
-			<b><span
-					style="color: #000000; font-family: arial; margin-left: 20px; margin-top: 10px; display:inline-block; font-size: 20px">[accommodation_name]</b></span>
+		<div class="col-sm-6 col-md-6" style="min-height: 200px; width: 500px;float: left; background-color: #F5F4F4">
+			<b><span style="color: #000000; font-family: arial; margin-left: 20px; margin-top: 10px; display:inline-block; font-size: 20px">[accommodation_name]</span></b>
 			<br>
 			<span style="margin-top: 5px; color: #000000; font-family: arial; margin-left: 20px; display:inline-block; font-size: 15px">
 				[accommodation_address]</span><br>
