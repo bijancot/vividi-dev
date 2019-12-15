@@ -973,4 +973,51 @@ class Model_properti extends CI_Model
 		}
 
 	}
+
+	public function new_fasilitas($fasilitas){
+        $this->db->select_max('term_id');
+        $data = $this->db->get('wpwj_terms');
+        $key ="";
+        foreach ($data->result() as $row) {
+            $key = $row->term_id+1;
+        }
+        $data = array(
+            'term_id' => $key,
+            'name' => strtoupper($fasilitas),
+            'slug' => strtolower($fasilitas),
+            'term_group' => '0'
+        );
+        $this->db->insert('wpwj_terms', $data);
+        $data1 = array(
+            'term_taxonomy_id' => $key,
+            'term_id' => $key,
+            'taxonomy' => 'amenity',
+            'description' => '',
+            'parent' => '0',
+            'count' => '1',
+        );
+        $this->db->insert('wpwj_term_taxonomy', $data1);
+        $this->db->select_max('ID');
+        $data = $this->db->get('wpwj_posts');
+        $keyTransaksi ="";
+        foreach ($data->result() as $row) {
+            $keyTransaksi = $row->ID;
+        }
+        $list = array(
+            'object_id' => $keyTransaksi,
+            'term_taxonomy_id' => $key,
+            'term_order' => '0'
+        );
+        $this->db->insert('wpwj_term_relationships', $list);
+//        $this->db->select('count');
+//        $this->db->where('term_taxonomy_id = ', $amenity);
+//        $rslt = $this->db->get('wpwj_term_taxonomy');
+//        foreach ($rslt->result() as $r) {
+//            $new = array(
+//                'count' => $r->count + 1
+//            );
+//            $this->db->where('term_taxonomy_id', $amenity);
+//            $this->db->update('wpwj_term_taxonomy', $new);
+//        }
+    }
 }

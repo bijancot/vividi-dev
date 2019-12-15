@@ -110,6 +110,7 @@
 		border-color: #4d90fe;
 	}
 </style>
+<script src="<?php echo base_url('assets/js/properti.js'); ?>"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFxhk7tOEjomIkOd1u7DpvvGp81F57N0g&libraries=places&callback=initMap"
@@ -302,6 +303,13 @@
 										<input type="checkbox" name="fasilitas[]" value="207">Spa
 									</label>
 								</div>
+                                <div id="list_fasilitas" class="checkbox">
+
+                                </div>
+                                <div class="checkbox">
+                                        <input id="total_fasilitas" name="total_fasilitas" value="0" type="hidden">
+                                        <button type="button" onclick="addFasilitas(event)" style="width: 100%"><span><i class='fa fa-plus'></i>&nbsp;</span> Fasilitas</button>
+                                </div>
 								<!--								<div class="checkbox">-->
 								<!--									<label>-->
 								<!--										<input type="checkbox" name="fasilitas[]" value="-->
