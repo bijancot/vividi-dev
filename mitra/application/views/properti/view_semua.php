@@ -45,7 +45,7 @@
                     <td><?php echo $row->Penulis;?></td>
                     <td><?php echo $row->Tanggal;?></td>
                     <td>
-						<button type="button" id="detail" class="btn btn-default" style="margin-bottom: 10px" data-toggle="modal" data-id="<?php echo $row->id ?>" onclick="clickButton(<?php echo $row->id ?>)">Detail</button>
+						<button type="button" id="detail" class="btn btn-default" style="margin-bottom: 10px" data-toggle="modal" data-id="<?php echo $row->id ?>" onclick="clickButton(<?php echo $row->id ?>)"><span class="glyphicon glyphicon-eye-open"></span></button>
 					</td>
                     </tr>
                   <?php } ?>

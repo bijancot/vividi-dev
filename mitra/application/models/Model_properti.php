@@ -1016,7 +1016,7 @@ class Model_properti extends CI_Model
             $a = $row->option_value;
         }
         $new = array(
-            'option_value' => 'a:'.(substr($a,2,2)+1).''.substr($a,4,strlen($a)-1).'i:'.$key.';a:1:{s:4:\"icon\";s:14:\"soap-icon-star\";}}'
+            'option_value' => 'a:'.(substr($a,2,2)+1).''.substr($a,4,strlen($a)-5).'i:'.$key.';a:1:{s:4:"icon";s:14:"soap-icon-star";}}'
         );
         $this->db->where('option_id', '205');
         $this->db->update('wpwj_options', $new);

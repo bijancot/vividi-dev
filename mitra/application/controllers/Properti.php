@@ -135,56 +135,57 @@ class Properti extends CI_Controller
 
 	public function save_properti()
 	{
-        $id = $_SESSION['ID'];
-        date_default_timezone_set('Asia/Jakarta');
-        $time = date("Y-m-d h:i:s");
-        $judul = $this->input->post('judul');
-        $deskripsi = $this->input->post('deskripsi');
-        $tipe_properti = $this->input->post('tipe_properti');
-        $fasilitas = $this->input->post('fasilitas');
-        $bintang = $this->input->post('bintang');
-        $stay = $this->input->post('stay');
-        $deskripsi_singkat = $this->input->post('deskripsi_singkat');
-        $country = $this->input->post('country');
-        $ci = $this->input->post('city');
-        $c = explode("_", $ci);
-        $city = $c[0];
-        $kota = $c[1];
-        $telepon = $this->input->post('telepon');
-        $email = $this->input->post('email');
-        $alamat = $this->input->post('alamat');
-        $lat = $this->input->post('lat');
-        $lng = $this->input->post('lng');
-        $checkin = $this->input->post('checkin');
-        $checkout = $this->input->post('checkout');
-        $cancel = $this->input->post('cancel');
-        $bed = $this->input->post('bed');
-        $pet = $this->input->post('pet');
-        $harga = $this->input->post('harga');
-        $acc_name = $this->input->post('acc_name');
-        $acc_no = $this->input->post('acc_no');
-        $bank_name = $this->input->post('bank_name');
-        $cabang = $this->input->post('cabang');
-        $swift = $this->input->post('swift');
-        $payment = $this->input->post('payment');
-        $upload1 = $this->upload_foto_properti1();
-        $upload2 = $this->upload_foto_properti2();
-        $upload3 = $this->upload_foto_properti3();
-        $upload4 = $this->upload_logo_properti();
-        if ($upload1['Status'] == 'success' && $upload2['Status'] == 'success' && $upload3['Status'] == 'success' && $upload4['Status'] == 'success') {
-            $this->Model_properti->save_properti($id, $time, $deskripsi, $judul, $tipe_properti, $fasilitas, $bintang, $stay,
-                $deskripsi_singkat, $country, $city, $telepon, $email, $alamat, $upload1, $upload2, $upload3, $upload4, $lat, $lng,
-                $checkin, $checkout, $cancel, $bed, $pet, $kota, $harga,$acc_name, $acc_no,$bank_name, $cabang, $swift, $payment);
-
-            $total_fasilitas = $this->input->post('total_fasilitas');
-            for ($i=1; $i <= $total_fasilitas; $i++) {
-                $fasilitas = $this->input->post('fasilitas_'.$i);
+		$id = $_SESSION['ID'];
+		date_default_timezone_set('Asia/Jakarta');
+		$time = date("Y-m-d h:i:s");
+		$judul = $this->input->post('judul');
+		$deskripsi = $this->input->post('deskripsi');
+		$tipe_properti = $this->input->post('tipe_properti');
+		$fasilitas = $this->input->post('fasilitas');
+		$bintang = $this->input->post('bintang');
+		$stay = $this->input->post('stay');
+		$deskripsi_singkat = $this->input->post('deskripsi_singkat');
+		$country = $this->input->post('country');
+		$ci = $this->input->post('city');
+		$c = explode("_", $ci);
+		$city = $c[0];
+		$kota = $c[1];
+		$telepon = $this->input->post('telepon');
+		$email = $this->input->post('email');
+		$alamat = $this->input->post('alamat');
+		$lat = $this->input->post('lat');
+		$lng = $this->input->post('lng');
+		$checkin = $this->input->post('checkin');
+		$checkout = $this->input->post('checkout');
+		$cancel = $this->input->post('cancel');
+		$bed = $this->input->post('bed');
+		$pet = $this->input->post('pet');
+		$hargaawal = $this->input->post('harga');
+		$hargaproses = $hargaawal * 0.05;
+		$harga = $hargaawal + $hargaproses;
+		$acc_name = $this->input->post('acc_name');
+		$acc_no = $this->input->post('acc_no');
+		$bank_name = $this->input->post('bank_name');
+		$cabang = $this->input->post('cabang');
+		$swift = $this->input->post('swift');
+		$payment = $this->input->post('payment');
+		$upload1 = $this->upload_foto_properti1();
+		$upload2 = $this->upload_foto_properti2();
+		$upload3 = $this->upload_foto_properti3();
+		$upload4 = $this->upload_logo_properti();
+		if ($upload1['Status'] == 'success' && $upload2['Status'] == 'success' && $upload3['Status'] == 'success' && $upload4['Status'] == 'success') {
+			$this->Model_properti->save_properti($id, $time, $deskripsi, $judul, $tipe_properti, $fasilitas, $bintang, $stay,
+				$deskripsi_singkat, $country, $city, $telepon, $email, $alamat, $upload1, $upload2, $upload3, $upload4, $lat, $lng,
+				$checkin, $checkout, $cancel, $bed, $pet, $kota, $harga, $acc_name, $acc_no, $bank_name, $cabang, $swift, $payment);
+			$total_fasilitas = $this->input->post('total_fasilitas');
+			for ($i=1; $i <= $total_fasilitas; $i++) {
+				$fasilitas = $this->input->post('fasilitas_'.$i);
 //                echo $fasilitas.'-';
-                $this->Model_properti->new_fasilitas($fasilitas);
-            }
-            redirect(base_url('properti'));
-        } else {
-            echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";
-        }
+				$this->Model_properti->new_fasilitas($fasilitas);
+			}
+			redirect(base_url('properti'));
+		} else {
+			echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";
+		}
 	}
 }
