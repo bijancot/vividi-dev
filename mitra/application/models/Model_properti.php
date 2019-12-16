@@ -1004,11 +1004,23 @@ class Model_properti extends CI_Model
             $keyTransaksi = $row->ID;
         }
         $list = array(
-            'object_id' => $keyTransaksi,
+            'object_id' => $keyTransaksi-4,
             'term_taxonomy_id' => $key,
             'term_order' => '0'
         );
         $this->db->insert('wpwj_term_relationships', $list);
+
+        $this->db->where('option_id', '205');
+        $res = $this->db->get('wpwj_options');
+        foreach ($res->result() as $row) {
+            $a = $row->option_value;
+        }
+        $new = array(
+            'option_value' => 'a:'.(substr($a,2,2)+1).''.substr($a,4,strlen($a)-1).'i:'.$key.';a:1:{s:4:\"icon\";s:14:\"soap-icon-star\";}}'
+        );
+        $this->db->where('option_id', '205');
+        $this->db->update('wpwj_options', $new);
+
 //        $this->db->select('count');
 //        $this->db->where('term_taxonomy_id = ', $amenity);
 //        $rslt = $this->db->get('wpwj_term_taxonomy');

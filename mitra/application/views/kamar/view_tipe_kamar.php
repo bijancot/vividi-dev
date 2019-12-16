@@ -46,10 +46,15 @@
                                     <td><?php echo $row->penulis; ?></td>
                                     <td><?php echo $row->tanggal; ?></td>
                                     <td>
-                                        <button type="button" id="detail" class="btn btn-default"
-                                                style="margin-bottom: 10px" data-toggle="modal"
+                                        <button type="button" id="detail" class="btn btn-info"
+                                                data-toggle="modal"
                                                 data-id="<?php echo $row->id ?>"
-                                                onclick="clickButton(<?php echo $row->id ?>)">Detail
+                                                onclick="clickButton(<?php echo $row->id ?>)"><i class="fa fa-eye"></i>
+                                        </button>
+                                        <button type="button" id="ubah_kamar" class="btn btn-primary"
+                                                data-toggle="modal"
+                                                data-id="<?php echo $row->id ?>"
+                                                onclick="clickUbah(<?php echo $row->id ?>)"><i class="fa fa-pencil"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -164,6 +169,16 @@
     function clickButton(id) {
         var postdata = {id: id};
         var url = "<?= site_url('kamar/modal_tipe_kamar')?>";
+        $.post(url, postdata, function (data) {
+            var results = JSON.parse(data);
+            $('#modal_detail').html(results);
+        });
+        $('#modal_detail').modal('show');
+    }
+
+    function clickUbah(id) {
+        var postdata = {id: id};
+        var url = "<?= site_url('kamar/modal_ubah_kamar')?>";
         $.post(url, postdata, function (data) {
             var results = JSON.parse(data);
             $('#modal_detail').html(results);

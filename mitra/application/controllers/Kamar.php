@@ -54,6 +54,28 @@ class Kamar extends CI_Controller
 		echo json_encode($filter_view);
 	}
 
+    public function modal_ubah_kamar()
+    {
+        $id = $_SESSION['ID'];
+        $post = $this->input->post('id');
+        $data['data'] = $this->Model_kamar->data_detail_tipe_kamar($id,$post);
+        $amenity = $this->db->query("select t.name as amenity
+			from wpwj_terms t
+			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
+			left join wpwj_term_relationships tr on (tt.term_id = tr.term_taxonomy_id and tt.taxonomy = 'amenity')
+			where tr.object_id = ".$post);
+        $data['amenity'] = $amenity->result();
+        $foto = $this->db->query("select pm.meta_value as foto
+			from wpwj_posts p
+			left join wpwj_postmeta pm on (p.ID = pm.post_id and pm.meta_key = '_wp_attached_file')
+			where p.post_type = 'attachment'
+			and p.post_parent = ".$post);
+        $data['foto'] = $foto->result();
+        $filter_view = $this->load->view('kamar/modal_ubah_kamar', $data, TRUE);
+
+        echo json_encode($filter_view);
+    }
+
 	public function upload_foto1() {
 		$config['upload_path']          = './assets/images/hotel/';
 		$config['allowed_types']        = 'jpeg|jpg|png';
