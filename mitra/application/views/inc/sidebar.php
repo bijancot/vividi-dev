@@ -92,6 +92,12 @@
                 </ul>
             </li>
 
+                        <?php if ($side == 'kontrak') { ?>
+                    <li class="active"><a href="#">
+                    <?php } else { ?>
+                        <li><a href="<?= base_url('Kontrak'); ?>">
+                                <?php } ?><i class="fa fa-upload"></i> <span>Upload Kontrak</span></a></li>
+
             <?php if ($side == 'penggunaan') { ?>
         <li class="active"><a href="#">
         <?php } else { ?>

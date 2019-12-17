@@ -18,7 +18,7 @@ class Model_properti extends CI_Model
 			 LEFT JOIN wpwj_postmeta pmkota on (posts.id = pmkota.post_id AND pmkota.meta_key = 'trav_accommodation_city')
 			 LEFT JOIN wpwj_postmeta pmnegara on (posts.id = pmnegara.post_id AND pmnegara.meta_key = 'trav_accommodation_country')
 			 WHERE posts.post_status = 'publish' 
-			 AND posts.post_type = 'accommodation' 
+			 AND posts.post_type = 'accommodation'
 			 AND tt.taxonomy = 'accommodation_type'
 			 GROUP BY posts.ID");
         return $query->result();

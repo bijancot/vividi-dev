@@ -198,6 +198,7 @@ class Model_register extends CI_Model
 		wpwj_users.jabatan, wpwj_users.status, wpwj_users.telepon');
 //		$this->db->where('mitra', 'Hotel');
 		$this->db->where('status', 1);
+//		$this->db->set('price_per_room', 'price_normal' + ('price_per_room')*$d/100);
 		$this->db->from('wpwj_users');
 		return $this->db->get();
 

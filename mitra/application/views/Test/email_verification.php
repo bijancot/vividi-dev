@@ -4,7 +4,7 @@ foreach ($data as $row) { ?>
 	 style="margin-top: 10px;margin-bottom: 10px; margin-left: 5px"/>
 <p><span style="font-size: 20px"><b>Hallo, <?php echo $row->display_name?></b></span></p>
 <p>
-	Akun anda telah di verifikasi oleh pihak Vividi Transwisata. Silahkan login ke dashboard mitra melalui link ......... dengan
+	Akun anda telah di verifikasi oleh pihak Vividi Transwisata. Silahkan login ke dashboard mitra melalui link vividi.id/mitra dengan
 		user dan password yang tersedia di bawah ini.
 </p>
 <p>
