@@ -19,29 +19,32 @@
                 <li class="dropdown user user-menu">
                     <a href="" class="dropdown">
                         <!--              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
-                        <span class="hidden-xs"><?= $_SESSION['nama'] ?></span>
+                        <span class="hidden-xs show-xs"><?= $_SESSION['nama'] ?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-<!--                        <li class="user-header" style="height: 65px">-->
-<!--                                       <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
-<!---->
-<!--                            <p>-->
-<!--                                --><?//= $_SESSION['nama'] ?>
-<!--                            </p>-->
-<!--                        </li>-->
+                        <!--                        <li class="user-header" style="height: 65px">-->
+                        <!--                                       <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">-->
+                        <!---->
+                        <!--                            <p>-->
+                        <!--                                --><? //= $_SESSION['nama'] 
+                                                                ?>
+                        <!--                            </p>-->
+                        <!--                        </li>-->
                         <!-- Menu Footer-->
-<!--                        <li class="user-footer">-->
-<!--                            <div class="pull-left">-->
-<!--                                <button type="button" class="btn btn-default btn-flat" data-toggle="modal" data-target="#modal_profile">-->
-<!--                                    Profile-->
-<!--                                </button>-->
-<!--                            </div>-->
-<!--                            <div class="pull-right">-->
-<!--                                <a href="--><?//= base_url('Login/logout'); ?><!--" class="btn btn-default btn-flat">Logout</a>-->
-<!--                            </div>-->
-<!--                        </li>-->
-<!--                    </ul>-->
+                        <!--                        <li class="user-footer">-->
+                        <!--                            <div class="pull-left">-->
+                        <!--                                <button type="button" class="btn btn-default btn-flat" data-toggle="modal" data-target="#modal_profile">-->
+                        <!--                                    Profile-->
+                        <!--                                </button>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="pull-right">-->
+                        <!--                                <a href="--><? //= base_url('Login/logout'); 
+                                                                        ?>
+                        <!--" class="btn btn-default btn-flat">Logout</a>-->
+                        <!--                            </div>-->
+                        <!--                        </li>-->
+                        <!--                    </ul>-->
                 </li>
             </ul>
         </div>

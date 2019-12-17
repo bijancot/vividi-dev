@@ -20,7 +20,7 @@
                 <li class="dropdown user user-menu">
                     <a href="" class="dropdown">
                         <!--              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
-                        <span class="hidden-xs"><?= $_SESSION['nama'] ?></span>
+                        <span class="hidden-xs show-xs"><?= $_SESSION['nama'] ?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->

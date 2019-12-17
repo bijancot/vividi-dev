@@ -1,0 +1,41 @@
+.space-small{
+    margin-bottom: 10px;
+}
+.space-med {
+	margin-bottom: 15px;
+}
+.space-hig {
+	margin-bottom: 25px;
+}
+
+/* view hubungi kami */
+.box-hubungi{
+    min-height: 300px;
+}
+.txt-hubungi-desc{
+    font-size: 20px;
+}
+.info-box-icon a{
+    color: #3c8dbc;
+}
+.info-txt{
+    font-size: 13px !important;
+}
+.info-txt-nomor {
+    font-size: 14px !important;
+}
+.info-txt-nomor a{
+    color:#464646 !important;
+}
+.btn-contact-us{
+    background: none !important; border: 2px solid #367fa9 !important;
+}
+.btn-contact-us:hover{
+	background: #367fa9 !important; border: 2px solid #367fa9 !important; color: #fff !important;
+}
+
+@media (max-width: 767px) {
+    .show-xs {
+        display: block !important;
+    }
+}
