@@ -369,4 +369,10 @@ class Model_kamar extends CI_Model
 		}
 	}
 
+	function data_amenity()
+    {
+        $this->db->select('term_id, name');
+        $this->db->where('type = ', 'default');
+        return $rslt = $this->db->get('wpwj_terms')->result();
+    }
 }

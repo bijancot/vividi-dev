@@ -8,9 +8,11 @@ foreach ($data as $row) {
                 <h4 class="modal-title">Ubah <?= $row->nama_kamar ?></h4>
             </div>
             <div class="modal-body">
+                <?php echo form_open(base_url('kamar/ubah')); ?>
                 <div class="form-group">
                     <label>Nama Properti</label>
                     <p><?= $row->nama_prop ?></p>
+                    <input type="hidden" name="id" class="form-control" value="<?= $row->id ?>">
                 </div>
                 <div class="form-group">
                     <label>Nama Kamar</label>
@@ -37,13 +39,21 @@ foreach ($data as $row) {
                 <div class="form-group">
                     <label>Fasilitas</label><br>
                     <div class="row">
-                        <?php
-                        foreach ($amenity as $a){
+                        <div class="col-sm-6 col-md-6">
+                            <?php
+                            foreach ($fasilitas as $a) {
+                                $cek = '';
+                                foreach ($amenity as $b) {
+                                    if ($a->name == $b->amenity) {
+                                        $cek = 'checked';
+                                    }
+                                }
+                                ?>
+                                <input type="checkbox" name="amenity[]" value="<?= $a->term_id ?>" <?= $cek ?>> <?= $a->name ?><br>
+                                <?php
+                            }
                             ?>
-                            <div class="col-sm-4 col-md-4">
-                                <p><?= $a->amenity ?></p>
-                            </div>
-                        <?php } ?>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -58,6 +68,7 @@ foreach ($data as $row) {
                         <?php } ?>
                     </div>
                 </div>
+                <?php echo form_close(); ?>
             </div>
         </div>
     </div>

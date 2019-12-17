@@ -985,7 +985,8 @@ class Model_properti extends CI_Model
             'term_id' => $key,
             'name' => strtoupper($fasilitas),
             'slug' => strtolower($fasilitas),
-            'term_group' => '0'
+            'term_group' => '0',
+            'type' => ''
         );
         $this->db->insert('wpwj_terms', $data);
         $data1 = array(

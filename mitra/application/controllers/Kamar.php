@@ -59,6 +59,7 @@ class Kamar extends CI_Controller
         $id = $_SESSION['ID'];
         $post = $this->input->post('id');
         $data['data'] = $this->Model_kamar->data_detail_tipe_kamar($id,$post);
+        $data['fasilitas'] = $this->Model_kamar->data_amenity();
         $amenity = $this->db->query("select t.name as amenity
 			from wpwj_terms t
 			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id

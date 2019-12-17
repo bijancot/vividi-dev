@@ -175,8 +175,81 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         });
     });
 </script>
+<script>
+    <?php
+    $no = 0;
+    foreach ($data as $row) {
+        $no++;
+    }
+
+    $no_batal = 0;
+    foreach ($data_batal as $row) {
+        $no_batal++;
+    }
+
+    $no_sukses = 0;
+    foreach ($data_sukses as $row) {
+        $no_sukses++;
+    }
+
+    $no_menunggu = 0;
+    foreach ($data_menunggu as $row) {
+        $no_menunggu++;
+    }
+
+    ?>
+    $(function () {
+        /*
+		 * DONUT CHART
+		 * -----------
+		 */
+
+        var donutData = [
+            { label: 'Pesanan Baru', data: <?= $no_menunggu ?>, color: '#f39c12' },
+            { label: 'Pesanan Batal', data: <?= $no_batal ?>, color: '#dd4b39' },
+            { label: 'Pesanan Sukses', data: <?= $no_sukses ?>, color: '#00a65a' },
+            { label: 'Semua Pesanan', data: <?= $no ?>, color: '#00c0ef' }
+        ]
+        $.plot('#donutchart', donutData, {
+            series: {
+                pie: {
+                    show       : true,
+                    radius     : 1,
+                    label      : {
+                        show     : true,
+                        radius   : 2 / 3,
+                        formatter: labelFormatter,
+                        threshold: 0.1
+                    }
+
+                }
+            },
+            legend: {
+                show: true
+            }
+        })
+        /*
+		 * END DONUT CHART
+		 */
+
+    });
+
+    /*
+	 * Custom Label formatter
+	 * ----------------------
+	 */
+    function labelFormatter(label, series) {
+        return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
+            + label
+            + '<br>'
+            + series.data[0][1] + '</div>'
+    }
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/lightpick@latest/lightpick.js"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
+<!-- ChartJS -->
+<script type="text/javascript" src="<?php echo base_url('assets/bower_components/Flot/jquery.flot.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/bower_components/Flot/jquery.flot.pie.js'); ?>"></script>
 </body>
 </html>

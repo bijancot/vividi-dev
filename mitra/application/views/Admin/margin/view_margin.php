@@ -17,7 +17,7 @@
                     <div class="box-body">
                         <?php echo form_open(base_url('Admin/margin/ubah_margin')); ?>
                         <div class="modal-body">
-                            <h4><?php echo "Margin Harga Saat Ini : ".$data; ?></h4>
+                            <h4><?php echo "<b>Margin saat ini : <span style='color: red'>".$data."% </span>dari kontrak rate</b>"; ?></h4>
                             <hr>
                             <label>Atur Margin Baru</label>
                             <div class="input-group input-group-sm">

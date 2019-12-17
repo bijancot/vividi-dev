@@ -44,7 +44,7 @@
 						<?php } ?>
                     </ul>
                     <div class="table-responsive tab-content">
-                        <div class="tab-pane active" id="tab_1">
+                        <div class="tab-pane<?php if($seg == 'tab_1' || $seg == ''){ echo ' active';} ?>" id="tab_1">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -80,7 +80,7 @@
                             </table>
                         </div>
                         <!-- /.tab-pane -->
-                        <div class="tab-pane" id="tab_2">
+                        <div class="tab-pane<?php if($seg == 'tab_2'){ echo ' active';} ?>" id="tab_2">
                             <table id="example2" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -122,7 +122,7 @@
                             </table>
                         </div>
                         <!-- /.tab-pane -->
-                        <div class="tab-pane" id="tab_3">
+                        <div class="tab-pane<?php if($seg == 'tab_3'){ echo ' active';} ?>" id="tab_3">
                             <table id="example3" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
@@ -157,7 +157,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="tab-pane" id="tab_4">
+                        <div class="tab-pane<?php if($seg == 'tab_4'){ echo ' active';} ?>" id="tab_4">
                             <table id="example4" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
