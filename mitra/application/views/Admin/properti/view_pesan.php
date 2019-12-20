@@ -109,7 +109,9 @@
                                 </thead>
                                 <tbody>
                                 <?php
-                                foreach ($data as $row) { ?>
+                                $i = 1;
+                                foreach ($data as $row) {
+                                    ?>
                                     <tr>
                                         <td><?php echo $row->booking_no; ?></td>
                                         <td><?php echo $row->nama_awal; ?><?php echo $row->nama_akhir; ?></td>
@@ -121,7 +123,7 @@
                                         <td><?php echo $row->harga; ?></td>
                                         <td><?php echo $row->pesan; ?></td>
                                         <td><?php echo $row->status; ?></td>
-                                        <td id="demo"></td>
+                                        <td id="<?= "demo[".$i."]" ?>"></td>
                                         <td>
                                             <a href="<?= site_url('Admin/Pesan/sukses/' . $row->booking_no); ?>"
                                                class="btn btn-block btn-primary">Sukses</a>
@@ -131,7 +133,10 @@
                                                class="btn btn-block btn-danger">Cancel</a>
                                         </td>
                                     </tr>
-                                <?php } ?>
+                                <?php
+                                $i++;
+                                }
+                                ?>
                                 </tbody>
                             </table>
                         </div>
@@ -248,10 +253,10 @@
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+        var i = 0;
         // Display the result in the element with id="demo"
-        document.getElementById("demo").innerHTML = hours + jam.fontcolor("black") + minutes + menit.fontcolor("black") + seconds + detik.fontcolor("black");
-
+        document.getElementById("demo[".i."]").innerHTML = hours + jam.fontcolor("black") + minutes + menit.fontcolor("black") + seconds + detik.fontcolor("black");
+        i++;
         // document.getElementById("demo").innerHTML = countDownDate;
 
         // If the count down is finished, write some text

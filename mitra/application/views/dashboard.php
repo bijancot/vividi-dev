@@ -115,9 +115,9 @@
 				<!-- Donut chart -->
 				<div class="box box-primary">
 					<div class="box-header with-border">
-						<i class="fa fa-bar-chart-o"></i>
+						<i class="fa fa-bar-chart-o" style="color: gray;"></i>
 
-						<h3 class="box-title">Grafik Pesanan</h3>
+						<h3 class="box-title" style="color: gray;">Grafik Pesanan</h3>
 					</div>
 					<div class="box-body">
 						<div id="donut-chart" style="height: 300px;"></div>
@@ -133,16 +133,16 @@
 			<section class="col-lg-6">
 
 				<!-- Calendar-->
-				<div class="box box-solid bg-blue-gradient">
+				<div class="box box-solid bg-white-gradient">
 					<div class="box-header">
-						<i class="fa fa-calendar"></i>
+						<i class="fa fa-calendar" style="color: gray"></i>
 
-						<h3 class="box-title">Kalender</h3>
+						<h3 class="box-title" style="color: gray;">Kalender</h3>
 					</div>
 					<!-- /.box-header-->
 					<div class="box-body no-padding">
 						<!-- The calendar-->
-						<div id="calendar" style="width: 100%"></div>
+						<div id="calendar" style="width: 100%; color: blue;"></div>
 					</div>
 				</div>
 				<!-- /.box-->
