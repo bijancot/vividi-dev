@@ -155,6 +155,7 @@ class Pesan extends CI_Controller
 		$data['data_batal'] = $this->Model_pesan->data_pesan_batal();
 		$data['data_sukses'] = $this->Model_pesan->data_pesan_sukses();
 		$data['data_semua'] = $this->Model_pesan->data_pesan();
+		$data['valid_until'] = $this->Model_pesan->booking_valid();
 		$data['folder'] = "Admin/properti";
 		$data['side'] = "pesan";
 		$this->load->view('Admin/index',$data);
@@ -168,7 +169,7 @@ class Pesan extends CI_Controller
 	}
 
 	public function gagal(){
-		$id = $this->uri->segment(3);
+		$id = $this->uri->segment(4);
 		$this->Model_email->get_cancel($id);
 		redirect(base_url('Admin/Pesan/pesan'));
 	}

@@ -2,9 +2,9 @@
 
 class Model_email extends CI_Model
 {
-	public function data_email($booking_no)
-	{
-		$query = $this->db->query("select ab.id as id,
+    public function data_email($booking_no)
+    {
+        $query = $this->db->query("select ab.id as id,
 			ab.booking_no as booking_no,
 			ab.first_name as nama_awal,
 			ab.email as cust_email,
@@ -55,40 +55,40 @@ class Model_email extends CI_Model
 			where ab.booking_no = '$booking_no'
 			and pkamar.post_type = 'room_type'
 			order by tgl_pesan desc");
-		return $query->result();
-	}
+        return $query->result();
+    }
 
-	public function get_sukses($booking_no)
-	{
-		$this->db->select('status');
-		$this->db->where('booking_no = ', $booking_no);
-		$rslt = $this->db->get('wpwj_trav_accommodation_bookings');
-		foreach ($rslt->result() as $r) {
-			$new = array(
-				'status' => '2'
-			);
-			$this->db->where('booking_no', $booking_no);
-			$this->db->update('wpwj_trav_accommodation_bookings', $new);
-		}
-	}
+    public function get_sukses($booking_no)
+    {
+        $this->db->select('status');
+        $this->db->where('booking_no = ', $booking_no);
+        $rslt = $this->db->get('wpwj_trav_accommodation_bookings');
+        foreach ($rslt->result() as $r) {
+            $new = array(
+                'status' => '2'
+            );
+            $this->db->where('booking_no', $booking_no);
+            $this->db->update('wpwj_trav_accommodation_bookings', $new);
+        }
+    }
 
-	public function get_cancel($id)
-	{
-		$this->db->select('status');
-		$this->db->where('id = ', $id);
-		$rslt = $this->db->get('wpwj_trav_accommodation_bookings');
-		foreach ($rslt->result() as $r) {
-			$new = array(
-				'status' => '0'
-			);
-			$this->db->where('id', $id);
-			$this->db->update('wpwj_trav_accommodation_bookings', $new);
-		}
-	}
+    public function get_cancel($id)
+    {
+        $this->db->select('status');
+        $this->db->where('id = ', $id);
+        $rslt = $this->db->get('wpwj_trav_accommodation_bookings');
+        foreach ($rslt->result() as $r) {
+            $new = array(
+                'status' => '0'
+            );
+            $this->db->where('id', $id);
+            $this->db->update('wpwj_trav_accommodation_bookings', $new);
+        }
+    }
 
-	public function email_custowner($booking_no)
-	{
-		$query = $this->db->query("select ab.id as id,
+    public function email_custowner($booking_no)
+    {
+        $query = $this->db->query("select ab.id as id,
 			ab.booking_no as booking_no,
 			ab.first_name as nama_awal,
 			ab.last_name as nama_akhir,
@@ -97,22 +97,22 @@ class Model_email extends CI_Model
 			from wpwj_trav_accommodation_bookings ab
 			where ab.booking_no = '$booking_no'
 			order by tgl_pesan desc");
-		foreach ($query->result() as $row) {
-			$email = $row->email;
-			return $email;
-		}
-	}
+        foreach ($query->result() as $row) {
+            $email = $row->email;
+            return $email;
+        }
+    }
 
-	public function email_owner($booking_no)
-	{
-		$query = $this->db->query("select u.user_email
+    public function email_owner($booking_no)
+    {
+        $query = $this->db->query("select u.user_email
 		from wpwj_users u
 		left join wpwj_posts p on u.ID = p.post_author
 		left join wpwj_trav_accommodation_bookings ab on p.ID = ab.accommodation_id
 		where ab.booking_no = '$booking_no'");
-		foreach ($query->result() as $row) {
-			$email = $row->user_email;
-			return $email;
-		}
-	}
+        foreach ($query->result() as $row) {
+            $email = $row->user_email;
+            return $email;
+        }
+    }
 }

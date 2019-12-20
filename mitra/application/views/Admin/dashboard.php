@@ -15,6 +15,7 @@
 	<!-- Main content -->
 	<section class="content">
 		<!-- Small boxes (Stat box) -->
+		<!-- PESANAN BOOKING -->
 		<div class="row">
 			<div class="col-lg-3 col-xs-6">
 				<!-- small box -->
@@ -31,7 +32,7 @@
 						<p>Pesanan Baru</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-person-add"></i>
+						<i class="fa fa-cart-plus"></i>
 					</div>
 					<a href="<?= base_url('Admin/pesan/pesan/tab_2'); ?>" class="small-box-footer">More info <i
 							class="fa fa-arrow-circle-right"></i></a>
@@ -53,7 +54,7 @@
 						<p>Pesanan Cancel</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-stats-bars"></i>
+						<i class="ion fa-exclamation"></i>
 					</div>
 					<a href="<?= base_url('Admin/pesan/pesan/tab_4'); ?>" class="small-box-footer">More info <i
 							class="fa fa-arrow-circle-right"></i></a>
@@ -75,7 +76,7 @@
 						<p>Pesanan Sukses</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-bag"></i>
+						<i class="fa fa-check"></i>
 					</div>
 					<a href="<?= base_url('Admin/Pesan/pesan/tab_3'); ?>" class="small-box-footer">More info <i
 							class="fa fa-arrow-circle-right"></i></a>
@@ -106,7 +107,57 @@
 			<!-- ./col -->
 		</div>
 		<!-- /.row -->
-		<!-- Main row -->
+
+        <!-- MITRA BARU -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-blue">
+                    <div class="inner">
+                        <?php
+                        $no_menunggu = 0;
+                        foreach ($data_menunggu as $row) {
+                            $no_menunggu++;
+                        }
+                        ?>
+                        <h3><?php echo $no_menunggu; ?></h3>
+
+                        <p>Mitra Baru</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="<?= base_url('Admin/pesan/pesan/tab_2'); ?>" class="small-box-footer">More info <i
+                                class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <?php
+                        $no = 0;
+                        foreach ($data as $row) {
+                            $no++;
+                        }
+                        ?>
+                        <h3><?php echo $no; ?></h3>
+
+                        <p>Jumlah Mitra</p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-building"></i>
+                    </div>
+                    <a href="<?= base_url('Admin/pesan/pesan/tab_1'); ?>" class="small-box-footer">More info <i
+                                class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <!-- ./col -->
+        </div>
+
+		<!-- MITRA BARU -->
         <div class="row">
             <!-- Left col-->
             <section class="col-lg-6 connectedSortable">

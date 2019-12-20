@@ -24,7 +24,7 @@ class Model_pesan extends CI_Model
 			 from wpwj_trav_accommodation_bookings ab
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
-			 and p_prop.post_author = $id
+			 where p_prop.post_author = $id
 			 order by pesan desc");
 		return $query->result();
 	}
@@ -193,5 +193,11 @@ class Model_pesan extends CI_Model
 			 order by pesan desc");
 		return $query->result();
 	}
+
+    public function booking_valid()
+    {
+        $query = $this->db->query("select valid_until from wpwj_trav_accommodation_bookings");
+        return $query->result();
+    }
 
 }

@@ -31,7 +31,7 @@
 						<p>Pesanan Baru</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-person-add"></i>
+						<i class="fa fa-cart-plus"></i>
 					</div>
 					<a href="<?= base_url('pesan/view_pesan/tab_2'); ?>" class="small-box-footer">More info <i
 							class="fa fa-arrow-circle-right"></i></a>
@@ -53,7 +53,7 @@
 						<p>Pesanan Cancel</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-stats-bars"></i>
+						<i class="ion fa-exclamation"></i>
 					</div>
 					<a href="<?= base_url('pesan/view_pesan/tab_4'); ?>" class="small-box-footer">More info <i
 							class="fa fa-arrow-circle-right"></i></a>
@@ -75,7 +75,7 @@
 						<p>Pesanan Sukses</p>
 					</div>
 					<div class="icon">
-						<i class="ion ion-bag"></i>
+						<i class="fa fa-check"></i>
 					</div>
 					<a href="<?= base_url('pesan/view_pesan/tab_3'); ?>" class="small-box-footer">More info <i
 							class="fa fa-arrow-circle-right"></i></a>
@@ -133,7 +133,7 @@
 			<section class="col-lg-6">
 
 				<!-- Calendar-->
-				<div class="box box-solid bg-yellow-gradient">
+				<div class="box box-solid bg-blue-gradient">
 					<div class="box-header">
 						<i class="fa fa-calendar"></i>
 
