@@ -26,7 +26,12 @@ class Properti extends CI_Controller
 	{
 		$data['tipe'] = $this->Model_properti->combo_tipe_properti();
 		$data['country'] = $this->Model_properti->combo_country();
-//		$data['fasilitas'] = $this->Model_properti->data_fasilitas();
+		$amenity = $this->db->query("select t.term_id, t.name
+									from wpwj_terms t
+									left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
+									where tt.taxonomy = 'amenity' and tt.description = 'Properti'
+									ORDER BY t.term_id asc");
+		$data['amenity'] = $amenity->result();
 		$this->db->select_max('term_id');
 		$fasilitas = $this->db->get('wpwj_terms');
 		$keyTransaksi = "";
@@ -45,6 +50,14 @@ class Properti extends CI_Controller
 	{
 		$id = $this->input->post('country');
 		$data = $this->Model_properti->combo_city($id);
+		echo json_encode($data);
+	}
+
+	public function modal_kota()
+	{
+		$id = $this->input->post('country');
+		$data['city'] = $this->input->post('city');
+		$data['country'] = $this->Model_properti->combo_city($id);
 		echo json_encode($data);
 	}
 
@@ -67,6 +80,58 @@ class Properti extends CI_Controller
 		$data['foto'] = $foto->result();
 		$filter_view = $this->load->view('properti/modal_properti', $data, TRUE);
 		echo json_encode($filter_view);
+	}
+
+	public function ubah_properti()
+	{
+		$id = $_SESSION['ID'];
+		$post = $this->input->get('id');
+		$data['data'] = $this->Model_properti->data_detail_properti($id, $post);
+		$data['tipe'] = $this->Model_properti->combo_tipe_properti();
+		$data['country'] = $this->Model_properti->combo_country();
+		$this->db->select_max('term_id');
+		$fasilitas = $this->db->get('wpwj_terms');
+		$keyTransaksi = "";
+		$i = 1;
+		foreach ($fasilitas->result() as $row) {
+			$keyTransaksi = $row->term_id + $i;
+		}
+		$data['fasilitas'] = $keyTransaksi;
+		$amenity = $this->db->query("select t.term_id as amenity
+			from wpwj_terms t
+			left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
+			left join wpwj_term_relationships tr on (tt.term_id = tr.term_taxonomy_id and tt.taxonomy = 'amenity')
+			where tt.description = 'Properti'
+			and tr.object_id = " . $post);
+		$foto = $this->db->query("select pm.meta_value as foto
+			from wpwj_posts p
+			left join wpwj_postmeta pm on (p.ID = pm.post_id and pm.meta_key = '_wp_attached_file')
+			where p.post_type = 'attachment'
+			and p.post_parent = " . $post."
+			order by pm.meta_id asc");
+		$fasilitas = $this->db->query("select t.term_id, t.name
+									from wpwj_terms t
+									left join wpwj_term_taxonomy tt on t.term_id = tt.term_id
+									where tt.taxonomy = 'amenity' and tt.description = 'Properti'
+									ORDER BY t.term_id asc");
+		$data['fasilitas'] = $fasilitas->result();
+		$data['amenity'] = $amenity->result();
+		$f = $foto->result();
+		$i = 1;
+		foreach ($f as $fo){
+			$data['foto'.$i] = $fo->foto;
+			$i++;
+		}
+		foreach ($data['data'] as $row){
+			$lokasi = $row->lokasi;
+		}
+		$lok = explode(",", $lokasi);
+		$data['lat'] = $lok[0];
+		$data['lng'] = $lok[1];
+		$data['folder'] = "properti";
+		$data['side'] = "ubah_properti";
+		$data['view'] = "ubah_properti";
+		$this->load->view('index', $data);
 	}
 
 	public function upload_foto_properti1()

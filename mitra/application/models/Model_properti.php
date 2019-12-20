@@ -61,7 +61,19 @@ class Model_properti extends CI_Model
 			pmphone.meta_value as phone,
 			pmemail.meta_value as email,
 			pmalamat.meta_value as alamat,
-			pmlokasi.meta_value as lokasi
+			pmlokasi.meta_value as lokasi,
+			pmharga.meta_value as harga,
+			pmextra.meta_value as extra,
+			pmpet.meta_value as pet,
+			pmcancel.meta_value as cancel,
+			pmcheckin.meta_value as checkin,
+			pmcheckout.meta_value as checkout,
+			payment.account_name as nama_akun,
+			payment.account_number as no_akun,
+			payment.bank_name as nama_bank,
+			payment.cabang as cabang,
+			payment.swift as swift,
+			payment.payment_system as sistem
 			from wpwj_posts p
 			left join wpwj_term_relationships tr on p.ID = tr.object_id
 			left join wpwj_term_taxonomy tt on tt.term_id = tr.term_taxonomy_id
@@ -75,6 +87,13 @@ class Model_properti extends CI_Model
 			left join wpwj_postmeta pmemail on (pmemail.post_id = p.ID and pmemail.meta_key = 'trav_accommodation_email')
 			left join wpwj_postmeta pmalamat on (pmalamat.post_id = p.ID and pmalamat.meta_key = 'trav_accommodation_address')
 			left join wpwj_postmeta pmlokasi on (pmlokasi.post_id = p.ID and pmlokasi.meta_key = 'trav_accommodation_loc')
+			left join wpwj_postmeta pmharga on (pmharga.post_id = p.ID and pmharga.meta_key = 'trav_accommodation_avg_price')
+			left join wpwj_postmeta pmcheckin on (pmcheckin.post_id = p.ID and pmcheckin.meta_key = 'trav_accommodation_check_in')
+			left join wpwj_postmeta pmcheckout on (pmcheckout.post_id = p.ID and pmcheckout.meta_key = 'trav_accommodation_check_out')
+			left join wpwj_postmeta pmextra on (pmextra.post_id = p.ID and pmextra.meta_key = 'trav_accommodation_extra_beds_detail')
+			left join wpwj_postmeta pmpet on (pmpet.post_id = p.ID and pmpet.meta_key = 'trav_accommodation_pets')
+			left join wpwj_postmeta pmcancel on (pmcancel.post_id = p.ID and pmcancel.meta_key = 'trav_accommodation_cancellation')
+			left join payment_accommodation_info payment on p.ID = payment.acc_id
 			where tt.taxonomy = 'accommodation_type'
 			and p.id = ".$post."
 			group by p.id");

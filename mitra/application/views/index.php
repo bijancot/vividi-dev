@@ -45,21 +45,21 @@ if ($_SESSION['role'] == 'administrator') {
         <?php $this->load->view('inc/sidebar', $side); ?>
         <!-- End Sidebar -->
 
-        <!-- Content Wrapper. Contains page content -->
-        <?php
-                                    if ($folder == "dashboard" || $folder == "profile") {
-                                        $this->load->view($side, $data);
-                                    } else if (isset($view) && $view == "insert_properti") {
-                                        $data['tipe'] = $tipe;
-                                        $data['country'] = $country;
-                                        $this->load->view($folder . '/' . $view, $data);
-                                    } else {
-                                        //        include 'properti/view_tipe_kamar.php';
-                                        $this->load->view($folder . '/view_' . $side, $data);
-                                        // $this->load->view('Properti/view_semua');
-                                    }
-        ?>
-        <!-- End Content Wrapper -->
+    <!-- Content Wrapper. Contains page content -->
+    <?php
+    if ($folder == "dashboard" || $folder == "profile") {
+        $this->load->view($side, $data);
+    } else if(isset($view) && $view == "insert_properti"){
+        $this->load->view($folder . '/'.$view);
+    } else if(isset($view) && $view == "ubah_properti"){
+        $this->load->view($folder . '/'.$view);
+	} else {
+//        include 'properti/view_tipe_kamar.php';
+        $this->load->view($folder . '/view_' . $side, $data);
+        // $this->load->view('Properti/view_semua');
+    }
+    ?>
+    <!-- End Content Wrapper -->
 
         <!-- Footer -->
         <?php $this->load->view('inc/footer'); ?>
@@ -202,82 +202,85 @@ if ($_SESSION['role'] == 'administrator') {
         });
     </script>
     <script>
-        <?php
-                                    $no_menunggu = 0;
-                                    foreach ($data as $row) {
-                                        $no_menunggu++;
-                                    }
+<?php
+	if($folder == 'dashboard'){
+$no_menunggu = 0;
+foreach ($data as $row) {
+	$no_menunggu++;
+}
 
-                                    $no_batal = 0;
-                                    foreach ($data_batal as $row) {
-                                        $no_batal++;
-                                    }
+$no_batal = 0;
+foreach ($data_batal as $row) {
+	$no_batal++;
+}
 
-                                    $no_sukses = 0;
-                                    foreach ($data_sukses as $row) {
-                                        $no_sukses++;
-                                    }
+$no_sukses = 0;
+foreach ($data_sukses as $row) {
+	$no_sukses++;
+}
 
-                                    $no = 0;
-                                    foreach ($data_semua as $row) {
-                                        $no++;
-                                    }
+$no = 0;
+foreach ($data_semua as $row) {
+	$no++;
+}
 
-        ?>
-        $(function() {
-            var donutData = [{
-                    label: 'Pesanan Baru',
-                    data: <?= $no_menunggu ?>,
-                    color: '#f39c12'
-                },
-                {
-                    label: 'Pesanan Batal',
-                    data: <?= $no_batal ?>,
-                    color: '#dd4b39'
-                },
-                {
-                    label: 'Pesanan Sukses',
-                    data: <?= $no_sukses ?>,
-                    color: '#00a65a'
-                },
-                {
-                    label: 'Semua Pesanan',
-                    data: <?= $no ?>,
-                    color: '#00c0ef'
-                }
-            ]
-            $.plot('#donut-chart', donutData, {
-                series: {
-                    pie: {
-                        show: true,
-                        radius: 1,
-                        label: {
-                            show: true,
-                            radius: 2 / 3,
-                            formatter: labelFormatter,
-                            threshold: 0.1
-                        }
-
-                    }
-                },
-                legend: {
-                    show: true
-                }
-            })
-        });
-
-        function labelFormatter(label, series) {
-            return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">' +
-                label +
-                '<br>' +
-                series.data[0][1] + '</div>'
+?>
+$(function () {
+    var donutData = [{
+        label: 'Pesanan Baru',
+        data: <?= $no_menunggu ?>,
+        color: '#f39c12'
+    },
+        {
+            label: 'Pesanan Batal',
+            data: <?= $no_batal ?>,
+            color: '#dd4b39'
+        },
+        {
+            label: 'Pesanan Sukses',
+            data: <?= $no_sukses ?>,
+            color: '#00a65a'
+        },
+        {
+            label: 'Semua Pesanan',
+            data: <?= $no ?>,
+            color: '#00c0ef'
         }
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-    <script type="text/javascript" src="https://unpkg.com/lightpick@latest/lightpick.js"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
-    <!-- ChartJS -->
-    <script type="text/javascript" src="<?php echo base_url('assets/bower_components/Flot/jquery.flot.js'); ?>"></script>
-    <script type="text/javascript" src="<?php echo base_url('assets/bower_components/Flot/jquery.flot.pie.js'); ?>"></script>
+    ]
+    $.plot('#donut-chart', donutData, {
+        series: {
+            pie: {
+                show: true,
+                radius: 1,
+                label: {
+                    show: true,
+                    radius: 2 / 3,
+                    formatter: labelFormatter,
+                    threshold: 0.1
+                }
+
+            }
+        },
+        legend: {
+            show: true
+        }
+    })
+});
+
+function labelFormatter(label, series) {
+    return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
+        + label
+        + '<br>'
+        + series.data[0][1] + '</div>'
+}
+<?php
+}?>
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/lightpick@latest/lightpick.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
+<!-- ChartJS -->
+<script type="text/javascript" src="<?php echo base_url('assets/bower_components/Flot/jquery.flot.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/bower_components/Flot/jquery.flot.pie.js'); ?>"></script>
 </body>
 </html>

@@ -220,20 +220,19 @@
 					<div class="box box-primary">
 						<!-- box-body -->
 						<div class="box-body">
-							<form role="form">
-								<div class="form-group">
-									<label>Nama Properti</label>
-									<input type="text" class="form-control" name="judul" placeholder="Masukkan Data ..."
-										   required>
-								</div>
-								<div class="form-group">
-									<label>Deskripsi</label>
-									<textarea class="form-control" name="deskripsi" rows="6"
-											  placeholder="Masukkan Data ..." minlength="200" maxlength="800"
-											  onkeyup="countChar1(this)" id="textarea"
-											  required></textarea>
-									<div name="charNum1" id="charNum1">800</div>
-								</div>
+							<div class="form-group">
+								<label>Nama Properti</label>
+								<input type="text" class="form-control" name="judul" placeholder="Masukkan Data ..."
+									   required>
+							</div>
+							<div class="form-group">
+								<label>Deskripsi</label>
+								<textarea class="form-control" name="deskripsi" rows="6"
+										  placeholder="Masukkan Data ..." minlength="200" maxlength="800"
+										  onkeyup="countChar1(this)" id="textarea"
+										  required></textarea>
+								<div name="charNum1" id="charNum1">800</div>
+							</div>
 						</div>
 						<!-- /.box-body -->
 					</div>
@@ -258,51 +257,60 @@
 							</div>
 							<div class="form-group col-xs-12 col-md-6">
 								<label>Fasilitas</label>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="fasilitas[]" value="28">Ballroom
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="fasilitas[]" value="48">Fitness Center
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="fasilitas[]" value="51">Gratis Parkir
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="fasilitas[]" value="41">Hiburan Musik
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="fasilitas[]" value="83">Kolam Renang
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="fasilitas[]" value="39">Lift
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="fasilitas[]" value="73">Permainan Anak
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="fasilitas[]" value="46">Restaurant
-									</label>
-								</div>
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="fasilitas[]" value="207">Spa
-									</label>
-								</div>
+								<?php
+								foreach ($amenity as $row) { ?>
+
+									<div class="checkbox">
+										<label>
+											<input type="checkbox" name="fasilitas[]" value="<?= $row->term_id ?>"><?= $row->name ?>
+										</label>
+									</div>
+								<?php } ?>
+<!--								<div class="checkbox">-->
+<!--									<label>-->
+<!--										<input type="checkbox" name="fasilitas[]" value="28">Ballroom-->
+<!--									</label>-->
+<!--								</div>-->
+<!--								<div class="checkbox">-->
+<!--									<label>-->
+<!--										<input type="checkbox" name="fasilitas[]" value="48">Fitness Center-->
+<!--									</label>-->
+<!--								</div>-->
+<!--								<div class="checkbox">-->
+<!--									<label>-->
+<!--										<input type="checkbox" name="fasilitas[]" value="51">Gratis Parkir-->
+<!--									</label>-->
+<!--								</div>-->
+<!--								<div class="checkbox">-->
+<!--									<label>-->
+<!--										<input type="checkbox" name="fasilitas[]" value="41">Hiburan Musik-->
+<!--									</label>-->
+<!--								</div>-->
+<!--								<div class="checkbox">-->
+<!--									<label>-->
+<!--										<input type="checkbox" name="fasilitas[]" value="83">Kolam Renang-->
+<!--									</label>-->
+<!--								</div>-->
+<!--								<div class="checkbox">-->
+<!--									<label>-->
+<!--										<input type="checkbox" name="fasilitas[]" value="39">Lift-->
+<!--									</label>-->
+<!--								</div>-->
+<!--								<div class="checkbox">-->
+<!--									<label>-->
+<!--										<input type="checkbox" name="fasilitas[]" value="73">Permainan Anak-->
+<!--									</label>-->
+<!--								</div>-->
+<!--								<div class="checkbox">-->
+<!--									<label>-->
+<!--										<input type="checkbox" name="fasilitas[]" value="46">Restaurant-->
+<!--									</label>-->
+<!--								</div>-->
+<!--								<div class="checkbox">-->
+<!--									<label>-->
+<!--										<input type="checkbox" name="fasilitas[]" value="207">Spa-->
+<!--									</label>-->
+<!--								</div>-->
                                 <div id="list_fasilitas" class="checkbox">
 
                                 </div>

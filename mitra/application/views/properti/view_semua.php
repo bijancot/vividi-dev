@@ -1,9 +1,10 @@
-  <div class="content-wrapper">
+
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Semua Properti
-		  <a href="<?= site_url('../Properti/tambah_properti') ?>" class="btn btn-primary">
+		  <a href="<?= site_url('properti/tambah_properti') ?>" class="btn btn-primary">
 			  Tambah Properti
 		  </a>
       </h1>
@@ -45,7 +46,8 @@
                     <td><?php echo $row->Penulis;?></td>
                     <td><?php echo $row->Tanggal;?></td>
                     <td>
-						<button type="button" id="detail" class="btn btn-default" style="margin-bottom: 10px" data-toggle="modal" data-id="<?php echo $row->id ?>" onclick="clickButton(<?php echo $row->id ?>)"><span class="glyphicon glyphicon-eye-open"></span></button>
+						<button type="button" id="detail" class="btn btn-default" style="margin-bottom: 10px" data-toggle="modal" data-id="<?php echo $row->id ?>" onclick="clickView(<?php echo $row->id ?>)"><span class="glyphicon glyphicon-eye-open"></span></button>
+						<a type="button" id="edit" class="btn btn-default" style="margin-bottom: 10px" href="<?= site_url('properti/ubah_properti?id='.$row->id) ?>"><span class="glyphicon glyphicon-pencil"></span></a>
 					</td>
                     </tr>
                   <?php } ?>
@@ -78,10 +80,16 @@
 	  </div>
 	  <!-- End Modal Detail -->
 
+	  <!-- Modal Edit -->
+	  <div id="modal_edit" class="modal fade" role="dialog">
+
+	  </div>
+	  <!-- End Modal Edit -->
+
   </div>
 
   <script type="text/javascript">
-      function clickButton(id){
+      function clickView(id){
           var postdata = {id: id};
           var url =  "<?= site_url('properti/modal_properti')?>";
           $.post(url, postdata, function(data) {
@@ -89,5 +97,14 @@
               $('#modal_detail').html(results);
           });
           $('#modal_detail').modal('show');
+      }
+      function clickEdit(id){
+          var postdata = {id: id};
+          var url =  "<?= site_url('properti/modal_edit_properti')?>";
+          $.post(url, postdata, function(data) {
+              var results = JSON.parse(data);
+              $('#modal_edit').html(results);
+          });
+          $('#modal_edit').modal('show');
       }
   </script>
