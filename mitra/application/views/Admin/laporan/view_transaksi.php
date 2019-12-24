@@ -69,7 +69,7 @@
                                         <td><?php echo $row->harga; ?></td>
                                         <td><?php echo $row->pesan; ?></td>
                                         <td><?php echo $row->status; ?></td>
-                                        <td style="text-align: center"><?php echo '<span class="btn btn-primary" style="width: 100px">' . $row->pembayaran . '</span><br>' . date('Y-m-d', strtotime($row->pesan . "+1 days")); ?></td>
+                                        <td style="text-align: center"><?php echo '<span class="btn btn-default" style="width: 100px">' . $row->pembayaran . '</span><br>' . date('Y-m-d', strtotime($row->pesan . "+1 days")); ?></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -103,7 +103,7 @@
                                         <td><?php echo $row->harga; ?></td>
                                         <td><?php echo $row->pesan; ?></td>
                                         <td><?php echo $row->status; ?></td>
-                                        <td style="text-align: center"><?php echo '<span class="btn btn-primary" style="width: 100px">' . $row->pembayaran . '</span><br>' . date('Y-m-d', strtotime($row->pesan . "+1 days")); ?></td>
+                                        <td style="text-align: center"><?php echo '<span class="btn btn-default" style="width: 100px">' . $row->pembayaran . '</span><br>' . date('Y-m-d', strtotime($row->pesan . "+1 days")); ?></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -139,9 +139,9 @@
                                         <td><?php echo $row->pesan; ?></td>
                                         <td><?php echo $row->status; ?></td>
                                         <td style="text-align: center">
-                                            <button type="button" id="detail" class="btn btn-primary" style="width: 100px"
-                                                    data-toggle="modal" data-id="<?php echo $row->booking_no ?>"
-                                                    onclick="clickButton(<?php echo $row->booking_no ?>)"><?php echo $row->pembayaran; ?></button><br><?php echo date('Y-m-d', strtotime($row->pesan . "+1 days")); ?>
+                                            <button type="button" class="btn btn-primary" style="width: 100px"
+                                                    data-toggle="modal" data-id="<?php echo $row->booking_no; ?>"
+                                                    onclick="clickButton('<?php echo $row->booking_no; ?>')"><?php echo $row->pembayaran; ?></button><br><?php echo date('Y-m-d', strtotime($row->pesan . "+1 days")); ?>
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -165,8 +165,8 @@
     <!-- End Modal Login -->
 </div>
 <script type="text/javascript">
-    function clickButton(id) {
-        var postdata = {id: id};
+    function clickButton(booking_no) {
+        var postdata = {booking_no: booking_no};
         var url = "<?= site_url('Admin/laporan/modal_laporan')?>";
         $.post(url, postdata, function (data) {
             var results = JSON.parse(data);

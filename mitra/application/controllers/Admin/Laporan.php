@@ -31,7 +31,7 @@ class Laporan extends CI_Controller
 
     public function modal_laporan()
     {
-        $id = $this->input->post('id');
+        $id = $this->input->post('booking_no');
         $data['data'] = $this->Model_laporan->data_modal($id);
         $filter_view = $this->load->view('Admin/laporan/modal_laporan', $data, TRUE);
         echo json_encode($filter_view);

@@ -81,13 +81,11 @@ class Harga extends CI_Controller
 		} else {
 			$allotment = $this->input->post('allotment');
 		}
-		$tgl_1 = $this->input->post('tgl_1');
-		$date1 = str_replace('/', '-', $tgl_1);
-		$newDate1 = date("Y-m-d", strtotime($date1));
-		$tgl_2 = $this->input->post('tgl_2');
-		$date2 = str_replace('/', '-', $tgl_2);
-		$newDate2 = date("Y-m-d", strtotime($date2));
-		if ($tgl_1 != '' && $tgl_2 != ''){
+		$tgl = $this->input->post('tgl');
+        if ($tgl != ''){
+            $h = explode(' ', $tgl);
+            $newDate1 = $h[0];
+            $newDate2 = $h[2];
             $this->Model_harga->save_atur_harga($newDate1, $newDate2, $allotment, $harga, $prop[0], $ka[0]);
         }
 		$data['data'] = $this->Model_harga->data_atur_harga($prop[0], $ka[0]);

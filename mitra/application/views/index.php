@@ -32,7 +32,6 @@ if ($_SESSION['role'] == 'administrator') {
     <link rel="stylesheet" href="<?php echo base_url('assets/dist/css/AdminLTE.min.css'); ?>">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <link rel="shortcut icon" href="<?php echo base_url('../wp-content/uploads/2019/09/favicon-vividi-3.png'); ?>" type="image/x-icon" />
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/lightpick@latest/css/lightpick.css">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -276,9 +275,6 @@ function labelFormatter(label, series) {
 <?php
 }?>
 </script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
-<script type="text/javascript" src="https://unpkg.com/lightpick@latest/lightpick.js"></script>
-<script type="text/javascript" src="<?php echo base_url('assets/js/demo.js'); ?>"></script>
 <!-- ChartJS -->
 <script type="text/javascript" src="<?php echo base_url('assets/bower_components/Flot/jquery.flot.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('assets/bower_components/Flot/jquery.flot.pie.js'); ?>"></script>

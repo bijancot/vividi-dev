@@ -21,9 +21,11 @@
                     <?php echo form_open(base_url('harga/save_harga')); ?>
                         <div class="row">
                             <div class="col-md-5" style="align-content: center">
-                                <input type="hidden" id="demo-2_1" class="form-control" name="tgl_1"/>
-
-                                <input type="hidden" id="demo-2_2" class="form-control" name="tgl_2"/>
+                                <div id="demo-preview-sticky">
+                                    <input type="hidden" id="litepicker" class="form-control" name="tgl"/>
+                                </div>
+<!--                                <input type="hidden" id="demo-2_1" class="form-control" name="tgl_1"/>-->
+<!--                                <input type="hidden" id="demo-2_2" class="form-control" name="tgl_2"/>-->
                                 <input type="hidden" name="weekday" class="form-control" value="<?php echo $weekday; ?>" />
                                 <input type="hidden" name="weekend" class="form-control" value="<?php echo $weekend; ?>" />
                                 <input type="hidden" name="hseasion" class="form-control" value="<?php echo $hseasion; ?>" />
@@ -112,3 +114,5 @@
     </section>
     <!-- /.content -->
 </div>
+<script src="https://cdn.jsdelivr.net/npm/litepicker@1.0.19/dist/js/main.js"></script>
+<script src="<?php echo base_url('assets/js/demo.js'); ?>"></script>

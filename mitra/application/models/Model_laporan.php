@@ -160,7 +160,30 @@ class Model_laporan extends CI_Model
     }
 
     function data_modal($id){
-//        $this->db->where('booking_no', $id);
-        return $this->db->get('wpwj_trav_accommodation_bookings')->result();
+        $query = $this->db->query("select ab.id as id,
+			 ab.booking_no as booking_no,
+			 ab.first_name as nama_awal,
+			 ab.last_name as nama_akhir,
+			 ab.date_from as check_in,
+			 ab.date_to as check_out,
+			 p_prop.post_title as properti,
+			 p_kamar.post_title as tipe_kamar,
+			 ab.rooms as jumlah,
+			 ab.room_price as harga,
+			 ab.created as pesan,
+			 ab.pembayaran as pembayaran,
+			 pai.account_name as name,
+			 pai.bank_name as bank,
+			 CASE
+			 WHEN ab.status = 0 THEN 'Batal'
+			 WHEN ab.status = 1 THEN 'Menunggu'
+			 WHEN ab.status = 2 THEN 'Sukses'
+			 END as status
+			 from wpwj_trav_accommodation_bookings ab
+			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
+			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
+			 left join payment_accommodation_info pai on pai.acc_id = ab.accommodation_id
+			 where ab.booking_no = '$id'");
+        return $query->result();
     }
 }

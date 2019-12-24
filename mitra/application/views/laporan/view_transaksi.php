@@ -63,7 +63,7 @@
                                         <td><?php echo $row->harga;?></td>
                                         <td><?php echo $row->pesan;?></td>
                                         <td><?php echo $row->status;?></td>
-                                        <td style="text-align: center"><?php echo '<span class="btn btn-primary" style="width: 100px">'.$row->pembayaran.'</span><br>'. date('Y-m-d', strtotime($row->pesan."+1 days")); ?></td>
+                                        <td style="text-align: center"><?php echo '<span class="btn btn-default" style="width: 100px">'.$row->pembayaran.'</span><br>'. date('Y-m-d', strtotime($row->pesan."+1 days")); ?></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -95,7 +95,7 @@
                                         <td><?php echo $row->harga;?></td>
                                         <td><?php echo $row->pesan;?></td>
                                         <td><?php echo $row->status;?></td>
-                                        <td style="text-align: center"><?php echo '<span class="btn btn-primary" style="width: 100px">'.$row->pembayaran.'</span><br>'. date('Y-m-d', strtotime($row->pesan."+1 days")); ?></td>
+                                        <td style="text-align: center"><?php echo '<span class="btn btn-default" style="width: 100px">'.$row->pembayaran.'</span><br>'. date('Y-m-d', strtotime($row->pesan."+1 days")); ?></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -128,7 +128,7 @@
                                         <td><?php echo $row->harga;?></td>
                                         <td><?php echo $row->pesan;?></td>
                                         <td><?php echo $row->status;?></td>
-                                        <td style="text-align: center"><?php echo '<span class="btn btn-primary" style="width: 100px">'.$row->pembayaran.'</span><br>'. date('Y-m-d', strtotime($row->pesan."+1 days")); ?></td>
+                                        <td style="text-align: center"><?php echo '<span class="btn btn-default" style="width: 100px">'.$row->pembayaran.'</span><br>'. date('Y-m-d', strtotime($row->pesan."+1 days")); ?></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
