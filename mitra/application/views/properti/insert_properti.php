@@ -336,7 +336,14 @@
 							</div>
 							<div class="form-group col-xs-12">
 								<label>Minimal menginap</label>
-								<input type="number" class="form-control" name="stay" value="1" min="1">
+                                <div class="row">
+                                    <div class="form-group col-xs-7">
+                                        <input type="number" class="form-control" name="stay" value="1" min="1">
+                                    </div>
+                                    <div class="form-group col-xs-5">
+                                        <label style="padding-top: 5px; margin-left: -25px">/ Malam</label>
+                                    </div>
+                                </div>
 							</div>
 							<div class="form-group col-xs-12 col-md-6">
 								<label>Foto Akomodasi 1</label>

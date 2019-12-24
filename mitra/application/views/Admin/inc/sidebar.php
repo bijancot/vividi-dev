@@ -16,7 +16,31 @@
 			<?php } else { ?>
                 <li><a href="<?= base_url('Admin/home'); ?>"><i class="fa fa-laptop"></i> <span>Dashboard</span></a></li>
 			<?php } ?>
-			<?php if ($folder == 'properti'){ ?>
+
+            <?php if ($folder == 'laporan'){ ?>
+        <li class="active treeview menu-open">
+        <?php } else { ?>
+            <li class="treeview">
+                <?php } ?>
+                <a href="#"><i class="fa fa-bar-chart"></i><span>Laporan</span><span class="pull-right-container"><i
+                                class="fa fa-angle-left pull-right"></i></span>
+                </a>
+                <ul class="treeview-menu">
+                    <?php if ($side == 'transaksi'){ ?>
+                <li class="active"><a href="#"><?php } else { ?>
+                    <li><a href="<?= base_url('Admin/laporan/transaksi'); ?>"><?php } ?>
+                            <i class="fa fa-circle-o"></i> Laporan Transaksi</a></li>
+
+                    <?php if ($side == 'penjualan'){ ?>
+                    <li class="active"><a href="#"><?php } else { ?>
+                    <li><a href="<?= base_url('Admin/laporan/penjualan'); ?>"><?php } ?>
+                            <i class="fa fa-circle-o"></i> Laporan Penjualan</a></li>
+
+                </ul>
+            </li>
+
+
+            <?php if ($folder == 'properti'){ ?>
 		<li class="active treeview menu-open">
 		<?php } else { ?>
 			<li class="treeview">

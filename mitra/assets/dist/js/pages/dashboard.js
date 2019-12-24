@@ -119,6 +119,7 @@ $(function () {
 
   // The Calender
   $('#calendar').datepicker();
+  $('#calendar').datepicker().datepicker("setDate", new Date());
 
   // SLIMSCROLL FOR CHAT WIDGET
   $('#chat-box').slimScroll({
