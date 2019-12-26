@@ -29,8 +29,10 @@
                         ?>
                         <h4 align="center">Upload Kontrak Hotel Anda</h4>
                         <br/>
-                        <form method="post" action="<?php echo base_url(); ?>Kontrak/send" enctype="multipart/form-data">
-                                <div class="form-group">
+                        <form method="post" action="<?php echo base_url(); ?>Kontrak/send"
+                              enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="form-group col-md-6">
                                     <label>Masukkan Nama Hotel</label>
                                     <select class="form-control" name="properti">
                                         <option value="">-- Pilih --</option>
@@ -40,13 +42,26 @@
                                         <?php } ?>
                                     </select>
                                 </div>
+                            </div>
 
-                                <div class="form-group">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label>Masukkan Tanggal Mulai dan Berakhir Kontrak</label>
+                                    <div>
+                                        <input id="litepicker" class="form-control" name="tgl"/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group col-md-6">
                                     <label>Upload Kontrak Anda</label>
                                     <input type="file" name="kontrak" accept=".doc,.docx, .pdf" required/>
                                 </div>
+                            </div>
+
                             <div class="form-group" align="center">
-                                <input type="submit" name="submit" value="Submit" class="btn btn-info" />
+                                <input type="submit" name="submit" value="Kirim" class="btn btn-info"/>
                             </div>
                         </form>
                     </div>
@@ -59,3 +74,6 @@
     </section>
     <!-- /.content -->
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/litepicker@1.0.19/dist/js/main.js"></script>
+<script src="<?php echo base_url('assets/js/demo_kontrak.js'); ?>"></script>

@@ -61,7 +61,7 @@ class Test extends CI_Controller
 
 	public function voucher()
 	{
-		$data['data'] = $this->Model_email->data_email('MK6S1F');
+		$data['data'] = $this->Model_email->data_email('INHY0Z');
 		$data['folder'] = "Test";
 		$this->load->view('Test/voucher', $data);
 	}

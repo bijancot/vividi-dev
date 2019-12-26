@@ -29,7 +29,7 @@ class Kontrak extends CI_Controller {
         if(is_array($file_data))
         {
             $message = '
-                
+                Tanggal Kontrak = ' . $this->input->post('tgl'). '
    ';
 
             $config = [
@@ -48,7 +48,7 @@ class Kontrak extends CI_Controller {
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");
             $this->email->from('info@vividi.id');
-            $this->email->to('hotel@vividi.id');
+            $this->email->to('omibalola@gmail.com');
             $this->email->subject($subject);
             $this->email->message($message);
             $this->email->attach($file_data['full_path']);
@@ -80,7 +80,7 @@ class Kontrak extends CI_Controller {
 
     function upload_file()
     {
-        $config['upload_path'] = './assets/';
+        $config['upload_path'] = 'uploads/';
         $config['allowed_types'] = 'doc|docx|pdf';
         $this->load->library('upload', $config);
         if($this->upload->do_upload('kontrak'))
