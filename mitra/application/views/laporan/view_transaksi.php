@@ -60,10 +60,19 @@
                                         <td><?php echo $row->nama_awal;?> <?php echo $row->nama_akhir;?></td>
                                         <td><?php echo $row->check_in;?></td>
                                         <td><?php echo $row->check_out;?></td>
-                                        <td><?php echo $row->harga;?></td>
+                                        <td>Rp. <?php echo number_format($row->harga,0,"",".");?></td>
                                         <td><?php echo $row->pesan;?></td>
                                         <td><?php echo $row->status;?></td>
-                                        <td style="text-align: center"><?php echo '<span class="btn btn-default" style="width: 100px">'.$row->pembayaran.'</span><br>'. date('Y-m-d', strtotime($row->pesan."+1 days")); ?></td>
+                                        <?php if ($row->pembayaran == 'paid') { ?>
+                                            <td style="text-align: center">
+                                                <button type="button" class="btn btn-primary" style="width: 100px"
+                                                        data-toggle="modal" data-id="<?php echo $row->booking_no; ?>"
+                                                        onclick="clickInfo('<?php echo $row->booking_no; ?>')"><?php echo $row->pembayaran; ?></button>
+                                                <br><?php echo date('Y-m-d', strtotime($row->pesan . "+1 days")); ?>
+                                            </td>
+                                        <?php } else { ?>
+                                            <td style="text-align: center"><?php echo '<span class="btn btn-danger" style="width: 100px">'.$row->pembayaran.'</span><br>'. date('Y-m-d', strtotime($row->pesan."+1 days")); ?></td>
+                                        <?php } ?>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -92,10 +101,15 @@
                                         <td><?php echo $row->nama_awal;?> <?php echo $row->nama_akhir;?></td>
                                         <td><?php echo $row->check_in;?></td>
                                         <td><?php echo $row->check_out;?></td>
-                                        <td><?php echo $row->harga;?></td>
+                                        <td>Rp. <?php echo number_format($row->harga,0,"",".");?></td>
                                         <td><?php echo $row->pesan;?></td>
                                         <td><?php echo $row->status;?></td>
-                                        <td style="text-align: center"><?php echo '<span class="btn btn-default" style="width: 100px">'.$row->pembayaran.'</span><br>'. date('Y-m-d', strtotime($row->pesan."+1 days")); ?></td>
+                                        <td style="text-align: center">
+                                            <button type="button" class="btn btn-primary" style="width: 100px"
+                                                    data-toggle="modal" data-id="<?php echo $row->booking_no; ?>"
+                                                    onclick="clickInfo('<?php echo $row->booking_no; ?>')"><?php echo $row->pembayaran; ?></button>
+                                            <br><?php echo date('Y-m-d', strtotime($row->pesan . "+1 days")); ?>
+                                        </td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -125,10 +139,10 @@
                                         <td><?php echo $row->nama_awal;?> <?php echo $row->nama_akhir;?></td>
                                         <td><?php echo $row->check_in;?></td>
                                         <td><?php echo $row->check_out;?></td>
-                                        <td><?php echo $row->harga;?></td>
+                                        <td>Rp. <?php echo number_format($row->harga,0,"",".");?></td>
                                         <td><?php echo $row->pesan;?></td>
                                         <td><?php echo $row->status;?></td>
-                                        <td style="text-align: center"><?php echo '<span class="btn btn-default" style="width: 100px">'.$row->pembayaran.'</span><br>'. date('Y-m-d', strtotime($row->pesan."+1 days")); ?></td>
+                                        <td style="text-align: center"><?php echo '<span class="btn btn-danger" style="width: 100px">'.$row->pembayaran.'</span><br>'. date('Y-m-d', strtotime($row->pesan."+1 days")); ?></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>
@@ -144,4 +158,20 @@
         <!-- Small boxes (Stat box) -->
     </section>
     <!-- /.content -->
+    <!-- Modal login -->
+    <div id="modal_pembayaran" class="modal fade" role="dialog">
+
+    </div>
+    <!-- End Modal Login -->
 </div>
+<script type="text/javascript">
+    function clickInfo(booking_no) {
+        var postdata = {booking_no: booking_no};
+        var url = "<?= site_url('laporan/modal_info')?>";
+        $.post(url, postdata, function (data) {
+            var results = JSON.parse(data);
+            $('#modal_pembayaran').html(results);
+        });
+        $('#modal_pembayaran').modal('show');
+    }
+</script>

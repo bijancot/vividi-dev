@@ -70,7 +70,7 @@
         <?php } else { ?>
             <li class="treeview">
                 <?php } ?>
-                <a href="#"><i class="fa fa-dollar"></i><span>Harga Sewa</span><span class="pull-right-container"><i
+                <a href="#"><i class="fa fa-money"></i><span>Harga Sewa</span><span class="pull-right-container"><i
                                 class="fa fa-angle-left pull-right"></i></span>
                 </a>
                 <ul class="treeview-menu">

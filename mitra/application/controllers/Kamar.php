@@ -135,7 +135,7 @@ class Kamar extends CI_Controller
 		$upload1 = $this->upload_foto1();
 		$upload2 = $this->upload_foto2();
 		$upload3 = $this->upload_foto3();
-		if ($upload1['Status'] == 'success' || $upload2['Status'] == 'success' || $upload3['Status'] == 'success') {
+		if ($upload1['Status'] == 'success' && $upload2['Status'] == 'success' && $upload3['Status'] == 'success') {
 			$this->Model_kamar->save_type_kamar($id,$time,$propert,$judul,$deskripsi,$remaja,$anak,$fasilitas,$upload1,$upload2,$upload3);
 		} else {
 			echo "<script type='text/javascript'>alert('Foto Yang Anda Masukkan Tidak Sesuai Format');</script>";

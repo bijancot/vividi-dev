@@ -7,9 +7,7 @@ foreach ($data as $row) {
             <div class="modal-header">
                 <h4 class="modal-title"><?= $row->booking_no; ?></h4>
             </div>
-            <?php echo form_open_multipart(base_url('Admin/laporan/pembayaran')); ?>
             <div class="modal-body">
-                <input type="text" name="no" class="form-control" value="<?= $row->booking_no; ?>">
                 <div class="form-group">
                     <label>Nama Pemilik Rekening</label>
                     <input type="text" name="pemilik" class="form-control" value="<?= $row->name; ?>" disabled>
@@ -24,13 +22,12 @@ foreach ($data as $row) {
                 </div>
                 <div class="form-group">
                     <label>Kode Referensi</label>
-                    <input type="text" name="kode" placeholder="Isi Kode Referensi" class="form-control" required>
+                    <input type="text" name="kode" class="form-control" value="<?= $row->kode; ?>" disabled>
                 </div>
             </div>
             <div class="modal-footer">
-                <input type="submit" class="btn btn-success" style="float: left" value="Bayar" name="submit">
+                <button type="button" class="btn btn-success" style="float: left" data-dismiss="modal"> Kembali </button>
             </div>
-            <?php echo form_close(); ?>
         </div>
     </div>
     <?php

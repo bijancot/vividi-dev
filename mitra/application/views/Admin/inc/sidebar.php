@@ -17,7 +17,7 @@
                 <li><a href="<?= base_url('Admin/home'); ?>"><i class="fa fa-laptop"></i> <span>Dashboard</span></a></li>
 			<?php } ?>
 
-            <?php if ($folder == 'laporan'){ ?>
+            <?php if ($folder == 'Admin/laporan'){ ?>
         <li class="active treeview menu-open">
         <?php } else { ?>
             <li class="treeview">
@@ -40,7 +40,7 @@
             </li>
 
 
-            <?php if ($folder == 'properti'){ ?>
+            <?php if ($folder == 'Admin/properti'){ ?>
 		<li class="active treeview menu-open">
 		<?php } else { ?>
 			<li class="treeview">
@@ -56,7 +56,7 @@
 				</ul>
 			</li>
 
-			<?php if ($folder == 'verifikasi'){ ?>
+			<?php if ($folder == 'Admin/verifikasi'){ ?>
 			<li class="active treeview menu-open">
 				<?php } else { ?>
 			<li class="treeview">
@@ -72,7 +72,7 @@
 				</ul>
 			</li>
 
-            <?php if ($folder == 'profile'){ ?>
+            <?php if ($folder == 'Admin/profile'){ ?>
             <li class="active treeview menu-open">
                 <?php } else { ?>
             <li class="treeview">

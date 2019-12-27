@@ -29,4 +29,12 @@ class Laporan extends CI_Controller
         $data['side'] = "penjualan";
         $this->load->view('index', $data);
     }
+
+    public function modal_info()
+    {
+        $id = $this->input->post('booking_no');
+        $data['data'] = $this->Model_laporan->data_modal_info($id);
+        $filter_view = $this->load->view('laporan/modal_info', $data, TRUE);
+        echo json_encode($filter_view);
+    }
 }
