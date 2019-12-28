@@ -418,22 +418,22 @@
                             <div class="form-group col-xs-12">
                                 <label>Sistem Pembayaran</label>
                                 <select class="form-control select2" name="payment">
-                                    <option value="H-1 Sebelum Check-In">H-1 Sebelum Check-In</option>
-                                    <option value="Hari Check-In">Hari Check-In</option>
-                                    <option value="H+1 Setelah Check-In">H+1 Setelah Check-In</option>
-                                    <option value="H+2 Setelah Check-In">H+2 Setelah Check-In</option>
-                                    <option value="H+3 Setelah Check-In">H+3 Setelah Check-In</option>
-                                    <option value="H+4 Setelah Check-In">H+4 Setelah Check-In</option>
-                                    <option value="H+5 Setelah Check-In">H+5 Setelah Check-In</option>
-                                    <option value="H+6 Setelah Check-In">H+6 Setelah Check-In</option>
-                                    <option value="H+7 Setelah Check-In">H+7 Setelah Check-In</option>
-                                    <option value="H+8 Setelah Check-In">H+8 Setelah Check-In</option>
-                                    <option value="H+9 Setelah Check-In">H+9 Setelah Check-In</option>
-                                    <option value="H+10 Setelah Check-In">H+10 Setelah Check-In</option>
-                                    <option value="H+11 Setelah Check-In">H+11 Setelah Check-In</option>
-                                    <option value="H+12 Setelah Check-In">H+12 Setelah Check-In</option>
-                                    <option value="H+13 Setelah Check-In">H+13 Setelah Check-In</option>
-                                    <option value="H+14 Setelah Check-In">H+14 Setelah Check-In</option>
+                                    <option value="-1">H-1 Sebelum Check-In</option>
+                                    <option value="0">Hari Check-In</option>
+                                    <option value="+1">H+1 Setelah Check-In</option>
+                                    <option value="+2">H+2 Setelah Check-In</option>
+                                    <option value="+3">H+3 Setelah Check-In</option>
+                                    <option value="+4">H+4 Setelah Check-In</option>
+                                    <option value="+5">H+5 Setelah Check-In</option>
+                                    <option value="+6">H+6 Setelah Check-In</option>
+                                    <option value="+7">H+7 Setelah Check-In</option>
+                                    <option value="+8">H+8 Setelah Check-In</option>
+                                    <option value="+9">H+9 Setelah Check-In</option>
+                                    <option value="+10">H+10 Setelah Check-In</option>
+                                    <option value="+11">H+11 Setelah Check-In</option>
+                                    <option value="+12">H+12 Setelah Check-In</option>
+                                    <option value="+13">H+13 Setelah Check-In</option>
+                                    <option value="+14">H+14 Setelah Check-In</option>
                                 </select>
                             </div>
 

@@ -234,4 +234,88 @@ class Model_laporan extends CI_Model
         $this->db->where('booking_no', $no);
         $this->db->update('wpwj_trav_accommodation_bookings', $data_new);
     }
+
+    function bulan1 ()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date("m");
+        $this->db->where('MONTH(created)', $time);
+        $cek = $this->db->get('wpwj_trav_accommodation_bookings')->num_rows();
+        return $cek;
+    }
+
+    function bulan2 ()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date("m")-1;
+        $this->db->where('MONTH(created)', $time);
+        $cek = $this->db->get('wpwj_trav_accommodation_bookings')->num_rows();
+        return $cek;
+    }
+
+    function bulan3 ()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date("m")-2;
+        $this->db->where('MONTH(created)', $time);
+        $cek = $this->db->get('wpwj_trav_accommodation_bookings')->num_rows();
+        return $cek;
+    }
+
+    function bulan4 ()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date("m")-3;
+        $this->db->where('MONTH(created)', $time);
+        $cek = $this->db->get('wpwj_trav_accommodation_bookings')->num_rows();
+        return $cek;
+    }
+
+    function bulan_mitra1($id)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date("m");
+        $this->db->from('wpwj_trav_accommodation_bookings b');
+        $this->db->where('MONTH(b.created)', $time);
+        $this->db->join('wpwj_posts p', 'b.accommodation_id = p.id', 'left');
+        $this->db->where('p.post_author', $id);
+        $cek = $this->db->get()->num_rows();
+        return $cek;
+    }
+
+    function bulan_mitra2($id)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date("m")-1;
+        $this->db->from('wpwj_trav_accommodation_bookings b');
+        $this->db->where('MONTH(b.created)', $time);
+        $this->db->join('wpwj_posts p', 'b.accommodation_id = p.id', 'left');
+        $this->db->where('p.post_author', $id);
+        $cek = $this->db->get()->num_rows();
+        return $cek;
+    }
+
+    function bulan_mitra3($id)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date("m")-2;
+        $this->db->from('wpwj_trav_accommodation_bookings b');
+        $this->db->where('MONTH(b.created)', $time);
+        $this->db->join('wpwj_posts p', 'b.accommodation_id = p.id', 'left');
+        $this->db->where('p.post_author', $id);
+        $cek = $this->db->get()->num_rows();
+        return $cek;
+    }
+
+    function bulan_mitra4($id)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $time = date("m")-3;
+        $this->db->from('wpwj_trav_accommodation_bookings b');
+        $this->db->where('MONTH(b.created)', $time);
+        $this->db->join('wpwj_posts p', 'b.accommodation_id = p.id', 'left');
+        $this->db->where('p.post_author', $id);
+        $cek = $this->db->get()->num_rows();
+        return $cek;
+    }
 }

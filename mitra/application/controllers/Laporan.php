@@ -24,7 +24,11 @@ class Laporan extends CI_Controller
 
     public function penjualan()
     {
-        $data['data'] = "";
+        $id = $_SESSION['ID'];
+        $data['data'] = $this->Model_laporan->bulan_mitra1($id);
+        $data['data1'] = $this->Model_laporan->bulan_mitra2($id);
+        $data['data2'] = $this->Model_laporan->bulan_mitra3($id);
+        $data['data3'] = $this->Model_laporan->bulan_mitra4($id);
         $data['folder'] = "laporan";
         $data['side'] = "penjualan";
         $this->load->view('index', $data);

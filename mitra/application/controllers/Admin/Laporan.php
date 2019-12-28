@@ -23,7 +23,10 @@ class Laporan extends CI_Controller
 
     public function penjualan()
     {
-        $data['data'] = "";
+        $data['data'] = $this->Model_laporan->bulan1();
+        $data['data1'] = $this->Model_laporan->bulan2();
+        $data['data2'] = $this->Model_laporan->bulan3();
+        $data['data3'] = $this->Model_laporan->bulan4();
         $data['folder'] = "Admin/laporan";
         $data['side'] = "penjualan";
         $this->load->view('Admin/index', $data);
