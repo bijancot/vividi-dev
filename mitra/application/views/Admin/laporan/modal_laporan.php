@@ -9,7 +9,7 @@ foreach ($data as $row) {
             </div>
             <?php echo form_open_multipart(base_url('Admin/laporan/pembayaran')); ?>
             <div class="modal-body">
-                <input type="text" name="no" class="form-control" value="<?= $row->booking_no; ?>">
+                <input type="hidden" name="no" class="form-control" value="<?= $row->booking_no; ?>">
                 <div class="form-group">
                     <label>Nama Pemilik Rekening</label>
                     <input type="text" name="pemilik" class="form-control" value="<?= $row->name; ?>" disabled>

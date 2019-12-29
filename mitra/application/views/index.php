@@ -218,11 +218,6 @@ foreach ($data_sukses as $row) {
 	$no_sukses++;
 }
 
-$no = 0;
-foreach ($data_semua as $row) {
-	$no++;
-}
-
 ?>
 $(function () {
     var donutData = [{
@@ -240,11 +235,6 @@ $(function () {
             data: <?= $no_sukses ?>,
             color: '#00a65a'
         },
-        {
-            label: 'Semua Pesanan',
-            data: <?= $no ?>,
-            color: '#00c0ef'
-        }
     ]
     $.plot('#donut-chart', donutData, {
         series: {

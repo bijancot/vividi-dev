@@ -72,7 +72,7 @@
                                 foreach ($data_semua as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->booking_no; ?></td>
-                                        <td><?php echo $row->nama_awal; ?><?php echo $row->nama_akhir; ?></td>
+                                        <td><?php echo $row->nama_awal . " ". $row->nama_akhir; ?></td>
                                         <td><?php echo $row->check_in; ?></td>
                                         <td><?php echo $row->check_out; ?></td>
                                         <td><?php echo $row->properti; ?></td>
@@ -114,7 +114,7 @@
                                     ?>
                                     <tr>
                                         <td><?php echo $row->booking_no; ?></td>
-                                        <td><?php echo $row->nama_awal; ?><?php echo $row->nama_akhir; ?></td>
+                                        <td><?php echo $row->nama_awal . " ". $row->nama_akhir; ?></td>
                                         <td><?php echo $row->check_in; ?></td>
                                         <td><?php echo $row->check_out; ?></td>
                                         <td><?php echo $row->properti; ?></td>
@@ -164,7 +164,7 @@
                                 foreach ($data_sukses as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->booking_no; ?></td>
-                                        <td><?php echo $row->nama_awal; ?><?php echo $row->nama_akhir; ?></td>
+                                        <td><?php echo $row->nama_awal . " ". $row->nama_akhir; ?></td>
                                         <td><?php echo $row->check_in; ?></td>
                                         <td><?php echo $row->check_out; ?></td>
                                         <td><?php echo $row->properti; ?></td>
@@ -201,7 +201,7 @@
                                 foreach ($data_batal as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->booking_no; ?></td>
-                                        <td><?php echo $row->nama_awal; ?><?php echo $row->nama_akhir; ?></td>
+                                        <td><?php echo $row->nama_awal . " ". $row->nama_akhir; ?></td>
                                         <td><?php echo $row->check_in; ?></td>
                                         <td><?php echo $row->check_out; ?></td>
                                         <td><?php echo $row->properti; ?></td>

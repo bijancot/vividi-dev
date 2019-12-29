@@ -177,11 +177,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </script>
 <script>
     <?php
-    $no = 0;
-    foreach ($data as $row) {
-        $no++;
-    }
-
     $no_batal = 0;
     foreach ($data_batal as $row) {
         $no_batal++;
@@ -208,7 +203,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             { label: 'Pesanan Baru', data: <?= $no_menunggu ?>, color: '#f39c12' },
             { label: 'Pesanan Batal', data: <?= $no_batal ?>, color: '#dd4b39' },
             { label: 'Pesanan Sukses', data: <?= $no_sukses ?>, color: '#00a65a' },
-            { label: 'Semua Pesanan', data: <?= $no ?>, color: '#00c0ef' }
         ]
         $.plot('#donutchart', donutData, {
             series: {

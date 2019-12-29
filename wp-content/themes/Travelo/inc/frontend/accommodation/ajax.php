@@ -386,7 +386,8 @@ if ( ! function_exists( 'trav_ajax_acc_submit_booking' ) ) {
             'booking_no'            => $booking_no,
             'pin_code'              => $pin_code,
             'status'                => 1,
-            'discount_rate'         => ''
+            'discount_rate'         => '',
+            'pembayaran'            => 'unpaid'
         );
 
         $data = array_replace( $default_booking_data, $data );

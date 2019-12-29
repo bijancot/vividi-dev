@@ -63,7 +63,7 @@
                                 foreach ($data as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->booking_no; ?></td>
-                                        <td><?php echo $row->nama_awal; ?><?php echo $row->nama_akhir; ?></td>
+                                        <td><?php echo $row->nama_awal . " ". $row->nama_akhir; ?></td>
                                         <td><?php echo $row->check_in; ?></td>
                                         <td><?php echo $row->check_out; ?></td>
                                         <td>Rp. <?php echo number_format($row->harga,0,"",".");?></td>
@@ -111,7 +111,7 @@
                                 foreach ($data_terbayar as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->booking_no; ?></td>
-                                        <td><?php echo $row->nama_awal; ?><?php echo $row->nama_akhir; ?></td>
+                                        <td><?php echo $row->nama_awal . " ". $row->nama_akhir; ?></td>
                                         <td><?php echo $row->check_in; ?></td>
                                         <td><?php echo $row->check_out; ?></td>
                                         <td>Rp. <?php echo number_format($row->harga,0,"",".");?></td>
@@ -151,7 +151,7 @@
                                 foreach ($data_belum as $row) { ?>
                                     <tr>
                                         <td><?php echo $row->booking_no; ?></td>
-                                        <td><?php echo $row->nama_awal; ?><?php echo $row->nama_akhir; ?></td>
+                                        <td><?php echo $row->nama_awal . " ". $row->nama_akhir; ?></td>
                                         <td><?php echo $row->check_in; ?></td>
                                         <td><?php echo $row->check_out; ?></td>
                                         <td>Rp. <?php echo number_format($row->harga,0,"",".");?></td>

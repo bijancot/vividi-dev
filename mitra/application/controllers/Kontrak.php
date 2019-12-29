@@ -48,7 +48,7 @@ class Kontrak extends CI_Controller {
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");
             $this->email->from('info@vividi.id');
-            $this->email->to('omibalola@gmail.com');
+            $this->email->to('hotel@vividi.id');
             $this->email->subject($subject);
             $this->email->message($message);
             $this->email->attach($file_data['full_path']);
