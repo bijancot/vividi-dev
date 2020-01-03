@@ -74,14 +74,14 @@
                                                 <button type="button" class="btn btn-primary" style="width: 100px"
                                                         data-toggle="modal" data-id="<?php echo $row->booking_no; ?>"
                                                         onclick="clickInfo('<?php echo $row->booking_no; ?>')"><?php echo $row->pembayaran; ?></button>
-                                                <br><?php echo date('Y-m-d', strtotime($row->pesan . "+1 days")); ?>
+                                                <br><?php echo date('Y-m-d', strtotime($row->check_in . "".$row->waktu." days")); ?>
                                             </td>
                                         <?php } else { ?>
                                             <td style="text-align: center">
                                                 <button type="button" class="btn btn-danger" style="width: 100px"
                                                         data-toggle="modal" data-id="<?php echo $row->booking_no; ?>"
                                                         onclick="clickButton('<?php echo $row->booking_no; ?>')"><?php echo $row->pembayaran; ?></button>
-                                                <br><?php echo date('Y-m-d', strtotime($row->pesan . "+1 days")); ?>
+                                                <br><?php echo date('Y-m-d', strtotime($row->check_in . "".$row->waktu." days")); ?>
                                             </td>
                                         <?php } ?>
                                     </tr>
@@ -121,7 +121,7 @@
                                             <button type="button" class="btn btn-primary" style="width: 100px"
                                                     data-toggle="modal" data-id="<?php echo $row->booking_no; ?>"
                                                     onclick="clickInfo('<?php echo $row->booking_no; ?>')"><?php echo $row->pembayaran; ?></button>
-                                            <br><?php echo date('Y-m-d', strtotime($row->pesan . "+1 days")); ?>
+                                            <br><?php echo date('Y-m-d', strtotime($row->check_in . "".$row->waktu." days")); ?>
                                         </td>
                                     </tr>
                                 <?php } ?>
@@ -161,7 +161,7 @@
                                             <button type="button" class="btn btn-danger" style="width: 100px"
                                                     data-toggle="modal" data-id="<?php echo $row->booking_no; ?>"
                                                     onclick="clickButton('<?php echo $row->booking_no; ?>')"><?php echo $row->pembayaran; ?></button>
-                                            <br><?php echo date('Y-m-d', strtotime($row->pesan . "".$row->waktu." days")); ?>
+                                            <br><?php echo date('Y-m-d', strtotime($row->check_in . "".$row->waktu." days")); ?>
                                         </td>
                                     </tr>
                                 <?php } ?>
