@@ -13,6 +13,15 @@ class Profile extends CI_Controller
 		}
     }
 
+    public function ubah_profile()
+    {
+        $id = $_SESSION['ID'];
+        $data['data'] = $this->Model_profil->data_profile($id);
+        $data['folder'] = "profile";
+        $data['side'] = "ubah_profile";
+        $this->load->view('index', $data);
+    }
+
     public function reset_pass()
     {
         $id = $_SESSION['ID'];

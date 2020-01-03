@@ -34,8 +34,8 @@
                                 <input type="password" name="lama" class="form-control" placeholder="Confirm Password">
                             </div>
                         </div>
-                        <div class="modal-footer">
-                            <a href="<?= base_url('Admin/profile'); ?>" class="btn btn-success" style="float: left">Detail Profile</a>
+                        <div class="modal-footer" style="float: left">
+                            <a href="<?= base_url('Admin/profile'); ?>" class="btn btn-success">Kembali</a>
                             <input type="submit" class="btn btn-primary" value="Ubah Password" name="submit">
                         </div>
                         <?php echo form_close(); ?>

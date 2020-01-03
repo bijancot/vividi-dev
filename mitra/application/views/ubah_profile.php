@@ -16,33 +16,37 @@
                 <div class="box">
                     <!-- /.box-header -->
                     <div class="box-body">
+                        <?php echo form_open(base_url('Home/edit_profile')); ?>
                         <div class="modal-header">
                             <h4><b>Detail Profile</b></h4>
                         </div>
                         <div class="modal-body">
                             <?php foreach ($data as $row) { ?>
+                                <input type="hidden" name="id" class="form-control" value="<?php echo $row->id; ?>" required>
+                                <input type="hidden" name="cek" class="form-control" value="<?php echo $row->email; ?>" required>
                                 <div class="form-group">
                                     <label>Nama Depan</label>
-                                    <h4><?php echo $row->awal; ?></h4>
+                                    <input type="text" name="depan" class="form-control" value="<?php echo $row->awal; ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Nama Belakang</label>
-                                    <h4><?php echo $row->akhir; ?></h4>
+                                    <input type="text" name="belakang" class="form-control" value="<?php echo $row->akhir; ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Telepon</label>
-                                    <h4><?php echo $row->telepon; ?></h4>
+                                    <input type="text" name="telepon" class="form-control" value="<?php echo $row->telepon; ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <h4><?php echo $row->email; ?></h4>
+                                    <input type="text" name="email" class="form-control" value="<?php echo $row->email; ?>" required>
                                 </div>
                             <?php } ?>
                         </div>
-                        <div class="modal-footer">
-                            <a href="<?= base_url('Profile/ubah_profile'); ?>" class="btn btn-primary" style="float: left">Ubah Profile</a>
-                            <a href="<?= base_url('Profile/reset_pass'); ?>" class="btn btn-success" style="float: left">Ubah Password</a>
+                        <div class="modal-footer" style="float: left">
+                            <a href="<?= base_url('Home/profile'); ?>" class="btn btn-success">Kembali</a>
+                            <input type="submit" class="btn btn-primary" value="Ubah Profil" name="submit">
                         </div>
+                        <?php echo form_close(); ?>
                     </div>
                     <!-- /.box-body -->
                 </div>

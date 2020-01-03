@@ -77,7 +77,7 @@
 												<br><?php echo date('Y-m-d', strtotime($row->check_in . "".$row->waktu." days")); ?>
 											</td>
 										<?php } else { ?>
-											<td style="text-align: center"><?php echo '<span class="btn btn-danger" style="width: 100px">' . $row->pembayaran . '</span><br>' . date('Y-m-d', strtotime($row->pesan . "".$row->waktu." days")); ?></td>
+                                            <td style="text-align: center"><?php echo '<span class="btn btn-danger" style="width: 100px">' . $row->pembayaran . '</span><br>' . date('Y-m-d', strtotime($row->check_in . "".$row->waktu." days")); ?></td>
 										<?php } ?>
 									</tr>
 								<?php } ?>

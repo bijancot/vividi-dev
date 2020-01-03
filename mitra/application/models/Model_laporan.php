@@ -15,6 +15,7 @@ class Model_laporan extends CI_Model
 			 ab.room_price as harga,
 			 ab.created as pesan,
 			 ab.pembayaran as pembayaran,
+			 pai.payment_system as waktu,
 			 CASE
 			 WHEN ab.status = 0 THEN 'Batal'
 			 WHEN ab.status = 1 THEN 'Menunggu'
@@ -23,6 +24,7 @@ class Model_laporan extends CI_Model
 			 from wpwj_trav_accommodation_bookings ab
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
+			 left join payment_accommodation_info pai on pai.acc_id = ab.accommodation_id
 			 where p_prop.post_author = $id
 			 order by pesan desc");
         return $query->result();
@@ -41,6 +43,7 @@ class Model_laporan extends CI_Model
 			 ab.room_price as harga,
 			 ab.created as pesan,
 			 ab.pembayaran as pembayaran,
+			 pai.payment_system as waktu,
 			 CASE
 			 WHEN ab.status = 0 THEN 'Batal'
 			 WHEN ab.status = 1 THEN 'Menunggu'
@@ -49,6 +52,7 @@ class Model_laporan extends CI_Model
 			 from wpwj_trav_accommodation_bookings ab
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
+			 left join payment_accommodation_info pai on pai.acc_id = ab.accommodation_id
 			 where p_prop.post_author = $id
 			 and ab.pembayaran = 'paid'
 			 order by pesan desc");
@@ -68,6 +72,7 @@ class Model_laporan extends CI_Model
 			 ab.room_price as harga,
 			 ab.created as pesan,
 			 ab.pembayaran as pembayaran,
+			 pai.payment_system as waktu,
 			 CASE
 			 WHEN ab.status = 0 THEN 'Batal'
 			 WHEN ab.status = 1 THEN 'Menunggu'
@@ -76,6 +81,7 @@ class Model_laporan extends CI_Model
 			 from wpwj_trav_accommodation_bookings ab
 			 left join wpwj_posts p_prop on ab.accommodation_id = p_prop.id
 			 left join wpwj_posts p_kamar on ab.room_type_id = p_kamar.id
+			 left join payment_accommodation_info pai on pai.acc_id = ab.accommodation_id
 			 where p_prop.post_author = $id
 			 and ab.pembayaran = 'unpaid'
 			 order by pesan desc");
