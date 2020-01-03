@@ -103,10 +103,10 @@ class Harga extends CI_Controller
 		$id = $this->input->post('id');
 		$harga = $this->input->post('harga');
 		$this->form_validation->set_rules('harga', 'a', 'required|numeric|greater_than[0.99]|regex_match[/^[0-9,]+$/]');
-		if ($this->form_validation->run() == FALSE) {
+//		if ($this->form_validation->run() == FALSE) {
 			$this->Model_harga->save_harga_baru($id, $harga);
-		}
-		redirect(base_url('harga'));
+//		}
+		redirect(base_url('harga/ubah_harga'));
 	}
 
 	public function modal_ubah_harga()

@@ -83,7 +83,10 @@ class Model_harga extends CI_Model
 
 	public function save_atur_harga($tgl_1, $tgl_2, $allotment, $harga, $id_properti, $id_type_kamar)
 	{
-
+        $m = $this->db->get('margin');
+        foreach ($m->result() as $row) {
+            $margin = $row->margin;
+        }
 		$this->db->select_max('id');
 		$data = $this->db->get('wpwj_trav_accommodation_vacancies');
 		$keyTransaksi = "";
@@ -105,7 +108,7 @@ class Model_harga extends CI_Model
 						$data_new = array(
 							'rooms' => $allotment,
 							'price_normal' => $harga,
-							'price_per_room' => $harga + ($harga*5/100)
+							'price_per_room' => $harga + ($harga*$margin/100)
 						);
 						$this->db->where('id', $row->id);
 						$this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
@@ -119,7 +122,7 @@ class Model_harga extends CI_Model
 							'room_type_id' => $id_type_kamar,
 							'rooms' => $allotment,
 							'price_normal' => $harga,
-							'price_per_room' => $harga + ($harga*5/100),
+							'price_per_room' => $harga + ($harga*$margin/100),
 							'price_per_person' => '',
 							'child_price' => ''
 						);
@@ -141,7 +144,7 @@ class Model_harga extends CI_Model
 									'date_to' => $tgl_2,
 									'rooms' => $allotment,
 									'price_normal' => $harga,
-									'price_per_room' => $harga + ($harga*5/100)
+									'price_per_room' => $harga + ($harga*$margin/100)
 								);
 								$this->db->where('id', $r->id);
 								$this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
@@ -178,7 +181,7 @@ class Model_harga extends CI_Model
 									'room_type_id' => $id_type_kamar,
 									'rooms' => $allotment,
 									'price_normal' => $harga,
-									'price_per_room' => $harga + ($harga*5/100),
+									'price_per_room' => $harga + ($harga*$margin/100),
 									'price_per_person' => '',
 									'child_price' => ''
 								);
@@ -192,7 +195,7 @@ class Model_harga extends CI_Model
 									'room_type_id' => $id_type_kamar,
 									'rooms' => $row->rooms,
 									'price_normal' => $row->price_normal,
-									'price_per_room' => $row->price_normal + ($row->price_normal*5/100),
+									'price_per_room' => $row->price_normal + ($row->price_normal*$margin/100),
 									'price_per_person' => '',
 									'child_price' => ''
 								);
@@ -217,7 +220,7 @@ class Model_harga extends CI_Model
 									'room_type_id' => $id_type_kamar,
 									'rooms' => $allotment,
 									'price_normal' => $harga,
-									'price_per_room' => $harga + ($harga*5/100),
+									'price_per_room' => $harga + ($harga*$margin/100),
 									'price_per_person' => '',
 									'child_price' => ''
 								);
@@ -250,7 +253,7 @@ class Model_harga extends CI_Model
 							'room_type_id' => $id_type_kamar,
 							'rooms' => $allotment,
 							'price_normal' => $harga,
-							'price_per_room' => $harga + ($harga*5/100),
+							'price_per_room' => $harga + ($harga*$margin/100),
 							'price_per_person' => '',
 							'child_price' => ''
 						);
@@ -268,7 +271,7 @@ class Model_harga extends CI_Model
 				'room_type_id' => $id_type_kamar,
 				'rooms' => $allotment,
 				'price_normal' => $harga,
-				'price_per_room' => $harga + ($harga*5/100),
+				'price_per_room' => $harga + ($harga*$margin/100),
 				'price_per_person' => '',
 				'child_price' => ''
 			);
@@ -313,9 +316,13 @@ class Model_harga extends CI_Model
 
 	public function save_harga_baru($id, $harga)
 	{
+        $m = $this->db->get('margin');
+        foreach ($m->result() as $row) {
+            $margin = $row->margin;
+        }
 		$data_new = array(
 			'price_normal' => $harga,
-			'price_per_room' => $harga + ($harga*5/100)
+			'price_per_room' => $harga + ($harga*$margin/100)
 		);
 		$this->db->where('id', $id);
 		$this->db->update('wpwj_trav_accommodation_vacancies', $data_new);
