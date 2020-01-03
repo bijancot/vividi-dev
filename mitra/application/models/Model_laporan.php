@@ -248,6 +248,10 @@ class Model_laporan extends CI_Model
     {
         date_default_timezone_set('Asia/Jakarta');
         $time = date("m")-1;
+        if ($time < 1)
+        {
+            $time = 12;
+        }
         $this->db->where('MONTH(created)', $time);
         $cek = $this->db->get('wpwj_trav_accommodation_bookings')->num_rows();
         return $cek;
@@ -257,6 +261,10 @@ class Model_laporan extends CI_Model
     {
         date_default_timezone_set('Asia/Jakarta');
         $time = date("m")-2;
+        if ($time < 1)
+        {
+            $time = 11;
+        }
         $this->db->where('MONTH(created)', $time);
         $cek = $this->db->get('wpwj_trav_accommodation_bookings')->num_rows();
         return $cek;
@@ -266,6 +274,10 @@ class Model_laporan extends CI_Model
     {
         date_default_timezone_set('Asia/Jakarta');
         $time = date("m")-3;
+        if ($time < 1)
+        {
+            $time = 10;
+        }
         $this->db->where('MONTH(created)', $time);
         $cek = $this->db->get('wpwj_trav_accommodation_bookings')->num_rows();
         return $cek;
@@ -287,6 +299,10 @@ class Model_laporan extends CI_Model
     {
         date_default_timezone_set('Asia/Jakarta');
         $time = date("m")-1;
+        if ($time < 1)
+        {
+            $time = 12;
+        }
         $this->db->from('wpwj_trav_accommodation_bookings b');
         $this->db->where('MONTH(b.created)', $time);
         $this->db->join('wpwj_posts p', 'b.accommodation_id = p.id', 'left');
@@ -299,6 +315,10 @@ class Model_laporan extends CI_Model
     {
         date_default_timezone_set('Asia/Jakarta');
         $time = date("m")-2;
+        if ($time < 1)
+        {
+            $time = 11;
+        }
         $this->db->from('wpwj_trav_accommodation_bookings b');
         $this->db->where('MONTH(b.created)', $time);
         $this->db->join('wpwj_posts p', 'b.accommodation_id = p.id', 'left');
@@ -311,6 +331,10 @@ class Model_laporan extends CI_Model
     {
         date_default_timezone_set('Asia/Jakarta');
         $time = date("m")-3;
+        if ($time < 1)
+        {
+            $time = 10;
+        }
         $this->db->from('wpwj_trav_accommodation_bookings b');
         $this->db->where('MONTH(b.created)', $time);
         $this->db->join('wpwj_posts p', 'b.accommodation_id = p.id', 'left');

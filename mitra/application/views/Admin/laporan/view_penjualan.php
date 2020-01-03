@@ -34,12 +34,24 @@
         "Juli", "Agustus", "September", "Oktober", "November", "Desember"
     ];
     var d = new Date();
-    var n = d.getMonth();
+    var n1 = d.getMonth();
+    var n2 = n1 - 1;
+    if (n2 < 0) {
+        n2 = 11;
+    }
+    var n3 = n1 - 2;
+    if (n3 < 0) {
+        n3 = 10;
+    }
+    var n4 = n1 - 3;
+    if (n4 < 0) {
+        n4 = 9;
+    }
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: [monthNames[n-3], monthNames[n-2], monthNames[n-1], monthNames[n]],
+            labels: [monthNames[n4], monthNames[n3], monthNames[n2], monthNames[n1]],
             datasets: [{
                 label: 'Laporan Bulanan',
                 data: [
